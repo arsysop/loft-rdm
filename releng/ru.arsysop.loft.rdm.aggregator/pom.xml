@@ -30,8 +30,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-	<!-- 
 		<module>..\..\releng\ru.arsysop.loft.rdm.target</module>
+	<!-- 
 
 		<module>..\..\features\ru.arsysop.loft.rdm.license.feature</module>
 
