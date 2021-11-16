@@ -1,7 +1,7 @@
 # LOFT::RDM
 Language-Oriented Frameworks and Tools :: Requirements Gathering and Markup
 
-[![Build Status](https://github.com/eclipse-passage/passage/workflows/CI/badge.svg)](https://github.com/arsysop/loft-rdm/actions)
+[![Build Status](https://github.com/arsysop/loft-rdm/workflows/CI/badge.svg)](https://github.com/arsysop/loft-rdm/actions)
 
 
 ###### License 
