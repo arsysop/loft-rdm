@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ru.arsysop.loft.rgm.model/src-gen" modelPluginID="ru.arsysop.loft.rgm.model"
+    modelName="Rgm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore</foreignModel>
+  <genPackages prefix="Rgm" disposableProviderFactory="true" ecorePackage="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#/">
+    <genDataTypes ecoreDataType="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//DocumentType"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/Version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/Revision"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/citations"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//FunctionDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//FunctionDecl/Signature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//FunctionDecl/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Requirement/ID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Requirement/citation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Requirement/tags"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation/Chapter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation/Paragraph"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation/Citation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation/document"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Citation/requirements"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/declarations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/Name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Declaration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Declaration/contract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Declaration/ID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Declaration/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Namespace"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassDecl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassDecl/fields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassDecl/destructor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassDecl/constructors"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassDecl/cxxmethod"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//EnumDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Tag">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Tag/requirements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Tag/contracts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Tag/ID"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Contract">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Contract/declaration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Contract/tags"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Contract/ID"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//StructDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//UnionDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//FieldDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//VarDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//TypedefDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ParmDecl"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//FunctionTemplate"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassTemplate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//ClassTemplate/templatetypeparameter"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//CXXMethod"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Constructor"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Destructor"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//TemplateTypeParameter"/>
+  </genPackages>
+</genmodel:GenModel>

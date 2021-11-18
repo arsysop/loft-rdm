@@ -36,6 +36,7 @@
 
 		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.ecore</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.model</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
 
 		<module>..\..\releng\ru.arsysop.loft.rgm.repository</module>
