@@ -3,8 +3,8 @@ Automatic-Module-Name: ru.arsysop.loft.rgm.edit
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ru.arsysop.loft.rgm.edit;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: %Bundle-Name
-Bundle-Vendor: %Bundle-Vendor
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
 Bundle-Copyright: %Bundle-Copyright
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ClassPath: .
