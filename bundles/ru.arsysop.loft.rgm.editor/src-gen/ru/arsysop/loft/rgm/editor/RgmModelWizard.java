@@ -1,8 +1,27 @@
-/**
- */
+/*******************************************************************************
+ * Copyright (c) 2021 ArSysOp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Contributors:
+ *     (ArSysOp) - initial API and implementation
+ *******************************************************************************/
 package ru.arsysop.loft.rgm.editor;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,60 +32,39 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xmi.XMLResource;
-
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
-import org.eclipse.core.runtime.IProgressMonitor;
-
 import org.eclipse.jface.dialogs.MessageDialog;
-
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
+import ru.arsysop.loft.rgm.edit.RgmEditPlugin;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
-import ru.arsysop.loft.rgm.edit.RgmEditPlugin;
-
-
-import java.io.File;
-
-import org.eclipse.jface.operation.IRunnableWithProgress;
-
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Text;
 
 
 /**
