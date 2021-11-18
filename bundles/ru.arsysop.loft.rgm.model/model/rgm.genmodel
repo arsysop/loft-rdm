@@ -13,8 +13,9 @@
   <foreignModel>../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore</foreignModel>
   <genPackages prefix="Rgm" basePackage="ru.arsysop.loft" resource="XMI" disposableProviderFactory="true"
       interfacePackageSuffix="model.api" metaDataPackageSuffix="model.meta" classPackageSuffix="model.impl"
-      utilityPackageSuffix="model.util" providerPackageSuffix="edit.providers" testsPackageSuffix="model.tests"
-      literalsInterface="false" extensibleProviderFactory="true" ecorePackage="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#/">
+      utilityPackageSuffix="model.util" providerPackageSuffix="edit.providers" presentationPackageSuffix="editor"
+      testsPackageSuffix="model.tests" literalsInterface="false" extensibleProviderFactory="true"
+      ecorePackage="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#/">
     <genDataTypes ecoreDataType="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//DocumentType"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/ID"/>
