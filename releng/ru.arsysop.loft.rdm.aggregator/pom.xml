@@ -38,9 +38,9 @@
 	<!-- 
 		<module>..\..\bundles\ru.arsysop.loft.rdm.ecore</module>
 	 -->
-	 <!-- 
 		<module>..\..\features\ru.arsysop.loft.rdm.feature</module>
 
+	 <!-- 
 		<module>..\..\releng\ru.arsysop.loft.rdm.repository</module>
 		<module>..\..\products\ru.arsysop.loft.rdm.product</module>
 	  -->

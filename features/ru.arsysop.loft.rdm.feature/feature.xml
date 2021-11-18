@@ -20,20 +20,34 @@
 		ArSysOp - initial API and implementation
 -->
 <feature
-      id="ru.arsysop.loft.rdm.license.feature"
-      label="ArSysOp LOFT RDM License"
-      version="0.1.0.qualifier">
+      id="ru.arsysop.loft.rdm.feature"
+      label="%featureName"
+      version="0.1.0.qualifier"
+      provider-name="%providerName"
+      plugin="ru.arsysop.loft.rdm"
+      license-feature="ru.arsysop.loft.rdm.license.feature"
+      license-feature-version="0.1.0">
 
    <description>
-      ArSysOp LOFT RDM License
+      %description
    </description>
 
    <copyright>
-      Copyright (c) 2021 ArSysOp
+      %copyright
    </copyright>
 
    <license url="%licenseURL">
       %license
    </license>
+
+   <requires>
+   </requires>
+
+   <plugin
+         id="ru.arsysop.loft.rdm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
