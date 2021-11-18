@@ -3,11 +3,11 @@ Automatic-Module-Name: ru.arsysop.loft.rgm.model
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ru.arsysop.loft.rgm.model;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-ClassPath: .
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Copyright: %Bundle-Copyright
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ClassPath: .
 Export-Package: ru.arsysop.loft.rgm.model.api,
  ru.arsysop.loft.rgm.model.impl,
  ru.arsysop.loft.rgm.model.meta,
