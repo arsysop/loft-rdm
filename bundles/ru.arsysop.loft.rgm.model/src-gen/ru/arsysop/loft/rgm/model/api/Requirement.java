@@ -1,0 +1,88 @@
+/**
+ */
+package ru.arsysop.loft.rgm.model.api;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Requirement</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getCitation <em>Citation</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getTags <em>Tags</em>}</li>
+ * </ul>
+ *
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement()
+ * @model
+ * @generated
+ */
+public interface Requirement extends EObject {
+	/**
+	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>ID</em>' attribute.
+	 * @see #setID(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement_ID()
+	 * @model id="true" required="true"
+	 * @generated
+	 */
+	String getID();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Requirement#getID <em>ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>ID</em>' attribute.
+	 * @see #getID()
+	 * @generated
+	 */
+	void setID(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Citation</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Citation#getRequirements <em>Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Citation</em>' reference.
+	 * @see #setCitation(Citation)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement_Citation()
+	 * @see ru.arsysop.loft.rgm.model.api.Citation#getRequirements
+	 * @model opposite="requirements"
+	 * @generated
+	 */
+	Citation getCitation();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Requirement#getCitation <em>Citation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Citation</em>' reference.
+	 * @see #getCitation()
+	 * @generated
+	 */
+	void setCitation(Citation value);
+
+	/**
+	 * Returns the value of the '<em><b>Tags</b></em>' reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Tag}.
+	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Tag#getRequirements <em>Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tags</em>' reference list.
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement_Tags()
+	 * @see ru.arsysop.loft.rgm.model.api.Tag#getRequirements
+	 * @model opposite="requirements"
+	 * @generated
+	 */
+	EList<Tag> getTags();
+
+} // Requirement

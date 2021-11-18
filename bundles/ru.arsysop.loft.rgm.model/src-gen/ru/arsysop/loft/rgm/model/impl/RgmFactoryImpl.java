@@ -1,0 +1,401 @@
+/**
+ */
+package ru.arsysop.loft.rgm.model.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import ru.arsysop.loft.rgm.model.api.*;
+
+import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+import ru.arsysop.loft.rgm.model.meta.RgmPackage;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static RgmFactory init() {
+		try {
+			RgmFactory theRgmFactory = (RgmFactory)EPackage.Registry.INSTANCE.getEFactory(RgmPackage.eNS_URI);
+			if (theRgmFactory != null) {
+				return theRgmFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new RgmFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RgmFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case RgmPackage.DOCUMENT: return createDocument();
+			case RgmPackage.FUNCTION_DECL: return createFunctionDecl();
+			case RgmPackage.REQUIREMENT: return createRequirement();
+			case RgmPackage.CITATION: return createCitation();
+			case RgmPackage.HEADER: return createHeader();
+			case RgmPackage.NAMESPACE: return createNamespace();
+			case RgmPackage.CLASS_DECL: return createClassDecl();
+			case RgmPackage.ENUM_DECL: return createEnumDecl();
+			case RgmPackage.TAG: return createTag();
+			case RgmPackage.CONTRACT: return createContract();
+			case RgmPackage.STRUCT_DECL: return createStructDecl();
+			case RgmPackage.UNION_DECL: return createUnionDecl();
+			case RgmPackage.FIELD_DECL: return createFieldDecl();
+			case RgmPackage.VAR_DECL: return createVarDecl();
+			case RgmPackage.TYPEDEF_DECL: return createTypedefDecl();
+			case RgmPackage.PARM_DECL: return createParmDecl();
+			case RgmPackage.FUNCTION_TEMPLATE: return createFunctionTemplate();
+			case RgmPackage.CLASS_TEMPLATE: return createClassTemplate();
+			case RgmPackage.CXX_METHOD: return createCXXMethod();
+			case RgmPackage.CONSTRUCTOR: return createConstructor();
+			case RgmPackage.DESTRUCTOR: return createDestructor();
+			case RgmPackage.TEMPLATE_TYPE_PARAMETER: return createTemplateTypeParameter();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case RgmPackage.DOCUMENT_TYPE:
+				return createDocumentTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case RgmPackage.DOCUMENT_TYPE:
+				return convertDocumentTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Document createDocument() {
+		DocumentImpl document = new DocumentImpl();
+		return document;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FunctionDecl createFunctionDecl() {
+		FunctionDeclImpl functionDecl = new FunctionDeclImpl();
+		return functionDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Requirement createRequirement() {
+		RequirementImpl requirement = new RequirementImpl();
+		return requirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Citation createCitation() {
+		CitationImpl citation = new CitationImpl();
+		return citation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Header createHeader() {
+		HeaderImpl header = new HeaderImpl();
+		return header;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Namespace createNamespace() {
+		NamespaceImpl namespace = new NamespaceImpl();
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassDecl createClassDecl() {
+		ClassDeclImpl classDecl = new ClassDeclImpl();
+		return classDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EnumDecl createEnumDecl() {
+		EnumDeclImpl enumDecl = new EnumDeclImpl();
+		return enumDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Tag createTag() {
+		TagImpl tag = new TagImpl();
+		return tag;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Contract createContract() {
+		ContractImpl contract = new ContractImpl();
+		return contract;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StructDecl createStructDecl() {
+		StructDeclImpl structDecl = new StructDeclImpl();
+		return structDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UnionDecl createUnionDecl() {
+		UnionDeclImpl unionDecl = new UnionDeclImpl();
+		return unionDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FieldDecl createFieldDecl() {
+		FieldDeclImpl fieldDecl = new FieldDeclImpl();
+		return fieldDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VarDecl createVarDecl() {
+		VarDeclImpl varDecl = new VarDeclImpl();
+		return varDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypedefDecl createTypedefDecl() {
+		TypedefDeclImpl typedefDecl = new TypedefDeclImpl();
+		return typedefDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParmDecl createParmDecl() {
+		ParmDeclImpl parmDecl = new ParmDeclImpl();
+		return parmDecl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public FunctionTemplate createFunctionTemplate() {
+		FunctionTemplateImpl functionTemplate = new FunctionTemplateImpl();
+		return functionTemplate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassTemplate createClassTemplate() {
+		ClassTemplateImpl classTemplate = new ClassTemplateImpl();
+		return classTemplate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CXXMethod createCXXMethod() {
+		CXXMethodImpl cxxMethod = new CXXMethodImpl();
+		return cxxMethod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Constructor createConstructor() {
+		ConstructorImpl constructor = new ConstructorImpl();
+		return constructor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Destructor createDestructor() {
+		DestructorImpl destructor = new DestructorImpl();
+		return destructor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TemplateTypeParameter createTemplateTypeParameter() {
+		TemplateTypeParameterImpl templateTypeParameter = new TemplateTypeParameterImpl();
+		return templateTypeParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object createDocumentTypeFromString(EDataType eDataType, String initialValue) {
+		return super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDocumentTypeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RgmPackage getRgmPackage() {
+		return (RgmPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static RgmPackage getPackage() {
+		return RgmPackage.eINSTANCE;
+	}
+
+} //RgmFactoryImpl

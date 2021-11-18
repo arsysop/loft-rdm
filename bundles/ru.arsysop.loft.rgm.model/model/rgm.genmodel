@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ru.arsysop.loft.rgm.model/src-gen" modelPluginID="ru.arsysop.loft.rgm.model"
-    modelName="Rgm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ru.arsysop.loft.rgm.model/src-gen" creationIcons="false"
+    editDirectory="/ru.arsysop.loft.rgm.edit/src-gen" editorDirectory="/ru.arsysop.loft.rgm.editor/src-gen"
+    modelPluginID="ru.arsysop.loft.rgm.model" modelName="Rgm" editPluginClass="ru.arsysop.loft.rgm.edit.RgmEditPlugin"
+    editorPluginClass="ru.arsysop.loft.rgm.editor.RgmEditorPlugin" nonNLSMarkers="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="ru.arsysop.loft.rgm.tests.RgmAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    editPluginID="ru.arsysop.loft.rgm.edit" editorPluginID="ru.arsysop.loft.rgm.editor"
+    optimizedHasChildren="true" tableProviders="true" colorProviders="true" fontProviders="true"
+    operationReflection="true" runtimePlatform="RCP" importOrganizing="true" styleProviders="true"
+    findAction="true">
   <foreignModel>../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore</foreignModel>
-  <genPackages prefix="Rgm" disposableProviderFactory="true" ecorePackage="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#/">
+  <genPackages prefix="Rgm" basePackage="ru.arsysop.loft" resource="XMI" disposableProviderFactory="true"
+      interfacePackageSuffix="model.api" metaDataPackageSuffix="model.meta" classPackageSuffix="model.impl"
+      utilityPackageSuffix="model.util" providerPackageSuffix="edit.providers" testsPackageSuffix="model.tests"
+      literalsInterface="false" extensibleProviderFactory="true" ecorePackage="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#/">
     <genDataTypes ecoreDataType="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//DocumentType"/>
     <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Document/ID"/>
