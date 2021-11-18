@@ -20,12 +20,12 @@
 		ArSysOp - initial API and implementation
 -->
 <feature
-      id="ru.arsysop.loft.rdm.license.feature"
-      label="ArSysOp LOFT RDM License"
+      id="ru.arsysop.loft.rgm.license.feature"
+      label="ArSysOp LOFT RGM License"
       version="0.1.0.qualifier">
 
    <description>
-      ArSysOp LOFT RDM License
+      ArSysOp LOFT RGM License
    </description>
 
    <copyright>

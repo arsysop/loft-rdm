@@ -21,31 +21,31 @@
 -->
 <site>
 	<category-def
-		name="ru.arsysop.loft.rdm.category"
-		label="ArSysOp LOFT RDM">
+		name="ru.arsysop.loft.rgm.category"
+		label="ArSysOp LOFT RGM">
 		<description>
 			ArSysOp Language-Oriented Frameworks and Tools: Requirements Gathering and Markup.
 		</description>
 	</category-def>
 	<feature
-		id="ru.arsysop.loft.rdm.feature">
-		<category name="ru.arsysop.loft.rdm.category" />
+		id="ru.arsysop.loft.rgm.feature">
+		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
 	<feature
-		id="ru.arsysop.loft.rdm.license.feature">
-		<category name="ru.arsysop.loft.rdm.category" />
+		id="ru.arsysop.loft.rgm.license.feature">
+		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
 <!--
 	<category-def
-		name="ru.arsysop.loft.rdm.category.source"
-		label="ArSysOp LOFT RDM Developer Resources">
+		name="ru.arsysop.loft.rgm.category.source"
+		label="ArSysOp LOFT RGM Developer Resources">
 		<description>
 			ArSysOp Language-Oriented Frameworks and Tools Developer Resources: Requirements Gathering and Markup.
 		</description>
 	</category-def>
 	<feature
-		id="ru.arsysop.loft.rdm.feature.source">
-		<category name="ru.arsysop.loft.rdm.category.source" />
+		id="ru.arsysop.loft.rgm.feature.source">
+		<category name="ru.arsysop.loft.rgm.category.source" />
 	</feature>
 -->
 </site>

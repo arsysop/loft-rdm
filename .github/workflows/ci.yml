@@ -48,7 +48,7 @@ jobs:
         # maven files are stored in `~/.m2/repository` on Linux/macOS
         path: |
           ~/.m2/repository
-          !~/.m2/repository/ru/arsysop/loft/rdm
+          !~/.m2/repository/ru/arsysop/loft/rgm
           !~/.m2/repository/.cache/tycho
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.sha1') }}
         restore-keys: |

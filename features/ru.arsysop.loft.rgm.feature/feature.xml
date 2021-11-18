@@ -20,12 +20,12 @@
 		ArSysOp - initial API and implementation
 -->
 <feature
-      id="ru.arsysop.loft.rdm.feature"
+      id="ru.arsysop.loft.rgm.feature"
       label="%featureName"
       version="0.1.0.qualifier"
       provider-name="%providerName"
-      plugin="ru.arsysop.loft.rdm"
-      license-feature="ru.arsysop.loft.rdm.license.feature"
+      plugin="ru.arsysop.loft.rgm"
+      license-feature="ru.arsysop.loft.rgm.license.feature"
       license-feature-version="0.1.0">
 
    <description>
@@ -44,7 +44,7 @@
    </requires>
 
    <plugin
-         id="ru.arsysop.loft.rdm"
+         id="ru.arsysop.loft.rgm"
          download-size="0"
          install-size="0"
          version="0.0.0"

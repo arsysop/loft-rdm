@@ -26,8 +26,8 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ru.arsysop.loft.rdm</groupId>
-	<artifactId>ru.arsysop.loft.rdm.parent</artifactId>
+	<groupId>ru.arsysop.loft.rgm</groupId>
+	<artifactId>ru.arsysop.loft.rgm.parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -40,7 +40,7 @@
 		<qualifier.format>'v'yyyyMMdd-HHmm</qualifier.format>
 		<build.label>${unqualifiedVersion}.${buildQualifier}</build.label>
 
-		<tycho.scmUrl>scm:git:https://github.com/arsysop/loft-rdm.git</tycho.scmUrl>
+		<tycho.scmUrl>scm:git:https://github.com/arsysop/loft-rgm.git</tycho.scmUrl>
 		<tycho.version>2.5.0</tycho.version>
 		<cbi-plugins.version>1.3.1</cbi-plugins.version>
 

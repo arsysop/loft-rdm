@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Automatic-Module-Name: ru.arsysop.loft.rdm
+Automatic-Module-Name: ru.arsysop.loft.rgm
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: ru.arsysop.loft.rdm
+Bundle-SymbolicName: ru.arsysop.loft.rgm
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor

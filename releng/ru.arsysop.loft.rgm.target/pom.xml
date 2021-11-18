@@ -26,14 +26,14 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>ru.arsysop.loft.rdm.target</artifactId>
+	<artifactId>ru.arsysop.loft.rgm.target</artifactId>
 	<packaging>eclipse-target-definition</packaging>
 
 	<parent>
-		<groupId>ru.arsysop.loft.rdm</groupId>
-		<artifactId>ru.arsysop.loft.rdm.parent</artifactId>
+		<groupId>ru.arsysop.loft.rgm</groupId>
+		<artifactId>ru.arsysop.loft.rgm.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
-		<relativePath>../../releng/ru.arsysop.loft.rdm.parent</relativePath>
+		<relativePath>../../releng/ru.arsysop.loft.rgm.parent</relativePath>
 	</parent>
 
 	<build>
