@@ -33,9 +33,9 @@
 		<module>..\..\releng\ru.arsysop.loft.rdm.target</module>
 
 		<module>..\..\features\ru.arsysop.loft.rdm.license.feature</module>
-	<!-- 
 
 		<module>..\..\bundles\ru.arsysop.loft.rdm</module>
+	<!-- 
 		<module>..\..\bundles\ru.arsysop.loft.rdm.ecore</module>
 	 -->
 	 <!-- 
