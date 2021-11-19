@@ -23,6 +23,9 @@ package ru.arsysop.loft.rgm.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -35,6 +38,7 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.model.api.FunctionDecl;
+import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -156,17 +160,24 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((FunctionDecl)object).getName();
+		FunctionDecl decl = (FunctionDecl)object;
     	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_FunctionDecl_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_FunctionDecl_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		styledLabel.append(getString("_UI_FunctionDecl_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Optional.ofNullable(decl.getName())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s));
+		styledLabel.append("(") //$NON-NLS-1$
+				.append(decl.getParameters().stream()//
+						.map(ParmDecl::getName)//
+						.filter(Objects::nonNull)//
+						.filter(s -> !s.isEmpty())//
+						.collect(Collectors.joining(", ")))// //$NON-NLS-1$
+				.append(")"); //$NON-NLS-1$
 		return styledLabel;
 	}
 
