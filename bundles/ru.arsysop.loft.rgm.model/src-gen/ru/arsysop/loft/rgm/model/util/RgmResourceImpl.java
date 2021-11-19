@@ -20,6 +20,8 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.model.util;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
@@ -45,6 +47,16 @@ public class RgmResourceImpl extends XMIResourceImpl {
 	@Override
 	protected boolean useUUIDs() {
 		return true;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	protected void init() {
+		super.init();
+		Map<Object, Object> options = getDefaultLoadOptions();
+		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 	}
 
 } //RgmResourceImpl
