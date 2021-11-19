@@ -107,11 +107,11 @@ public class MarkupItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Citations());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Headers());
 			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Requirements());
 			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Tags());
 			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Contracts());
-			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Headers());
-			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Citations());
 		}
 		return childrenFeatures;
 	}
@@ -221,11 +221,11 @@ public class MarkupItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Markup.class)) {
+			case RgmPackage.MARKUP__CITATIONS:
+			case RgmPackage.MARKUP__HEADERS:
 			case RgmPackage.MARKUP__REQUIREMENTS:
 			case RgmPackage.MARKUP__TAGS:
 			case RgmPackage.MARKUP__CONTRACTS:
-			case RgmPackage.MARKUP__HEADERS:
-			case RgmPackage.MARKUP__CITATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -247,6 +247,16 @@ public class MarkupItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Citations(),
+				 RgmFactory.eINSTANCE.createCitation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Headers(),
+				 RgmFactory.eINSTANCE.createHeader()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(RgmPackage.eINSTANCE.getMarkup_Requirements(),
 				 RgmFactory.eINSTANCE.createRequirement()));
 
@@ -259,16 +269,6 @@ public class MarkupItemProvider
 			(createChildParameter
 				(RgmPackage.eINSTANCE.getMarkup_Contracts(),
 				 RgmFactory.eINSTANCE.createContract()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getMarkup_Headers(),
-				 RgmFactory.eINSTANCE.createHeader()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getMarkup_Citations(),
-				 RgmFactory.eINSTANCE.createCitation()));
 	}
 
 	/**

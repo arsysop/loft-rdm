@@ -379,31 +379,13 @@ public interface RgmPackage extends EPackage {
 	int MARKUP = 5;
 
 	/**
-	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Citations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP__REQUIREMENTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKUP__TAGS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Contracts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARKUP__CONTRACTS = 2;
+	int MARKUP__CITATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
@@ -412,16 +394,34 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP__HEADERS = 3;
+	int MARKUP__HEADERS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Citations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP__CITATIONS = 4;
+	int MARKUP__REQUIREMENTS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKUP__TAGS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Contracts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKUP__CONTRACTS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Markup</em>' class.
@@ -640,13 +640,22 @@ public interface RgmPackage extends EPackage {
 	int TAG = 8;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAG__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Requirements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG__REQUIREMENTS = 0;
+	int TAG__REQUIREMENTS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Contracts</b></em>' reference list.
@@ -655,16 +664,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TAG__CONTRACTS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__ID = 2;
+	int TAG__CONTRACTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
@@ -695,13 +695,22 @@ public interface RgmPackage extends EPackage {
 	int CONTRACT = 9;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRACT__ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Declaration</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRACT__DECLARATION = 0;
+	int CONTRACT__DECLARATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
@@ -710,16 +719,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRACT__TAGS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTRACT__ID = 2;
+	int CONTRACT__TAGS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Contract</em>' class.
@@ -740,22 +740,13 @@ public interface RgmPackage extends EPackage {
 	int CONTRACT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEADER__DECLARATIONS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__NAME = 1;
+	int HEADER__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -764,7 +755,16 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__LOCATION = 2;
+	int HEADER__LOCATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER__DECLARATIONS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Header</em>' class.
@@ -785,22 +785,13 @@ public interface RgmPackage extends EPackage {
 	int HEADER_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECLARATION__CONTRACT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION__ID = 1;
+	int DECLARATION__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -809,7 +800,16 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION__NAME = 2;
+	int DECLARATION__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARATION__CONTRACT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Declaration</em>' class.
@@ -830,15 +830,6 @@ public interface RgmPackage extends EPackage {
 	int DECLARATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMESPACE__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -855,6 +846,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAMESPACE__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Namespace</em>' class.
@@ -875,15 +875,6 @@ public interface RgmPackage extends EPackage {
 	int NAMESPACE_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -900,6 +891,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
@@ -938,15 +938,6 @@ public interface RgmPackage extends EPackage {
 	int FUNCTION_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -963,6 +954,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -1019,15 +1019,6 @@ public interface RgmPackage extends EPackage {
 	int CLASS_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1044,6 +1035,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Enum Decl</em>' class.
@@ -1074,15 +1074,6 @@ public interface RgmPackage extends EPackage {
 	int STRUCT_DECL = 16;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCT_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1099,6 +1090,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCT_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCT_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Struct Decl</em>' class.
@@ -1129,15 +1129,6 @@ public interface RgmPackage extends EPackage {
 	int UNION_DECL = 17;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNION_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1154,6 +1145,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNION_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNION_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Union Decl</em>' class.
@@ -1184,15 +1184,6 @@ public interface RgmPackage extends EPackage {
 	int FIELD_DECL = 18;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FIELD_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1209,6 +1200,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Field Decl</em>' class.
@@ -1239,15 +1239,6 @@ public interface RgmPackage extends EPackage {
 	int VAR_DECL = 19;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VAR_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1264,6 +1255,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int VAR_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Var Decl</em>' class.
@@ -1294,15 +1294,6 @@ public interface RgmPackage extends EPackage {
 	int TYPEDEF_DECL = 20;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPEDEF_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1319,6 +1310,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPEDEF_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPEDEF_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Typedef Decl</em>' class.
@@ -1349,15 +1349,6 @@ public interface RgmPackage extends EPackage {
 	int PARM_DECL = 21;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARM_DECL__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1374,6 +1365,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARM_DECL__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARM_DECL__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Parm Decl</em>' class.
@@ -1404,15 +1404,6 @@ public interface RgmPackage extends EPackage {
 	int FUNCTION_TEMPLATE = 22;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FUNCTION_TEMPLATE__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1429,6 +1420,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION_TEMPLATE__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_TEMPLATE__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Function Template</em>' class.
@@ -1459,15 +1459,6 @@ public interface RgmPackage extends EPackage {
 	int CLASS_TEMPLATE = 23;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_TEMPLATE__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1484,6 +1475,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_TEMPLATE__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TEMPLATE__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Templatetypeparameter</b></em>' containment reference list.
@@ -1523,15 +1523,6 @@ public interface RgmPackage extends EPackage {
 	int CXX_METHOD = 24;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CXX_METHOD__CONTRACT = FUNCTION_DECL__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1548,6 +1539,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int CXX_METHOD__NAME = FUNCTION_DECL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CXX_METHOD__CONTRACT = FUNCTION_DECL__CONTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
@@ -1596,15 +1596,6 @@ public interface RgmPackage extends EPackage {
 	int CONSTRUCTOR = 25;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRUCTOR__CONTRACT = FUNCTION_DECL__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1621,6 +1612,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR__NAME = FUNCTION_DECL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRUCTOR__CONTRACT = FUNCTION_DECL__CONTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
@@ -1669,15 +1669,6 @@ public interface RgmPackage extends EPackage {
 	int DESTRUCTOR = 26;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DESTRUCTOR__CONTRACT = FUNCTION_DECL__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1694,6 +1685,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int DESTRUCTOR__NAME = FUNCTION_DECL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESTRUCTOR__CONTRACT = FUNCTION_DECL__CONTRACT;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
@@ -1742,15 +1742,6 @@ public interface RgmPackage extends EPackage {
 	int TEMPLATE_TYPE_PARAMETER = 27;
 
 	/**
-	 * The feature id for the '<em><b>Contract</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPLATE_TYPE_PARAMETER__CONTRACT = DECLARATION__CONTRACT;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1767,6 +1758,15 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEMPLATE_TYPE_PARAMETER__NAME = DECLARATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Contract</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPLATE_TYPE_PARAMETER__CONTRACT = DECLARATION__CONTRACT;
 
 	/**
 	 * The number of structural features of the '<em>Template Type Parameter</em>' class.

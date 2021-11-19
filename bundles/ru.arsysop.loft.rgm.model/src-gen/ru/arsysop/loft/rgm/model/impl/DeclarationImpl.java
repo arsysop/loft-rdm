@@ -39,24 +39,14 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getContract <em>Contract</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getContract <em>Contract</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration {
-	/**
-	 * The cached value of the '{@link #getContract() <em>Contract</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContract()
-	 * @generated
-	 * @ordered
-	 */
-	protected Contract contract;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,6 +86,16 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getContract() <em>Contract</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContract()
+	 * @generated
+	 * @ordered
+	 */
+	protected Contract contract;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,13 +264,13 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__CONTRACT:
-				if (resolve) return getContract();
-				return basicGetContract();
 			case RgmPackage.DECLARATION__ID:
 				return getId();
 			case RgmPackage.DECLARATION__NAME:
 				return getName();
+			case RgmPackage.DECLARATION__CONTRACT:
+				if (resolve) return getContract();
+				return basicGetContract();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -284,14 +284,14 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__CONTRACT:
-				setContract((Contract)newValue);
-				return;
 			case RgmPackage.DECLARATION__ID:
 				setId((String)newValue);
 				return;
 			case RgmPackage.DECLARATION__NAME:
 				setName((String)newValue);
+				return;
+			case RgmPackage.DECLARATION__CONTRACT:
+				setContract((Contract)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -307,14 +307,14 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__CONTRACT:
-				setContract((Contract)null);
-				return;
 			case RgmPackage.DECLARATION__ID:
 				setId(ID_EDEFAULT);
 				return;
 			case RgmPackage.DECLARATION__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case RgmPackage.DECLARATION__CONTRACT:
+				setContract((Contract)null);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -330,12 +330,12 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__CONTRACT:
-				return contract != null;
 			case RgmPackage.DECLARATION__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.DECLARATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RgmPackage.DECLARATION__CONTRACT:
+				return contract != null;
 			default:
 				return super.eIsSet(featureID);
 		}

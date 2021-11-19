@@ -90,9 +90,9 @@ public class DeclarationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContractPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addContractPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

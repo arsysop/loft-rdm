@@ -45,34 +45,14 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getTags <em>Tags</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ContractImpl extends MinimalEObjectImpl.Container implements Contract {
-	/**
-	 * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeclaration()
-	 * @generated
-	 * @ordered
-	 */
-	protected Declaration declaration;
-
-	/**
-	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTags()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Tag> tags;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +72,26 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclaration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Declaration declaration;
+
+	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Tag> tags;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -255,13 +255,13 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RgmPackage.CONTRACT__ID:
+				return getId();
 			case RgmPackage.CONTRACT__DECLARATION:
 				if (resolve) return getDeclaration();
 				return basicGetDeclaration();
 			case RgmPackage.CONTRACT__TAGS:
 				return getTags();
-			case RgmPackage.CONTRACT__ID:
-				return getId();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -276,15 +276,15 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RgmPackage.CONTRACT__ID:
+				setId((String)newValue);
+				return;
 			case RgmPackage.CONTRACT__DECLARATION:
 				setDeclaration((Declaration)newValue);
 				return;
 			case RgmPackage.CONTRACT__TAGS:
 				getTags().clear();
 				getTags().addAll((Collection<? extends Tag>)newValue);
-				return;
-			case RgmPackage.CONTRACT__ID:
-				setId((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -300,14 +300,14 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RgmPackage.CONTRACT__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case RgmPackage.CONTRACT__DECLARATION:
 				setDeclaration((Declaration)null);
 				return;
 			case RgmPackage.CONTRACT__TAGS:
 				getTags().clear();
-				return;
-			case RgmPackage.CONTRACT__ID:
-				setId(ID_EDEFAULT);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -323,12 +323,12 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RgmPackage.CONTRACT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.CONTRACT__DECLARATION:
 				return declaration != null;
 			case RgmPackage.CONTRACT__TAGS:
 				return tags != null && !tags.isEmpty();
-			case RgmPackage.CONTRACT__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			default:
 				return super.eIsSet(featureID);
 		}

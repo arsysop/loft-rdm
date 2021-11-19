@@ -45,24 +45,14 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getDeclarations <em>Declarations</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
-	/**
-	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeclarations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Declaration> declarations;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +82,16 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @ordered
 	 */
 	protected Part location;
+
+	/**
+	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclarations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Declaration> declarations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,13 +211,13 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				return getDeclarations();
 			case RgmPackage.HEADER__NAME:
 				return getName();
 			case RgmPackage.HEADER__LOCATION:
 				if (resolve) return getLocation();
 				return basicGetLocation();
+			case RgmPackage.HEADER__DECLARATIONS:
+				return getDeclarations();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -232,15 +232,15 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				getDeclarations().clear();
-				getDeclarations().addAll((Collection<? extends Declaration>)newValue);
-				return;
 			case RgmPackage.HEADER__NAME:
 				setName((String)newValue);
 				return;
 			case RgmPackage.HEADER__LOCATION:
 				setLocation((Part)newValue);
+				return;
+			case RgmPackage.HEADER__DECLARATIONS:
+				getDeclarations().clear();
+				getDeclarations().addAll((Collection<? extends Declaration>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -256,14 +256,14 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				getDeclarations().clear();
-				return;
 			case RgmPackage.HEADER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case RgmPackage.HEADER__LOCATION:
 				setLocation((Part)null);
+				return;
+			case RgmPackage.HEADER__DECLARATIONS:
+				getDeclarations().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -279,12 +279,12 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				return declarations != null && !declarations.isEmpty();
 			case RgmPackage.HEADER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case RgmPackage.HEADER__LOCATION:
 				return location != null;
+			case RgmPackage.HEADER__DECLARATIONS:
+				return declarations != null && !declarations.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

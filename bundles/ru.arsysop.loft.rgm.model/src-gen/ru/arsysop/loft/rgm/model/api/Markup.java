@@ -32,11 +32,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getCitations <em>Citations</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getHeaders <em>Headers</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getTags <em>Tags</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getContracts <em>Contracts</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getHeaders <em>Headers</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Markup#getCitations <em>Citations</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getMarkup()

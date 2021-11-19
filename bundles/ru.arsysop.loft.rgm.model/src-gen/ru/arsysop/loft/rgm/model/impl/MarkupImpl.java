@@ -46,16 +46,36 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getCitations <em>Citations</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getHeaders <em>Headers</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getContracts <em>Contracts</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getHeaders <em>Headers</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl#getCitations <em>Citations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
+	/**
+	 * The cached value of the '{@link #getCitations() <em>Citations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCitations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Citation> citations;
+
+	/**
+	 * The cached value of the '{@link #getHeaders() <em>Headers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeaders()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Header> headers;
+
 	/**
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -85,26 +105,6 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	 * @ordered
 	 */
 	protected EList<Contract> contracts;
-
-	/**
-	 * The cached value of the '{@link #getHeaders() <em>Headers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHeaders()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Header> headers;
-
-	/**
-	 * The cached value of the '{@link #getCitations() <em>Citations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCitations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Citation> citations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,16 +198,16 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case RgmPackage.MARKUP__CITATIONS:
+				return ((InternalEList<?>)getCitations()).basicRemove(otherEnd, msgs);
+			case RgmPackage.MARKUP__HEADERS:
+				return ((InternalEList<?>)getHeaders()).basicRemove(otherEnd, msgs);
 			case RgmPackage.MARKUP__REQUIREMENTS:
 				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
 			case RgmPackage.MARKUP__TAGS:
 				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
 			case RgmPackage.MARKUP__CONTRACTS:
 				return ((InternalEList<?>)getContracts()).basicRemove(otherEnd, msgs);
-			case RgmPackage.MARKUP__HEADERS:
-				return ((InternalEList<?>)getHeaders()).basicRemove(otherEnd, msgs);
-			case RgmPackage.MARKUP__CITATIONS:
-				return ((InternalEList<?>)getCitations()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -221,16 +221,16 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RgmPackage.MARKUP__CITATIONS:
+				return getCitations();
+			case RgmPackage.MARKUP__HEADERS:
+				return getHeaders();
 			case RgmPackage.MARKUP__REQUIREMENTS:
 				return getRequirements();
 			case RgmPackage.MARKUP__TAGS:
 				return getTags();
 			case RgmPackage.MARKUP__CONTRACTS:
 				return getContracts();
-			case RgmPackage.MARKUP__HEADERS:
-				return getHeaders();
-			case RgmPackage.MARKUP__CITATIONS:
-				return getCitations();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -245,6 +245,14 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RgmPackage.MARKUP__CITATIONS:
+				getCitations().clear();
+				getCitations().addAll((Collection<? extends Citation>)newValue);
+				return;
+			case RgmPackage.MARKUP__HEADERS:
+				getHeaders().clear();
+				getHeaders().addAll((Collection<? extends Header>)newValue);
+				return;
 			case RgmPackage.MARKUP__REQUIREMENTS:
 				getRequirements().clear();
 				getRequirements().addAll((Collection<? extends Requirement>)newValue);
@@ -256,14 +264,6 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 			case RgmPackage.MARKUP__CONTRACTS:
 				getContracts().clear();
 				getContracts().addAll((Collection<? extends Contract>)newValue);
-				return;
-			case RgmPackage.MARKUP__HEADERS:
-				getHeaders().clear();
-				getHeaders().addAll((Collection<? extends Header>)newValue);
-				return;
-			case RgmPackage.MARKUP__CITATIONS:
-				getCitations().clear();
-				getCitations().addAll((Collection<? extends Citation>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -279,6 +279,12 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RgmPackage.MARKUP__CITATIONS:
+				getCitations().clear();
+				return;
+			case RgmPackage.MARKUP__HEADERS:
+				getHeaders().clear();
+				return;
 			case RgmPackage.MARKUP__REQUIREMENTS:
 				getRequirements().clear();
 				return;
@@ -287,12 +293,6 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 				return;
 			case RgmPackage.MARKUP__CONTRACTS:
 				getContracts().clear();
-				return;
-			case RgmPackage.MARKUP__HEADERS:
-				getHeaders().clear();
-				return;
-			case RgmPackage.MARKUP__CITATIONS:
-				getCitations().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -308,16 +308,16 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RgmPackage.MARKUP__CITATIONS:
+				return citations != null && !citations.isEmpty();
+			case RgmPackage.MARKUP__HEADERS:
+				return headers != null && !headers.isEmpty();
 			case RgmPackage.MARKUP__REQUIREMENTS:
 				return requirements != null && !requirements.isEmpty();
 			case RgmPackage.MARKUP__TAGS:
 				return tags != null && !tags.isEmpty();
 			case RgmPackage.MARKUP__CONTRACTS:
 				return contracts != null && !contracts.isEmpty();
-			case RgmPackage.MARKUP__HEADERS:
-				return headers != null && !headers.isEmpty();
-			case RgmPackage.MARKUP__CITATIONS:
-				return citations != null && !citations.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

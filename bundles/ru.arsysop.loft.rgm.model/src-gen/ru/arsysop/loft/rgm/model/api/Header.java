@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getDeclarations <em>Declarations</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getLocation <em>Location</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getHeader()

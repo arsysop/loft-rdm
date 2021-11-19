@@ -45,34 +45,14 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.TagImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.TagImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.TagImpl#getContracts <em>Contracts</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.TagImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
-	/**
-	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequirements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Requirement> requirements;
-
-	/**
-	 * The cached value of the '{@link #getContracts() <em>Contracts</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContracts()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Contract> contracts;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +72,26 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequirements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Requirement> requirements;
+
+	/**
+	 * The cached value of the '{@link #getContracts() <em>Contracts</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContracts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contract> contracts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,12 +204,12 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case RgmPackage.TAG__ID:
+				return getId();
 			case RgmPackage.TAG__REQUIREMENTS:
 				return getRequirements();
 			case RgmPackage.TAG__CONTRACTS:
 				return getContracts();
-			case RgmPackage.TAG__ID:
-				return getId();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -224,6 +224,9 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RgmPackage.TAG__ID:
+				setId((String)newValue);
+				return;
 			case RgmPackage.TAG__REQUIREMENTS:
 				getRequirements().clear();
 				getRequirements().addAll((Collection<? extends Requirement>)newValue);
@@ -231,9 +234,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 			case RgmPackage.TAG__CONTRACTS:
 				getContracts().clear();
 				getContracts().addAll((Collection<? extends Contract>)newValue);
-				return;
-			case RgmPackage.TAG__ID:
-				setId((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -249,14 +249,14 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case RgmPackage.TAG__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case RgmPackage.TAG__REQUIREMENTS:
 				getRequirements().clear();
 				return;
 			case RgmPackage.TAG__CONTRACTS:
 				getContracts().clear();
-				return;
-			case RgmPackage.TAG__ID:
-				setId(ID_EDEFAULT);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -272,12 +272,12 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case RgmPackage.TAG__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.TAG__REQUIREMENTS:
 				return requirements != null && !requirements.isEmpty();
 			case RgmPackage.TAG__CONTRACTS:
 				return contracts != null && !contracts.isEmpty();
-			case RgmPackage.TAG__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			default:
 				return super.eIsSet(featureID);
 		}

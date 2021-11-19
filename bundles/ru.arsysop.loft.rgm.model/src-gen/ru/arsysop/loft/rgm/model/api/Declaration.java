@@ -31,9 +31,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Declaration#getContract <em>Contract</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Declaration#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Declaration#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Declaration#getContract <em>Contract</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDeclaration()

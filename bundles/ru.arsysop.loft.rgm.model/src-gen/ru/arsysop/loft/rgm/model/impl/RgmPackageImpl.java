@@ -496,26 +496,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getMarkup_Requirements() {
-		return (EReference)markupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getMarkup_Tags() {
-		return (EReference)markupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getMarkup_Contracts() {
 		return (EReference)markupEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -525,7 +505,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMarkup_Headers() {
+	public EReference getMarkup_Tags() {
 		return (EReference)markupEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -535,8 +515,28 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMarkup_Citations() {
+	public EReference getMarkup_Contracts() {
 		return (EReference)markupEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMarkup_Headers() {
+		return (EReference)markupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMarkup_Citations() {
+		return (EReference)markupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -686,7 +686,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getHeader_Declarations() {
-		return (EReference)headerEClass.getEStructuralFeatures().get(0);
+		return (EReference)headerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -696,7 +696,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EAttribute getHeader_Name() {
-		return (EAttribute)headerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)headerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -706,7 +706,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getHeader_Location() {
-		return (EReference)headerEClass.getEStructuralFeatures().get(2);
+		return (EReference)headerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -726,7 +726,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getDeclaration_Contract() {
-		return (EReference)declarationEClass.getEStructuralFeatures().get(0);
+		return (EReference)declarationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -736,7 +736,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EAttribute getDeclaration_Id() {
-		return (EAttribute)declarationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)declarationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -746,7 +746,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EAttribute getDeclaration_Name() {
-		return (EAttribute)declarationEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)declarationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -836,16 +836,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getTag_Requirements() {
-		return (EReference)tagEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTag_Contracts() {
 		return (EReference)tagEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -855,8 +845,18 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getTag_Contracts() {
+		return (EReference)tagEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getTag_Id() {
-		return (EAttribute)tagEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)tagEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -876,16 +876,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getContract_Declaration() {
-		return (EReference)contractEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getContract_Tags() {
 		return (EReference)contractEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -895,8 +885,18 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getContract_Tags() {
+		return (EReference)contractEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getContract_Id() {
-		return (EAttribute)contractEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)contractEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1089,11 +1089,11 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		anchoredEClass = createEClass(ANCHORED);
 
 		markupEClass = createEClass(MARKUP);
+		createEReference(markupEClass, MARKUP__CITATIONS);
+		createEReference(markupEClass, MARKUP__HEADERS);
 		createEReference(markupEClass, MARKUP__REQUIREMENTS);
 		createEReference(markupEClass, MARKUP__TAGS);
 		createEReference(markupEClass, MARKUP__CONTRACTS);
-		createEReference(markupEClass, MARKUP__HEADERS);
-		createEReference(markupEClass, MARKUP__CITATIONS);
 
 		citationEClass = createEClass(CITATION);
 		createEAttribute(citationEClass, CITATION__ID);
@@ -1108,24 +1108,24 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		createEReference(requirementEClass, REQUIREMENT__SEE);
 
 		tagEClass = createEClass(TAG);
+		createEAttribute(tagEClass, TAG__ID);
 		createEReference(tagEClass, TAG__REQUIREMENTS);
 		createEReference(tagEClass, TAG__CONTRACTS);
-		createEAttribute(tagEClass, TAG__ID);
 
 		contractEClass = createEClass(CONTRACT);
+		createEAttribute(contractEClass, CONTRACT__ID);
 		createEReference(contractEClass, CONTRACT__DECLARATION);
 		createEReference(contractEClass, CONTRACT__TAGS);
-		createEAttribute(contractEClass, CONTRACT__ID);
 
 		headerEClass = createEClass(HEADER);
-		createEReference(headerEClass, HEADER__DECLARATIONS);
 		createEAttribute(headerEClass, HEADER__NAME);
 		createEReference(headerEClass, HEADER__LOCATION);
+		createEReference(headerEClass, HEADER__DECLARATIONS);
 
 		declarationEClass = createEClass(DECLARATION);
-		createEReference(declarationEClass, DECLARATION__CONTRACT);
 		createEAttribute(declarationEClass, DECLARATION__ID);
 		createEAttribute(declarationEClass, DECLARATION__NAME);
+		createEReference(declarationEClass, DECLARATION__CONTRACT);
 
 		namespaceEClass = createEClass(NAMESPACE);
 
@@ -1240,11 +1240,11 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEClass(anchoredEClass, Anchored.class, "Anchored", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getMarkup_Citations(), this.getCitation(), null, "citations", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getMarkup_Headers(), this.getHeader(), null, "headers", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Tags(), this.getTag(), null, "tags", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Contracts(), this.getContract(), null, "contracts", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getMarkup_Headers(), this.getHeader(), null, "headers", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getMarkup_Citations(), this.getCitation(), null, "citations", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(citationEClass, Citation.class, "Citation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getCitation_Id(), ecorePackage.getEString(), "id", null, 1, 1, Citation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1259,24 +1259,24 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEReference(getRequirement_See(), this.getPart(), null, "see", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getTag_Id(), ecorePackage.getEString(), "id", null, 1, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getTag_Requirements(), this.getRequirement(), this.getRequirement_Tags(), "requirements", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getTag_Contracts(), this.getContract(), this.getContract_Tags(), "contracts", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getTag_Id(), ecorePackage.getEString(), "id", null, 1, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getContract_Id(), ecorePackage.getEString(), "id", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getContract_Declaration(), this.getDeclaration(), this.getDeclaration_Contract(), "declaration", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getContract_Tags(), this.getTag(), this.getTag_Contracts(), "tags", null, 0, -1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getContract_Id(), ecorePackage.getEString(), "id", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getHeader_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getHeader_Location(), this.getPart(), null, "location", null, 1, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getHeader_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(declarationEClass, Declaration.class, "Declaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getDeclaration_Contract(), this.getContract(), this.getContract_Declaration(), "contract", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDeclaration_Id(), ecorePackage.getEString(), "id", null, 1, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDeclaration_Contract(), this.getContract(), this.getContract_Declaration(), "contract", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
