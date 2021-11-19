@@ -26,10 +26,38 @@ package ru.arsysop.loft.rgm.model.api;
  * A representation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Paragraph#getNumber <em>Number</em>}</li>
+ * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getParagraph()
  * @model
  * @generated
  */
 public interface Paragraph extends WithParts {
+
+	/**
+	 * Returns the value of the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Number</em>' attribute.
+	 * @see #setNumber(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getParagraph_Number()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getNumber();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Paragraph#getNumber <em>Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number</em>' attribute.
+	 * @see #getNumber()
+	 * @generated
+	 */
+	void setNumber(String value);
 } // Paragraph

@@ -296,13 +296,22 @@ public interface RgmPackage extends EPackage {
 	int PARAGRAPH__PARTS = WITH_PARTS__PARTS;
 
 	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__NUMBER = WITH_PARTS_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Paragraph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAGRAPH_FEATURE_COUNT = WITH_PARTS_FEATURE_COUNT + 0;
+	int PARAGRAPH_FEATURE_COUNT = WITH_PARTS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Paragraph</em>' class.
@@ -1926,6 +1935,17 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParagraph();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.Paragraph#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.Paragraph#getNumber()
+	 * @see #getParagraph()
+	 * @generated
+	 */
+	EAttribute getParagraph_Number();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Anchored <em>Anchored</em>}'.

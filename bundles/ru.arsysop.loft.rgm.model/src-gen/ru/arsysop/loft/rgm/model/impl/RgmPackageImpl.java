@@ -465,6 +465,16 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getParagraph_Number() {
+		return (EAttribute)paragraphEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAnchored() {
 		return anchoredEClass;
 	}
@@ -1074,6 +1084,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		createEReference(withPartsEClass, WITH_PARTS__PARTS);
 
 		paragraphEClass = createEClass(PARAGRAPH);
+		createEAttribute(paragraphEClass, PARAGRAPH__NUMBER);
 
 		anchoredEClass = createEClass(ANCHORED);
 
@@ -1224,6 +1235,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEReference(getWithParts_Parts(), this.getPart(), null, "parts", null, 0, -1, WithParts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getParagraph_Number(), ecorePackage.getEString(), "number", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(anchoredEClass, Anchored.class, "Anchored", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

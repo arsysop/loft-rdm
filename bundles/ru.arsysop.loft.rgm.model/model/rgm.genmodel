@@ -32,7 +32,9 @@
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//WithParts">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//WithParts/parts"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Paragraph"/>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Paragraph/number"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Anchored"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Markup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Markup/requirements"/>
