@@ -749,13 +749,13 @@ public interface RgmPackage extends EPackage {
 	int HEADER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * The feature id for the '<em><b>Synopsis</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER__LOCATION = 1;
+	int HEADER__SYNOPSIS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
@@ -2195,15 +2195,15 @@ public interface RgmPackage extends EPackage {
 	EAttribute getHeader_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.model.api.Header#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.model.api.Header#getSynopsis <em>Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see ru.arsysop.loft.rgm.model.api.Header#getLocation()
+	 * @return the meta object for the reference '<em>Synopsis</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.Header#getSynopsis()
 	 * @see #getHeader()
 	 * @generated
 	 */
-	EReference getHeader_Location();
+	EReference getHeader_Synopsis();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Declaration <em>Declaration</em>}'.

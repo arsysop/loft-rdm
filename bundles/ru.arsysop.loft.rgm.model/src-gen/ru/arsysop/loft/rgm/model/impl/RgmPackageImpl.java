@@ -705,7 +705,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getHeader_Location() {
+	public EReference getHeader_Synopsis() {
 		return (EReference)headerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1119,7 +1119,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		headerEClass = createEClass(HEADER);
 		createEAttribute(headerEClass, HEADER__NAME);
-		createEReference(headerEClass, HEADER__LOCATION);
+		createEReference(headerEClass, HEADER__SYNOPSIS);
 		createEReference(headerEClass, HEADER__DECLARATIONS);
 
 		declarationEClass = createEClass(DECLARATION);
@@ -1270,7 +1270,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getHeader_Location(), this.getPart(), null, "location", null, 1, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getHeader_Synopsis(), this.getPart(), null, "synopsis", null, 1, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getHeader_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(declarationEClass, Declaration.class, "Declaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

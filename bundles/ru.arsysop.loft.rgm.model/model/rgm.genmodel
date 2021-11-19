@@ -67,7 +67,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/location"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/synopsis"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Header/declarations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Declaration">

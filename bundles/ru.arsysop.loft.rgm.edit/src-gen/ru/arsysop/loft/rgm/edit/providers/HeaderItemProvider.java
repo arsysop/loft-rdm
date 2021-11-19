@@ -94,7 +94,7 @@ public class HeaderItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addLocationPropertyDescriptor(object);
+			addSynopsisPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,19 +122,19 @@ public class HeaderItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Location feature.
+	 * This adds a property descriptor for the Synopsis feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLocationPropertyDescriptor(Object object) {
+	protected void addSynopsisPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Header_location_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Header_location_feature", "_UI_Header_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getHeader_Location(),
+				 getString("_UI_Header_synopsis_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Header_synopsis_feature", "_UI_Header_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getHeader_Synopsis(),
 				 true,
 				 false,
 				 true,

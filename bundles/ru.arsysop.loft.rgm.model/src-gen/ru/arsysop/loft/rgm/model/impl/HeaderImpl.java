@@ -46,7 +46,7 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getName <em>Name</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getSynopsis <em>Synopsis</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
@@ -74,14 +74,14 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' reference.
+	 * The cached value of the '{@link #getSynopsis() <em>Synopsis</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLocation()
+	 * @see #getSynopsis()
 	 * @generated
 	 * @ordered
 	 */
-	protected Part location;
+	protected Part synopsis;
 
 	/**
 	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
@@ -154,16 +154,16 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @generated
 	 */
 	@Override
-	public Part getLocation() {
-		if (location != null && location.eIsProxy()) {
-			InternalEObject oldLocation = (InternalEObject)location;
-			location = (Part)eResolveProxy(oldLocation);
-			if (location != oldLocation) {
+	public Part getSynopsis() {
+		if (synopsis != null && synopsis.eIsProxy()) {
+			InternalEObject oldSynopsis = (InternalEObject)synopsis;
+			synopsis = (Part)eResolveProxy(oldSynopsis);
+			if (synopsis != oldSynopsis) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RgmPackage.HEADER__LOCATION, oldLocation, location));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RgmPackage.HEADER__SYNOPSIS, oldSynopsis, synopsis));
 			}
 		}
-		return location;
+		return synopsis;
 	}
 
 	/**
@@ -171,8 +171,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Part basicGetLocation() {
-		return location;
+	public Part basicGetSynopsis() {
+		return synopsis;
 	}
 
 	/**
@@ -181,11 +181,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @generated
 	 */
 	@Override
-	public void setLocation(Part newLocation) {
-		Part oldLocation = location;
-		location = newLocation;
+	public void setSynopsis(Part newSynopsis) {
+		Part oldSynopsis = synopsis;
+		synopsis = newSynopsis;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__LOCATION, oldLocation, location));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__SYNOPSIS, oldSynopsis, synopsis));
 	}
 
 	/**
@@ -213,9 +213,9 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		switch (featureID) {
 			case RgmPackage.HEADER__NAME:
 				return getName();
-			case RgmPackage.HEADER__LOCATION:
-				if (resolve) return getLocation();
-				return basicGetLocation();
+			case RgmPackage.HEADER__SYNOPSIS:
+				if (resolve) return getSynopsis();
+				return basicGetSynopsis();
 			case RgmPackage.HEADER__DECLARATIONS:
 				return getDeclarations();
 			default:
@@ -235,8 +235,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case RgmPackage.HEADER__NAME:
 				setName((String)newValue);
 				return;
-			case RgmPackage.HEADER__LOCATION:
-				setLocation((Part)newValue);
+			case RgmPackage.HEADER__SYNOPSIS:
+				setSynopsis((Part)newValue);
 				return;
 			case RgmPackage.HEADER__DECLARATIONS:
 				getDeclarations().clear();
@@ -259,8 +259,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case RgmPackage.HEADER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case RgmPackage.HEADER__LOCATION:
-				setLocation((Part)null);
+			case RgmPackage.HEADER__SYNOPSIS:
+				setSynopsis((Part)null);
 				return;
 			case RgmPackage.HEADER__DECLARATIONS:
 				getDeclarations().clear();
@@ -281,8 +281,8 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		switch (featureID) {
 			case RgmPackage.HEADER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RgmPackage.HEADER__LOCATION:
-				return location != null;
+			case RgmPackage.HEADER__SYNOPSIS:
+				return synopsis != null;
 			case RgmPackage.HEADER__DECLARATIONS:
 				return declarations != null && !declarations.isEmpty();
 			default:

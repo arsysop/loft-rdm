@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getName <em>Name</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getLocation <em>Location</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getSynopsis <em>Synopsis</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
@@ -77,25 +77,25 @@ public interface Header extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Location</b></em>' reference.
+	 * Returns the value of the '<em><b>Synopsis</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Location</em>' reference.
-	 * @see #setLocation(Part)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getHeader_Location()
+	 * @return the value of the '<em>Synopsis</em>' reference.
+	 * @see #setSynopsis(Part)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getHeader_Synopsis()
 	 * @model required="true"
 	 * @generated
 	 */
-	Part getLocation();
+	Part getSynopsis();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Header#getLocation <em>Location</em>}' reference.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Header#getSynopsis <em>Synopsis</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' reference.
-	 * @see #getLocation()
+	 * @param value the new value of the '<em>Synopsis</em>' reference.
+	 * @see #getSynopsis()
 	 * @generated
 	 */
-	void setLocation(Part value);
+	void setSynopsis(Part value);
 
 } // Header
