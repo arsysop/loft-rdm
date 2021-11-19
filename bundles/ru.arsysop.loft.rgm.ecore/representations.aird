@@ -5,7 +5,7 @@
     <semanticResources>model/rgm.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_FGKHAEV-EeyZ5o7ntJVkuA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VTOK4EhEEeyrtaxw0wPTCQ" name="rgm" repPath="#_VS2XcEhEEeyrtaxw0wPTCQ" changeId="f3779387-3626-4069-8eb0-9b030c71f27c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_VTOK4EhEEeyrtaxw0wPTCQ" name="rgm" repPath="#_VS2XcEhEEeyrtaxw0wPTCQ" changeId="ef3349b1-ef67-4b22-998b-c407257b54f5">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/rgm.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1977,6 +1977,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_7FC8ZElTEeyrtaxw0wPTCQ" description="_yYiJBkiYEeyrtaxw0wPTCQ" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_7FC8ZklTEeyrtaxw0wPTCQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_7FC8ZUlTEeyrtaxw0wPTCQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>

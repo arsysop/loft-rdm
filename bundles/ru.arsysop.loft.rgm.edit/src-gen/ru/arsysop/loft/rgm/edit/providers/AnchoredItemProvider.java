@@ -23,6 +23,8 @@ package ru.arsysop.loft.rgm.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -97,17 +99,21 @@ public class AnchoredItemProvider extends PartItemProvider {
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Anchored)object).getName();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Anchored_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_Anchored_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		Anchored anchored = (Anchored) object;
+		StyledString styledLabel = new StyledString();
+		styledLabel.append(getString("_UI_Anchored_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Optional.ofNullable(anchored.getName())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s));
+		Optional.ofNullable(anchored.getId())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(" " + '[' + s + ']', StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$
 		return styledLabel;
 	}
 
