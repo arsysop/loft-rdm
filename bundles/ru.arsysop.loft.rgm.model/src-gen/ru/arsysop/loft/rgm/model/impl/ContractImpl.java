@@ -144,34 +144,12 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDeclaration(Declaration newDeclaration, NotificationChain msgs) {
-		Declaration oldDeclaration = declaration;
-		declaration = newDeclaration;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RgmPackage.CONTRACT__DECLARATION, oldDeclaration, newDeclaration);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setDeclaration(Declaration newDeclaration) {
-		if (newDeclaration != declaration) {
-			NotificationChain msgs = null;
-			if (declaration != null)
-				msgs = ((InternalEObject)declaration).eInverseRemove(this, RgmPackage.DECLARATION__CONTRACT, Declaration.class, msgs);
-			if (newDeclaration != null)
-				msgs = ((InternalEObject)newDeclaration).eInverseAdd(this, RgmPackage.DECLARATION__CONTRACT, Declaration.class, msgs);
-			msgs = basicSetDeclaration(newDeclaration, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CONTRACT__DECLARATION, newDeclaration, newDeclaration));
+		Declaration oldDeclaration = declaration;
+		declaration = newDeclaration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CONTRACT__DECLARATION, oldDeclaration, declaration));
 	}
 
 	/**
@@ -219,10 +197,6 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RgmPackage.CONTRACT__DECLARATION:
-				if (declaration != null)
-					msgs = ((InternalEObject)declaration).eInverseRemove(this, RgmPackage.DECLARATION__CONTRACT, Declaration.class, msgs);
-				return basicSetDeclaration((Declaration)otherEnd, msgs);
 			case RgmPackage.CONTRACT__TAGS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTags()).basicAdd(otherEnd, msgs);
 			default:
@@ -238,8 +212,6 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RgmPackage.CONTRACT__DECLARATION:
-				return basicSetDeclaration(null, msgs);
 			case RgmPackage.CONTRACT__TAGS:
 				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
 			default:

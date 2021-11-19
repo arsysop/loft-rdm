@@ -68,7 +68,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
-        eType="#//Declaration" eOpposite="#//Declaration/contract"/>
+        eType="#//Declaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
         eOpposite="#//Tag/contracts"/>
   </eClassifiers>
@@ -83,8 +83,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contract" eType="#//Contract"
-        eOpposite="#//Contract/declaration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//Declaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//Declaration">

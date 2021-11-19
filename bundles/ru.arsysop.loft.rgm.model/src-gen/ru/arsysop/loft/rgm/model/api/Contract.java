@@ -44,14 +44,12 @@ import org.eclipse.emf.ecore.EObject;
 public interface Contract extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Declaration</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Declaration#getContract <em>Contract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declaration</em>' reference.
 	 * @see #setDeclaration(Declaration)
 	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getContract_Declaration()
-	 * @see ru.arsysop.loft.rgm.model.api.Declaration#getContract
-	 * @model opposite="contract" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Declaration getDeclaration();
