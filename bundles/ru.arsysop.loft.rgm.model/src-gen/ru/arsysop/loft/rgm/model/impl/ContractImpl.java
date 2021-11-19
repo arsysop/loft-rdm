@@ -47,7 +47,7 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getTags <em>Tags</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.ContractImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,20 +74,20 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	protected EList<Tag> tags;
 
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -193,7 +193,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 */
 	@Override
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
@@ -203,11 +203,11 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 */
 	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CONTRACT__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CONTRACT__ID, oldId, id));
 	}
 
 	/**
@@ -261,7 +261,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 			case RgmPackage.CONTRACT__TAGS:
 				return getTags();
 			case RgmPackage.CONTRACT__ID:
-				return getID();
+				return getId();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -284,7 +284,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 				getTags().addAll((Collection<? extends Tag>)newValue);
 				return;
 			case RgmPackage.CONTRACT__ID:
-				setID((String)newValue);
+				setId((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -307,7 +307,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 				getTags().clear();
 				return;
 			case RgmPackage.CONTRACT__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -344,7 +344,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
 		result.append(')');
 		return result.toString();

@@ -40,7 +40,7 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getContract <em>Contract</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -58,20 +58,20 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	protected Contract contract;
 
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -184,7 +184,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
@@ -194,11 +194,11 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DECLARATION__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DECLARATION__ID, oldId, id));
 	}
 
 	/**
@@ -268,7 +268,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 				if (resolve) return getContract();
 				return basicGetContract();
 			case RgmPackage.DECLARATION__ID:
-				return getID();
+				return getId();
 			case RgmPackage.DECLARATION__NAME:
 				return getName();
 			default:
@@ -288,7 +288,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 				setContract((Contract)newValue);
 				return;
 			case RgmPackage.DECLARATION__ID:
-				setID((String)newValue);
+				setId((String)newValue);
 				return;
 			case RgmPackage.DECLARATION__NAME:
 				setName((String)newValue);
@@ -311,7 +311,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 				setContract((Contract)null);
 				return;
 			case RgmPackage.DECLARATION__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
 			case RgmPackage.DECLARATION__NAME:
 				setName(NAME_EDEFAULT);
@@ -351,9 +351,9 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", Name: "); //$NON-NLS-1$
+		result.append(", name: "); //$NON-NLS-1$
 		result.append(name);
 		result.append(')');
 		return result.toString();

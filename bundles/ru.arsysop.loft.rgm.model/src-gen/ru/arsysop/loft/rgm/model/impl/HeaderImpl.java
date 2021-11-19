@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.model.api.Declaration;
 import ru.arsysop.loft.rgm.model.api.Header;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -45,8 +46,8 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getDeclarations <em>Declarations</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getID <em>ID</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,26 +62,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @ordered
 	 */
 	protected EList<Declaration> declarations;
-
-	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -101,6 +82,16 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Part location;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,29 +131,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @generated
 	 */
 	@Override
-	public String getID() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__ID, oldID, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -178,6 +146,46 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Part getLocation() {
+		if (location != null && location.eIsProxy()) {
+			InternalEObject oldLocation = (InternalEObject)location;
+			location = (Part)eResolveProxy(oldLocation);
+			if (location != oldLocation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RgmPackage.HEADER__LOCATION, oldLocation, location));
+			}
+		}
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Part basicGetLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLocation(Part newLocation) {
+		Part oldLocation = location;
+		location = newLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -205,10 +213,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		switch (featureID) {
 			case RgmPackage.HEADER__DECLARATIONS:
 				return getDeclarations();
-			case RgmPackage.HEADER__ID:
-				return getID();
 			case RgmPackage.HEADER__NAME:
 				return getName();
+			case RgmPackage.HEADER__LOCATION:
+				if (resolve) return getLocation();
+				return basicGetLocation();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -227,11 +236,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 				getDeclarations().clear();
 				getDeclarations().addAll((Collection<? extends Declaration>)newValue);
 				return;
-			case RgmPackage.HEADER__ID:
-				setID((String)newValue);
-				return;
 			case RgmPackage.HEADER__NAME:
 				setName((String)newValue);
+				return;
+			case RgmPackage.HEADER__LOCATION:
+				setLocation((Part)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -250,11 +259,11 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 			case RgmPackage.HEADER__DECLARATIONS:
 				getDeclarations().clear();
 				return;
-			case RgmPackage.HEADER__ID:
-				setID(ID_EDEFAULT);
-				return;
 			case RgmPackage.HEADER__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case RgmPackage.HEADER__LOCATION:
+				setLocation((Part)null);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -272,10 +281,10 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		switch (featureID) {
 			case RgmPackage.HEADER__DECLARATIONS:
 				return declarations != null && !declarations.isEmpty();
-			case RgmPackage.HEADER__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.HEADER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RgmPackage.HEADER__LOCATION:
+				return location != null;
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -291,9 +300,7 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
-		result.append(id);
-		result.append(", Name: "); //$NON-NLS-1$
+		result.append(" (name: "); //$NON-NLS-1$
 		result.append(name);
 		result.append(')');
 		return result.toString();

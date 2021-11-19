@@ -93,7 +93,7 @@ public class ContractItemProvider
 
 			addDeclarationPropertyDescriptor(object);
 			addTagsPropertyDescriptor(object);
-			addIDPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -143,19 +143,19 @@ public class ContractItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the ID feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIDPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Contract_ID_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contract_ID_feature", "_UI_Contract_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getContract_ID(),
+				 getString("_UI_Contract_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contract_id_feature", "_UI_Contract_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getContract_Id(),
 				 true,
 				 false,
 				 false,
@@ -241,7 +241,7 @@ public class ContractItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Contract)object).getID();
+		String label = ((Contract)object).getId();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
 			styledLabel.append(getString("_UI_Contract_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$

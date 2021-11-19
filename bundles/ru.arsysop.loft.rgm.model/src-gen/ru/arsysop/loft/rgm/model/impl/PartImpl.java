@@ -20,72 +20,75 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.model.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import ru.arsysop.loft.rgm.model.api.FunctionDecl;
-import ru.arsysop.loft.rgm.model.api.ParmDecl;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Function Decl</b></em>'.
+ * An implementation of the model object '<em><b>Part</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl#getSignature <em>Signature</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.PartImpl#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.PartImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
+public abstract class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	/**
-	 * The default value of the '{@link #getSignature() <em>Signature</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignature()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SIGNATURE_EDEFAULT = null;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignature()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String signature = SIGNATURE_EDEFAULT;
+	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameters()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParmDecl> parameters;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FunctionDeclImpl() {
+	protected PartImpl() {
 		super();
 	}
 
@@ -96,7 +99,7 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RgmPackage.eINSTANCE.getFunctionDecl();
+		return RgmPackage.eINSTANCE.getPart();
 	}
 
 	/**
@@ -105,8 +108,8 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	 * @generated
 	 */
 	@Override
-	public String getSignature() {
-		return signature;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -115,11 +118,11 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	 * @generated
 	 */
 	@Override
-	public void setSignature(String newSignature) {
-		String oldSignature = signature;
-		signature = newSignature;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.FUNCTION_DECL__SIGNATURE, oldSignature, signature));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.PART__ID, oldId, id));
 	}
 
 	/**
@@ -128,11 +131,8 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	 * @generated
 	 */
 	@Override
-	public EList<ParmDecl> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectContainmentEList<ParmDecl>(ParmDecl.class, this, RgmPackage.FUNCTION_DECL__PARAMETERS);
-		}
-		return parameters;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -141,13 +141,11 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
-		}
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.PART__NAME, oldName, name));
 	}
 
 	/**
@@ -158,10 +156,10 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.FUNCTION_DECL__SIGNATURE:
-				return getSignature();
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
-				return getParameters();
+			case RgmPackage.PART__ID:
+				return getId();
+			case RgmPackage.PART__NAME:
+				return getName();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -172,16 +170,14 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.FUNCTION_DECL__SIGNATURE:
-				setSignature((String)newValue);
+			case RgmPackage.PART__ID:
+				setId((String)newValue);
 				return;
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends ParmDecl>)newValue);
+			case RgmPackage.PART__NAME:
+				setName((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -197,11 +193,11 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.FUNCTION_DECL__SIGNATURE:
-				setSignature(SIGNATURE_EDEFAULT);
+			case RgmPackage.PART__ID:
+				setId(ID_EDEFAULT);
 				return;
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
-				getParameters().clear();
+			case RgmPackage.PART__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -217,10 +213,10 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.FUNCTION_DECL__SIGNATURE:
-				return SIGNATURE_EDEFAULT == null ? signature != null : !SIGNATURE_EDEFAULT.equals(signature);
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
+			case RgmPackage.PART__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case RgmPackage.PART__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -236,10 +232,12 @@ public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (signature: "); //$NON-NLS-1$
-		result.append(signature);
+		result.append(" (id: "); //$NON-NLS-1$
+		result.append(id);
+		result.append(", name: "); //$NON-NLS-1$
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //FunctionDeclImpl
+} //PartImpl

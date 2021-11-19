@@ -32,12 +32,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getID <em>ID</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getChapter <em>Chapter</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getParagraph <em>Paragraph</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getCitation <em>Citation</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getDocument <em>Document</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getContent <em>Content</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Citation#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation()
@@ -46,116 +44,48 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Citation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_ID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getID();
+	String getId();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(String value);
+	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Chapter</b></em>' attribute.
+	 * Returns the value of the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chapter</em>' attribute.
-	 * @see #setChapter(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Chapter()
+	 * @return the value of the '<em>Content</em>' attribute.
+	 * @see #setContent(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Content()
 	 * @model
 	 * @generated
 	 */
-	String getChapter();
+	String getContent();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getChapter <em>Chapter</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getContent <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Chapter</em>' attribute.
-	 * @see #getChapter()
+	 * @param value the new value of the '<em>Content</em>' attribute.
+	 * @see #getContent()
 	 * @generated
 	 */
-	void setChapter(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Paragraph</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Paragraph</em>' attribute.
-	 * @see #setParagraph(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Paragraph()
-	 * @model
-	 * @generated
-	 */
-	String getParagraph();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getParagraph <em>Paragraph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Paragraph</em>' attribute.
-	 * @see #getParagraph()
-	 * @generated
-	 */
-	void setParagraph(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Citation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Citation</em>' attribute.
-	 * @see #setCitation(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Citation()
-	 * @model
-	 * @generated
-	 */
-	String getCitation();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getCitation <em>Citation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Citation</em>' attribute.
-	 * @see #getCitation()
-	 * @generated
-	 */
-	void setCitation(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Document</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Document#getCitations <em>Citations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Document</em>' reference.
-	 * @see #setDocument(Document)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Document()
-	 * @see ru.arsysop.loft.rgm.model.api.Document#getCitations
-	 * @model opposite="citations" required="true"
-	 * @generated
-	 */
-	Document getDocument();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getDocument <em>Document</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Document</em>' reference.
-	 * @see #getDocument()
-	 * @generated
-	 */
-	void setDocument(Document value);
+	void setContent(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Requirements</b></em>' reference list.
@@ -170,5 +100,27 @@ public interface Citation extends EObject {
 	 * @generated
 	 */
 	EList<Requirement> getRequirements();
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location</em>' reference.
+	 * @see #setLocation(Part)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getCitation_Location()
+	 * @model required="true"
+	 * @generated
+	 */
+	Part getLocation();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Citation#getLocation <em>Location</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' reference.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(Part value);
 
 } // Citation

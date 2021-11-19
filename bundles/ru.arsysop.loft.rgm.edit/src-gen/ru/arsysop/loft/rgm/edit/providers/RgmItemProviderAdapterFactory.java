@@ -139,6 +139,75 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Paragraph} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParagraphItemProvider paragraphItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Paragraph}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParagraphAdapter() {
+		if (paragraphItemProvider == null) {
+			paragraphItemProvider = new ParagraphItemProvider(this);
+		}
+
+		return paragraphItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Anchored} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnchoredItemProvider anchoredItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Anchored}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnchoredAdapter() {
+		if (anchoredItemProvider == null) {
+			anchoredItemProvider = new AnchoredItemProvider(this);
+		}
+
+		return anchoredItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Markup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MarkupItemProvider markupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Markup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMarkupAdapter() {
+		if (markupItemProvider == null) {
+			markupItemProvider = new MarkupItemProvider(this);
+		}
+
+		return markupItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.FunctionDecl} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -756,15 +825,18 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	@Override
 	public void dispose() {
 		if (documentItemProvider != null) documentItemProvider.dispose();
-		if (functionDeclItemProvider != null) functionDeclItemProvider.dispose();
-		if (requirementItemProvider != null) requirementItemProvider.dispose();
+		if (paragraphItemProvider != null) paragraphItemProvider.dispose();
+		if (anchoredItemProvider != null) anchoredItemProvider.dispose();
+		if (markupItemProvider != null) markupItemProvider.dispose();
 		if (citationItemProvider != null) citationItemProvider.dispose();
-		if (headerItemProvider != null) headerItemProvider.dispose();
-		if (namespaceItemProvider != null) namespaceItemProvider.dispose();
-		if (classDeclItemProvider != null) classDeclItemProvider.dispose();
-		if (enumDeclItemProvider != null) enumDeclItemProvider.dispose();
+		if (requirementItemProvider != null) requirementItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (contractItemProvider != null) contractItemProvider.dispose();
+		if (headerItemProvider != null) headerItemProvider.dispose();
+		if (namespaceItemProvider != null) namespaceItemProvider.dispose();
+		if (functionDeclItemProvider != null) functionDeclItemProvider.dispose();
+		if (classDeclItemProvider != null) classDeclItemProvider.dispose();
+		if (enumDeclItemProvider != null) enumDeclItemProvider.dispose();
 		if (structDeclItemProvider != null) structDeclItemProvider.dispose();
 		if (unionDeclItemProvider != null) unionDeclItemProvider.dispose();
 		if (fieldDeclItemProvider != null) fieldDeclItemProvider.dispose();

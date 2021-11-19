@@ -22,6 +22,7 @@ package ru.arsysop.loft.rgm.model.meta;
 
 import org.eclipse.emf.ecore.EFactory;
 
+import ru.arsysop.loft.rgm.model.api.Anchored;
 import ru.arsysop.loft.rgm.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.model.api.Citation;
 import ru.arsysop.loft.rgm.model.api.ClassDecl;
@@ -35,7 +36,9 @@ import ru.arsysop.loft.rgm.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.model.api.FunctionTemplate;
 import ru.arsysop.loft.rgm.model.api.Header;
+import ru.arsysop.loft.rgm.model.api.Markup;
 import ru.arsysop.loft.rgm.model.api.Namespace;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
@@ -70,6 +73,33 @@ public interface RgmFactory extends EFactory {
 	 * @generated
 	 */
 	Document createDocument();
+
+	/**
+	 * Returns a new object of class '<em>Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Paragraph</em>'.
+	 * @generated
+	 */
+	Paragraph createParagraph();
+
+	/**
+	 * Returns a new object of class '<em>Anchored</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Anchored</em>'.
+	 * @generated
+	 */
+	Anchored createAnchored();
+
+	/**
+	 * Returns a new object of class '<em>Markup</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Markup</em>'.
+	 * @generated
+	 */
+	Markup createMarkup();
 
 	/**
 	 * Returns a new object of class '<em>Function Decl</em>'.

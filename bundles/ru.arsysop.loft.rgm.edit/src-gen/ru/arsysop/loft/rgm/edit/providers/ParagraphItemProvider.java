@@ -26,32 +26,26 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.FunctionDecl;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
-import ru.arsysop.loft.rgm.model.meta.RgmPackage;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.FunctionDecl} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Paragraph} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionDeclItemProvider extends DeclarationItemProvider {
+public class ParagraphItemProvider extends WithPartsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FunctionDeclItemProvider(AdapterFactory adapterFactory) {
+	public ParagraphItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,61 +60,8 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSignaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Signature feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSignaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FunctionDecl_signature_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionDecl_signature_feature", "_UI_FunctionDecl_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getFunctionDecl_Signature(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(RgmPackage.eINSTANCE.getFunctionDecl_Parameters());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -160,12 +101,12 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((FunctionDecl)object).getName();
+		String label = ((Paragraph)object).getName();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_FunctionDecl_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+			styledLabel.append(getString("_UI_Paragraph_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
 		} else {
-			styledLabel.append(getString("_UI_FunctionDecl_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+			styledLabel.append(getString("_UI_Paragraph_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		return styledLabel;
 	}
@@ -180,18 +121,7 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(FunctionDecl.class)) {
-			case RgmPackage.FUNCTION_DECL__SIGNATURE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-			default:
-				super.notifyChanged(notification);
-				return;
-			}
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -204,11 +134,6 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getFunctionDecl_Parameters(),
-				 RgmFactory.eINSTANCE.createParmDecl()));
 	}
 
 }

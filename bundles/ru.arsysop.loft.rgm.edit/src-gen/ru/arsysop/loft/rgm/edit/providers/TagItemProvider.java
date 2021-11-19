@@ -93,7 +93,7 @@ public class TagItemProvider
 
 			addRequirementsPropertyDescriptor(object);
 			addContractsPropertyDescriptor(object);
-			addIDPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -143,19 +143,19 @@ public class TagItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the ID feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIDPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Tag_ID_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_ID_feature", "_UI_Tag_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getTag_ID(),
+				 getString("_UI_Tag_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_id_feature", "_UI_Tag_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getTag_Id(),
 				 true,
 				 false,
 				 false,
@@ -241,7 +241,7 @@ public class TagItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Tag)object).getID();
+		String label = ((Tag)object).getId();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
 			styledLabel.append(getString("_UI_Tag_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
