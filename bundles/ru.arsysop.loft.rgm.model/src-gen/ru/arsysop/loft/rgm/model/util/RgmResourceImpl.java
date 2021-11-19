@@ -42,4 +42,9 @@ public class RgmResourceImpl extends XMIResourceImpl {
 		super(uri);
 	}
 
+	@Override
+	protected boolean useUUIDs() {
+		return true;
+	}
+
 } //RgmResourceImpl
