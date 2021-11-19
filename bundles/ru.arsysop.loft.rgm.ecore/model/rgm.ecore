@@ -30,7 +30,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="citations" upperBound="-1"
         eType="#//Citation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="headers" upperBound="-1"
-        eType="#//Header" containment="true"/>
+        eType="#//Header"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
         eType="#//Requirement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"

@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.model.api.Citation;
@@ -67,7 +68,7 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	protected EList<Citation> citations;
 
 	/**
-	 * The cached value of the '{@link #getHeaders() <em>Headers</em>}' containment reference list.
+	 * The cached value of the '{@link #getHeaders() <em>Headers</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHeaders()
@@ -172,7 +173,7 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	@Override
 	public EList<Header> getHeaders() {
 		if (headers == null) {
-			headers = new EObjectContainmentEList<Header>(Header.class, this, RgmPackage.MARKUP__HEADERS);
+			headers = new EObjectResolvingEList<Header>(Header.class, this, RgmPackage.MARKUP__HEADERS);
 		}
 		return headers;
 	}
@@ -200,8 +201,6 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 		switch (featureID) {
 			case RgmPackage.MARKUP__CITATIONS:
 				return ((InternalEList<?>)getCitations()).basicRemove(otherEnd, msgs);
-			case RgmPackage.MARKUP__HEADERS:
-				return ((InternalEList<?>)getHeaders()).basicRemove(otherEnd, msgs);
 			case RgmPackage.MARKUP__REQUIREMENTS:
 				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
 			case RgmPackage.MARKUP__TAGS:

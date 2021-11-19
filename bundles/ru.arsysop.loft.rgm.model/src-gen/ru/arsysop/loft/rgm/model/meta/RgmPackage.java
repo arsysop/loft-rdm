@@ -388,7 +388,7 @@ public interface RgmPackage extends EPackage {
 	int MARKUP__CITATIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Headers</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Headers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2001,10 +2001,10 @@ public interface RgmPackage extends EPackage {
 	EReference getMarkup_Contracts();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.model.api.Markup#getHeaders <em>Headers</em>}'.
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.Markup#getHeaders <em>Headers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Headers</em>'.
+	 * @return the meta object for the reference list '<em>Headers</em>'.
 	 * @see ru.arsysop.loft.rgm.model.api.Markup#getHeaders()
 	 * @see #getMarkup()
 	 * @generated

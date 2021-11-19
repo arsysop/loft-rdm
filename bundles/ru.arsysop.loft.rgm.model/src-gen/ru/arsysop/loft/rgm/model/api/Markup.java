@@ -81,13 +81,13 @@ public interface Markup extends EObject {
 	EList<Contract> getContracts();
 
 	/**
-	 * Returns the value of the '<em><b>Headers</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Headers</b></em>' reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Header}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Headers</em>' containment reference list.
+	 * @return the value of the '<em>Headers</em>' reference list.
 	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getMarkup_Headers()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Header> getHeaders();
