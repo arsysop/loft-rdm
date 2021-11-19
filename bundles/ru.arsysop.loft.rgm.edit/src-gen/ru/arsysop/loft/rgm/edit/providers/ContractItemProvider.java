@@ -23,6 +23,7 @@ package ru.arsysop.loft.rgm.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -48,6 +49,7 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.model.api.Contract;
+import ru.arsysop.loft.rgm.model.api.Declaration;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -237,16 +239,22 @@ public class ContractItemProvider
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Contract)object).getId();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Contract_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_Contract_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+		Contract contract = (Contract) object;
+		StyledString styledLabel = new StyledString();
+		styledLabel.append(getString("_UI_Contract_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Declaration declaration = contract.getDeclaration();
+		if (declaration != null) {
+			styledLabel.append(" --> ", StyledString.Style.COUNTER_STYLER); //$NON-NLS-1$
+			Optional.ofNullable(
+					(IItemStyledLabelProvider) adapterFactory.adapt(declaration, IItemStyledLabelProvider.class))
+					.map(p -> p.getStyledText(declaration))//
+					.filter(StyledString.class::isInstance)//
+					.map(StyledString.class::cast)//
+					.ifPresent(styledLabel::append);
 		}
 		return styledLabel;
 	}
