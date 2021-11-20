@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import ru.arsysop.loft.rgm.model.api.*;
 import ru.arsysop.loft.rgm.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.model.api.Citation;
 import ru.arsysop.loft.rgm.model.api.ClassDecl;
@@ -97,15 +98,18 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case RgmPackage.DOCUMENT: return createDocument();
-			case RgmPackage.FUNCTION_DECL: return createFunctionDecl();
-			case RgmPackage.REQUIREMENT: return createRequirement();
+			case RgmPackage.PARAGRAPH: return createParagraph();
+			case RgmPackage.ANCHORED: return createAnchored();
+			case RgmPackage.MARKUP: return createMarkup();
 			case RgmPackage.CITATION: return createCitation();
-			case RgmPackage.HEADER: return createHeader();
-			case RgmPackage.NAMESPACE: return createNamespace();
-			case RgmPackage.CLASS_DECL: return createClassDecl();
-			case RgmPackage.ENUM_DECL: return createEnumDecl();
+			case RgmPackage.REQUIREMENT: return createRequirement();
 			case RgmPackage.TAG: return createTag();
 			case RgmPackage.CONTRACT: return createContract();
+			case RgmPackage.HEADER: return createHeader();
+			case RgmPackage.NAMESPACE: return createNamespace();
+			case RgmPackage.FUNCTION_DECL: return createFunctionDecl();
+			case RgmPackage.CLASS_DECL: return createClassDecl();
+			case RgmPackage.ENUM_DECL: return createEnumDecl();
 			case RgmPackage.STRUCT_DECL: return createStructDecl();
 			case RgmPackage.UNION_DECL: return createUnionDecl();
 			case RgmPackage.FIELD_DECL: return createFieldDecl();
@@ -162,6 +166,39 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	public Document createDocument() {
 		DocumentImpl document = new DocumentImpl();
 		return document;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Paragraph createParagraph() {
+		ParagraphImpl paragraph = new ParagraphImpl();
+		return paragraph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Anchored createAnchored() {
+		AnchoredImpl anchored = new AnchoredImpl();
+		return anchored;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Markup createMarkup() {
+		MarkupImpl markup = new MarkupImpl();
+		return markup;
 	}
 
 	/**

@@ -18,45 +18,46 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.model.util;
+package ru.arsysop.loft.rgm.model.api;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
- * The <b>Resource </b> associated with the package.
+ * A representation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
- * @see ru.arsysop.loft.rgm.model.util.RgmResourceFactoryImpl
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Paragraph#getNumber <em>Number</em>}</li>
+ * </ul>
+ *
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getParagraph()
+ * @model
  * @generated
  */
-public class RgmResourceImpl extends XMIResourceImpl {
+public interface Paragraph extends WithParts {
+
 	/**
-	 * Creates an instance of the resource.
+	 * Returns the value of the '<em><b>Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
+	 * @return the value of the '<em>Number</em>' attribute.
+	 * @see #setNumber(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getParagraph_Number()
+	 * @model required="true"
 	 * @generated
 	 */
-	public RgmResourceImpl(URI uri) {
-		super(uri);
-	}
-
-	@Override
-	protected boolean useUUIDs() {
-		return true;
-	}
+	String getNumber();
 
 	/**
-	 * @generated NOT
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Paragraph#getNumber <em>Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number</em>' attribute.
+	 * @see #getNumber()
+	 * @generated
 	 */
-	@Override
-	protected void init() {
-		super.init();
-		Map<Object, Object> options = getDefaultLoadOptions();
-		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
-	}
-
-} //RgmResourceImpl
+	void setNumber(String value);
+} // Paragraph

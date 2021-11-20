@@ -25,6 +25,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
+import ru.arsysop.loft.rgm.model.api.*;
 import ru.arsysop.loft.rgm.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.model.api.Citation;
 import ru.arsysop.loft.rgm.model.api.ClassDecl;
@@ -111,16 +112,40 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentAdapter();
 			}
 			@Override
-			public Adapter caseFunctionDecl(FunctionDecl object) {
-				return createFunctionDeclAdapter();
+			public Adapter casePart(Part object) {
+				return createPartAdapter();
+			}
+			@Override
+			public Adapter caseWithParts(WithParts object) {
+				return createWithPartsAdapter();
+			}
+			@Override
+			public Adapter caseParagraph(Paragraph object) {
+				return createParagraphAdapter();
+			}
+			@Override
+			public Adapter caseAnchored(Anchored object) {
+				return createAnchoredAdapter();
+			}
+			@Override
+			public Adapter caseMarkup(Markup object) {
+				return createMarkupAdapter();
+			}
+			@Override
+			public Adapter caseCitation(Citation object) {
+				return createCitationAdapter();
 			}
 			@Override
 			public Adapter caseRequirement(Requirement object) {
 				return createRequirementAdapter();
 			}
 			@Override
-			public Adapter caseCitation(Citation object) {
-				return createCitationAdapter();
+			public Adapter caseTag(Tag object) {
+				return createTagAdapter();
+			}
+			@Override
+			public Adapter caseContract(Contract object) {
+				return createContractAdapter();
 			}
 			@Override
 			public Adapter caseHeader(Header object) {
@@ -135,20 +160,16 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 				return createNamespaceAdapter();
 			}
 			@Override
+			public Adapter caseFunctionDecl(FunctionDecl object) {
+				return createFunctionDeclAdapter();
+			}
+			@Override
 			public Adapter caseClassDecl(ClassDecl object) {
 				return createClassDeclAdapter();
 			}
 			@Override
 			public Adapter caseEnumDecl(EnumDecl object) {
 				return createEnumDeclAdapter();
-			}
-			@Override
-			public Adapter caseTag(Tag object) {
-				return createTagAdapter();
-			}
-			@Override
-			public Adapter caseContract(Contract object) {
-				return createContractAdapter();
 			}
 			@Override
 			public Adapter caseStructDecl(StructDecl object) {
@@ -229,6 +250,76 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocumentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Part <em>Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.Part
+	 * @generated
+	 */
+	public Adapter createPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.WithParts <em>With Parts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.WithParts
+	 * @generated
+	 */
+	public Adapter createWithPartsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Paragraph <em>Paragraph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.Paragraph
+	 * @generated
+	 */
+	public Adapter createParagraphAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Anchored <em>Anchored</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.Anchored
+	 * @generated
+	 */
+	public Adapter createAnchoredAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Markup <em>Markup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.Markup
+	 * @generated
+	 */
+	public Adapter createMarkupAdapter() {
 		return null;
 	}
 

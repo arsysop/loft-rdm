@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Tag#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Tag#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Tag#getContracts <em>Contracts</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Tag#getID <em>ID</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getTag()
@@ -71,25 +71,25 @@ public interface Tag extends EObject {
 	EList<Contract> getContracts();
 
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getTag_ID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getTag_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getID();
+	String getId();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Tag#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Tag#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(String value);
+	void setId(String value);
 
 } // Tag

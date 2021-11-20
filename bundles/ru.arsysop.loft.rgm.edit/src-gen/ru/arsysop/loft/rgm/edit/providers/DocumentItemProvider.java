@@ -27,6 +27,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
@@ -48,6 +49,7 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -57,19 +59,7 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * @generated
  */
 public class DocumentItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider,
-		ITableItemColorProvider,
-		ITableItemFontProvider,
-		IItemColorProvider,
-		IItemFontProvider,
-		IItemStyledLabelProvider {
+	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, ITableItemColorProvider, ITableItemFontProvider, IItemColorProvider, IItemFontProvider, IItemStyledLabelProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -91,30 +81,29 @@ public class DocumentItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIDPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addRevisionPropertyDescriptor(object);
-			addCitationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the ID feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIDPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_ID_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_ID_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_ID(),
+				 getString("_UI_Document_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_id_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getDocument_Id(),
 				 true,
 				 false,
 				 false,
@@ -134,8 +123,8 @@ public class DocumentItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_Name_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_Name_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 getString("_UI_Document_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_name_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getDocument_Name(),
 				 true,
 				 false,
@@ -156,8 +145,8 @@ public class DocumentItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_Type_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_Type_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 getString("_UI_Document_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_type_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getDocument_Type(),
 				 true,
 				 false,
@@ -178,8 +167,8 @@ public class DocumentItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_Version_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_Version_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 getString("_UI_Document_version_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_version_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getDocument_Version(),
 				 true,
 				 false,
@@ -200,8 +189,8 @@ public class DocumentItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_Revision_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_Revision_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 getString("_UI_Document_revision_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Document_revision_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getDocument_Revision(),
 				 true,
 				 false,
@@ -212,25 +201,33 @@ public class DocumentItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Citations feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCitationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Document_citations_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_citations_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Citations(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(RgmPackage.eINSTANCE.getDocument_Paragraphs());
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -241,14 +238,6 @@ public class DocumentItemProvider
 	@Override
 	public boolean hasChildren(Object object) {
 		return hasChildren(object, true);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -264,6 +253,14 @@ public class DocumentItemProvider
 		// TODO: implement this method to return appropriate information for each column.
 		// Ensure that you remove @generated or mark it @generated NOT
 		return columnIndex == 0 ? getImage(object) : super.getImage(object);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -339,6 +336,9 @@ public class DocumentItemProvider
 			case RgmPackage.DOCUMENT__REVISION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case RgmPackage.DOCUMENT__PARAGRAPHS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 			default:
 				super.notifyChanged(notification);
 				return;
@@ -355,6 +355,11 @@ public class DocumentItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getDocument_Paragraphs(),
+				 RgmFactory.eINSTANCE.createParagraph()));
 	}
 
 	/**

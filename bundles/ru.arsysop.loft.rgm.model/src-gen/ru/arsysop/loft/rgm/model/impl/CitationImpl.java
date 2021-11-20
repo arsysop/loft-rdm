@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.model.api.Citation;
-import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -45,106 +45,54 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getID <em>ID</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getChapter <em>Chapter</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getParagraph <em>Paragraph</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getCitation <em>Citation</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getDocument <em>Document</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getContent <em>Content</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.CitationImpl#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CitationImpl extends MinimalEObjectImpl.Container implements Citation {
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getChapter() <em>Chapter</em>}' attribute.
+	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChapter()
+	 * @see #getContent()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CHAPTER_EDEFAULT = null;
+	protected static final String CONTENT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getChapter() <em>Chapter</em>}' attribute.
+	 * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChapter()
+	 * @see #getContent()
 	 * @generated
 	 * @ordered
 	 */
-	protected String chapter = CHAPTER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getParagraph() <em>Paragraph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParagraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PARAGRAPH_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getParagraph() <em>Paragraph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParagraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected String paragraph = PARAGRAPH_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCitation() <em>Citation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCitation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CITATION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCitation() <em>Citation</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCitation()
-	 * @generated
-	 * @ordered
-	 */
-	protected String citation = CITATION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDocument() <em>Document</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDocument()
-	 * @generated
-	 * @ordered
-	 */
-	protected Document document;
+	protected String content = CONTENT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' reference list.
@@ -155,6 +103,16 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	 * @ordered
 	 */
 	protected EList<Requirement> requirements;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected Part location;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,7 +139,7 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	 * @generated
 	 */
 	@Override
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
@@ -191,11 +149,11 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	 * @generated
 	 */
 	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__ID, oldId, id));
 	}
 
 	/**
@@ -204,8 +162,8 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	 * @generated
 	 */
 	@Override
-	public String getChapter() {
-		return chapter;
+	public String getContent() {
+		return content;
 	}
 
 	/**
@@ -214,119 +172,11 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	 * @generated
 	 */
 	@Override
-	public void setChapter(String newChapter) {
-		String oldChapter = chapter;
-		chapter = newChapter;
+	public void setContent(String newContent) {
+		String oldContent = content;
+		content = newContent;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__CHAPTER, oldChapter, chapter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getParagraph() {
-		return paragraph;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParagraph(String newParagraph) {
-		String oldParagraph = paragraph;
-		paragraph = newParagraph;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__PARAGRAPH, oldParagraph, paragraph));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCitation() {
-		return citation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCitation(String newCitation) {
-		String oldCitation = citation;
-		citation = newCitation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__CITATION, oldCitation, citation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Document getDocument() {
-		if (document != null && document.eIsProxy()) {
-			InternalEObject oldDocument = (InternalEObject)document;
-			document = (Document)eResolveProxy(oldDocument);
-			if (document != oldDocument) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RgmPackage.CITATION__DOCUMENT, oldDocument, document));
-			}
-		}
-		return document;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Document basicGetDocument() {
-		return document;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDocument(Document newDocument, NotificationChain msgs) {
-		Document oldDocument = document;
-		document = newDocument;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__DOCUMENT, oldDocument, newDocument);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDocument(Document newDocument) {
-		if (newDocument != document) {
-			NotificationChain msgs = null;
-			if (document != null)
-				msgs = ((InternalEObject)document).eInverseRemove(this, RgmPackage.DOCUMENT__CITATIONS, Document.class, msgs);
-			if (newDocument != null)
-				msgs = ((InternalEObject)newDocument).eInverseAdd(this, RgmPackage.DOCUMENT__CITATIONS, Document.class, msgs);
-			msgs = basicSetDocument(newDocument, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__DOCUMENT, newDocument, newDocument));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__CONTENT, oldContent, content));
 	}
 
 	/**
@@ -347,14 +197,50 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Part getLocation() {
+		if (location != null && location.eIsProxy()) {
+			InternalEObject oldLocation = (InternalEObject)location;
+			location = (Part)eResolveProxy(oldLocation);
+			if (location != oldLocation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RgmPackage.CITATION__LOCATION, oldLocation, location));
+			}
+		}
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Part basicGetLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLocation(Part newLocation) {
+		Part oldLocation = location;
+		location = newLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.CITATION__LOCATION, oldLocation, location));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RgmPackage.CITATION__DOCUMENT:
-				if (document != null)
-					msgs = ((InternalEObject)document).eInverseRemove(this, RgmPackage.DOCUMENT__CITATIONS, Document.class, msgs);
-				return basicSetDocument((Document)otherEnd, msgs);
 			case RgmPackage.CITATION__REQUIREMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequirements()).basicAdd(otherEnd, msgs);
 			default:
@@ -370,8 +256,6 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RgmPackage.CITATION__DOCUMENT:
-				return basicSetDocument(null, msgs);
 			case RgmPackage.CITATION__REQUIREMENTS:
 				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
 			default:
@@ -388,18 +272,14 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RgmPackage.CITATION__ID:
-				return getID();
-			case RgmPackage.CITATION__CHAPTER:
-				return getChapter();
-			case RgmPackage.CITATION__PARAGRAPH:
-				return getParagraph();
-			case RgmPackage.CITATION__CITATION:
-				return getCitation();
-			case RgmPackage.CITATION__DOCUMENT:
-				if (resolve) return getDocument();
-				return basicGetDocument();
+				return getId();
+			case RgmPackage.CITATION__CONTENT:
+				return getContent();
 			case RgmPackage.CITATION__REQUIREMENTS:
 				return getRequirements();
+			case RgmPackage.CITATION__LOCATION:
+				if (resolve) return getLocation();
+				return basicGetLocation();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -415,23 +295,17 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RgmPackage.CITATION__ID:
-				setID((String)newValue);
+				setId((String)newValue);
 				return;
-			case RgmPackage.CITATION__CHAPTER:
-				setChapter((String)newValue);
-				return;
-			case RgmPackage.CITATION__PARAGRAPH:
-				setParagraph((String)newValue);
-				return;
-			case RgmPackage.CITATION__CITATION:
-				setCitation((String)newValue);
-				return;
-			case RgmPackage.CITATION__DOCUMENT:
-				setDocument((Document)newValue);
+			case RgmPackage.CITATION__CONTENT:
+				setContent((String)newValue);
 				return;
 			case RgmPackage.CITATION__REQUIREMENTS:
 				getRequirements().clear();
 				getRequirements().addAll((Collection<? extends Requirement>)newValue);
+				return;
+			case RgmPackage.CITATION__LOCATION:
+				setLocation((Part)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -448,22 +322,16 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RgmPackage.CITATION__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
-			case RgmPackage.CITATION__CHAPTER:
-				setChapter(CHAPTER_EDEFAULT);
-				return;
-			case RgmPackage.CITATION__PARAGRAPH:
-				setParagraph(PARAGRAPH_EDEFAULT);
-				return;
-			case RgmPackage.CITATION__CITATION:
-				setCitation(CITATION_EDEFAULT);
-				return;
-			case RgmPackage.CITATION__DOCUMENT:
-				setDocument((Document)null);
+			case RgmPackage.CITATION__CONTENT:
+				setContent(CONTENT_EDEFAULT);
 				return;
 			case RgmPackage.CITATION__REQUIREMENTS:
 				getRequirements().clear();
+				return;
+			case RgmPackage.CITATION__LOCATION:
+				setLocation((Part)null);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -481,16 +349,12 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 		switch (featureID) {
 			case RgmPackage.CITATION__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case RgmPackage.CITATION__CHAPTER:
-				return CHAPTER_EDEFAULT == null ? chapter != null : !CHAPTER_EDEFAULT.equals(chapter);
-			case RgmPackage.CITATION__PARAGRAPH:
-				return PARAGRAPH_EDEFAULT == null ? paragraph != null : !PARAGRAPH_EDEFAULT.equals(paragraph);
-			case RgmPackage.CITATION__CITATION:
-				return CITATION_EDEFAULT == null ? citation != null : !CITATION_EDEFAULT.equals(citation);
-			case RgmPackage.CITATION__DOCUMENT:
-				return document != null;
+			case RgmPackage.CITATION__CONTENT:
+				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
 			case RgmPackage.CITATION__REQUIREMENTS:
 				return requirements != null && !requirements.isEmpty();
+			case RgmPackage.CITATION__LOCATION:
+				return location != null;
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -506,14 +370,10 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", Chapter: "); //$NON-NLS-1$
-		result.append(chapter);
-		result.append(", Paragraph: "); //$NON-NLS-1$
-		result.append(paragraph);
-		result.append(", Citation: "); //$NON-NLS-1$
-		result.append(citation);
+		result.append(", content: "); //$NON-NLS-1$
+		result.append(content);
 		result.append(')');
 		return result.toString();
 	}

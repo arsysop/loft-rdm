@@ -21,19 +21,18 @@
 package ru.arsysop.loft.rgm.model.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
-import ru.arsysop.loft.rgm.model.api.Citation;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -44,32 +43,32 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getType <em>Type</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getRevision <em>Revision</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getCitations <em>Citations</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getParagraphs <em>Paragraphs</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DocumentImpl extends MinimalEObjectImpl.Container implements Document {
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -146,14 +145,14 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	protected String revision = REVISION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCitations() <em>Citations</em>}' reference list.
+	 * The cached value of the '{@link #getParagraphs() <em>Paragraphs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCitations()
+	 * @see #getParagraphs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Citation> citations;
+	protected EList<Paragraph> paragraphs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,7 +179,7 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
@@ -190,11 +189,11 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DOCUMENT__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DOCUMENT__ID, oldId, id));
 	}
 
 	/**
@@ -295,27 +294,11 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
-	public EList<Citation> getCitations() {
-		if (citations == null) {
-			citations = new EObjectWithInverseResolvingEList<Citation>(Citation.class, this, RgmPackage.DOCUMENT__CITATIONS, RgmPackage.CITATION__DOCUMENT);
+	public EList<Paragraph> getParagraphs() {
+		if (paragraphs == null) {
+			paragraphs = new EObjectContainmentEList<Paragraph>(Paragraph.class, this, RgmPackage.DOCUMENT__PARAGRAPHS);
 		}
-		return citations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RgmPackage.DOCUMENT__CITATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCitations()).basicAdd(otherEnd, msgs);
-			default:
-				return super.eInverseAdd(otherEnd, featureID, msgs);
-		}
+		return paragraphs;
 	}
 
 	/**
@@ -326,8 +309,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RgmPackage.DOCUMENT__CITATIONS:
-				return ((InternalEList<?>)getCitations()).basicRemove(otherEnd, msgs);
+			case RgmPackage.DOCUMENT__PARAGRAPHS:
+				return ((InternalEList<?>)getParagraphs()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -342,7 +325,7 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RgmPackage.DOCUMENT__ID:
-				return getID();
+				return getId();
 			case RgmPackage.DOCUMENT__NAME:
 				return getName();
 			case RgmPackage.DOCUMENT__TYPE:
@@ -351,8 +334,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getVersion();
 			case RgmPackage.DOCUMENT__REVISION:
 				return getRevision();
-			case RgmPackage.DOCUMENT__CITATIONS:
-				return getCitations();
+			case RgmPackage.DOCUMENT__PARAGRAPHS:
+				return getParagraphs();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -368,7 +351,7 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RgmPackage.DOCUMENT__ID:
-				setID((String)newValue);
+				setId((String)newValue);
 				return;
 			case RgmPackage.DOCUMENT__NAME:
 				setName((String)newValue);
@@ -382,9 +365,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case RgmPackage.DOCUMENT__REVISION:
 				setRevision((String)newValue);
 				return;
-			case RgmPackage.DOCUMENT__CITATIONS:
-				getCitations().clear();
-				getCitations().addAll((Collection<? extends Citation>)newValue);
+			case RgmPackage.DOCUMENT__PARAGRAPHS:
+				getParagraphs().clear();
+				getParagraphs().addAll((Collection<? extends Paragraph>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -401,7 +384,7 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RgmPackage.DOCUMENT__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
 			case RgmPackage.DOCUMENT__NAME:
 				setName(NAME_EDEFAULT);
@@ -415,8 +398,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case RgmPackage.DOCUMENT__REVISION:
 				setRevision(REVISION_EDEFAULT);
 				return;
-			case RgmPackage.DOCUMENT__CITATIONS:
-				getCitations().clear();
+			case RgmPackage.DOCUMENT__PARAGRAPHS:
+				getParagraphs().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -442,8 +425,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case RgmPackage.DOCUMENT__REVISION:
 				return REVISION_EDEFAULT == null ? revision != null : !REVISION_EDEFAULT.equals(revision);
-			case RgmPackage.DOCUMENT__CITATIONS:
-				return citations != null && !citations.isEmpty();
+			case RgmPackage.DOCUMENT__PARAGRAPHS:
+				return paragraphs != null && !paragraphs.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -459,15 +442,15 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", Name: "); //$NON-NLS-1$
+		result.append(", name: "); //$NON-NLS-1$
 		result.append(name);
-		result.append(", Type: "); //$NON-NLS-1$
+		result.append(", type: "); //$NON-NLS-1$
 		result.append(type);
-		result.append(", Version: "); //$NON-NLS-1$
+		result.append(", version: "); //$NON-NLS-1$
 		result.append(version);
-		result.append(", Revision: "); //$NON-NLS-1$
+		result.append(", revision: "); //$NON-NLS-1$
 		result.append(revision);
 		result.append(')');
 		return result.toString();

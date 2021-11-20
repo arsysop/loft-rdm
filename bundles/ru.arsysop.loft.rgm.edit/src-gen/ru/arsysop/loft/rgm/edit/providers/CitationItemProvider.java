@@ -91,30 +91,28 @@ public class CitationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIDPropertyDescriptor(object);
-			addChapterPropertyDescriptor(object);
-			addParagraphPropertyDescriptor(object);
-			addCitationPropertyDescriptor(object);
-			addDocumentPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
+			addContentPropertyDescriptor(object);
 			addRequirementsPropertyDescriptor(object);
+			addLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the ID feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIDPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Citation_ID_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_ID_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getCitation_ID(),
+				 getString("_UI_Citation_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_id_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getCitation_Id(),
 				 true,
 				 false,
 				 false,
@@ -124,89 +122,23 @@ public class CitationItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Chapter feature.
+	 * This adds a property descriptor for the Content feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addChapterPropertyDescriptor(Object object) {
+	protected void addContentPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Citation_Chapter_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_Chapter_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getCitation_Chapter(),
+				 getString("_UI_Citation_content_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_content_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getCitation_Content(),
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Paragraph feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParagraphPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Citation_Paragraph_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_Paragraph_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getCitation_Paragraph(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Citation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCitationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Citation_Citation_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_Citation_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getCitation_Citation(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Document feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDocumentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Citation_document_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_document_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getCitation_Document(),
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -225,6 +157,28 @@ public class CitationItemProvider
 				 getString("_UI_Citation_requirements_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_requirements_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getCitation_Requirements(),
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Citation_location_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Citation_location_feature", "_UI_Citation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getCitation_Location(),
 				 true,
 				 false,
 				 true,
@@ -310,7 +264,7 @@ public class CitationItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Citation)object).getID();
+		String label = ((Citation)object).getId();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
 			styledLabel.append(getString("_UI_Citation_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
@@ -333,9 +287,7 @@ public class CitationItemProvider
 
 		switch (notification.getFeatureID(Citation.class)) {
 			case RgmPackage.CITATION__ID:
-			case RgmPackage.CITATION__CHAPTER:
-			case RgmPackage.CITATION__PARAGRAPH:
-			case RgmPackage.CITATION__CITATION:
+			case RgmPackage.CITATION__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

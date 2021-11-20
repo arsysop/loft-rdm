@@ -32,12 +32,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getType <em>Type</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getRevision <em>Revision</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getCitations <em>Citations</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getParagraphs <em>Paragraphs</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument()
@@ -46,26 +46,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Document extends EObject {
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_ID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getID();
+	String getId();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Document#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Document#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(String value);
+	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -156,17 +156,15 @@ public interface Document extends EObject {
 	void setRevision(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Citations</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Citation}.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Citation#getDocument <em>Document</em>}'.
+	 * Returns the value of the '<em><b>Paragraphs</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Paragraph}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Citations</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Citations()
-	 * @see ru.arsysop.loft.rgm.model.api.Citation#getDocument
-	 * @model opposite="document"
+	 * @return the value of the '<em>Paragraphs</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Paragraphs()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Citation> getCitations();
+	EList<Paragraph> getParagraphs();
 
 } // Document

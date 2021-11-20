@@ -23,39 +23,32 @@ package ru.arsysop.loft.rgm.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.FunctionDecl;
-import ru.arsysop.loft.rgm.model.api.ParmDecl;
+import ru.arsysop.loft.rgm.model.api.WithParts;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.FunctionDecl} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.WithParts} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionDeclItemProvider extends DeclarationItemProvider {
+public class WithPartsItemProvider extends PartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FunctionDeclItemProvider(AdapterFactory adapterFactory) {
+	public WithPartsItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,31 +63,8 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSignaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Signature feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSignaturePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FunctionDecl_signature_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionDecl_signature_feature", "_UI_FunctionDecl_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getFunctionDecl_Signature(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -109,7 +79,7 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RgmPackage.eINSTANCE.getFunctionDecl_Parameters());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getWithParts_Parts());
 		}
 		return childrenFeatures;
 	}
@@ -125,14 +95,6 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -160,24 +122,17 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		FunctionDecl decl = (FunctionDecl)object;
+		String label = ((WithParts)object).getName();
     	StyledString styledLabel = new StyledString();
-		styledLabel.append(getString("_UI_FunctionDecl_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		Optional.ofNullable(decl.getName())//
-				.filter(Objects::nonNull)//
-				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append(' ' + s));
-		styledLabel.append("(") //$NON-NLS-1$
-				.append(decl.getParameters().stream()//
-						.map(ParmDecl::getName)//
-						.filter(Objects::nonNull)//
-						.filter(s -> !s.isEmpty())//
-						.collect(Collectors.joining(", ")))// //$NON-NLS-1$
-				.append(")"); //$NON-NLS-1$
+		if (label == null || label.length() == 0) {
+			styledLabel.append(getString("_UI_WithParts_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+		} else {
+			styledLabel.append(getString("_UI_WithParts_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+		}
 		return styledLabel;
 	}
 
@@ -192,11 +147,8 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(FunctionDecl.class)) {
-			case RgmPackage.FUNCTION_DECL__SIGNATURE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case RgmPackage.FUNCTION_DECL__PARAMETERS:
+		switch (notification.getFeatureID(WithParts.class)) {
+			case RgmPackage.WITH_PARTS__PARTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -218,8 +170,13 @@ public class FunctionDeclItemProvider extends DeclarationItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RgmPackage.eINSTANCE.getFunctionDecl_Parameters(),
-				 RgmFactory.eINSTANCE.createParmDecl()));
+				(RgmPackage.eINSTANCE.getWithParts_Parts(),
+				 RgmFactory.eINSTANCE.createParagraph()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getWithParts_Parts(),
+				 RgmFactory.eINSTANCE.createAnchored()));
 	}
 
 }

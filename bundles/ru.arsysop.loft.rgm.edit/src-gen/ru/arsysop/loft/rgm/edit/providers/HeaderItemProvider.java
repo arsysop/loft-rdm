@@ -23,6 +23,8 @@ package ru.arsysop.loft.rgm.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -49,6 +51,7 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.model.api.Header;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -93,32 +96,10 @@ public class HeaderItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIDPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addSynopsisPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the ID feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Header_ID_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Header_ID_feature", "_UI_Header_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getHeader_ID(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -132,13 +113,35 @@ public class HeaderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Header_Name_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Header_Name_feature", "_UI_Header_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 getString("_UI_Header_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Header_name_feature", "_UI_Header_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getHeader_Name(),
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Synopsis feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSynopsisPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Header_synopsis_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Header_synopsis_feature", "_UI_Header_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getHeader_Synopsis(),
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -246,17 +249,24 @@ public class HeaderItemProvider
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Header)object).getName();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Header_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_Header_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		Header header = (Header)object;
+		StyledString styledLabel = new StyledString();
+		styledLabel.append(getString("_UI_Header_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Optional.ofNullable(header.getName())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append('<' + s + '>'));
+		Optional.ofNullable(header.getSynopsis())//
+				.filter(Objects::nonNull)//
+				.map(Part::getId)//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(" --> ", StyledString.Style.COUNTER_STYLER) //$NON-NLS-1$
+						.append('[' + s + ']', StyledString.Style.DECORATIONS_STYLER));
 		return styledLabel;
 	}
 
@@ -272,7 +282,6 @@ public class HeaderItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Header.class)) {
-			case RgmPackage.HEADER__ID:
 			case RgmPackage.HEADER__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -299,12 +308,12 @@ public class HeaderItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(RgmPackage.eINSTANCE.getHeader_Declarations(),
-				 RgmFactory.eINSTANCE.createFunctionDecl()));
+				 RgmFactory.eINSTANCE.createNamespace()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(RgmPackage.eINSTANCE.getHeader_Declarations(),
-				 RgmFactory.eINSTANCE.createNamespace()));
+				 RgmFactory.eINSTANCE.createFunctionDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter

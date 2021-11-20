@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.model.api.Declaration;
 import ru.arsysop.loft.rgm.model.api.Header;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -44,44 +45,14 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getDeclarations <em>Declarations</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getID <em>ID</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getSynopsis <em>Synopsis</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
-	/**
-	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDeclarations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Declaration> declarations;
-
-	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -101,6 +72,26 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSynopsis() <em>Synopsis</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSynopsis()
+	 * @generated
+	 * @ordered
+	 */
+	protected Part synopsis;
+
+	/**
+	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeclarations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Declaration> declarations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,29 +131,6 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	 * @generated
 	 */
 	@Override
-	public String getID() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__ID, oldID, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -178,6 +146,46 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Part getSynopsis() {
+		if (synopsis != null && synopsis.eIsProxy()) {
+			InternalEObject oldSynopsis = (InternalEObject)synopsis;
+			synopsis = (Part)eResolveProxy(oldSynopsis);
+			if (synopsis != oldSynopsis) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RgmPackage.HEADER__SYNOPSIS, oldSynopsis, synopsis));
+			}
+		}
+		return synopsis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Part basicGetSynopsis() {
+		return synopsis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSynopsis(Part newSynopsis) {
+		Part oldSynopsis = synopsis;
+		synopsis = newSynopsis;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.HEADER__SYNOPSIS, oldSynopsis, synopsis));
 	}
 
 	/**
@@ -203,12 +211,13 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				return getDeclarations();
-			case RgmPackage.HEADER__ID:
-				return getID();
 			case RgmPackage.HEADER__NAME:
 				return getName();
+			case RgmPackage.HEADER__SYNOPSIS:
+				if (resolve) return getSynopsis();
+				return basicGetSynopsis();
+			case RgmPackage.HEADER__DECLARATIONS:
+				return getDeclarations();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -223,15 +232,15 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case RgmPackage.HEADER__NAME:
+				setName((String)newValue);
+				return;
+			case RgmPackage.HEADER__SYNOPSIS:
+				setSynopsis((Part)newValue);
+				return;
 			case RgmPackage.HEADER__DECLARATIONS:
 				getDeclarations().clear();
 				getDeclarations().addAll((Collection<? extends Declaration>)newValue);
-				return;
-			case RgmPackage.HEADER__ID:
-				setID((String)newValue);
-				return;
-			case RgmPackage.HEADER__NAME:
-				setName((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -247,14 +256,14 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				getDeclarations().clear();
-				return;
-			case RgmPackage.HEADER__ID:
-				setID(ID_EDEFAULT);
-				return;
 			case RgmPackage.HEADER__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case RgmPackage.HEADER__SYNOPSIS:
+				setSynopsis((Part)null);
+				return;
+			case RgmPackage.HEADER__DECLARATIONS:
+				getDeclarations().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -270,12 +279,12 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.HEADER__DECLARATIONS:
-				return declarations != null && !declarations.isEmpty();
-			case RgmPackage.HEADER__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.HEADER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RgmPackage.HEADER__SYNOPSIS:
+				return synopsis != null;
+			case RgmPackage.HEADER__DECLARATIONS:
+				return declarations != null && !declarations.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -291,9 +300,7 @@ public class HeaderImpl extends MinimalEObjectImpl.Container implements Header {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
-		result.append(id);
-		result.append(", Name: "); //$NON-NLS-1$
+		result.append(" (name: "); //$NON-NLS-1$
 		result.append(name);
 		result.append(')');
 		return result.toString();

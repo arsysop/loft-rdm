@@ -18,45 +18,37 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.model.util;
+package ru.arsysop.loft.rgm.model.api;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * The <b>Resource </b> associated with the package.
+ * A representation of the model object '<em><b>With Parts</b></em>'.
  * <!-- end-user-doc -->
- * @see ru.arsysop.loft.rgm.model.util.RgmResourceFactoryImpl
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.WithParts#getParts <em>Parts</em>}</li>
+ * </ul>
+ *
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getWithParts()
+ * @model abstract="true"
  * @generated
  */
-public class RgmResourceImpl extends XMIResourceImpl {
+public interface WithParts extends Part {
 	/**
-	 * Creates an instance of the resource.
+	 * Returns the value of the '<em><b>Parts</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Part}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
+	 * @return the value of the '<em>Parts</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getWithParts_Parts()
+	 * @model containment="true"
 	 * @generated
 	 */
-	public RgmResourceImpl(URI uri) {
-		super(uri);
-	}
+	EList<Part> getParts();
 
-	@Override
-	protected boolean useUUIDs() {
-		return true;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	protected void init() {
-		super.init();
-		Map<Object, Object> options = getDefaultLoadOptions();
-		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
-	}
-
-} //RgmResourceImpl
+} // WithParts

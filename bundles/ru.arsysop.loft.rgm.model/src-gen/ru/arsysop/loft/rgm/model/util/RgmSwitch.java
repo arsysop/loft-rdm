@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
+import ru.arsysop.loft.rgm.model.api.*;
 import ru.arsysop.loft.rgm.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.model.api.Citation;
 import ru.arsysop.loft.rgm.model.api.ClassDecl;
@@ -112,10 +113,43 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RgmPackage.FUNCTION_DECL: {
-				FunctionDecl functionDecl = (FunctionDecl)theEObject;
-				T result = caseFunctionDecl(functionDecl);
-				if (result == null) result = caseDeclaration(functionDecl);
+			case RgmPackage.PART: {
+				Part part = (Part)theEObject;
+				T result = casePart(part);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.WITH_PARTS: {
+				WithParts withParts = (WithParts)theEObject;
+				T result = caseWithParts(withParts);
+				if (result == null) result = casePart(withParts);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.PARAGRAPH: {
+				Paragraph paragraph = (Paragraph)theEObject;
+				T result = caseParagraph(paragraph);
+				if (result == null) result = caseWithParts(paragraph);
+				if (result == null) result = casePart(paragraph);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.ANCHORED: {
+				Anchored anchored = (Anchored)theEObject;
+				T result = caseAnchored(anchored);
+				if (result == null) result = casePart(anchored);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.MARKUP: {
+				Markup markup = (Markup)theEObject;
+				T result = caseMarkup(markup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.CITATION: {
+				Citation citation = (Citation)theEObject;
+				T result = caseCitation(citation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -125,9 +159,15 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RgmPackage.CITATION: {
-				Citation citation = (Citation)theEObject;
-				T result = caseCitation(citation);
+			case RgmPackage.TAG: {
+				Tag tag = (Tag)theEObject;
+				T result = caseTag(tag);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.CONTRACT: {
+				Contract contract = (Contract)theEObject;
+				T result = caseContract(contract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,6 +190,13 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RgmPackage.FUNCTION_DECL: {
+				FunctionDecl functionDecl = (FunctionDecl)theEObject;
+				T result = caseFunctionDecl(functionDecl);
+				if (result == null) result = caseDeclaration(functionDecl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RgmPackage.CLASS_DECL: {
 				ClassDecl classDecl = (ClassDecl)theEObject;
 				T result = caseClassDecl(classDecl);
@@ -161,18 +208,6 @@ public class RgmSwitch<T> extends Switch<T> {
 				EnumDecl enumDecl = (EnumDecl)theEObject;
 				T result = caseEnumDecl(enumDecl);
 				if (result == null) result = caseDeclaration(enumDecl);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RgmPackage.TAG: {
-				Tag tag = (Tag)theEObject;
-				T result = caseTag(tag);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RgmPackage.CONTRACT: {
-				Contract contract = (Contract)theEObject;
-				T result = caseContract(contract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -279,6 +314,81 @@ public class RgmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDocument(Document object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePart(Part object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>With Parts</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>With Parts</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWithParts(WithParts object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Paragraph</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Paragraph</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParagraph(Paragraph object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Anchored</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Anchored</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnchored(Anchored object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Markup</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Markup</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMarkup(Markup object) {
 		return null;
 	}
 

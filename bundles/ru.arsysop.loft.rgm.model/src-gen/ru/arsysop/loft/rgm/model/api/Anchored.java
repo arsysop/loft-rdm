@@ -18,45 +18,18 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.model.util;
+package ru.arsysop.loft.rgm.model.api;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
- * The <b>Resource </b> associated with the package.
+ * A representation of the model object '<em><b>Anchored</b></em>'.
  * <!-- end-user-doc -->
- * @see ru.arsysop.loft.rgm.model.util.RgmResourceFactoryImpl
+ *
+ *
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getAnchored()
+ * @model
  * @generated
  */
-public class RgmResourceImpl extends XMIResourceImpl {
-	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
-	 * @generated
-	 */
-	public RgmResourceImpl(URI uri) {
-		super(uri);
-	}
-
-	@Override
-	protected boolean useUUIDs() {
-		return true;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	protected void init() {
-		super.init();
-		Map<Object, Object> options = getDefaultLoadOptions();
-		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
-	}
-
-} //RgmResourceImpl
+public interface Anchored extends Part {
+} // Anchored

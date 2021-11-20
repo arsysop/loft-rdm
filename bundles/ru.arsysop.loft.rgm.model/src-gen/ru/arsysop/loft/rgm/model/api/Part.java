@@ -24,36 +24,36 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Declaration</b></em>'.
+ * A representation of the model object '<em><b>Part</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Declaration#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Declaration#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Part#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Part#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDeclaration()
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPart()
  * @model abstract="true"
  * @generated
  */
-public interface Declaration extends EObject {
+public interface Part extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDeclaration_Id()
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPart_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getId();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Declaration#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Part#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Id</em>' attribute.
@@ -68,14 +68,14 @@ public interface Declaration extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDeclaration_Name()
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPart_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Declaration#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Part#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -84,4 +84,4 @@ public interface Declaration extends EObject {
 	 */
 	void setName(String value);
 
-} // Declaration
+} // Part

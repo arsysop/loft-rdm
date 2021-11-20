@@ -22,72 +22,50 @@ package ru.arsysop.loft.rgm.model.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import ru.arsysop.loft.rgm.model.api.Declaration;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Declaration</b></em>'.
+ * An implementation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.ParagraphImpl#getNumber <em>Number</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration {
+public class ParagraphImpl extends WithPartsImpl implements Paragraph {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getNumber()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
-
+	protected static final String NUMBER_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getNumber()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected String number = NUMBER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DeclarationImpl() {
+	protected ParagraphImpl() {
 		super();
 	}
 
@@ -98,7 +76,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RgmPackage.eINSTANCE.getDeclaration();
+		return RgmPackage.eINSTANCE.getParagraph();
 	}
 
 	/**
@@ -107,8 +85,8 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public String getId() {
-		return id;
+	public String getNumber() {
+		return number;
 	}
 
 	/**
@@ -117,34 +95,11 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setNumber(String newNumber) {
+		String oldNumber = number;
+		number = newNumber;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DECLARATION__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DECLARATION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.PARAGRAPH__NUMBER, oldNumber, number));
 	}
 
 	/**
@@ -155,10 +110,8 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__ID:
-				return getId();
-			case RgmPackage.DECLARATION__NAME:
-				return getName();
+			case RgmPackage.PARAGRAPH__NUMBER:
+				return getNumber();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -172,11 +125,8 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__ID:
-				setId((String)newValue);
-				return;
-			case RgmPackage.DECLARATION__NAME:
-				setName((String)newValue);
+			case RgmPackage.PARAGRAPH__NUMBER:
+				setNumber((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -192,11 +142,8 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case RgmPackage.DECLARATION__NAME:
-				setName(NAME_EDEFAULT);
+			case RgmPackage.PARAGRAPH__NUMBER:
+				setNumber(NUMBER_EDEFAULT);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -212,10 +159,8 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.DECLARATION__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case RgmPackage.DECLARATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case RgmPackage.PARAGRAPH__NUMBER:
+				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -231,12 +176,10 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: "); //$NON-NLS-1$
-		result.append(id);
-		result.append(", name: "); //$NON-NLS-1$
-		result.append(name);
+		result.append(" (number: "); //$NON-NLS-1$
+		result.append(number);
 		result.append(')');
 		return result.toString();
 	}
 
-} //DeclarationImpl
+} //ParagraphImpl

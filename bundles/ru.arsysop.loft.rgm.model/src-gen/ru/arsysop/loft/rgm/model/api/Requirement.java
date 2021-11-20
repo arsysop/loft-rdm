@@ -32,9 +32,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getCitation <em>Citation</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getTags <em>Tags</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Requirement#getSee <em>See</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement()
@@ -43,26 +44,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Requirement extends EObject {
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement_ID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getID();
+	String getId();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Requirement#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Requirement#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(String value);
+	void setId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Citation</b></em>' reference.
@@ -101,5 +102,17 @@ public interface Requirement extends EObject {
 	 * @generated
 	 */
 	EList<Tag> getTags();
+
+	/**
+	 * Returns the value of the '<em><b>See</b></em>' reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Part}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>See</em>' reference list.
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getRequirement_See()
+	 * @model
+	 * @generated
+	 */
+	EList<Part> getSee();
 
 } // Requirement

@@ -18,45 +18,38 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.model.util;
+package ru.arsysop.loft.rgm.model.impl;
 
-import java.util.Map;
+import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import ru.arsysop.loft.rgm.model.api.Anchored;
+import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
  * <!-- begin-user-doc -->
- * The <b>Resource </b> associated with the package.
+ * An implementation of the model object '<em><b>Anchored</b></em>'.
  * <!-- end-user-doc -->
- * @see ru.arsysop.loft.rgm.model.util.RgmResourceFactoryImpl
+ *
  * @generated
  */
-public class RgmResourceImpl extends XMIResourceImpl {
+public class AnchoredImpl extends PartImpl implements Anchored {
 	/**
-	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
 	 * @generated
 	 */
-	public RgmResourceImpl(URI uri) {
-		super(uri);
-	}
-
-	@Override
-	protected boolean useUUIDs() {
-		return true;
+	protected AnchoredImpl() {
+		super();
 	}
 
 	/**
-	 * @generated NOT
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
-	protected void init() {
-		super.init();
-		Map<Object, Object> options = getDefaultLoadOptions();
-		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+	protected EClass eStaticClass() {
+		return RgmPackage.eINSTANCE.getAnchored();
 	}
 
-} //RgmResourceImpl
+} //AnchoredImpl

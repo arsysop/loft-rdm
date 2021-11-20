@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Contract#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Contract#getDeclaration <em>Declaration</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Contract#getTags <em>Tags</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Contract#getID <em>ID</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getContract()
@@ -44,14 +44,12 @@ import org.eclipse.emf.ecore.EObject;
 public interface Contract extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Declaration</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Declaration#getContract <em>Contract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declaration</em>' reference.
 	 * @see #setDeclaration(Declaration)
 	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getContract_Declaration()
-	 * @see ru.arsysop.loft.rgm.model.api.Declaration#getContract
-	 * @model opposite="contract" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Declaration getDeclaration();
@@ -81,25 +79,25 @@ public interface Contract extends EObject {
 	EList<Tag> getTags();
 
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getContract_ID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getContract_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getID();
+	String getId();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Contract#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Contract#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(String value);
+	void setId(String value);
 
 } // Contract

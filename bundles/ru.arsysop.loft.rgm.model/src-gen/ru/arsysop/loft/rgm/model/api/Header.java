@@ -32,9 +32,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getDeclarations <em>Declarations</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getID <em>ID</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getSynopsis <em>Synopsis</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Header#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getHeader()
@@ -53,28 +53,6 @@ public interface Header extends EObject {
 	 * @generated
 	 */
 	EList<Declaration> getDeclarations();
-
-	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getHeader_ID()
-	 * @model id="true" required="true"
-	 * @generated
-	 */
-	String getID();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Header#getID <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
-	 * @generated
-	 */
-	void setID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -97,5 +75,27 @@ public interface Header extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Synopsis</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Synopsis</em>' reference.
+	 * @see #setSynopsis(Part)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getHeader_Synopsis()
+	 * @model required="true"
+	 * @generated
+	 */
+	Part getSynopsis();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Header#getSynopsis <em>Synopsis</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Synopsis</em>' reference.
+	 * @see #getSynopsis()
+	 * @generated
+	 */
+	void setSynopsis(Part value);
 
 } // Header

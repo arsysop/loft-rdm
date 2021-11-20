@@ -27,8 +27,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -42,21 +42,21 @@ import org.eclipse.emf.edit.provider.ITableItemColorProvider;
 import org.eclipse.emf.edit.provider.ITableItemFontProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.Requirement;
+import ru.arsysop.loft.rgm.model.api.Markup;
+import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Requirement} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Markup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RequirementItemProvider 
+public class MarkupItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -76,7 +76,7 @@ public class RequirementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequirementItemProvider(AdapterFactory adapterFactory) {
+	public MarkupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -91,100 +91,42 @@ public class RequirementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
-			addCitationPropertyDescriptor(object);
-			addTagsPropertyDescriptor(object);
-			addSeePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_id_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_id_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_Id(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Citations());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Headers());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Requirements());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Tags());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getMarkup_Contracts());
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Citation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCitationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_citation_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_citation_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_Citation(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-	/**
-	 * This adds a property descriptor for the Tags feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTagsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_tags_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_tags_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_Tags(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the See feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSeePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_see_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_see_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_See(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -264,14 +206,7 @@ public class RequirementItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Requirement)object).getId();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Requirement_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_Requirement_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		return styledLabel;
+		return new StyledString(getString("_UI_Markup_type")); //$NON-NLS-1$
 	}
 
 	/**
@@ -285,9 +220,13 @@ public class RequirementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Requirement.class)) {
-			case RgmPackage.REQUIREMENT__ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(Markup.class)) {
+			case RgmPackage.MARKUP__CITATIONS:
+			case RgmPackage.MARKUP__HEADERS:
+			case RgmPackage.MARKUP__REQUIREMENTS:
+			case RgmPackage.MARKUP__TAGS:
+			case RgmPackage.MARKUP__CONTRACTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
 				super.notifyChanged(notification);
@@ -305,6 +244,31 @@ public class RequirementItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Citations(),
+				 RgmFactory.eINSTANCE.createCitation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Headers(),
+				 RgmFactory.eINSTANCE.createHeader()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Requirements(),
+				 RgmFactory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Tags(),
+				 RgmFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getMarkup_Contracts(),
+				 RgmFactory.eINSTANCE.createContract()));
 	}
 
 	/**

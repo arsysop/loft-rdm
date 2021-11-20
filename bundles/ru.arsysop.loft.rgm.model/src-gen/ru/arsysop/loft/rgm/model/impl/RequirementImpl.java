@@ -29,10 +29,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.model.api.Citation;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
@@ -45,29 +47,30 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl#getID <em>ID</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl#getCitation <em>Citation</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl#getTags <em>Tags</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl#getSee <em>See</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RequirementImpl extends MinimalEObjectImpl.Container implements Requirement {
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -94,6 +97,16 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected EList<Tag> tags;
 
 	/**
+	 * The cached value of the '{@link #getSee() <em>See</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSee()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Part> see;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,7 +131,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 */
 	@Override
-	public String getID() {
+	public String getId() {
 		return id;
 	}
 
@@ -128,11 +141,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 */
 	@Override
-	public void setID(String newID) {
-		String oldID = id;
-		id = newID;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.REQUIREMENT__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.REQUIREMENT__ID, oldId, id));
 	}
 
 	/**
@@ -215,6 +228,19 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<Part> getSee() {
+		if (see == null) {
+			see = new EObjectResolvingEList<Part>(Part.class, this, RgmPackage.REQUIREMENT__SEE);
+		}
+		return see;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -256,12 +282,14 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RgmPackage.REQUIREMENT__ID:
-				return getID();
+				return getId();
 			case RgmPackage.REQUIREMENT__CITATION:
 				if (resolve) return getCitation();
 				return basicGetCitation();
 			case RgmPackage.REQUIREMENT__TAGS:
 				return getTags();
+			case RgmPackage.REQUIREMENT__SEE:
+				return getSee();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -277,7 +305,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case RgmPackage.REQUIREMENT__ID:
-				setID((String)newValue);
+				setId((String)newValue);
 				return;
 			case RgmPackage.REQUIREMENT__CITATION:
 				setCitation((Citation)newValue);
@@ -285,6 +313,10 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			case RgmPackage.REQUIREMENT__TAGS:
 				getTags().clear();
 				getTags().addAll((Collection<? extends Tag>)newValue);
+				return;
+			case RgmPackage.REQUIREMENT__SEE:
+				getSee().clear();
+				getSee().addAll((Collection<? extends Part>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -301,13 +333,16 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case RgmPackage.REQUIREMENT__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
 			case RgmPackage.REQUIREMENT__CITATION:
 				setCitation((Citation)null);
 				return;
 			case RgmPackage.REQUIREMENT__TAGS:
 				getTags().clear();
+				return;
+			case RgmPackage.REQUIREMENT__SEE:
+				getSee().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -329,6 +364,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 				return citation != null;
 			case RgmPackage.REQUIREMENT__TAGS:
 				return tags != null && !tags.isEmpty();
+			case RgmPackage.REQUIREMENT__SEE:
+				return see != null && !see.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -344,7 +381,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ID: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
 		result.append(')');
 		return result.toString();

@@ -27,7 +27,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -47,16 +46,16 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.Requirement;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Requirement} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Part} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RequirementItemProvider 
+public class PartItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -76,7 +75,7 @@ public class RequirementItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequirementItemProvider(AdapterFactory adapterFactory) {
+	public PartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -92,9 +91,7 @@ public class RequirementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
-			addCitationPropertyDescriptor(object);
-			addTagsPropertyDescriptor(object);
-			addSeePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -110,9 +107,9 @@ public class RequirementItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Requirement_id_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_id_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_Id(),
+				 getString("_UI_Part_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Part_id_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getPart_Id(),
 				 true,
 				 false,
 				 false,
@@ -122,67 +119,23 @@ public class RequirementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Citation feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCitationPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Requirement_citation_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_citation_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_Citation(),
+				 getString("_UI_Part_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Part_name_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getPart_Name(),
 				 true,
 				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Tags feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTagsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_tags_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_tags_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_Tags(),
-				 true,
 				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the See feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSeePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_see_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_see_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getRequirement_See(),
-				 true,
-				 false,
-				 true,
-				 null,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -195,14 +148,6 @@ public class RequirementItemProvider
 	@Override
 	public boolean hasChildren(Object object) {
 		return hasChildren(object, true);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -264,12 +209,12 @@ public class RequirementItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Requirement)object).getId();
+		String label = ((Part)object).getName();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Requirement_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+			styledLabel.append(getString("_UI_Part_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
 		} else {
-			styledLabel.append(getString("_UI_Requirement_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+			styledLabel.append(getString("_UI_Part_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		return styledLabel;
 	}
@@ -285,8 +230,9 @@ public class RequirementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Requirement.class)) {
-			case RgmPackage.REQUIREMENT__ID:
+		switch (notification.getFeatureID(Part.class)) {
+			case RgmPackage.PART__ID:
+			case RgmPackage.PART__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:
