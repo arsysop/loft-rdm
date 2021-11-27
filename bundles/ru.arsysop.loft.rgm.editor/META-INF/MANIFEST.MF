@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: ru.arsysop.loft.rgm.editor.RgmEditorPlugin$Implementation
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ru.arsysop.loft.rgm.editor
 Require-Bundle: org.eclipse.core.runtime,
  ru.arsysop.loft.rgm.edit;visibility:=reexport,
