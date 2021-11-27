@@ -39,6 +39,7 @@
 		<module>..\..\bundles\ru.arsysop.loft.rgm.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.edit</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.editor</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.ui</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
 
 		<module>..\..\releng\ru.arsysop.loft.rgm.repository</module>
