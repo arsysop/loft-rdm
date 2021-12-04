@@ -35,12 +35,13 @@
 		<module>..\..\features\ru.arsysop.loft.rgm.license.feature</module>
 
 		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.core</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.cxxdraft</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.ecore</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.edit</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.editor</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.ui</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.workbench</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.workspace</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
 
 		<module>..\..\releng\ru.arsysop.loft.rgm.repository</module>
