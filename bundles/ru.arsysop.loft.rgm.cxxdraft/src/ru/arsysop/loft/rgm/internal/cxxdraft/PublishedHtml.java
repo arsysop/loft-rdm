@@ -20,19 +20,31 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
-import org.xml.sax.helpers.DefaultHandler;
+import org.dom4j.Document;
+import org.dom4j.io.DOMReader;
+import org.w3c.tidy.Tidy;
 
-import ru.arsysop.loft.rgm.cxxdraft.Structure;
+import ru.arsysop.loft.rgm.cxxdraft.Draft;
+import ru.arsysop.loft.rgm.cxxdraft.Published;
 
-public final class CxxDraftHandler extends DefaultHandler {
+public final class PublishedHtml implements Published {
 
-	private final List<Structure> structures = new ArrayList<>();
-
-	public Structure content() {
-		return structures.get(0);
+	@Override
+	public Draft from(String from) throws IOException {
+		try (InputStream is = new URL(from).openStream()) {
+			Tidy tidy = new Tidy(); 
+			Document dom = new DOMReader().read(tidy.parseDOM(is, /* no output */null));
+			DefaultDraft draft = new DefaultDraft();
+			CxxDraftVisitor visitor = new CxxDraftVisitor(draft);
+			dom.accept(visitor);
+			return draft;
+		} catch (Exception e) {
+			throw new IOException(String.format(Messages.getString("CxxDraftSax.e_parse_failure"), from), e); //$NON-NLS-1$
+		}
 	}
 
 }

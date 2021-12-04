@@ -20,6 +20,10 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft;
 
-public interface Structure {
+import java.util.List;
+
+public interface Draft {
+
+	List<Index> getIndexes();
 
 }

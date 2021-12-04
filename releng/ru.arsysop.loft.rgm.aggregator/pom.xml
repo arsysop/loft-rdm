@@ -36,6 +36,7 @@
 
 		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.cxxdraft</module>
+		<module>..\..\tests\ru.arsysop.loft.rgm.cxxdraft.tests</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.ecore</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.edit</module>
