@@ -20,7 +20,6 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.workspace.interchange;
 
-import java.util.List;
 import java.util.Objects;
 
 import org.eclipse.core.runtime.CoreException;
@@ -31,8 +30,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.osgi.util.NLS;
 
-import ru.arsysop.loft.rgm.cxxdraft.Structure;
-import ru.arsysop.loft.rgm.internal.cxxdraft.CxxDraftSax;
+import ru.arsysop.loft.rgm.cxxdraft.Draft;
+import ru.arsysop.loft.rgm.internal.cxxdraft.PublishedHtml;
 import ru.arsysop.loft.rgm.internal.workspace.Messages;
 import ru.arsysop.loft.rgm.model.api.Document;
 import ru.arsysop.loft.rgm.workspace.RgmWorkspaceId;
@@ -51,7 +50,7 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
 		try {
-			List<Structure> parsed = new CxxDraftSax().parse(from);
+			Draft parsed = new PublishedHtml().from(from);
 			sub.setWorkRemaining(50);
 			fillDocument(parsed, sub.split(50));
 		} catch (Exception e) {
@@ -60,7 +59,7 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 		}
 	}
 
-	private void fillDocument(List<Structure> parsed, SubMonitor sub) {
+	private void fillDocument(Draft parsed, SubMonitor sub) {
 		// TODO Auto-generated method stub
 	}
 

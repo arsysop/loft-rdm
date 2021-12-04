@@ -18,31 +18,12 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft;
+package ru.arsysop.loft.rgm.cxxdraft;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.List;
 
-import org.dom4j.Document;
-import org.dom4j.io.DOMReader;
-import org.w3c.tidy.Tidy;
+public interface Index {
 
-import ru.arsysop.loft.rgm.cxxdraft.Structure;
-
-public final class CxxDraftSax {
-
-	public List<Structure> parse(String from) throws IOException {
-		try (InputStream is = new URL(from).openStream()) {
-			Tidy tidy = new Tidy(); 
-			Document dom = new DOMReader().read(tidy.parseDOM(is, /* no output */null));
-			CxxDraftVisitor visitor = new CxxDraftVisitor();
-			dom.accept(visitor);
-			return visitor.structures();
-		} catch (Exception e) {
-			throw new IOException(String.format(Messages.getString("CxxDraftSax.e_parse_failure"), from), e); //$NON-NLS-1$
-		}
-	}
+	List<IndexEntry> entries();
 
 }

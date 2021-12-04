@@ -20,9 +20,6 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.dom4j.Attribute;
 import org.dom4j.CDATA;
 import org.dom4j.Comment;
@@ -35,77 +32,62 @@ import org.dom4j.ProcessingInstruction;
 import org.dom4j.Text;
 import org.dom4j.Visitor;
 
-import ru.arsysop.loft.rgm.cxxdraft.Structure;
-
 public final class CxxDraftVisitor implements Visitor {
 
-	private final List<Structure> structures;
+	private final CxxDraftElements elements;
 
-	public CxxDraftVisitor() {
-		this.structures = new ArrayList<>();
+	public CxxDraftVisitor(DefaultDraft draft) {
+		this.elements = new CxxDraftElements();
 	}
 
 	@Override
 	public void visit(Text node) {
-		// TODO Auto-generated method stub
-		
+		// processed with Element node
 	}
 
 	@Override
 	public void visit(ProcessingInstruction node) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
 	@Override
 	public void visit(Namespace namespace) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
 	@Override
 	public void visit(Entity node) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
 	@Override
 	public void visit(Comment node) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
 	@Override
 	public void visit(CDATA node) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
 	@Override
 	public void visit(Attribute node) {
-		// TODO Auto-generated method stub
-		
+		// processed with Element node
 	}
 
 	@Override
 	public void visit(Element node) {
-		// TODO Auto-generated method stub
-		
+		elements.accept(node);
 	}
 
 	@Override
 	public void visit(DocumentType documentType) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
 	@Override
 	public void visit(Document document) {
-		// TODO Auto-generated method stub
-		
+		// so far there is nothing interesting here
 	}
 
-	public List<Structure> structures() {
-		return new ArrayList<>(structures);
-	}
 }
