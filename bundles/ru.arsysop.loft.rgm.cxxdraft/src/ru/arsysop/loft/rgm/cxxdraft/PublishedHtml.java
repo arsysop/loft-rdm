@@ -18,32 +18,42 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft;
+package ru.arsysop.loft.rgm.cxxdraft;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Objects;
 
-import org.dom4j.Document;
 import org.dom4j.io.DOMReader;
 import org.w3c.tidy.Tidy;
 
-import ru.arsysop.loft.rgm.cxxdraft.Draft;
-import ru.arsysop.loft.rgm.cxxdraft.Published;
+import ru.arsysop.loft.rgm.internal.cxxdraft.DocumentVisitor;
+import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
+import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
-public final class PublishedHtml implements Published {
+public final class PublishedHtml {
 
-	@Override
-	public Draft from(String from) throws IOException {
+	private final Document document;
+
+	public PublishedHtml() {
+		this(RgmFactory.eINSTANCE.createDocument());
+	}
+
+	public PublishedHtml(Document document) {
+		this.document = Objects.requireNonNull(document, "PublishedHtml::document"); //$NON-NLS-1$
+	}
+
+	public Document fill(String from) throws IOException {
 		try (InputStream is = new URL(from).openStream()) {
 			Tidy tidy = new Tidy(); 
-			Document dom = new DOMReader().read(tidy.parseDOM(is, /* no output */null));
-			DefaultDraft draft = new DefaultDraft();
-			CxxDraftVisitor visitor = new CxxDraftVisitor(draft);
-			dom.accept(visitor);
-			return draft;
+			new DOMReader()//
+					.read(tidy.parseDOM(is, /* no output */null))//
+					.accept(new DocumentVisitor(document));
+			return document;
 		} catch (Exception e) {
-			throw new IOException(String.format(Messages.getString("CxxDraftSax.e_parse_failure"), from), e); //$NON-NLS-1$
+			throw new IOException(String.format(Messages.getString("PublishedHtml.e_parse_failure"), from), e); //$NON-NLS-1$
 		}
 	}
 

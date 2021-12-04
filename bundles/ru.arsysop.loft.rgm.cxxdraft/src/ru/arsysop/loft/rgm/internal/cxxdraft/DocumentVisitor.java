@@ -32,12 +32,12 @@ import org.dom4j.ProcessingInstruction;
 import org.dom4j.Text;
 import org.dom4j.Visitor;
 
-public final class CxxDraftVisitor implements Visitor {
+public final class DocumentVisitor implements Visitor {
 
-	private final CxxDraftElements elements;
+	private final DocumentElements elements;
 
-	public CxxDraftVisitor(DefaultDraft draft) {
-		this.elements = new CxxDraftElements();
+	public DocumentVisitor(ru.arsysop.loft.rgm.model.api.Document draft) {
+		this.elements = new DocumentElements(draft);
 	}
 
 	@Override

@@ -24,15 +24,15 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import ru.arsysop.loft.rgm.cxxdraft.Draft;
-import ru.arsysop.loft.rgm.internal.cxxdraft.PublishedHtml;
+import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
+import ru.arsysop.loft.rgm.model.api.Document;
 
 public final class Cxx14Test {
 
 	@Test
 	public void testCxx14() throws IOException {
-		Draft parsed = new PublishedHtml().from("https://timsong-cpp.github.io/cppwp/n4140/"); //$NON-NLS-1$
-
+		Document document = new PublishedHtml()//
+				.fill("https://timsong-cpp.github.io/cppwp/n4140/"); //$NON-NLS-1$
 	}
 
 }

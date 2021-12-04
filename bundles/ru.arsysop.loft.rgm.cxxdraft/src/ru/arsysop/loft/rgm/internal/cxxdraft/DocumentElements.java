@@ -24,7 +24,15 @@ import java.util.function.Consumer;
 
 import org.dom4j.Element;
 
-public final class CxxDraftElements implements Consumer<Element> {
+import ru.arsysop.loft.rgm.model.api.Document;
+
+public final class DocumentElements implements Consumer<Element> {
+
+	private Document document;
+
+	public DocumentElements(Document document) {
+		this.document = document;
+	}
 
 	@Override
 	public void accept(Element node) {
