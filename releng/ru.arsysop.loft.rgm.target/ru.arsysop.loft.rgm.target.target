@@ -19,8 +19,7 @@
 
 	Contributors:
 		ArSysOp - initial API and implementation
--->
-<target name="ru.arsysop.loft.rgm.target" sequenceNumber="1">
+--><target name="ru.arsysop.loft.rgm.target" sequenceNumber="1">
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<repository location="https://download.eclipse.org/cbi/updates/license/"/>
@@ -95,9 +94,16 @@
 			<unit id="org.bouncycastle.bcpkix" version="0.0.0"/>
 			<unit id="org.bouncycastle.bcprov" version="0.0.0"/>
 			<unit id="org.bouncycastle.bcutil" version="0.0.0"/>
+			<unit id="org.dom4j" version="2.1.1.v20190321-1528"/>
 			<unit id="org.junit" version="0.0.0"/>
 			<unit id="org.slf4j.api" version="0.0.0"/>
 			<unit id="org.slf4j.apis.log4j" version="0.0.0"/>
+		</location>
+		<location includeSource="true" missingManifest="generate" type="Maven">
+			<groupId>com.github.jtidy</groupId>
+			<artifactId>jtidy</artifactId>
+			<version>1.0.2</version>
+			<type>jar</type>
 		</location>
 	</locations>
 </target>
