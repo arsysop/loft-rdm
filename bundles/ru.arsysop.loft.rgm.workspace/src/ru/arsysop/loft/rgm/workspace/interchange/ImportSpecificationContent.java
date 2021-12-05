@@ -49,7 +49,7 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
 		try {
-			new PublishedHtml(document).fill(from);
+			new PublishedHtml(document, from).parse(System.out::println);
 			sub.setWorkRemaining(50);
 			fillDocument(sub.split(50));
 		} catch (Exception e) {

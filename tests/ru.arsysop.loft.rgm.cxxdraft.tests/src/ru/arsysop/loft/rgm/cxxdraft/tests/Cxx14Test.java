@@ -20,19 +20,27 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft.tests;
 
-import java.io.IOException;
+import static org.junit.Assert.assertFalse;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.core.runtime.CoreException;
 import org.junit.Test;
 
 import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
-import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
 public final class Cxx14Test {
 
 	@Test
-	public void testCxx14() throws IOException {
-		Document document = new PublishedHtml()//
-				.fill("https://timsong-cpp.github.io/cppwp/n4140/"); //$NON-NLS-1$
+	public void testCxx14() throws CoreException {
+		List<String> anchors = new ArrayList<>();
+		new PublishedHtml(RgmFactory.eINSTANCE.createDocument(), //
+				"https://timsong-cpp.github.io/cppwp/n4140/") //$NON-NLS-1$
+						.parse(anchors::add);
+		assertFalse(anchors.isEmpty());
+		anchors.forEach(System.out::println);
 	}
 
 }

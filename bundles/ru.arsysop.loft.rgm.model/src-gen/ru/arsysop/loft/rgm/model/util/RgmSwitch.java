@@ -141,6 +141,19 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RgmPackage.INDEX: {
+				Index index = (Index)theEObject;
+				T result = caseIndex(index);
+				if (result == null) result = casePart(index);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.INDEX_ENTRY: {
+				IndexEntry indexEntry = (IndexEntry)theEObject;
+				T result = caseIndexEntry(indexEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RgmPackage.MARKUP: {
 				Markup markup = (Markup)theEObject;
 				T result = caseMarkup(markup);
@@ -719,6 +732,36 @@ public class RgmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTemplateTypeParameter(TemplateTypeParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Index</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Index</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIndex(Index object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Index Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Index Entry</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIndexEntry(IndexEntry object) {
 		return null;
 	}
 

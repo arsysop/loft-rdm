@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getRevision <em>Revision</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getParagraphs <em>Paragraphs</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getIndexes <em>Indexes</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument()
@@ -166,5 +167,17 @@ public interface Document extends EObject {
 	 * @generated
 	 */
 	EList<Paragraph> getParagraphs();
+
+	/**
+	 * Returns the value of the '<em><b>Indexes</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Index}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Indexes</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Indexes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Index> getIndexes();
 
 } // Document

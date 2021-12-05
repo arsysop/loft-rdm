@@ -1,23 +1,22 @@
-/*******************************************************************************
- * Copyright (c) 2021 ArSysOp.
- *
+/**
+ * Copyright (c) 2021 ArSysOp
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
+ * 	SPDX-License-Identifier: Apache-2.0
  * Contributors:
- *     (ArSysOp) - initial API and implementation
- *******************************************************************************/
+ * 	ArSysOp - initial API and implementation
+ * 
+ */
 package ru.arsysop.loft.rgm.edit.providers;
 
 
@@ -48,25 +47,37 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Document} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.IndexEntry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocumentItemProvider 
-	extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, ITableItemColorProvider, ITableItemFontProvider, IItemColorProvider, IItemFontProvider, IItemStyledLabelProvider {
+public class IndexEntryItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource,
+		ITableItemLabelProvider,
+		ITableItemColorProvider,
+		ITableItemFontProvider,
+		IItemColorProvider,
+		IItemFontProvider,
+		IItemStyledLabelProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocumentItemProvider(AdapterFactory adapterFactory) {
+	public IndexEntryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -81,29 +92,50 @@ public class DocumentItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
-			addRevisionPropertyDescriptor(object);
+			addSeePropertyDescriptor(object);
+			addKeywordPropertyDescriptor(object);
+			addPartsPropertyDescriptor(object);
+			addTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the See feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addSeePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_id_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_id_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Id(),
+				 getString("_UI_IndexEntry_see_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexEntry_see_feature", "_UI_IndexEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getIndexEntry_See(),
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Keyword feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeywordPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IndexEntry_keyword_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexEntry_keyword_feature", "_UI_IndexEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getIndexEntry_Keyword(),
 				 true,
 				 false,
 				 false,
@@ -113,85 +145,41 @@ public class DocumentItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Parts feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addPartsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_name_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_name_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Name(),
+				 getString("_UI_IndexEntry_parts_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexEntry_parts_feature", "_UI_IndexEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getIndexEntry_Parts(),
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Text feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addTextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Document_type_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_type_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Type(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Version feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVersionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Document_version_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_version_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Version(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Revision feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRevisionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Document_revision_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_revision_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Revision(),
+				 getString("_UI_IndexEntry_text_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexEntry_text_feature", "_UI_IndexEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getIndexEntry_Text(),
 				 true,
 				 false,
 				 false,
@@ -212,8 +200,7 @@ public class DocumentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RgmPackage.eINSTANCE.getDocument_Paragraphs());
-			childrenFeatures.add(RgmPackage.eINSTANCE.getDocument_Indexes());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getIndexEntry_Subentries());
 		}
 		return childrenFeatures;
 	}
@@ -242,6 +229,14 @@ public class DocumentItemProvider
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
+	}
+
+	/**
 	 * This returns <code>getImage(object)</code> for the column index <code>0</code> or <code>super.getImage(object)</code> otherwise.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,14 +249,6 @@ public class DocumentItemProvider
 		// TODO: implement this method to return appropriate information for each column.
 		// Ensure that you remove @generated or mark it @generated NOT
 		return columnIndex == 0 ? getImage(object) : super.getImage(object);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -308,12 +295,12 @@ public class DocumentItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Document)object).getName();
+		String label = ((IndexEntry)object).getKeyword();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Document_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+			styledLabel.append(getString("_UI_IndexEntry_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
 		} else {
-			styledLabel.append(getString("_UI_Document_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+			styledLabel.append(getString("_UI_IndexEntry_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		return styledLabel;
 	}
@@ -329,16 +316,12 @@ public class DocumentItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Document.class)) {
-			case RgmPackage.DOCUMENT__ID:
-			case RgmPackage.DOCUMENT__NAME:
-			case RgmPackage.DOCUMENT__TYPE:
-			case RgmPackage.DOCUMENT__VERSION:
-			case RgmPackage.DOCUMENT__REVISION:
+		switch (notification.getFeatureID(IndexEntry.class)) {
+			case RgmPackage.INDEX_ENTRY__KEYWORD:
+			case RgmPackage.INDEX_ENTRY__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case RgmPackage.DOCUMENT__PARAGRAPHS:
-			case RgmPackage.DOCUMENT__INDEXES:
+			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -360,13 +343,8 @@ public class DocumentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RgmPackage.eINSTANCE.getDocument_Paragraphs(),
-				 RgmFactory.eINSTANCE.createParagraph()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getDocument_Indexes(),
-				 RgmFactory.eINSTANCE.createIndex()));
+				(RgmPackage.eINSTANCE.getIndexEntry_Subentries(),
+				 RgmFactory.eINSTANCE.createIndexEntry()));
 	}
 
 	/**
