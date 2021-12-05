@@ -100,6 +100,8 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 			case RgmPackage.DOCUMENT: return createDocument();
 			case RgmPackage.PARAGRAPH: return createParagraph();
 			case RgmPackage.ANCHORED: return createAnchored();
+			case RgmPackage.INDEX: return createIndex();
+			case RgmPackage.INDEX_ENTRY: return createIndexEntry();
 			case RgmPackage.MARKUP: return createMarkup();
 			case RgmPackage.CITATION: return createCitation();
 			case RgmPackage.REQUIREMENT: return createRequirement();
@@ -430,6 +432,28 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	public TemplateTypeParameter createTemplateTypeParameter() {
 		TemplateTypeParameterImpl templateTypeParameter = new TemplateTypeParameterImpl();
 		return templateTypeParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Index createIndex() {
+		IndexImpl index = new IndexImpl();
+		return index;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IndexEntry createIndexEntry() {
+		IndexEntryImpl indexEntry = new IndexEntryImpl();
+		return indexEntry;
 	}
 
 	/**

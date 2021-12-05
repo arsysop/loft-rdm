@@ -220,6 +220,14 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 				return createTemplateTypeParameterAdapter();
 			}
 			@Override
+			public Adapter caseIndex(Index object) {
+				return createIndexAdapter();
+			}
+			@Override
+			public Adapter caseIndexEntry(IndexEntry object) {
+				return createIndexEntryAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -628,6 +636,34 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTemplateTypeParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Index <em>Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.Index
+	 * @generated
+	 */
+	public Adapter createIndexAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.IndexEntry <em>Index Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.IndexEntry
+	 * @generated
+	 */
+	public Adapter createIndexEntryAdapter() {
 		return null;
 	}
 

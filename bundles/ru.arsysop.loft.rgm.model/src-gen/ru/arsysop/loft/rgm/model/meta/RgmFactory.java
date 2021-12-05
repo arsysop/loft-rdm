@@ -36,6 +36,8 @@ import ru.arsysop.loft.rgm.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.model.api.FunctionTemplate;
 import ru.arsysop.loft.rgm.model.api.Header;
+import ru.arsysop.loft.rgm.model.api.Index;
+import ru.arsysop.loft.rgm.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.model.api.Markup;
 import ru.arsysop.loft.rgm.model.api.Namespace;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
@@ -289,6 +291,24 @@ public interface RgmFactory extends EFactory {
 	 * @generated
 	 */
 	TemplateTypeParameter createTemplateTypeParameter();
+
+	/**
+	 * Returns a new object of class '<em>Index</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Index</em>'.
+	 * @generated
+	 */
+	Index createIndex();
+
+	/**
+	 * Returns a new object of class '<em>Index Entry</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Index Entry</em>'.
+	 * @generated
+	 */
+	IndexEntry createIndexEntry();
 
 	/**
 	 * Returns the package supported by this factory.

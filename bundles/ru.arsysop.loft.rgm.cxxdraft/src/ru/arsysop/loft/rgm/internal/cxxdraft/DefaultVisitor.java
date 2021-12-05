@@ -1,24 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2021 ArSysOp.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * Contributors:
- *     (ArSysOp) - initial API and implementation
- *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
+
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Consumer;
 
 import org.dom4j.Attribute;
 import org.dom4j.CDATA;
@@ -31,13 +15,27 @@ import org.dom4j.Namespace;
 import org.dom4j.ProcessingInstruction;
 import org.dom4j.Text;
 import org.dom4j.Visitor;
+import org.eclipse.emf.ecore.EObject;
 
-public final class DocumentVisitor implements Visitor {
+public final class DefaultVisitor<C extends EObject> implements Visitor {
 
-	private final DocumentElements elements;
+	private final BaseElements<C> elements;
+	private final Consumer<String> references;
 
-	public DocumentVisitor(ru.arsysop.loft.rgm.model.api.Document draft) {
-		this.elements = new DocumentElements(draft);
+	public DefaultVisitor(BaseElements<C> elements, Consumer<String> references) {
+		this.elements = Objects.requireNonNull(elements, "DefaultVisitor::elements"); //$NON-NLS-1$
+		this.references = Objects.requireNonNull(references, "DefaultVisitor::references"); //$NON-NLS-1$
+	}
+
+	@Override
+	public void visit(Element node) {
+		// FIXME: AF: url is insufficient, we need to know the element
+		Optional.of(node)//
+				.filter(n -> "a".equals(n.getName())) //$NON-NLS-1$
+				.map(n -> n.attributeValue("href")) //$NON-NLS-1$
+				.filter(u -> !u.startsWith("http")) //$NON-NLS-1$
+				.ifPresent(references);
+		elements.accept(node);
 	}
 
 	@Override
@@ -73,11 +71,6 @@ public final class DocumentVisitor implements Visitor {
 	@Override
 	public void visit(Attribute node) {
 		// processed with Element node
-	}
-
-	@Override
-	public void visit(Element node) {
-		elements.accept(node);
 	}
 
 	@Override

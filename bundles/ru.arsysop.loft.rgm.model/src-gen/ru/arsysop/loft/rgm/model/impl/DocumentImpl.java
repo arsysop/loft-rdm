@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.Index;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -49,6 +50,7 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getParagraphs <em>Paragraphs</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getIndexes <em>Indexes</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +155,16 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @ordered
 	 */
 	protected EList<Paragraph> paragraphs;
+
+	/**
+	 * The cached value of the '{@link #getIndexes() <em>Indexes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndexes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Index> indexes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -307,10 +319,25 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
+	public EList<Index> getIndexes() {
+		if (indexes == null) {
+			indexes = new EObjectContainmentEList<Index>(Index.class, this, RgmPackage.DOCUMENT__INDEXES);
+		}
+		return indexes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				return ((InternalEList<?>)getParagraphs()).basicRemove(otherEnd, msgs);
+			case RgmPackage.DOCUMENT__INDEXES:
+				return ((InternalEList<?>)getIndexes()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -336,6 +363,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getRevision();
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				return getParagraphs();
+			case RgmPackage.DOCUMENT__INDEXES:
+				return getIndexes();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -369,6 +398,10 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				getParagraphs().clear();
 				getParagraphs().addAll((Collection<? extends Paragraph>)newValue);
 				return;
+			case RgmPackage.DOCUMENT__INDEXES:
+				getIndexes().clear();
+				getIndexes().addAll((Collection<? extends Index>)newValue);
+				return;
 			default:
 				super.eSet(featureID, newValue);
 				return;
@@ -401,6 +434,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				getParagraphs().clear();
 				return;
+			case RgmPackage.DOCUMENT__INDEXES:
+				getIndexes().clear();
+				return;
 			default:
 				super.eUnset(featureID);
 				return;
@@ -427,6 +463,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return REVISION_EDEFAULT == null ? revision != null : !REVISION_EDEFAULT.equals(revision);
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				return paragraphs != null && !paragraphs.isEmpty();
+			case RgmPackage.DOCUMENT__INDEXES:
+				return indexes != null && !indexes.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

@@ -20,41 +20,48 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import org.dom4j.io.DOMReader;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.osgi.util.NLS;
 import org.w3c.tidy.Tidy;
 
-import ru.arsysop.loft.rgm.internal.cxxdraft.DocumentVisitor;
+import ru.arsysop.loft.rgm.internal.cxxdraft.BaseElements;
+import ru.arsysop.loft.rgm.internal.cxxdraft.DefaultVisitor;
+import ru.arsysop.loft.rgm.internal.cxxdraft.ElementsSwitch;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
-import ru.arsysop.loft.rgm.model.api.Document;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
 public final class PublishedHtml {
 
-	private final Document document;
+	private final EObject container;
+	private final String from;
 
-	public PublishedHtml() {
-		this(RgmFactory.eINSTANCE.createDocument());
+	public PublishedHtml(EObject container, String from) {
+		this.container = Objects.requireNonNull(container, "PublishedHtml::container"); //$NON-NLS-1$
+		this.from = Objects.requireNonNull(from, "PublishedHtml::from"); //$NON-NLS-1$
 	}
 
-	public PublishedHtml(Document document) {
-		this.document = Objects.requireNonNull(document, "PublishedHtml::document"); //$NON-NLS-1$
-	}
-
-	public Document fill(String from) throws IOException {
+	public void parse(Consumer<String> references) throws CoreException {
+		BaseElements<? extends EObject> elements = new ElementsSwitch().doSwitch(container);
+		if (elements == null) {
+			throw new CoreException(new Status(IStatus.ERROR, getClass(),
+					// FIXME: AF: another message
+					NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, new NullPointerException())));
+		}
 		try (InputStream is = new URL(from).openStream()) {
 			Tidy tidy = new Tidy(); 
 			new DOMReader()//
 					.read(tidy.parseDOM(is, /* no output */null))//
-					.accept(new DocumentVisitor(document));
-			return document;
+					.accept(new DefaultVisitor<>(elements, references));
 		} catch (Exception e) {
-			throw new IOException(String.format(Messages.getString("PublishedHtml.e_parse_failure"), from), e); //$NON-NLS-1$
+			throw new CoreException(new Status(IStatus.ERROR, getClass(), NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, e)));
 		}
 	}
-
 }

@@ -691,6 +691,52 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Index} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IndexItemProvider indexItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Index}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIndexAdapter() {
+		if (indexItemProvider == null) {
+			indexItemProvider = new IndexItemProvider(this);
+		}
+
+		return indexItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.IndexEntry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IndexEntryItemProvider indexEntryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.IndexEntry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIndexEntryAdapter() {
+		if (indexEntryItemProvider == null) {
+			indexEntryItemProvider = new IndexEntryItemProvider(this);
+		}
+
+		return indexEntryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -827,6 +873,8 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 		if (documentItemProvider != null) documentItemProvider.dispose();
 		if (paragraphItemProvider != null) paragraphItemProvider.dispose();
 		if (anchoredItemProvider != null) anchoredItemProvider.dispose();
+		if (indexItemProvider != null) indexItemProvider.dispose();
+		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
 		if (markupItemProvider != null) markupItemProvider.dispose();
 		if (citationItemProvider != null) citationItemProvider.dispose();
 		if (requirementItemProvider != null) requirementItemProvider.dispose();

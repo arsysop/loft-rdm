@@ -10,6 +10,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="paragraphs" upperBound="-1"
         eType="#//Paragraph" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
+        eType="#//Index" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DocumentType" instanceTypeName="newDataType1"/>
   <eClassifiers xsi:type="ecore:EClass" name="Part" abstract="true">
@@ -116,4 +118,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="Destructor" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="TemplateTypeParameter" eSuperTypes="#//Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//Part">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//IndexEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexEntry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subentries" upperBound="-1"
+        eType="#//IndexEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="see" upperBound="-1" eType="#//IndexEntry"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
+        eType="#//Part"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
