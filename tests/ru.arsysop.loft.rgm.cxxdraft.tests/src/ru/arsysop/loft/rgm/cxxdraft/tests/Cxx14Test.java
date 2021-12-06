@@ -29,14 +29,19 @@ import org.eclipse.core.runtime.CoreException;
 import org.junit.Test;
 
 import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
+import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
 public final class Cxx14Test {
 
 	@Test
-	public void testCxx14() throws CoreException {
+	public void testCxx14Toc() throws CoreException {
 		List<String> anchors = new ArrayList<>();
-		new PublishedHtml(RgmFactory.eINSTANCE.createDocument(), //
+		Document document = RgmFactory.eINSTANCE.createDocument();
+		Toc toc = RgmFactory.eINSTANCE.createToc();
+		document.setToc(toc);
+		new PublishedHtml(document, //
 				"https://timsong-cpp.github.io/cppwp/n4140/") //$NON-NLS-1$
 						.parse(anchors::add);
 		assertFalse(anchors.isEmpty());

@@ -98,6 +98,8 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case RgmPackage.DOCUMENT: return createDocument();
+			case RgmPackage.TOC: return createToc();
+			case RgmPackage.TOC_CHAPTER: return createTocChapter();
 			case RgmPackage.PARAGRAPH: return createParagraph();
 			case RgmPackage.ANCHORED: return createAnchored();
 			case RgmPackage.INDEX: return createIndex();
@@ -454,6 +456,28 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	public IndexEntry createIndexEntry() {
 		IndexEntryImpl indexEntry = new IndexEntryImpl();
 		return indexEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Toc createToc() {
+		TocImpl toc = new TocImpl();
+		return toc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TocChapter createTocChapter() {
+		TocChapterImpl tocChapter = new TocChapterImpl();
+		return tocChapter;
 	}
 
 	/**

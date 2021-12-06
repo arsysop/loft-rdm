@@ -28,11 +28,15 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.emf.common.command.IdentityCommand;
 import org.eclipse.osgi.util.NLS;
 
 import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
+import ru.arsysop.loft.rgm.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.internal.workspace.Messages;
 import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.Toc;
+import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.workspace.RgmWorkspaceId;
 
 public final class ImportSpecificationContent implements ICoreRunnable {
@@ -48,14 +52,26 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
+		new EObjectEditingDomain().apply(document).getCommandStack().execute(new IdentityCommand(from));
+		Toc toc = ensureToc();
 		try {
-			new PublishedHtml(document, from).parse(System.out::println);
+			new PublishedHtml(toc, from).parse(System.out::println);
 			sub.setWorkRemaining(50);
 			fillDocument(sub.split(50));
 		} catch (Exception e) {
 			String message = NLS.bind(Messages.ImportSpecificationContent_e_import, from);
 			throw new CoreException(new Status(IStatus.ERROR, new RgmWorkspaceId().get(), message, e));
 		}
+	}
+
+	private Toc ensureToc() {
+		Toc toc = document.getToc();
+		if (toc == null) {
+			// FIXME: AF: with command
+			toc = RgmFactory.eINSTANCE.createToc();
+			document.setToc(toc);
+		}
+		return toc;
 	}
 
 	private void fillDocument(SubMonitor sub) {

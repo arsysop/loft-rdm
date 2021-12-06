@@ -8,6 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DocumentType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toc" eType="#//Toc" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="paragraphs" upperBound="-1"
         eType="#//Paragraph" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
@@ -23,11 +24,33 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
         eType="#//Part" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WithTocChapters" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chapters" upperBound="-1"
+        eType="#//TocChapter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Toc" eSuperTypes="#//WithTocChapters"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TocChapter" eSuperTypes="#//Part #//WithTocChapters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//Part"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Paragraph" eSuperTypes="#//WithParts">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Anchored" eSuperTypes="#//Part"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//Part">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//IndexEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexEntry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subentries" upperBound="-1"
+        eType="#//IndexEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="see" upperBound="-1" eType="#//IndexEntry"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
+        eType="#//Part"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Markup">
     <eStructuralFeatures xsi:type="ecore:EReference" name="citations" upperBound="-1"
         eType="#//Citation" containment="true"/>
@@ -118,17 +141,4 @@
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="Destructor" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="TemplateTypeParameter" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//Part">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
-        eType="#//IndexEntry" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IndexEntry">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subentries" upperBound="-1"
-        eType="#//IndexEntry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="see" upperBound="-1" eType="#//IndexEntry"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
-        eType="#//Part"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
 </ecore:EPackage>

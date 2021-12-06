@@ -4,14 +4,20 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 import org.dom4j.Element;
+import org.dom4j.Text;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.domain.EditingDomain;
+
+import ru.arsysop.loft.rgm.edit.EObjectEditingDomain;
 
 public abstract class BaseElements<C extends EObject> implements Consumer<Element> {
 
 	protected final C container;
+	protected final EditingDomain domain;
 
 	protected BaseElements(C container) {
 		this.container = Objects.requireNonNull(container, "BaseElements::container"); //$NON-NLS-1$
+		this.domain = new EObjectEditingDomain().apply(container);
 	}
 
 	@Override
@@ -89,5 +95,14 @@ public abstract class BaseElements<C extends EObject> implements Consumer<Elemen
 		// so far there is nothing interesting here
 	}
 
+
+	protected void applyText(Element node, Consumer<String> consumer) {
+		node.content().stream()//
+				.filter(Text.class::isInstance)//
+				.map(Text.class::cast)//
+				.map(Text::getText)//
+				.findFirst()//
+				.ifPresent(consumer);
+	}
 
 }

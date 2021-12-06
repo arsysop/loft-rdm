@@ -151,13 +151,22 @@ public interface RgmPackage extends EPackage {
 	int DOCUMENT__REVISION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Toc</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__TOC = 5;
+
+	/**
 	 * The feature id for the '<em><b>Paragraphs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PARAGRAPHS = 5;
+	int DOCUMENT__PARAGRAPHS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
@@ -166,7 +175,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__INDEXES = 6;
+	int DOCUMENT__INDEXES = 7;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -175,7 +184,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 7;
+	int DOCUMENT_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -275,7 +284,414 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getParagraph()
 	 * @generated
 	 */
-	int PARAGRAPH = 3;
+	int PARAGRAPH = 6;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.AnchoredImpl <em>Anchored</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.AnchoredImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getAnchored()
+	 * @generated
+	 */
+	int ANCHORED = 7;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl <em>Markup</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.MarkupImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getMarkup()
+	 * @generated
+	 */
+	int MARKUP = 10;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl <em>Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.DeclarationImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDeclaration()
+	 * @generated
+	 */
+	int DECLARATION = 16;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFunctionDecl()
+	 * @generated
+	 */
+	int FUNCTION_DECL = 18;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl <em>Requirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.RequirementImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getRequirement()
+	 * @generated
+	 */
+	int REQUIREMENT = 12;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.CitationImpl <em>Citation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.CitationImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getCitation()
+	 * @generated
+	 */
+	int CITATION = 11;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl <em>Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.HeaderImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getHeader()
+	 * @generated
+	 */
+	int HEADER = 15;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.NamespaceImpl <em>Namespace</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.NamespaceImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getNamespace()
+	 * @generated
+	 */
+	int NAMESPACE = 17;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ClassDeclImpl <em>Class Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.ClassDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getClassDecl()
+	 * @generated
+	 */
+	int CLASS_DECL = 19;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.EnumDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getEnumDecl()
+	 * @generated
+	 */
+	int ENUM_DECL = 20;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TagImpl <em>Tag</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.TagImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTag()
+	 * @generated
+	 */
+	int TAG = 13;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ContractImpl <em>Contract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.ContractImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getContract()
+	 * @generated
+	 */
+	int CONTRACT = 14;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.StructDeclImpl <em>Struct Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.StructDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getStructDecl()
+	 * @generated
+	 */
+	int STRUCT_DECL = 21;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.UnionDeclImpl <em>Union Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.UnionDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getUnionDecl()
+	 * @generated
+	 */
+	int UNION_DECL = 22;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FieldDeclImpl <em>Field Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.FieldDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFieldDecl()
+	 * @generated
+	 */
+	int FIELD_DECL = 23;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.VarDeclImpl <em>Var Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.VarDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getVarDecl()
+	 * @generated
+	 */
+	int VAR_DECL = 24;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TypedefDeclImpl <em>Typedef Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.TypedefDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTypedefDecl()
+	 * @generated
+	 */
+	int TYPEDEF_DECL = 25;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ParmDeclImpl <em>Parm Decl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.ParmDeclImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getParmDecl()
+	 * @generated
+	 */
+	int PARM_DECL = 26;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FunctionTemplateImpl <em>Function Template</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.FunctionTemplateImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFunctionTemplate()
+	 * @generated
+	 */
+	int FUNCTION_TEMPLATE = 27;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ClassTemplateImpl <em>Class Template</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.ClassTemplateImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getClassTemplate()
+	 * @generated
+	 */
+	int CLASS_TEMPLATE = 28;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.CXXMethodImpl <em>CXX Method</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.CXXMethodImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getCXXMethod()
+	 * @generated
+	 */
+	int CXX_METHOD = 29;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ConstructorImpl <em>Constructor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.ConstructorImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getConstructor()
+	 * @generated
+	 */
+	int CONSTRUCTOR = 30;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.DestructorImpl <em>Destructor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.DestructorImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDestructor()
+	 * @generated
+	 */
+	int DESTRUCTOR = 31;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TemplateTypeParameterImpl <em>Template Type Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.TemplateTypeParameterImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTemplateTypeParameter()
+	 * @generated
+	 */
+	int TEMPLATE_TYPE_PARAMETER = 32;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.IndexImpl <em>Index</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.IndexImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getIndex()
+	 * @generated
+	 */
+	int INDEX = 8;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl <em>Index Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.IndexEntryImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getIndexEntry()
+	 * @generated
+	 */
+	int INDEX_ENTRY = 9;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.WithTocChaptersImpl <em>With Toc Chapters</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.WithTocChaptersImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getWithTocChapters()
+	 * @generated
+	 */
+	int WITH_TOC_CHAPTERS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_TOC_CHAPTERS__CHAPTERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>With Toc Chapters</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_TOC_CHAPTERS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>With Toc Chapters</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_TOC_CHAPTERS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TocImpl <em>Toc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.TocImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getToc()
+	 * @generated
+	 */
+	int TOC = 4;
+
+	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
+
+	/**
+	 * The number of structural features of the '<em>Toc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Toc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_OPERATION_COUNT = WITH_TOC_CHAPTERS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TocChapterImpl <em>Toc Chapter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.TocChapterImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTocChapter()
+	 * @generated
+	 */
+	int TOC_CHAPTER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__CHAPTERS = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__NUMBER = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Part</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__PART = PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Toc Chapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Toc Chapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -332,16 +748,6 @@ public interface RgmPackage extends EPackage {
 	int PARAGRAPH_OPERATION_COUNT = WITH_PARTS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.AnchoredImpl <em>Anchored</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.AnchoredImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getAnchored()
-	 * @generated
-	 */
-	int ANCHORED = 4;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,14 +784,112 @@ public interface RgmPackage extends EPackage {
 	int ANCHORED_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl <em>Markup</em>}' class.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.MarkupImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getMarkup()
 	 * @generated
+	 * @ordered
 	 */
-	int MARKUP = 7;
+	int INDEX__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__ENTRIES = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Index</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Index</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Subentries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__SUBENTRIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>See</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__SEE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Keyword</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__KEYWORD = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__PARTS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__TEXT = 4;
+
+	/**
+	 * The number of structural features of the '<em>Index Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Index Entry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Citations</b></em>' containment reference list.
@@ -449,46 +953,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int MARKUP_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl <em>Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.DeclarationImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDeclaration()
-	 * @generated
-	 */
-	int DECLARATION = 13;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFunctionDecl()
-	 * @generated
-	 */
-	int FUNCTION_DECL = 15;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl <em>Requirement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.RequirementImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getRequirement()
-	 * @generated
-	 */
-	int REQUIREMENT = 9;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.CitationImpl <em>Citation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.CitationImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getCitation()
-	 * @generated
-	 */
-	int CITATION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -599,56 +1063,6 @@ public interface RgmPackage extends EPackage {
 	int REQUIREMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl <em>Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.HeaderImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getHeader()
-	 * @generated
-	 */
-	int HEADER = 12;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.NamespaceImpl <em>Namespace</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.NamespaceImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getNamespace()
-	 * @generated
-	 */
-	int NAMESPACE = 14;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ClassDeclImpl <em>Class Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.ClassDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getClassDecl()
-	 * @generated
-	 */
-	int CLASS_DECL = 16;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.EnumDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getEnumDecl()
-	 * @generated
-	 */
-	int ENUM_DECL = 17;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TagImpl <em>Tag</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.TagImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTag()
-	 * @generated
-	 */
-	int TAG = 10;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -692,16 +1106,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int TAG_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ContractImpl <em>Contract</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.ContractImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getContract()
-	 * @generated
-	 */
-	int CONTRACT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1028,16 +1432,6 @@ public interface RgmPackage extends EPackage {
 	int ENUM_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.StructDeclImpl <em>Struct Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.StructDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getStructDecl()
-	 * @generated
-	 */
-	int STRUCT_DECL = 18;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1072,16 +1466,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCT_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.UnionDeclImpl <em>Union Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.UnionDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getUnionDecl()
-	 * @generated
-	 */
-	int UNION_DECL = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1120,16 +1504,6 @@ public interface RgmPackage extends EPackage {
 	int UNION_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FieldDeclImpl <em>Field Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.FieldDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFieldDecl()
-	 * @generated
-	 */
-	int FIELD_DECL = 20;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1164,16 +1538,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int FIELD_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.VarDeclImpl <em>Var Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.VarDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getVarDecl()
-	 * @generated
-	 */
-	int VAR_DECL = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1212,16 +1576,6 @@ public interface RgmPackage extends EPackage {
 	int VAR_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TypedefDeclImpl <em>Typedef Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.TypedefDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTypedefDecl()
-	 * @generated
-	 */
-	int TYPEDEF_DECL = 22;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,16 +1610,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPEDEF_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ParmDeclImpl <em>Parm Decl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.ParmDeclImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getParmDecl()
-	 * @generated
-	 */
-	int PARM_DECL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1304,16 +1648,6 @@ public interface RgmPackage extends EPackage {
 	int PARM_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FunctionTemplateImpl <em>Function Template</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.FunctionTemplateImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFunctionTemplate()
-	 * @generated
-	 */
-	int FUNCTION_TEMPLATE = 24;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1348,16 +1682,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION_TEMPLATE_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ClassTemplateImpl <em>Class Template</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.ClassTemplateImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getClassTemplate()
-	 * @generated
-	 */
-	int CLASS_TEMPLATE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1403,16 +1727,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLASS_TEMPLATE_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.CXXMethodImpl <em>CXX Method</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.CXXMethodImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getCXXMethod()
-	 * @generated
-	 */
-	int CXX_METHOD = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1469,16 +1783,6 @@ public interface RgmPackage extends EPackage {
 	int CXX_METHOD_OPERATION_COUNT = FUNCTION_DECL_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ConstructorImpl <em>Constructor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.ConstructorImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getConstructor()
-	 * @generated
-	 */
-	int CONSTRUCTOR = 27;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1531,16 +1835,6 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTRUCTOR_OPERATION_COUNT = FUNCTION_DECL_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.DestructorImpl <em>Destructor</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.DestructorImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDestructor()
-	 * @generated
-	 */
-	int DESTRUCTOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1597,16 +1891,6 @@ public interface RgmPackage extends EPackage {
 	int DESTRUCTOR_OPERATION_COUNT = FUNCTION_DECL_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TemplateTypeParameterImpl <em>Template Type Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.TemplateTypeParameterImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTemplateTypeParameter()
-	 * @generated
-	 */
-	int TEMPLATE_TYPE_PARAMETER = 29;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1643,134 +1927,6 @@ public interface RgmPackage extends EPackage {
 	int TEMPLATE_TYPE_PARAMETER_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.IndexImpl <em>Index</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.IndexImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getIndex()
-	 * @generated
-	 */
-	int INDEX = 5;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__ID = PART__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__NAME = PART__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__ENTRIES = PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl <em>Index Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.IndexEntryImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getIndexEntry()
-	 * @generated
-	 */
-	int INDEX_ENTRY = 6;
-
-	/**
-	 * The feature id for the '<em><b>Subentries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY__SUBENTRIES = 0;
-
-	/**
-	 * The feature id for the '<em><b>See</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY__SEE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Keyword</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY__KEYWORD = 2;
-
-	/**
-	 * The feature id for the '<em><b>Parts</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY__PARTS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY__TEXT = 4;
-
-	/**
-	 * The number of structural features of the '<em>Index Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Index Entry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '<em>Document Type</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1778,7 +1934,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDocumentType()
 	 * @generated
 	 */
-	int DOCUMENT_TYPE = 30;
+	int DOCUMENT_TYPE = 33;
 
 
 	/**
@@ -1845,6 +2001,17 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDocument_Revision();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ru.arsysop.loft.rgm.model.api.Document#getToc <em>Toc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Toc</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.Document#getToc()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_Toc();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.model.api.Document#getParagraphs <em>Paragraphs</em>}'.
@@ -2608,6 +2775,69 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIndexEntry_Text();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Toc <em>Toc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Toc</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.Toc
+	 * @generated
+	 */
+	EClass getToc();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.TocChapter <em>Toc Chapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Toc Chapter</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.TocChapter
+	 * @generated
+	 */
+	EClass getTocChapter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.TocChapter#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.TocChapter#getNumber()
+	 * @see #getTocChapter()
+	 * @generated
+	 */
+	EAttribute getTocChapter_Number();
+
+	/**
+	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.model.api.TocChapter#getPart <em>Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Part</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.TocChapter#getPart()
+	 * @see #getTocChapter()
+	 * @generated
+	 */
+	EReference getTocChapter_Part();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.WithTocChapters <em>With Toc Chapters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>With Toc Chapters</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.WithTocChapters
+	 * @generated
+	 */
+	EClass getWithTocChapters();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.model.api.WithTocChapters#getChapters <em>Chapters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Chapters</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.WithTocChapters#getChapters()
+	 * @see #getWithTocChapters()
+	 * @generated
+	 */
+	EReference getWithTocChapters_Chapters();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Document Type</em>}'.

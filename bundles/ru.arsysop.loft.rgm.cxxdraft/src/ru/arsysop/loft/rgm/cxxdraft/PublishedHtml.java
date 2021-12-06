@@ -61,6 +61,7 @@ public final class PublishedHtml {
 					.read(tidy.parseDOM(is, /* no output */null))//
 					.accept(new DefaultVisitor<>(elements, references));
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new CoreException(new Status(IStatus.ERROR, getClass(), NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, e)));
 		}
 	}

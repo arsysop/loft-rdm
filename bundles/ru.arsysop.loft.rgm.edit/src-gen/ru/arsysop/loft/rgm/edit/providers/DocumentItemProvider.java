@@ -212,6 +212,7 @@ public class DocumentItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(RgmPackage.eINSTANCE.getDocument_Toc());
 			childrenFeatures.add(RgmPackage.eINSTANCE.getDocument_Paragraphs());
 			childrenFeatures.add(RgmPackage.eINSTANCE.getDocument_Indexes());
 		}
@@ -337,6 +338,7 @@ public class DocumentItemProvider
 			case RgmPackage.DOCUMENT__REVISION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case RgmPackage.DOCUMENT__TOC:
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 			case RgmPackage.DOCUMENT__INDEXES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -357,6 +359,11 @@ public class DocumentItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RgmPackage.eINSTANCE.getDocument_Toc(),
+				 RgmFactory.eINSTANCE.createToc()));
 
 		newChildDescriptors.add
 			(createChildParameter

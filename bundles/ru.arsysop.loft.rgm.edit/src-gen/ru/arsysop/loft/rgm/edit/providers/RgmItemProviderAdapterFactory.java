@@ -737,6 +737,52 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Toc} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TocItemProvider tocItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Toc}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTocAdapter() {
+		if (tocItemProvider == null) {
+			tocItemProvider = new TocItemProvider(this);
+		}
+
+		return tocItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.TocChapter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TocChapterItemProvider tocChapterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.TocChapter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTocChapterAdapter() {
+		if (tocChapterItemProvider == null) {
+			tocChapterItemProvider = new TocChapterItemProvider(this);
+		}
+
+		return tocChapterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -871,6 +917,8 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	@Override
 	public void dispose() {
 		if (documentItemProvider != null) documentItemProvider.dispose();
+		if (tocItemProvider != null) tocItemProvider.dispose();
+		if (tocChapterItemProvider != null) tocChapterItemProvider.dispose();
 		if (paragraphItemProvider != null) paragraphItemProvider.dispose();
 		if (anchoredItemProvider != null) anchoredItemProvider.dispose();
 		if (indexItemProvider != null) indexItemProvider.dispose();

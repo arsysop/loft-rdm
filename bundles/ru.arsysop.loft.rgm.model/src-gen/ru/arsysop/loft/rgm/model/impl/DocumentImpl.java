@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.model.api.Document;
 import ru.arsysop.loft.rgm.model.api.Index;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
+import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -49,6 +50,7 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getType <em>Type</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getRevision <em>Revision</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getToc <em>Toc</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getIndexes <em>Indexes</em>}</li>
  * </ul>
@@ -145,6 +147,16 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @ordered
 	 */
 	protected String revision = REVISION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getToc() <em>Toc</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToc()
+	 * @generated
+	 * @ordered
+	 */
+	protected Toc toc;
 
 	/**
 	 * The cached value of the '{@link #getParagraphs() <em>Paragraphs</em>}' containment reference list.
@@ -306,6 +318,51 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
+	public Toc getToc() {
+		return toc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetToc(Toc newToc, NotificationChain msgs) {
+		Toc oldToc = toc;
+		toc = newToc;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RgmPackage.DOCUMENT__TOC, oldToc, newToc);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setToc(Toc newToc) {
+		if (newToc != toc) {
+			NotificationChain msgs = null;
+			if (toc != null)
+				msgs = ((InternalEObject)toc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RgmPackage.DOCUMENT__TOC, null, msgs);
+			if (newToc != null)
+				msgs = ((InternalEObject)newToc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RgmPackage.DOCUMENT__TOC, null, msgs);
+			msgs = basicSetToc(newToc, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DOCUMENT__TOC, newToc, newToc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<Paragraph> getParagraphs() {
 		if (paragraphs == null) {
 			paragraphs = new EObjectContainmentEList<Paragraph>(Paragraph.class, this, RgmPackage.DOCUMENT__PARAGRAPHS);
@@ -334,6 +391,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case RgmPackage.DOCUMENT__TOC:
+				return basicSetToc(null, msgs);
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				return ((InternalEList<?>)getParagraphs()).basicRemove(otherEnd, msgs);
 			case RgmPackage.DOCUMENT__INDEXES:
@@ -361,6 +420,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getVersion();
 			case RgmPackage.DOCUMENT__REVISION:
 				return getRevision();
+			case RgmPackage.DOCUMENT__TOC:
+				return getToc();
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				return getParagraphs();
 			case RgmPackage.DOCUMENT__INDEXES:
@@ -393,6 +454,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return;
 			case RgmPackage.DOCUMENT__REVISION:
 				setRevision((String)newValue);
+				return;
+			case RgmPackage.DOCUMENT__TOC:
+				setToc((Toc)newValue);
 				return;
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				getParagraphs().clear();
@@ -431,6 +495,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case RgmPackage.DOCUMENT__REVISION:
 				setRevision(REVISION_EDEFAULT);
 				return;
+			case RgmPackage.DOCUMENT__TOC:
+				setToc((Toc)null);
+				return;
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				getParagraphs().clear();
 				return;
@@ -461,6 +528,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case RgmPackage.DOCUMENT__REVISION:
 				return REVISION_EDEFAULT == null ? revision != null : !REVISION_EDEFAULT.equals(revision);
+			case RgmPackage.DOCUMENT__TOC:
+				return toc != null;
 			case RgmPackage.DOCUMENT__PARAGRAPHS:
 				return paragraphs != null && !paragraphs.isEmpty();
 			case RgmPackage.DOCUMENT__INDEXES:

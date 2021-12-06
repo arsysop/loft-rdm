@@ -4,20 +4,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import org.dom4j.Attribute;
-import org.dom4j.CDATA;
-import org.dom4j.Comment;
-import org.dom4j.Document;
-import org.dom4j.DocumentType;
 import org.dom4j.Element;
-import org.dom4j.Entity;
-import org.dom4j.Namespace;
-import org.dom4j.ProcessingInstruction;
-import org.dom4j.Text;
-import org.dom4j.Visitor;
+import org.dom4j.VisitorSupport;
 import org.eclipse.emf.ecore.EObject;
 
-public final class DefaultVisitor<C extends EObject> implements Visitor {
+public final class DefaultVisitor<C extends EObject> extends VisitorSupport {
 
 	private final BaseElements<C> elements;
 	private final Consumer<String> references;
@@ -36,51 +27,6 @@ public final class DefaultVisitor<C extends EObject> implements Visitor {
 				.filter(u -> !u.startsWith("http")) //$NON-NLS-1$
 				.ifPresent(references);
 		elements.accept(node);
-	}
-
-	@Override
-	public void visit(Text node) {
-		// processed with Element node
-	}
-
-	@Override
-	public void visit(ProcessingInstruction node) {
-		// so far there is nothing interesting here
-	}
-
-	@Override
-	public void visit(Namespace namespace) {
-		// so far there is nothing interesting here
-	}
-
-	@Override
-	public void visit(Entity node) {
-		// so far there is nothing interesting here
-	}
-
-	@Override
-	public void visit(Comment node) {
-		// so far there is nothing interesting here
-	}
-
-	@Override
-	public void visit(CDATA node) {
-		// so far there is nothing interesting here
-	}
-
-	@Override
-	public void visit(Attribute node) {
-		// processed with Element node
-	}
-
-	@Override
-	public void visit(DocumentType documentType) {
-		// so far there is nothing interesting here
-	}
-
-	@Override
-	public void visit(Document document) {
-		// so far there is nothing interesting here
 	}
 
 }
