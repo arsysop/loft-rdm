@@ -18,19 +18,8 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft;
+package ru.arsysop.loft.rgm.cxxdraft;
 
-import org.eclipse.osgi.util.NLS;
+public interface ResolutionContext {
 
-public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.cxxdraft.messages"; //$NON-NLS-1$
-	public static String PublishedHtml_e_parsing_failed;
-	public static String PublishedHtml_e_structure_undefined;
-	static {
-		// initialize resource bundle
-		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
-	}
-
-	private Messages() {
-	}
 }

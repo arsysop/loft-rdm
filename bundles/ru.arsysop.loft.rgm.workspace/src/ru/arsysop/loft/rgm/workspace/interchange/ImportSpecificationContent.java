@@ -32,6 +32,7 @@ import org.eclipse.emf.common.command.IdentityCommand;
 import org.eclipse.osgi.util.NLS;
 
 import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.internal.workspace.Messages;
 import ru.arsysop.loft.rgm.model.api.Document;
@@ -55,7 +56,8 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 		new EObjectEditingDomain().apply(document).getCommandStack().execute(new IdentityCommand(from));
 		Toc toc = ensureToc();
 		try {
-			new PublishedHtml(toc, from).parse(System.out::println);
+			new PublishedHtml(toc, from).parse(new ResolutionContext() {
+			});
 			sub.setWorkRemaining(50);
 			fillDocument(sub.split(50));
 		} catch (Exception e) {

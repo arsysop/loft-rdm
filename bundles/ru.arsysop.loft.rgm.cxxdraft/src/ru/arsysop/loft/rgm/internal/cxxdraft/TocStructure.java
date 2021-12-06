@@ -25,60 +25,50 @@ import java.util.Iterator;
 import org.dom4j.Element;
 import org.dom4j.Node;
 
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
-public final class TocElements extends BaseElements<Toc> {
+public final class TocStructure extends BaseStructure<Toc> {
 
 	private final RgmFactory factory;
 
-	public TocElements(Toc toc) {
-		super(toc);
+	public TocStructure(Toc container, ResolutionContext context) {
+		super(container, context);
 		this.factory = RgmFactory.eINSTANCE;
 	}
 
 	@Override
-	protected void processSpan(Element node) {
-		System.out.println("TocElements.processSpan():" + node); //$NON-NLS-1$
-		// TODO check for content
+	public void body(Element body) {
+		Element wrapper = (Element) body.node(0);
+		for (int i = 0; i < wrapper.nodeCount(); i++) {
+			Node node = wrapper.node(i);
+			if (node instanceof Element) {
+				Element element = (Element) node;
+				switch (node.getName()) {
+				case "div": //$NON-NLS-1$
+					div(element);
+					break;
+
+				default:
+					System.out.println("TocStructure.body(): " + node); //$NON-NLS-1$
+					break;
+				}
+			}
+		}
 	}
 
-	@Override
-	protected void processHx(Element node) {
-		System.out.println("TocElements.processHx(): " + node.getParent().elementText(node.getName())); //$NON-NLS-1$
-		// TODO check for content
-	}
-
-	@Override
-	protected void processHr(Element node) {
-		System.out.println("TocElements.processHr()" + node); //$NON-NLS-1$
-		// TODO most probably ignored, check for content
-	}
-
-	@Override
-	protected void processA(Element node) {
-		System.out.println("TocElements.processA()" + node.attributeValue("href")); //$NON-NLS-1$ //$NON-NLS-2$
-		// TODO depends on parent element
-	}
-
-	@Override
-	protected void processDiv(Element node) {
+	private void div(Element node) {
 		String clazz = node.attributeValue("class"); //$NON-NLS-1$
 		if (clazz == null) {
-			createTocChapter(node);
+			topLevelTocEntry(node);
 			return;
 		}
 		switch (clazz) {
 		case "tocChapter": //$NON-NLS-1$
 			// processed above
 			break;
-		case "tocHeader": //$NON-NLS-1$
-			// FIXME: AF: extract header
-			break;
-		case "wrapper": //$NON-NLS-1$
-			break;
-
 		default:
 			System.out.println("DocumentElements.processDiv()"); //$NON-NLS-1$
 			break;
@@ -86,19 +76,16 @@ public final class TocElements extends BaseElements<Toc> {
 		// TODO process div attributes
 	}
 
-	private void createTocChapter(Element node) {
+	private void topLevelTocEntry(Element node) {
 		TocChapter chapter = factory.createTocChapter();
 		chapter.setId(node.attributeValue("id")); //$NON-NLS-1$
 		Element content = node.element("div"); //$NON-NLS-1$
 		if (content != null) {
-			String name = node.elementText("h2"); //$NON-NLS-1$
-			if (name == null) {
-				name = node.elementText("h3"); //$NON-NLS-1$
-			}
-			chapter.setName(name);
+			chapter.setNumber(node.element("h2") //$NON-NLS-1$
+					.elementText("a")); //$NON-NLS-1$
+			chapter.setName(new ExtractSubElementText("h2").apply(node)); //$NON-NLS-1$
 			createTocSubChapters(chapter, content);
 		} else {
-			chapter.setNumber(node.elementText("a")); //$NON-NLS-1$
 			applyText(node, chapter::setName);
 		}
 		container.getChapters().add(chapter);
@@ -124,5 +111,4 @@ public final class TocElements extends BaseElements<Toc> {
 			}
 		}
 	}
-
 }

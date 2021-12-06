@@ -23,8 +23,8 @@ package ru.arsysop.loft.rgm.cxxdraft;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
-import java.util.function.Consumer;
 
+import org.dom4j.Document;
 import org.dom4j.io.DOMReader;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
@@ -33,10 +33,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.osgi.util.NLS;
 import org.w3c.tidy.Tidy;
 
-import ru.arsysop.loft.rgm.internal.cxxdraft.BaseElements;
-import ru.arsysop.loft.rgm.internal.cxxdraft.DefaultVisitor;
-import ru.arsysop.loft.rgm.internal.cxxdraft.ElementsSwitch;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
+import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 
 public final class PublishedHtml {
 
@@ -48,21 +46,21 @@ public final class PublishedHtml {
 		this.from = Objects.requireNonNull(from, "PublishedHtml::from"); //$NON-NLS-1$
 	}
 
-	public void parse(Consumer<String> references) throws CoreException {
-		BaseElements<? extends EObject> elements = new ElementsSwitch().doSwitch(container);
-		if (elements == null) {
-			throw new CoreException(new Status(IStatus.ERROR, getClass(),
-					// FIXME: AF: another message
-					NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, new NullPointerException())));
-		}
+	public void parse(ResolutionContext context) throws CoreException {
 		try (InputStream is = new URL(from).openStream()) {
-			Tidy tidy = new Tidy(); 
-			new DOMReader()//
-					.read(tidy.parseDOM(is, /* no output */null))//
-					.accept(new DefaultVisitor<>(elements, references));
+			Document parsed = new DOMReader()//
+					.read(new Tidy().parseDOM(is, /* no output */null));
+			new StructureSwitch(context).doSwitch(container)//
+					.orElseThrow(() -> new CoreException(//
+							new Status(IStatus.ERROR, getClass(), //
+									NLS.bind(Messages.PublishedHtml_e_structure_undefined,
+											container.getClass().getName()))))//
+					.read(parsed);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new CoreException(new Status(IStatus.ERROR, getClass(), NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, e)));
+			throw new CoreException(//
+					new Status(IStatus.ERROR, getClass(), //
+							NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, e)));
 		}
 	}
 }
