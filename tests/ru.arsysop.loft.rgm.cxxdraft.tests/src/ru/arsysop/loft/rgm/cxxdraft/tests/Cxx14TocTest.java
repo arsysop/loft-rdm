@@ -21,6 +21,7 @@
 package ru.arsysop.loft.rgm.cxxdraft.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
@@ -45,6 +46,24 @@ public final class Cxx14TocTest {
 				"https://timsong-cpp.github.io/cppwp/n4140/")
 						.parse(new ResolutionContext() {
 						});
+	}
+
+	@Test
+	public void testContent() throws CoreException {
+		EList<TocChapter> chapters = document.getToc().getChapters();
+		assertEquals(37, chapters.size());
+		int from = 2;
+		int numbered = 30;
+		for (int i = from; i < from + numbered; i++) {
+			TocChapter chapter = chapters.get(i);
+			assertEquals(String.valueOf(i - 1), chapter.getNumber());
+		}
+		int annexes = 5;
+		for (int i = from + numbered; i < from + numbered + annexes; i++) {
+			TocChapter chapter = chapters.get(i);
+			String number = chapter.getNumber();
+			assertTrue(number.startsWith("Annex"));
+		}
 	}
 
 	@Test

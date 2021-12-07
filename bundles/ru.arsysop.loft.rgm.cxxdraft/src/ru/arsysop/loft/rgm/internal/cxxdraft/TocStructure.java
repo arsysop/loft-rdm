@@ -21,6 +21,7 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -78,16 +79,31 @@ public final class TocStructure extends BaseStructure<Toc> {
 
 	private void topLevelTocEntry(Element node) {
 		TocChapter chapter = factory.createTocChapter();
-		chapter.setId(node.attributeValue("id")); //$NON-NLS-1$
-		Element content = node.element("div"); //$NON-NLS-1$
-		if (content != null) {
-			chapter.setNumber(node.element("h2") //$NON-NLS-1$
-					.elementText("a")); //$NON-NLS-1$
-			chapter.setName(new ExtractSubElementText("h2").apply(node)); //$NON-NLS-1$
-			createTocSubChapters(chapter, content);
+		String id = node.attributeValue("id").trim(); //$NON-NLS-1$
+		chapter.setId(id);
+		Element h2 = node.element("h2"); //$NON-NLS-1$
+		Element h2a = h2.element("a"); //$NON-NLS-1$
+		String h2acv = h2a.attributeValue("class"); //$NON-NLS-1$
+		if ("annexnum".equals(h2acv)) { //$NON-NLS-1$
+			List<Node> h2acl = h2a.content();
+			if (h2acl.size() == 1) {
+				chapter.setNumber(h2a.getText());
+			} else {
+				chapter.setNumber(h2.elementText("a")); //$NON-NLS-1$
+			}
 		} else {
-			applyText(node, chapter::setName);
+			chapter.setNumber(h2.elementText("a")); //$NON-NLS-1$
 		}
+		chapter.setName(new ExtractSubElementText("h2").apply(node)); //$NON-NLS-1$
+		if (chapter.getNumber() == null) {
+			System.out.println("TocStructure.topLevelTocEntry()"); //$NON-NLS-1$
+		}
+		Element content = node.element("div"); //$NON-NLS-1$
+//		if (content != null) {
+////			createTocSubChapters(chapter, content);
+//		} else {
+//			applyText(node, chapter::setName);
+//		}
 		container.getChapters().add(chapter);
 	}
 
