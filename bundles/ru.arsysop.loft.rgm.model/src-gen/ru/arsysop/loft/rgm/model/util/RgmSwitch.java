@@ -126,6 +126,27 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RgmPackage.WITH_TOC_CHAPTERS: {
+				WithTocChapters withTocChapters = (WithTocChapters)theEObject;
+				T result = caseWithTocChapters(withTocChapters);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.TOC: {
+				Toc toc = (Toc)theEObject;
+				T result = caseToc(toc);
+				if (result == null) result = caseWithTocChapters(toc);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.TOC_CHAPTER: {
+				TocChapter tocChapter = (TocChapter)theEObject;
+				T result = caseTocChapter(tocChapter);
+				if (result == null) result = casePart(tocChapter);
+				if (result == null) result = caseWithTocChapters(tocChapter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RgmPackage.PARAGRAPH: {
 				Paragraph paragraph = (Paragraph)theEObject;
 				T result = caseParagraph(paragraph);
@@ -762,6 +783,51 @@ public class RgmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIndexEntry(IndexEntry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Toc</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Toc</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToc(Toc object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Toc Chapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Toc Chapter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTocChapter(TocChapter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>With Toc Chapters</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>With Toc Chapters</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWithTocChapters(WithTocChapters object) {
 		return null;
 	}
 

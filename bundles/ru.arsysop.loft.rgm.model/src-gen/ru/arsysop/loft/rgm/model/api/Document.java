@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getType <em>Type</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getRevision <em>Revision</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getToc <em>Toc</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getIndexes <em>Indexes</em>}</li>
  * </ul>
@@ -155,6 +156,30 @@ public interface Document extends EObject {
 	 * @generated
 	 */
 	void setRevision(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Toc</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Toc#getDocument <em>Document</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Toc</em>' containment reference.
+	 * @see #setToc(Toc)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Toc()
+	 * @see ru.arsysop.loft.rgm.model.api.Toc#getDocument
+	 * @model opposite="document" containment="true"
+	 * @generated
+	 */
+	Toc getToc();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Document#getToc <em>Toc</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Toc</em>' containment reference.
+	 * @see #getToc()
+	 * @generated
+	 */
+	void setToc(Toc value);
 
 	/**
 	 * Returns the value of the '<em><b>Paragraphs</b></em>' containment reference list.

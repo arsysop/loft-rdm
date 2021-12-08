@@ -53,10 +53,13 @@ import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
+import ru.arsysop.loft.rgm.model.api.Toc;
+import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.api.TypedefDecl;
 import ru.arsysop.loft.rgm.model.api.UnionDecl;
 import ru.arsysop.loft.rgm.model.api.VarDecl;
 import ru.arsysop.loft.rgm.model.api.WithParts;
+import ru.arsysop.loft.rgm.model.api.WithTocChapters;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -282,6 +285,27 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tocEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tocChapterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass withTocChaptersEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType documentTypeEDataType = null;
 
 	/**
@@ -411,7 +435,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDocument_Paragraphs() {
+	public EReference getDocument_Toc() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -421,8 +445,18 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDocument_Indexes() {
+	public EReference getDocument_Paragraphs() {
 		return (EReference)documentEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDocument_Indexes() {
+		return (EReference)documentEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1131,6 +1165,76 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getToc() {
+		return tocEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getToc_Document() {
+		return (EReference)tocEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTocChapter() {
+		return tocChapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTocChapter_Number() {
+		return (EAttribute)tocChapterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTocChapter_Part() {
+		return (EReference)tocChapterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getWithTocChapters() {
+		return withTocChaptersEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getWithTocChapters_Chapters() {
+		return (EReference)withTocChaptersEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getDocumentType() {
 		return documentTypeEDataType;
 	}
@@ -1170,6 +1274,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		createEAttribute(documentEClass, DOCUMENT__TYPE);
 		createEAttribute(documentEClass, DOCUMENT__VERSION);
 		createEAttribute(documentEClass, DOCUMENT__REVISION);
+		createEReference(documentEClass, DOCUMENT__TOC);
 		createEReference(documentEClass, DOCUMENT__PARAGRAPHS);
 		createEReference(documentEClass, DOCUMENT__INDEXES);
 
@@ -1179,6 +1284,16 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		withPartsEClass = createEClass(WITH_PARTS);
 		createEReference(withPartsEClass, WITH_PARTS__PARTS);
+
+		withTocChaptersEClass = createEClass(WITH_TOC_CHAPTERS);
+		createEReference(withTocChaptersEClass, WITH_TOC_CHAPTERS__CHAPTERS);
+
+		tocEClass = createEClass(TOC);
+		createEReference(tocEClass, TOC__DOCUMENT);
+
+		tocChapterEClass = createEClass(TOC_CHAPTER);
+		createEAttribute(tocChapterEClass, TOC_CHAPTER__NUMBER);
+		createEReference(tocChapterEClass, TOC_CHAPTER__PART);
 
 		paragraphEClass = createEClass(PARAGRAPH);
 		createEAttribute(paragraphEClass, PARAGRAPH__NUMBER);
@@ -1305,6 +1420,9 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		// Add supertypes to classes
 		withPartsEClass.getESuperTypes().add(this.getPart());
+		tocEClass.getESuperTypes().add(this.getWithTocChapters());
+		tocChapterEClass.getESuperTypes().add(this.getPart());
+		tocChapterEClass.getESuperTypes().add(this.getWithTocChapters());
 		paragraphEClass.getESuperTypes().add(this.getWithParts());
 		anchoredEClass.getESuperTypes().add(this.getPart());
 		indexEClass.getESuperTypes().add(this.getPart());
@@ -1332,6 +1450,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEAttribute(getDocument_Type(), this.getDocumentType(), "type", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDocument_Version(), ecorePackage.getEString(), "version", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDocument_Revision(), ecorePackage.getEString(), "revision", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocument_Toc(), this.getToc(), this.getToc_Document(), "toc", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDocument_Paragraphs(), this.getParagraph(), null, "paragraphs", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDocument_Indexes(), this.getIndex(), null, "indexes", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
@@ -1341,6 +1460,16 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		initEClass(withPartsEClass, WithParts.class, "WithParts", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getWithParts_Parts(), this.getPart(), null, "parts", null, 0, -1, WithParts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(withTocChaptersEClass, WithTocChapters.class, "WithTocChapters", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getWithTocChapters_Chapters(), this.getTocChapter(), null, "chapters", null, 0, -1, WithTocChapters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(tocEClass, Toc.class, "Toc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getToc_Document(), this.getDocument(), this.getDocument_Toc(), "document", null, 1, 1, Toc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(tocChapterEClass, TocChapter.class, "TocChapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getTocChapter_Number(), ecorePackage.getEString(), "number", null, 0, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getTocChapter_Part(), this.getPart(), null, "part", null, 0, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getParagraph_Number(), ecorePackage.getEString(), "number", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

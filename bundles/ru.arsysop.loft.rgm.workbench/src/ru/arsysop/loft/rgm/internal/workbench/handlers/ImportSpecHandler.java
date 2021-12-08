@@ -28,6 +28,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
@@ -66,8 +67,13 @@ public final class ImportSpecHandler extends AbstractHandler {
 			});
 		} catch (InvocationTargetException e) {
 			Throwable target = e.getTargetException();
+			if (target instanceof CoreException) {
+				CoreException ce = (CoreException) target;
+				ErrorDialog.openError(shell, from, from, ce.getStatus());
+			}
+
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			target.printStackTrace();
 		} catch (InterruptedException e) {
 			// just ignore
 		}

@@ -1,54 +1,58 @@
-/*******************************************************************************
- * Copyright (c) 2021 ArSysOp.
- *
+/**
+ * Copyright (c) 2021 ArSysOp
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
+ * 	SPDX-License-Identifier: Apache-2.0
  * Contributors:
- *     (ArSysOp) - initial API and implementation
- *******************************************************************************/
+ * 	ArSysOp - initial API and implementation
+ * 
+ */
 package ru.arsysop.loft.rgm.edit.providers;
 
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.WithParts;
+import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.WithParts} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.TocChapter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class WithPartsItemProvider extends PartItemProvider {
+public class TocChapterItemProvider extends PartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WithPartsItemProvider(AdapterFactory adapterFactory) {
+	public TocChapterItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,8 +67,54 @@ public class WithPartsItemProvider extends PartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNumberPropertyDescriptor(object);
+			addPartPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TocChapter_number_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TocChapter_number_feature", "_UI_TocChapter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getTocChapter_Number(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Part feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPartPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TocChapter_part_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TocChapter_part_feature", "_UI_TocChapter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getTocChapter_Part(),
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -79,7 +129,7 @@ public class WithPartsItemProvider extends PartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RgmPackage.eINSTANCE.getWithParts_Parts());
+			childrenFeatures.add(RgmPackage.eINSTANCE.getWithTocChapters_Chapters());
 		}
 		return childrenFeatures;
 	}
@@ -95,6 +145,14 @@ public class WithPartsItemProvider extends PartItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -122,17 +180,24 @@ public class WithPartsItemProvider extends PartItemProvider {
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((WithParts)object).getName();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_WithParts_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_WithParts_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		TocChapter chapter = (TocChapter) object;
+		StyledString styledLabel = new StyledString();
+		Optional.ofNullable(chapter.getNumber())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
+		Optional.ofNullable(chapter.getName())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s));
+		Optional.ofNullable(chapter.getId())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(" " + '[' + s + ']', StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$
 		return styledLabel;
 	}
 
@@ -147,8 +212,11 @@ public class WithPartsItemProvider extends PartItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(WithParts.class)) {
-			case RgmPackage.WITH_PARTS__PARTS:
+		switch (notification.getFeatureID(TocChapter.class)) {
+			case RgmPackage.TOC_CHAPTER__NUMBER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case RgmPackage.TOC_CHAPTER__CHAPTERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -170,23 +238,8 @@ public class WithPartsItemProvider extends PartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RgmPackage.eINSTANCE.getWithParts_Parts(),
+				(RgmPackage.eINSTANCE.getWithTocChapters_Chapters(),
 				 RgmFactory.eINSTANCE.createTocChapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getWithParts_Parts(),
-				 RgmFactory.eINSTANCE.createParagraph()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getWithParts_Parts(),
-				 RgmFactory.eINSTANCE.createAnchored()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RgmPackage.eINSTANCE.getWithParts_Parts(),
-				 RgmFactory.eINSTANCE.createIndex()));
 	}
 
 }

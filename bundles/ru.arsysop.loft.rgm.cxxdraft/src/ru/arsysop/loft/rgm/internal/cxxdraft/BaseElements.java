@@ -1,17 +1,43 @@
+/*******************************************************************************
+ * Copyright (c) 2021 ArSysOp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Contributors:
+ *     (ArSysOp) - initial API and implementation
+ *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.Objects;
 import java.util.function.Consumer;
 
 import org.dom4j.Element;
+import org.dom4j.Text;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.domain.EditingDomain;
+
+import ru.arsysop.loft.rgm.edit.EObjectEditingDomain;
 
 public abstract class BaseElements<C extends EObject> implements Consumer<Element> {
 
 	protected final C container;
+	protected final EditingDomain domain;
 
 	protected BaseElements(C container) {
 		this.container = Objects.requireNonNull(container, "BaseElements::container"); //$NON-NLS-1$
+		this.domain = new EObjectEditingDomain().apply(container);
 	}
 
 	@Override
@@ -89,5 +115,15 @@ public abstract class BaseElements<C extends EObject> implements Consumer<Elemen
 		// so far there is nothing interesting here
 	}
 
+
+	protected void applyText(Element node, Consumer<String> consumer) {
+		node.content().stream()//
+				.filter(Text.class::isInstance)//
+				.map(Text.class::cast)//
+				.map(Text::getText)//
+				.map(String::trim)//
+				.findFirst()//
+				.ifPresent(consumer);
+	}
 
 }

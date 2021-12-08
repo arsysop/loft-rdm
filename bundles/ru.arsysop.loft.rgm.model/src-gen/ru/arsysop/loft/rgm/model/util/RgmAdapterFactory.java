@@ -120,12 +120,32 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 				return createWithPartsAdapter();
 			}
 			@Override
+			public Adapter caseWithTocChapters(WithTocChapters object) {
+				return createWithTocChaptersAdapter();
+			}
+			@Override
+			public Adapter caseToc(Toc object) {
+				return createTocAdapter();
+			}
+			@Override
+			public Adapter caseTocChapter(TocChapter object) {
+				return createTocChapterAdapter();
+			}
+			@Override
 			public Adapter caseParagraph(Paragraph object) {
 				return createParagraphAdapter();
 			}
 			@Override
 			public Adapter caseAnchored(Anchored object) {
 				return createAnchoredAdapter();
+			}
+			@Override
+			public Adapter caseIndex(Index object) {
+				return createIndexAdapter();
+			}
+			@Override
+			public Adapter caseIndexEntry(IndexEntry object) {
+				return createIndexEntryAdapter();
 			}
 			@Override
 			public Adapter caseMarkup(Markup object) {
@@ -218,14 +238,6 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTemplateTypeParameter(TemplateTypeParameter object) {
 				return createTemplateTypeParameterAdapter();
-			}
-			@Override
-			public Adapter caseIndex(Index object) {
-				return createIndexAdapter();
-			}
-			@Override
-			public Adapter caseIndexEntry(IndexEntry object) {
-				return createIndexEntryAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -664,6 +676,48 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIndexEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Toc <em>Toc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.Toc
+	 * @generated
+	 */
+	public Adapter createTocAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.TocChapter <em>Toc Chapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.TocChapter
+	 * @generated
+	 */
+	public Adapter createTocChapterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.WithTocChapters <em>With Toc Chapters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.model.api.WithTocChapters
+	 * @generated
+	 */
+	public Adapter createWithTocChaptersAdapter() {
 		return null;
 	}
 

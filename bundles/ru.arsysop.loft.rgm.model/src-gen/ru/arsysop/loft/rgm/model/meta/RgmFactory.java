@@ -46,6 +46,8 @@ import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
+import ru.arsysop.loft.rgm.model.api.Toc;
+import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.api.TypedefDecl;
 import ru.arsysop.loft.rgm.model.api.UnionDecl;
 import ru.arsysop.loft.rgm.model.api.VarDecl;
@@ -309,6 +311,24 @@ public interface RgmFactory extends EFactory {
 	 * @generated
 	 */
 	IndexEntry createIndexEntry();
+
+	/**
+	 * Returns a new object of class '<em>Toc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Toc</em>'.
+	 * @generated
+	 */
+	Toc createToc();
+
+	/**
+	 * Returns a new object of class '<em>Toc Chapter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Toc Chapter</em>'.
+	 * @generated
+	 */
+	TocChapter createTocChapter();
 
 	/**
 	 * Returns the package supported by this factory.

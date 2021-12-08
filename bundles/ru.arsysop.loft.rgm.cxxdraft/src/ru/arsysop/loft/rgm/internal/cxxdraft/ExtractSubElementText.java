@@ -18,29 +18,36 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft.tests;
-
-import static org.junit.Assert.assertFalse;
+package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Function;
 
-import org.eclipse.core.runtime.CoreException;
-import org.junit.Test;
+import org.dom4j.Element;
 
-import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+public final class ExtractSubElementText implements Function<Element, String> {
 
-public final class Cxx14Test {
+	private final List<String> names;
 
-	@Test
-	public void testCxx14() throws CoreException {
-		List<String> anchors = new ArrayList<>();
-		new PublishedHtml(RgmFactory.eINSTANCE.createDocument(), //
-				"https://timsong-cpp.github.io/cppwp/n4140/") //$NON-NLS-1$
-						.parse(anchors::add);
-		assertFalse(anchors.isEmpty());
-		anchors.forEach(System.out::println);
+	public ExtractSubElementText(String... names) {
+		this(Arrays.asList(names));
+	}
+
+	public ExtractSubElementText(List<String> names) {
+		this.names = new ArrayList<String>(names);
+	}
+
+	@Override
+	public String apply(Element element) {
+		return names.stream()//
+				.map(n -> element.elementText(n))//
+				.filter(Objects::nonNull)//
+				.map(String::trim)//
+				.findFirst()//
+				.orElse(""); //$NON-NLS-1$
 	}
 
 }
