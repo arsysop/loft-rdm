@@ -22,6 +22,8 @@ package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.dom4j.Element;
@@ -89,15 +91,16 @@ public final class TocStructure extends BaseStructure<Toc> {
 
 	private void topLevelTocEntry(Element node) {
 		TocChapter chapter = createTocChapter(node);
-		Element h2 = node.element("h2"); //$NON-NLS-1$
-		Element h2a = h2.element("a"); //$NON-NLS-1$
-		String h2acv = h2a.attributeValue("class"); //$NON-NLS-1$
-		String text = h2a.getText();
-		if (text.startsWith("[")) { //$NON-NLS-1$
+		if (node.element("h2")//$NON-NLS-1$
+				.element("a")//$NON-NLS-1$
+				.getText()//
+				.startsWith("[")) { //$NON-NLS-1$
 			completeVisualization(chapter, node);
 		} else {
-			chapter.setNumber(text);
-			if ("annexnum".equals(h2acv)) { //$NON-NLS-1$
+			if ("annexnum".equals( //$NON-NLS-1$
+					node.element("h2") //$NON-NLS-1$
+							.element("a") //$NON-NLS-1$
+							.attributeValue("class"))) { //$NON-NLS-1$
 				completeAnnex(chapter, node);
 			} else {
 				completeParagraph(chapter, node, container.getChapters()::add,
@@ -119,17 +122,25 @@ public final class TocStructure extends BaseStructure<Toc> {
 			chapter.setId(id);
 		} else {
 			List<Element> elements = node.elements();
-			chapter.setNumber(elements.get(0).getText());
 			chapter.setName(node.getText().trim());
 			if (elements.size() == 3) {
 				chapter.setId(elements.get(2).attributeValue("href")); //$NON-NLS-1$
 			} else if (elements.size() == 2) {
 				chapter.setId(elements.get(1).attributeValue("href")); //$NON-NLS-1$
-			} else {
-				chapter.setId(elements.get(1).attributeValue("href")); //$NON-NLS-1$
 			}
 		}
+		chapter.setNumber(paragraphNumber(node));
 		return chapter;
+	}
+
+	private String paragraphNumber(Element node) {
+		Element a = node.element("a"); //$NON-NLS-1$
+		if (a == null && !node.elements().isEmpty()) {
+			a = node.elements().get(0).element("a"); //$NON-NLS-1$
+		}
+		return Optional.ofNullable(a)
+				.map(Element::getText).filter(Objects::nonNull).filter(t -> !t.startsWith("[")) //$NON-NLS-1$
+				.orElse(""); //$NON-NLS-1$
 	}
 
 	private void completeVisualization(TocChapter chapter, Element node) {
@@ -154,7 +165,8 @@ public final class TocStructure extends BaseStructure<Toc> {
 		List<Element> elements = div.elements();
 		for (Element element : elements) {
 			TocChapter sub = createTocChapter(element);
-			completeParagraph(sub, element, sub.getChapters()::add, ((Paragraph) chapter.getPart()).getParts()::add);
+			completeParagraph(sub, element, chapter.getChapters()::add,
+					((Paragraph) chapter.getPart()).getParts()::add);
 		}
 	}
 

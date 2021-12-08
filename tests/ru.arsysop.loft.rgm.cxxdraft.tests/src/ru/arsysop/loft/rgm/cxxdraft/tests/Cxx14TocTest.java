@@ -91,11 +91,45 @@ public final class Cxx14TocTest {
 	}
 
 	@Test
-	public void testGeneral() throws CoreException {
+	public void test01General() throws CoreException {
 		EList<TocChapter> chapters = document.getToc().getChapters();
 		TocChapter chapter = chapters.get(2);
 		assertEquals("1", chapter.getNumber());
 		assertEquals("General", chapter.getName());
 		assertEquals("intro", chapter.getId());
 	}
+
+	@Test
+	public void test09Classes() throws CoreException {
+		EList<TocChapter> chapters = document.getToc().getChapters();
+		TocChapter chapter = chapters.get(10);
+		assertEquals("9", chapter.getNumber());
+		assertEquals("Classes", chapter.getName());
+		assertEquals("class", chapter.getId());
+		EList<TocChapter> subs = chapter.getChapters();
+		assertEquals(9, subs.size());
+	}
+
+	@Test
+	public void test14Templates() throws CoreException {
+		EList<TocChapter> chapters = document.getToc().getChapters();
+		TocChapter chapter = chapters.get(15);
+		assertEquals("14", chapter.getNumber());
+		assertEquals("Templates", chapter.getName());
+		assertEquals("temp", chapter.getId());
+		EList<TocChapter> subs = chapter.getChapters();
+		assertEquals(8, subs.size());
+	}
+
+	@Test
+	public void test23Containers() throws CoreException {
+		EList<TocChapter> chapters = document.getToc().getChapters();
+		TocChapter chapter = chapters.get(24);
+		assertEquals("23", chapter.getNumber());
+		assertEquals("Containers library", chapter.getName());
+		assertEquals("containers", chapter.getId());
+		EList<TocChapter> subs = chapter.getChapters();
+		assertEquals(6, subs.size());
+	}
+
 }
