@@ -158,15 +158,17 @@ public final class TocStructure extends BaseStructure<Toc> {
 		paragraph.setNumber(chapter.getNumber());
 		chapter.setPart(paragraph);
 		paragraphs.accept(paragraph);
-		Element div = node.element("div"); //$NON-NLS-1$
-		if (div == null) {
-			return;
-		}
-		List<Element> elements = div.elements();
-		for (Element element : elements) {
-			TocChapter sub = createTocChapter(element);
-			completeParagraph(sub, element, chapter.getChapters()::add,
-					((Paragraph) chapter.getPart()).getParts()::add);
+		List<Element> divs = node.elements();
+		for (Element div : divs) {
+			if (!"div".equals(div.getName())) { //$NON-NLS-1$
+				continue;
+			}
+			List<Element> elements = div.elements();
+			for (Element element : elements) {
+				TocChapter sub = createTocChapter(element);
+				completeParagraph(sub, element, chapter.getChapters()::add,
+						((Paragraph) chapter.getPart()).getParts()::add);
+			}
 		}
 	}
 
