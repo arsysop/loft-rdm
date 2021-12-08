@@ -8,7 +8,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DocumentType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="revision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toc" eType="#//Toc" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toc" eType="#//Toc" containment="true"
+        eOpposite="#//Toc/document"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="paragraphs" upperBound="-1"
         eType="#//Paragraph" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
@@ -28,7 +29,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="chapters" upperBound="-1"
         eType="#//TocChapter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Toc" eSuperTypes="#//WithTocChapters"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Toc" eSuperTypes="#//WithTocChapters">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="document" lowerBound="1"
+        eType="#//Document" eOpposite="#//Document/toc"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TocChapter" eSuperTypes="#//Part #//WithTocChapters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//Part"/>

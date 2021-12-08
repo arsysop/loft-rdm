@@ -180,7 +180,7 @@ public class TocChapterItemProvider extends PartItemProvider {
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {

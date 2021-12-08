@@ -22,11 +22,14 @@ package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.model.api.Index;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
@@ -51,9 +54,14 @@ public final class TocStructure extends BaseStructure<Toc> {
 				case "div": //$NON-NLS-1$
 					div(element);
 					break;
-
+				case "h2": //$NON-NLS-1$
+					topLevelH2(element);
+					break;
+				case "h1": //$NON-NLS-1$
+					// may be later;
+					break;
 				default:
-					System.out.println("TocStructure.body(): " + node); //$NON-NLS-1$
+					System.err.println("TOC unknown: " + node); //$NON-NLS-1$
 					break;
 				}
 			}
@@ -66,6 +74,8 @@ public final class TocStructure extends BaseStructure<Toc> {
 			topLevelTocEntry(node);
 			return;
 		}
+		System.out.println("DocumentElements.processDiv() for class: " + clazz); //$NON-NLS-1$
+
 		switch (clazz) {
 		case "tocChapter": //$NON-NLS-1$
 			// processed above
@@ -78,33 +88,97 @@ public final class TocStructure extends BaseStructure<Toc> {
 	}
 
 	private void topLevelTocEntry(Element node) {
-		TocChapter chapter = factory.createTocChapter();
-		String id = node.attributeValue("id").trim(); //$NON-NLS-1$
-		chapter.setId(id);
+		TocChapter chapter = createTocChapter(node);
 		Element h2 = node.element("h2"); //$NON-NLS-1$
 		Element h2a = h2.element("a"); //$NON-NLS-1$
 		String h2acv = h2a.attributeValue("class"); //$NON-NLS-1$
-		if ("annexnum".equals(h2acv)) { //$NON-NLS-1$
-			List<Node> h2acl = h2a.content();
-			if (h2acl.size() == 1) {
-				chapter.setNumber(h2a.getText());
-			} else {
-				chapter.setNumber(h2.elementText("a")); //$NON-NLS-1$
-			}
+		String text = h2a.getText();
+		if (text.startsWith("[")) { //$NON-NLS-1$
+			completeVisualization(chapter, node);
 		} else {
-			chapter.setNumber(h2.elementText("a")); //$NON-NLS-1$
+			chapter.setNumber(text);
+			if ("annexnum".equals(h2acv)) { //$NON-NLS-1$
+				completeAnnex(chapter, node);
+			} else {
+				completeParagraph(chapter, node, container.getChapters()::add,
+						container.getDocument().getParagraphs()::add);
+			}
 		}
-		chapter.setName(new ExtractSubElementText("h2").apply(node)); //$NON-NLS-1$
-		if (chapter.getNumber() == null) {
-			System.out.println("TocStructure.topLevelTocEntry()"); //$NON-NLS-1$
+	}
+
+	private TocChapter createTocChapter(Element node) {
+		TocChapter chapter = factory.createTocChapter();
+		String raw = node.attributeValue("id"); //$NON-NLS-1$
+		if (raw != null) {
+			String id = raw.trim();
+			chapter.setName(new ExtractSubElementText("h2", "h3", "h4").apply(node)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			String name = chapter.getName();
+			if (name.isEmpty()) {
+				System.out.println("TocStructure.createTocChapter(): no name" + node); //$NON-NLS-1$
+			}
+			chapter.setId(id);
+		} else {
+			List<Element> elements = node.elements();
+			chapter.setNumber(elements.get(0).getText());
+			chapter.setName(node.getText().trim());
+			if (elements.size() == 3) {
+				chapter.setId(elements.get(2).attributeValue("href")); //$NON-NLS-1$
+			} else if (elements.size() == 2) {
+				chapter.setId(elements.get(1).attributeValue("href")); //$NON-NLS-1$
+			} else {
+				chapter.setId(elements.get(1).attributeValue("href")); //$NON-NLS-1$
+			}
 		}
-		Element content = node.element("div"); //$NON-NLS-1$
-//		if (content != null) {
-////			createTocSubChapters(chapter, content);
-//		} else {
-//			applyText(node, chapter::setName);
-//		}
+		return chapter;
+	}
+
+	private void completeVisualization(TocChapter chapter, Element node) {
 		container.getChapters().add(chapter);
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void completeParagraph(TocChapter chapter, Element node, Consumer<TocChapter> chapters,
+			Consumer<Paragraph> paragraphs) {
+		chapters.accept(chapter);
+		Paragraph paragraph = factory.createParagraph();
+		paragraph.setId(chapter.getId());
+		paragraph.setName(chapter.getName());
+		paragraph.setNumber(chapter.getNumber());
+		chapter.setPart(paragraph);
+		paragraphs.accept(paragraph);
+		Element div = node.element("div"); //$NON-NLS-1$
+		if (div == null) {
+			return;
+		}
+		List<Element> elements = div.elements();
+		for (Element element : elements) {
+			TocChapter sub = createTocChapter(element);
+			completeParagraph(sub, element, sub.getChapters()::add, ((Paragraph) chapter.getPart()).getParts()::add);
+		}
+	}
+
+	private void completeAnnex(TocChapter chapter, Element node) {
+		container.getChapters().add(chapter);
+		// TODO Auto-generated method stub
+
+	}
+
+	private void completeIndex(TocChapter chapter, Element node) {
+		container.getChapters().add(chapter);
+		Index index = factory.createIndex();
+		index.setId(chapter.getId());
+		index.setName(chapter.getName());
+		chapter.setPart(index);
+		container.getDocument().getIndexes().add(index);
+	}
+
+	private void topLevelH2(Element element) {
+		TocChapter chapter = factory.createTocChapter();
+		Element h2a = element.element("a"); //$NON-NLS-1$
+		chapter.setId(h2a.attributeValue("href")); //$NON-NLS-1$
+		chapter.setName(h2a.getText());
+		completeIndex(chapter, h2a);
 	}
 
 	private void createTocSubChapters(TocChapter parent, Element content) {

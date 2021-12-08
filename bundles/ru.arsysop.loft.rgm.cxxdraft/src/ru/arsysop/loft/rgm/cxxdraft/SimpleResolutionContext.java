@@ -20,16 +20,39 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+
 import org.eclipse.emf.ecore.EObject;
 
 import ru.arsysop.loft.rgm.model.api.Part;
 
-public interface ResolutionContext {
+public final class SimpleResolutionContext implements ResolutionContext {
 
-	EObject container();
+	private final String from;
+	private final EObject container;
+	private final Map<String, EObject> parts;
 
-	String from();
+	public SimpleResolutionContext(String from, EObject container) {
+		this.from = Objects.requireNonNull(from, "SimpleResolutionContext::from"); //$NON-NLS-1$
+		this.container = Objects.requireNonNull(container, "SimpleResolutionContext::container"); //$NON-NLS-1$
+		this.parts = new LinkedHashMap<>();
+	}
 
-	void registerPart(String id, Part toc);
+	@Override
+	public String from() {
+		return from;
+	}
+
+	@Override
+	public EObject container() {
+		return container;
+	}
+
+	@Override
+	public void registerPart(String id, Part toc) {
+		// TODO Auto-generated method stub
+	}
+
 }
-

@@ -347,9 +347,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		if (newToc != toc) {
 			NotificationChain msgs = null;
 			if (toc != null)
-				msgs = ((InternalEObject)toc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RgmPackage.DOCUMENT__TOC, null, msgs);
+				msgs = ((InternalEObject)toc).eInverseRemove(this, RgmPackage.TOC__DOCUMENT, Toc.class, msgs);
 			if (newToc != null)
-				msgs = ((InternalEObject)newToc).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RgmPackage.DOCUMENT__TOC, null, msgs);
+				msgs = ((InternalEObject)newToc).eInverseAdd(this, RgmPackage.TOC__DOCUMENT, Toc.class, msgs);
 			msgs = basicSetToc(newToc, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -381,6 +381,23 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			indexes = new EObjectContainmentEList<Index>(Index.class, this, RgmPackage.DOCUMENT__INDEXES);
 		}
 		return indexes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RgmPackage.DOCUMENT__TOC:
+				if (toc != null)
+					msgs = ((InternalEObject)toc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RgmPackage.DOCUMENT__TOC, null, msgs);
+				return basicSetToc((Toc)otherEnd, msgs);
+			default:
+				return super.eInverseAdd(otherEnd, featureID, msgs);
+		}
 	}
 
 	/**

@@ -159,12 +159,14 @@ public interface Document extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Toc</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Toc#getDocument <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Toc</em>' containment reference.
 	 * @see #setToc(Toc)
 	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Toc()
-	 * @model containment="true"
+	 * @see ru.arsysop.loft.rgm.model.api.Toc#getDocument
+	 * @model opposite="document" containment="true"
 	 * @generated
 	 */
 	Toc getToc();

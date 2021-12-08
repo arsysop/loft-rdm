@@ -27,40 +27,40 @@ import java.util.Objects;
 import org.dom4j.Document;
 import org.dom4j.io.DOMReader;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.ICoreRunnable;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.osgi.util.NLS;
 import org.w3c.tidy.Tidy;
 
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 
-public final class PublishedHtml {
+public final class PublishedHtml implements ICoreRunnable {
 
-	private final EObject container;
-	private final String from;
+	private final ResolutionContext context;
 
-	public PublishedHtml(EObject container, String from) {
-		this.container = Objects.requireNonNull(container, "PublishedHtml::container"); //$NON-NLS-1$
-		this.from = Objects.requireNonNull(from, "PublishedHtml::from"); //$NON-NLS-1$
+	public PublishedHtml(ResolutionContext context) {
+		this.context = Objects.requireNonNull(context, "PublishedHtml::context"); //$NON-NLS-1$
 	}
 
-	public void parse(ResolutionContext context) throws CoreException {
-		try (InputStream is = new URL(from).openStream()) {
+	@Override
+	public void run(IProgressMonitor monitor) throws CoreException {
+		try (InputStream is = new URL(context.from()).openStream()) {
 			Document parsed = new DOMReader()//
 					.read(new Tidy().parseDOM(is, /* no output */null));
-			new StructureSwitch(context).doSwitch(container)//
+			new StructureSwitch(context).doSwitch(context.container())//
 					.orElseThrow(() -> new CoreException(//
 							new Status(IStatus.ERROR, getClass(), //
 									NLS.bind(Messages.PublishedHtml_e_structure_undefined,
-											container.getClass().getName()))))//
+											context.container()))))//
 					.read(parsed);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CoreException(//
 					new Status(IStatus.ERROR, getClass(), //
-							NLS.bind(Messages.PublishedHtml_e_parsing_failed, from, e)));
+							NLS.bind(Messages.PublishedHtml_e_parsing_failed, context.from(), e)));
 		}
 	}
 }

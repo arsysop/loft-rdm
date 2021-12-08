@@ -24,11 +24,41 @@ package ru.arsysop.loft.rgm.model.api;
  * A representation of the model object '<em><b>Toc</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Toc#getDocument <em>Document</em>}</li>
+ * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getToc()
  * @model
  * @generated
  */
 public interface Toc extends WithTocChapters {
+
+	/**
+	 * Returns the value of the '<em><b>Document</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.model.api.Document#getToc <em>Toc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Document</em>' container reference.
+	 * @see #setDocument(Document)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getToc_Document()
+	 * @see ru.arsysop.loft.rgm.model.api.Document#getToc
+	 * @model opposite="toc" required="true" transient="false"
+	 * @generated
+	 */
+	Document getDocument();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Toc#getDocument <em>Document</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Document</em>' container reference.
+	 * @see #getDocument()
+	 * @generated
+	 */
+	void setDocument(Document value);
 
 } // Toc

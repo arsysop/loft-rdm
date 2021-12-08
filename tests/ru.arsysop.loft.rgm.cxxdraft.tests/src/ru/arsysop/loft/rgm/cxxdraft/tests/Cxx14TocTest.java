@@ -24,12 +24,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
-import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.cxxdraft.SimpleResolutionContext;
 import ru.arsysop.loft.rgm.model.api.Document;
 import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
@@ -42,27 +43,34 @@ public final class Cxx14TocTest {
 	@BeforeClass
 	public static void performParsing() throws CoreException {
 		document.setToc(RgmFactory.eINSTANCE.createToc());
-		new PublishedHtml(document, //
-				"https://timsong-cpp.github.io/cppwp/n4140/")
-						.parse(new ResolutionContext() {
-						});
+		new PublishedHtml(new SimpleResolutionContext(//
+				"https://timsong-cpp.github.io/cppwp/n4140/", //
+				document //
+		)).run(new NullProgressMonitor());
 	}
 
 	@Test
 	public void testContent() throws CoreException {
 		EList<TocChapter> chapters = document.getToc().getChapters();
-		assertEquals(37, chapters.size());
-		int from = 2;
+		int visualizations = 2;
 		int numbered = 30;
-		for (int i = from; i < from + numbered; i++) {
+		int annexes = 5;
+		int indexes = 3;
+		int size = visualizations + numbered + annexes + indexes;
+		assertEquals(size, chapters.size());
+		for (int i = visualizations; i < visualizations + numbered; i++) {
 			TocChapter chapter = chapters.get(i);
 			assertEquals(String.valueOf(i - 1), chapter.getNumber());
 		}
-		int annexes = 5;
-		for (int i = from + numbered; i < from + numbered + annexes; i++) {
+		for (int i = visualizations + numbered; i < visualizations + numbered + annexes; i++) {
 			TocChapter chapter = chapters.get(i);
 			String number = chapter.getNumber();
 			assertTrue(number.startsWith("Annex"));
+		}
+		for (int i = size - indexes; i < size; i++) {
+			TocChapter chapter = chapters.get(i);
+			String name = chapter.getName().toLowerCase();
+			assertTrue(name.contains("index"));
 		}
 	}
 

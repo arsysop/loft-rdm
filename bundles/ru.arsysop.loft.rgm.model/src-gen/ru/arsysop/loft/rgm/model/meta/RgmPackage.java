@@ -603,13 +603,22 @@ public interface RgmPackage extends EPackage {
 	int TOC__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
 
 	/**
+	 * The feature id for the '<em><b>Document</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC__DOCUMENT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Toc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
+	int TOC_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Toc</em>' class.
@@ -2785,6 +2794,17 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getToc();
+
+	/**
+	 * Returns the meta object for the container reference '{@link ru.arsysop.loft.rgm.model.api.Toc#getDocument <em>Document</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Document</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.Toc#getDocument()
+	 * @see #getToc()
+	 * @generated
+	 */
+	EReference getToc_Document();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.TocChapter <em>Toc Chapter</em>}'.
