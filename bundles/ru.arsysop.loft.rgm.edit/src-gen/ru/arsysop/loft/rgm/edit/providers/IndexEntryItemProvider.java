@@ -22,9 +22,13 @@ package ru.arsysop.loft.rgm.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
@@ -48,6 +52,7 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.model.api.IndexEntry;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -92,12 +97,35 @@ public class IndexEntryItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSeePropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 			addKeywordPropertyDescriptor(object);
-			addPartsPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
+			addPartsPropertyDescriptor(object);
+			addSeePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IndexEntry_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexEntry_id_feature", "_UI_IndexEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getIndexEntry_Id(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -291,17 +319,33 @@ public class IndexEntryItemProvider
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((IndexEntry)object).getKeyword();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_IndexEntry_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_IndexEntry_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+		IndexEntry entry = (IndexEntry) object;
+		StyledString styledLabel = new StyledString();
+		Optional.ofNullable(entry.getKeyword())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(s));
+		EList<IndexEntry> see = entry.getSee();
+		if (!see.isEmpty()) {
+			styledLabel.append("( see --> "); //$NON-NLS-1$
+			String refs = see.stream().map(IndexEntry::getId).collect(Collectors.joining(",")); //$NON-NLS-1$
+			styledLabel.append(refs, StyledString.Style.COUNTER_STYLER);
+			styledLabel.append(" )"); //$NON-NLS-1$
 		}
+		EList<Part> parts = entry.getParts();
+		if (!parts.isEmpty()) {
+			styledLabel.append(" --> "); //$NON-NLS-1$
+			String refs = parts.stream().map(Part::getId).collect(Collectors.joining(",")); //$NON-NLS-1$
+			styledLabel.append(refs, StyledString.Style.COUNTER_STYLER);
+		}
+		Optional.ofNullable(entry.getText())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(" " + s, StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$
 		return styledLabel;
 	}
 
@@ -317,6 +361,7 @@ public class IndexEntryItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IndexEntry.class)) {
+			case RgmPackage.INDEX_ENTRY__ID:
 			case RgmPackage.INDEX_ENTRY__KEYWORD:
 			case RgmPackage.INDEX_ENTRY__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

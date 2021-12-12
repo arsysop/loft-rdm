@@ -18,13 +18,12 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft;
+package ru.arsysop.loft.rgm.cxxdraft.base;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 
-import org.dom4j.Document;
 import org.dom4j.io.DOMReader;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ICoreRunnable;
@@ -34,33 +33,30 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.osgi.util.NLS;
 import org.w3c.tidy.Tidy;
 
+import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
-import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 
 public final class PublishedHtml implements ICoreRunnable {
 
-	private final ResolutionContext context;
+	private final String location;
+	private final Structure structure;
 
-	public PublishedHtml(ResolutionContext context) {
-		this.context = Objects.requireNonNull(context, "PublishedHtml::context"); //$NON-NLS-1$
+	public PublishedHtml(String from, Structure to) {
+		this.location = Objects.requireNonNull(from, "PublishedHtml::location"); //$NON-NLS-1$
+		this.structure = Objects.requireNonNull(to, "PublishedHtml::structure"); //$NON-NLS-1$
 	}
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		try (InputStream is = new URL(context.from()).openStream()) {
-			Document parsed = new DOMReader()//
-					.read(new Tidy().parseDOM(is, /* no output */null));
-			new StructureSwitch(context).doSwitch(context.container())//
-					.orElseThrow(() -> new CoreException(//
-							new Status(IStatus.ERROR, getClass(), //
-									NLS.bind(Messages.PublishedHtml_e_structure_undefined,
-											context.container()))))//
-					.read(parsed);
+		try (InputStream is = new URL(location).openStream()) {
+			structure.read(//
+					new DOMReader()//
+							.read(new Tidy().parseDOM(is, /* no output */null)));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CoreException(//
 					new Status(IStatus.ERROR, getClass(), //
-							NLS.bind(Messages.PublishedHtml_e_parsing_failed, context.from(), e)));
+							NLS.bind(Messages.PublishedHtml_e_parsing_failed, location, e)));
 		}
 	}
 }

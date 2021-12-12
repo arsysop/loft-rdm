@@ -18,21 +18,18 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft;
+package ru.arsysop.loft.rgm.cxxdraft.base;
 
-import org.eclipse.osgi.util.NLS;
+import org.eclipse.core.runtime.ICoreRunnable;
 
-public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.cxxdraft.messages"; //$NON-NLS-1$
-	public static String InvestigateHtmlTree_subtask_toc;
-	public static String PublishedHtml_e_parsing_failed;
-	public static String PublishedHtml_e_structure_undefined;
-	public static String SimpleResolutionContext_d_base_message;
-	static {
-		// initialize resource bundle
-		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
+import ru.arsysop.loft.rgm.cxxdraft.InvestigateSpec;
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+
+public final class InvestigateHtml implements InvestigateSpec {
+
+	@Override
+	public ICoreRunnable prepare(ResolutionContext context) {
+		return new InvestigateHtmlTree(context);
 	}
 
-	private Messages() {
-	}
 }

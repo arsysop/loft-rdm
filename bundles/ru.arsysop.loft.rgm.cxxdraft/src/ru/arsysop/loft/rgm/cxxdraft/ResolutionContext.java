@@ -20,16 +20,26 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft;
 
+import org.dom4j.Node;
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 
+import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.model.api.Part;
 
 public interface ResolutionContext {
 
-	EObject container();
+	Document document();
 
-	String from();
+	String location(EObject container);
 
-	void registerPart(String id, Part toc);
+	ContentResolution<Part> parts();
+
+	ContentResolution<IndexEntry> indexEntries();
+
+	void warning(Node node, String message);
+
+	Diagnostic diagnostic();
 }
 

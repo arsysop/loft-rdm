@@ -49,35 +49,36 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getSubentries <em>Subentries</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getSee <em>See</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getKeyword <em>Keyword</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getParts <em>Parts</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getParts <em>Parts</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getSee <em>See</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.IndexEntryImpl#getSubentries <em>Subentries</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class IndexEntryImpl extends MinimalEObjectImpl.Container implements IndexEntry {
 	/**
-	 * The cached value of the '{@link #getSubentries() <em>Subentries</em>}' containment reference list.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubentries()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IndexEntry> subentries;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSee() <em>See</em>}' reference list.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSee()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IndexEntry> see;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
@@ -100,16 +101,6 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	protected String keyword = KEYWORD_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParts() <em>Parts</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParts()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Part> parts;
-
-	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +121,36 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	protected String text = TEXT_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getParts() <em>Parts</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Part> parts;
+
+	/**
+	 * The cached value of the '{@link #getSee() <em>See</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSee()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IndexEntry> see;
+
+	/**
+	 * The cached value of the '{@link #getSubentries() <em>Subentries</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubentries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<IndexEntry> subentries;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -146,6 +167,29 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	@Override
 	protected EClass eStaticClass() {
 		return RgmPackage.eINSTANCE.getIndexEntry();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.INDEX_ENTRY__ID, oldId, id));
 	}
 
 	/**
@@ -256,16 +300,18 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
-				return getSubentries();
-			case RgmPackage.INDEX_ENTRY__SEE:
-				return getSee();
+			case RgmPackage.INDEX_ENTRY__ID:
+				return getId();
 			case RgmPackage.INDEX_ENTRY__KEYWORD:
 				return getKeyword();
-			case RgmPackage.INDEX_ENTRY__PARTS:
-				return getParts();
 			case RgmPackage.INDEX_ENTRY__TEXT:
 				return getText();
+			case RgmPackage.INDEX_ENTRY__PARTS:
+				return getParts();
+			case RgmPackage.INDEX_ENTRY__SEE:
+				return getSee();
+			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
+				return getSubentries();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -280,23 +326,26 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
-				getSubentries().clear();
-				getSubentries().addAll((Collection<? extends IndexEntry>)newValue);
-				return;
-			case RgmPackage.INDEX_ENTRY__SEE:
-				getSee().clear();
-				getSee().addAll((Collection<? extends IndexEntry>)newValue);
+			case RgmPackage.INDEX_ENTRY__ID:
+				setId((String)newValue);
 				return;
 			case RgmPackage.INDEX_ENTRY__KEYWORD:
 				setKeyword((String)newValue);
+				return;
+			case RgmPackage.INDEX_ENTRY__TEXT:
+				setText((String)newValue);
 				return;
 			case RgmPackage.INDEX_ENTRY__PARTS:
 				getParts().clear();
 				getParts().addAll((Collection<? extends Part>)newValue);
 				return;
-			case RgmPackage.INDEX_ENTRY__TEXT:
-				setText((String)newValue);
+			case RgmPackage.INDEX_ENTRY__SEE:
+				getSee().clear();
+				getSee().addAll((Collection<? extends IndexEntry>)newValue);
+				return;
+			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
+				getSubentries().clear();
+				getSubentries().addAll((Collection<? extends IndexEntry>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -312,20 +361,23 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
-				getSubentries().clear();
-				return;
-			case RgmPackage.INDEX_ENTRY__SEE:
-				getSee().clear();
+			case RgmPackage.INDEX_ENTRY__ID:
+				setId(ID_EDEFAULT);
 				return;
 			case RgmPackage.INDEX_ENTRY__KEYWORD:
 				setKeyword(KEYWORD_EDEFAULT);
 				return;
+			case RgmPackage.INDEX_ENTRY__TEXT:
+				setText(TEXT_EDEFAULT);
+				return;
 			case RgmPackage.INDEX_ENTRY__PARTS:
 				getParts().clear();
 				return;
-			case RgmPackage.INDEX_ENTRY__TEXT:
-				setText(TEXT_EDEFAULT);
+			case RgmPackage.INDEX_ENTRY__SEE:
+				getSee().clear();
+				return;
+			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
+				getSubentries().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -341,16 +393,18 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
-				return subentries != null && !subentries.isEmpty();
-			case RgmPackage.INDEX_ENTRY__SEE:
-				return see != null && !see.isEmpty();
+			case RgmPackage.INDEX_ENTRY__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.INDEX_ENTRY__KEYWORD:
 				return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
-			case RgmPackage.INDEX_ENTRY__PARTS:
-				return parts != null && !parts.isEmpty();
 			case RgmPackage.INDEX_ENTRY__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case RgmPackage.INDEX_ENTRY__PARTS:
+				return parts != null && !parts.isEmpty();
+			case RgmPackage.INDEX_ENTRY__SEE:
+				return see != null && !see.isEmpty();
+			case RgmPackage.INDEX_ENTRY__SUBENTRIES:
+				return subentries != null && !subentries.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -366,7 +420,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (keyword: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
+		result.append(id);
+		result.append(", keyword: "); //$NON-NLS-1$
 		result.append(keyword);
 		result.append(", text: "); //$NON-NLS-1$
 		result.append(text);

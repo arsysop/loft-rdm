@@ -32,11 +32,12 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getSubentries <em>Subentries</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getSee <em>See</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getKeyword <em>Keyword</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getParts <em>Parts</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getParts <em>Parts</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getSee <em>See</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getSubentries <em>Subentries</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getIndexEntry()
@@ -44,6 +45,28 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface IndexEntry extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getIndexEntry_Id()
+	 * @model id="true" required="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Subentries</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.IndexEntry}.

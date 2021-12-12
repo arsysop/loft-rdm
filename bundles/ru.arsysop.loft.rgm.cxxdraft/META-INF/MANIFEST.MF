@@ -7,6 +7,7 @@ Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ru.arsysop.loft.rgm.cxxdraft,
+ ru.arsysop.loft.rgm.cxxdraft.base,
  ru.arsysop.loft.rgm.internal.cxxdraft;x-friends:="ru.arsysop.loft.rgm.workspace"
 Require-Bundle: org.dom4j;bundle-version="2.1.1",
  org.eclipse.equinox.common;bundle-version="0.0.0",

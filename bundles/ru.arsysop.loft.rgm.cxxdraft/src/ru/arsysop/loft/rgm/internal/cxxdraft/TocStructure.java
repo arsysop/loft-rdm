@@ -20,7 +20,6 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,6 +157,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		paragraph.setNumber(chapter.getNumber());
 		chapter.setPart(paragraph);
 		paragraphs.accept(paragraph);
+		context.parts().register(paragraph.getId(), paragraph);
 		List<Element> divs = node.elements();
 		for (Element div : divs) {
 			if (!"div".equals(div.getName())) { //$NON-NLS-1$
@@ -178,13 +178,14 @@ public final class TocStructure extends BaseStructure<Toc> {
 
 	}
 
-	private void completeIndex(TocChapter chapter, Element node) {
-		container.getChapters().add(chapter);
+	private void completeIndex(TocChapter chapter, Element node, Consumer<TocChapter> chapters,
+			Consumer<Index> indexes) {
+		chapters.accept(chapter);
 		Index index = factory.createIndex();
 		index.setId(chapter.getId());
 		index.setName(chapter.getName());
 		chapter.setPart(index);
-		container.getDocument().getIndexes().add(index);
+		indexes.accept(index);
 	}
 
 	private void topLevelH2(Element element) {
@@ -192,27 +193,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		Element h2a = element.element("a"); //$NON-NLS-1$
 		chapter.setId(h2a.attributeValue("href")); //$NON-NLS-1$
 		chapter.setName(h2a.getText());
-		completeIndex(chapter, h2a);
+		completeIndex(chapter, h2a, container.getChapters()::add, container.getDocument().getIndexes()::add);
 	}
 
-	private void createTocSubChapters(TocChapter parent, Element content) {
-		Iterator<Node> nodes = content.nodeIterator();
-		while (nodes.hasNext()) {
-			Node node = nodes.next();
-			if ("span".equals(node.getName())) { //$NON-NLS-1$
-				Element span = (Element) node;
-				TocChapter chapter = factory.createTocChapter();
-				applyText(span, chapter::setNumber);
-				Node text = nodes.next();
-				chapter.setName(text.getText());
-				Node next = nodes.next();
-				// FIXME: AF: rework
-				if ("a".equals(next.getName())) { //$NON-NLS-1$
-					Element a = (Element) next;
-					chapter.setId(a.attributeValue("href")); //$NON-NLS-1$
-				}
-				parent.getChapters().add(chapter);
-			}
-		}
-	}
 }

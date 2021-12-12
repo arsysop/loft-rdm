@@ -1115,8 +1115,18 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getIndexEntry_Id() {
+		return (EAttribute)indexEntryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getIndexEntry_Subentries() {
-		return (EReference)indexEntryEClass.getEStructuralFeatures().get(0);
+		return (EReference)indexEntryEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1126,7 +1136,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getIndexEntry_See() {
-		return (EReference)indexEntryEClass.getEStructuralFeatures().get(1);
+		return (EReference)indexEntryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1136,7 +1146,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EAttribute getIndexEntry_Keyword() {
-		return (EAttribute)indexEntryEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)indexEntryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1156,7 +1166,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EAttribute getIndexEntry_Text() {
-		return (EAttribute)indexEntryEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)indexEntryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1304,11 +1314,12 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		createEReference(indexEClass, INDEX__ENTRIES);
 
 		indexEntryEClass = createEClass(INDEX_ENTRY);
-		createEReference(indexEntryEClass, INDEX_ENTRY__SUBENTRIES);
-		createEReference(indexEntryEClass, INDEX_ENTRY__SEE);
+		createEAttribute(indexEntryEClass, INDEX_ENTRY__ID);
 		createEAttribute(indexEntryEClass, INDEX_ENTRY__KEYWORD);
-		createEReference(indexEntryEClass, INDEX_ENTRY__PARTS);
 		createEAttribute(indexEntryEClass, INDEX_ENTRY__TEXT);
+		createEReference(indexEntryEClass, INDEX_ENTRY__PARTS);
+		createEReference(indexEntryEClass, INDEX_ENTRY__SEE);
+		createEReference(indexEntryEClass, INDEX_ENTRY__SUBENTRIES);
 
 		markupEClass = createEClass(MARKUP);
 		createEReference(markupEClass, MARKUP__CITATIONS);
@@ -1480,11 +1491,12 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEReference(getIndex_Entries(), this.getIndexEntry(), null, "entries", null, 0, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEntryEClass, IndexEntry.class, "IndexEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getIndexEntry_Subentries(), this.getIndexEntry(), null, "subentries", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getIndexEntry_See(), this.getIndexEntry(), null, "see", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getIndexEntry_Id(), ecorePackage.getEString(), "id", null, 1, 1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getIndexEntry_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getIndexEntry_Parts(), this.getPart(), null, "parts", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getIndexEntry_Text(), ecorePackage.getEString(), "text", null, 0, 1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getIndexEntry_Parts(), this.getPart(), null, "parts", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getIndexEntry_See(), this.getIndexEntry(), null, "see", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getIndexEntry_Subentries(), this.getIndexEntry(), null, "subentries", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getMarkup_Citations(), this.getCitation(), null, "citations", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
