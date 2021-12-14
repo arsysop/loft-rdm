@@ -21,17 +21,18 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.Objects;
-import java.util.Optional;
 
+import org.dom4j.Element;
 import org.eclipse.emf.ecore.EObject;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.model.api.Index;
 import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.util.RgmSwitch;
 
-public final class StructureSwitch extends RgmSwitch<Optional<Structure>> {
+public final class StructureSwitch extends RgmSwitch<Structure> {
 
 	private final ResolutionContext context;
 
@@ -40,18 +41,30 @@ public final class StructureSwitch extends RgmSwitch<Optional<Structure>> {
 	}
 
 	@Override
-	public Optional<Structure> caseDocument(Document object) {
+	public Structure caseDocument(Document object) {
 		return caseToc(object.getToc());
 	}
 
 	@Override
-	public Optional<Structure> caseToc(Toc object) {
-		return Optional.of(new TocStructure(object, context));
+	public Structure caseIndex(Index object) {
+		return new IndexStructure(object, context);
 	}
 
 	@Override
-	public Optional<Structure> defaultCase(EObject object) {
-		return Optional.empty();
+	public Structure caseToc(Toc object) {
+		return new TocStructure(object, context);
+	}
+
+	@Override
+	public Structure defaultCase(EObject object) {
+		System.err.println("No structure for: " + object); //$NON-NLS-1$
+		return new BaseStructure<EObject>(object, context) {
+
+			@Override
+			public void body(Element body) {
+				// nothing for default case
+			}
+		};
 	}
 
 }

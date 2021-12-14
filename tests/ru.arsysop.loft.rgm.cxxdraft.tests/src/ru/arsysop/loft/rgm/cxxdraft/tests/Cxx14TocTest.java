@@ -27,26 +27,32 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.arsysop.loft.rgm.cxxdraft.PublishedHtml;
-import ru.arsysop.loft.rgm.cxxdraft.SimpleResolutionContext;
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.cxxdraft.base.PublishedHtml;
+import ru.arsysop.loft.rgm.cxxdraft.base.SimpleResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.TocStructure;
 import ru.arsysop.loft.rgm.model.api.Document;
 import ru.arsysop.loft.rgm.model.api.TocChapter;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
 @SuppressWarnings("nls")
+@Ignore
 public final class Cxx14TocTest {
 
 	private static final Document document = RgmFactory.eINSTANCE.createDocument();
+	private static final ResolutionContext context = new SimpleResolutionContext("https://timsong-cpp.github.io/cppwp/n4140/",
+			document);
 
 	@BeforeClass
 	public static void performParsing() throws CoreException {
 		document.setToc(RgmFactory.eINSTANCE.createToc());
-		new PublishedHtml(new SimpleResolutionContext(//
-				"https://timsong-cpp.github.io/cppwp/n4140/", //
-				document //
-		)).run(new NullProgressMonitor());
+		new PublishedHtml(//
+				context.location(document.getToc()), //
+				new TocStructure(document.getToc(), context)//
+		).run(new NullProgressMonitor());
 	}
 
 	@Test

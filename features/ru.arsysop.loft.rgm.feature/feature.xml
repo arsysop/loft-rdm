@@ -40,9 +40,6 @@
       %license
    </license>
 
-   <requires>
-   </requires>
-
    <plugin
          id="ru.arsysop.loft.rgm"
          download-size="0"
@@ -99,5 +96,11 @@
          version="0.0.0"
          unpack="false"/>
 
-</feature>
+   <plugin
+         id="wrapped.com.github.jtidy.jtidy"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
+</feature>

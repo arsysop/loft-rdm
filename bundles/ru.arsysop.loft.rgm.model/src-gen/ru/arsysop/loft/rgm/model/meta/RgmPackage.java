@@ -838,22 +838,13 @@ public interface RgmPackage extends EPackage {
 	int INDEX_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Subentries</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_ENTRY__SUBENTRIES = 0;
-
-	/**
-	 * The feature id for the '<em><b>See</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_ENTRY__SEE = 1;
+	int INDEX_ENTRY__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -862,7 +853,16 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_ENTRY__KEYWORD = 2;
+	int INDEX_ENTRY__KEYWORD = 1;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__TEXT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' reference list.
@@ -874,13 +874,22 @@ public interface RgmPackage extends EPackage {
 	int INDEX_ENTRY__PARTS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * The feature id for the '<em><b>See</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_ENTRY__TEXT = 4;
+	int INDEX_ENTRY__SEE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Subentries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_ENTRY__SUBENTRIES = 5;
 
 	/**
 	 * The number of structural features of the '<em>Index Entry</em>' class.
@@ -889,7 +898,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_ENTRY_FEATURE_COUNT = 5;
+	int INDEX_ENTRY_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Index Entry</em>' class.
@@ -2729,6 +2738,17 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIndexEntry();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.IndexEntry#getId()
+	 * @see #getIndexEntry()
+	 * @generated
+	 */
+	EAttribute getIndexEntry_Id();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getSubentries <em>Subentries</em>}'.

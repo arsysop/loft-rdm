@@ -18,21 +18,17 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft;
+package ru.arsysop.loft.rgm.cxxdraft;
 
-import org.eclipse.osgi.util.NLS;
+import java.util.Optional;
+import java.util.function.Consumer;
 
-public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.cxxdraft.messages"; //$NON-NLS-1$
-	public static String InvestigateHtmlTree_subtask_toc;
-	public static String PublishedHtml_e_parsing_failed;
-	public static String PublishedHtml_e_structure_undefined;
-	public static String SimpleResolutionContext_d_base_message;
-	static {
-		// initialize resource bundle
-		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
-	}
+public interface ContentResolution<C> {
 
-	private Messages() {
-	}
+	Optional<C> find(String id);
+
+	void register(String id, C entry);
+
+	void request(String id, Consumer<C> consumer);
+
 }
