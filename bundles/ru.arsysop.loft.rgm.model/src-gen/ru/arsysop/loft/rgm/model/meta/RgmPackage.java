@@ -22,7 +22,6 @@ package ru.arsysop.loft.rgm.model.meta;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -124,22 +123,13 @@ public interface RgmPackage extends EPackage {
 	int DOCUMENT__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__TYPE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__VERSION = 3;
+	int DOCUMENT__VERSION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Revision</b></em>' attribute.
@@ -148,7 +138,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__REVISION = 4;
+	int DOCUMENT__REVISION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Toc</b></em>' containment reference.
@@ -157,7 +147,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__TOC = 5;
+	int DOCUMENT__TOC = 4;
 
 	/**
 	 * The feature id for the '<em><b>Paragraphs</b></em>' containment reference list.
@@ -166,7 +156,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PARAGRAPHS = 6;
+	int DOCUMENT__PARAGRAPHS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
@@ -175,7 +165,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__INDEXES = 7;
+	int DOCUMENT__INDEXES = 6;
 
 	/**
 	 * The number of structural features of the '<em>Document</em>' class.
@@ -184,7 +174,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 8;
+	int DOCUMENT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -1945,17 +1935,6 @@ public interface RgmPackage extends EPackage {
 	int TEMPLATE_TYPE_PARAMETER_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '<em>Document Type</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Object
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDocumentType()
-	 * @generated
-	 */
-	int DOCUMENT_TYPE = 33;
-
-
-	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1986,17 +1965,6 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDocument_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.Document#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see ru.arsysop.loft.rgm.model.api.Document#getType()
-	 * @see #getDocument()
-	 * @generated
-	 */
-	EAttribute getDocument_Type();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.Document#getVersion <em>Version</em>}'.
@@ -2878,17 +2846,6 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getWithTocChapters_Chapters();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Object <em>Document Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Document Type</em>'.
-	 * @see java.lang.Object
-	 * @model instanceClass="java.lang.Object"
-	 * @generated
-	 */
-	EDataType getDocumentType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

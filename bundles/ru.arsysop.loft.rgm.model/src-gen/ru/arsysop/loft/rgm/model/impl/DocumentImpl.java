@@ -47,7 +47,6 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getName <em>Name</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getType <em>Type</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.impl.DocumentImpl#getToc <em>Toc</em>}</li>
@@ -97,16 +96,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object type;
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -241,29 +230,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DOCUMENT__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setType(Object newType) {
-		Object oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.DOCUMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -431,8 +397,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getId();
 			case RgmPackage.DOCUMENT__NAME:
 				return getName();
-			case RgmPackage.DOCUMENT__TYPE:
-				return getType();
 			case RgmPackage.DOCUMENT__VERSION:
 				return getVersion();
 			case RgmPackage.DOCUMENT__REVISION:
@@ -462,9 +426,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return;
 			case RgmPackage.DOCUMENT__NAME:
 				setName((String)newValue);
-				return;
-			case RgmPackage.DOCUMENT__TYPE:
-				setType(newValue);
 				return;
 			case RgmPackage.DOCUMENT__VERSION:
 				setVersion((String)newValue);
@@ -503,9 +464,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case RgmPackage.DOCUMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case RgmPackage.DOCUMENT__TYPE:
-				setType((Object)null);
-				return;
 			case RgmPackage.DOCUMENT__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
@@ -539,8 +497,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case RgmPackage.DOCUMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case RgmPackage.DOCUMENT__TYPE:
-				return type != null;
 			case RgmPackage.DOCUMENT__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case RgmPackage.DOCUMENT__REVISION:
@@ -570,8 +526,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		result.append(id);
 		result.append(", name: "); //$NON-NLS-1$
 		result.append(name);
-		result.append(", type: "); //$NON-NLS-1$
-		result.append(type);
 		result.append(", version: "); //$NON-NLS-1$
 		result.append(version);
 		result.append(", revision: "); //$NON-NLS-1$
