@@ -83,7 +83,6 @@ public class DocumentItemProvider
 
 			addIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addRevisionPropertyDescriptor(object);
 		}
@@ -126,28 +125,6 @@ public class DocumentItemProvider
 				 getString("_UI_Document_name_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Document_name_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 RgmPackage.eINSTANCE.getDocument_Name(),
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Document_type_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_type_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 RgmPackage.eINSTANCE.getDocument_Type(),
 				 true,
 				 false,
 				 false,
@@ -333,7 +310,6 @@ public class DocumentItemProvider
 		switch (notification.getFeatureID(Document.class)) {
 			case RgmPackage.DOCUMENT__ID:
 			case RgmPackage.DOCUMENT__NAME:
-			case RgmPackage.DOCUMENT__TYPE:
 			case RgmPackage.DOCUMENT__VERSION:
 			case RgmPackage.DOCUMENT__REVISION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

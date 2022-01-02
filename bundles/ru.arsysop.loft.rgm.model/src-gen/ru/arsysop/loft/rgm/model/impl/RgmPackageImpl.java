@@ -22,7 +22,6 @@ package ru.arsysop.loft.rgm.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -302,13 +301,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	private EClass withTocChaptersEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType documentTypeEDataType = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -405,7 +397,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDocument_Type() {
+	public EAttribute getDocument_Version() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -415,7 +407,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDocument_Version() {
+	public EAttribute getDocument_Revision() {
 		return (EAttribute)documentEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -425,18 +417,8 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDocument_Revision() {
-		return (EAttribute)documentEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getDocument_Toc() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(5);
+		return (EReference)documentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -446,7 +428,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getDocument_Paragraphs() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(6);
+		return (EReference)documentEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -456,7 +438,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 */
 	@Override
 	public EReference getDocument_Indexes() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(7);
+		return (EReference)documentEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1245,16 +1227,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EDataType getDocumentType() {
-		return documentTypeEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public RgmFactory getRgmFactory() {
 		return (RgmFactory)getEFactoryInstance();
 	}
@@ -1281,7 +1253,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		documentEClass = createEClass(DOCUMENT);
 		createEAttribute(documentEClass, DOCUMENT__ID);
 		createEAttribute(documentEClass, DOCUMENT__NAME);
-		createEAttribute(documentEClass, DOCUMENT__TYPE);
 		createEAttribute(documentEClass, DOCUMENT__VERSION);
 		createEAttribute(documentEClass, DOCUMENT__REVISION);
 		createEReference(documentEClass, DOCUMENT__TOC);
@@ -1397,9 +1368,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		destructorEClass = createEClass(DESTRUCTOR);
 
 		templateTypeParameterEClass = createEClass(TEMPLATE_TYPE_PARAMETER);
-
-		// Create data types
-		documentTypeEDataType = createEDataType(DOCUMENT_TYPE);
 	}
 
 	/**
@@ -1458,7 +1426,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getDocument_Id(), ecorePackage.getEString(), "id", null, 1, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDocument_Name(), ecorePackage.getEString(), "name", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getDocument_Type(), this.getDocumentType(), "type", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDocument_Version(), ecorePackage.getEString(), "version", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getDocument_Revision(), ecorePackage.getEString(), "revision", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDocument_Toc(), this.getToc(), this.getToc_Document(), "toc", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1574,9 +1541,6 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEClass(destructorEClass, Destructor.class, "Destructor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(templateTypeParameterEClass, TemplateTypeParameter.class, "TemplateTypeParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-
-		// Initialize data types
-		initEDataType(documentTypeEDataType, Object.class, "DocumentType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

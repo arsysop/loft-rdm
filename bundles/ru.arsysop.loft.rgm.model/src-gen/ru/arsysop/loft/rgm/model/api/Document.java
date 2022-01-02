@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getName <em>Name</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getType <em>Type</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getRevision <em>Revision</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.model.api.Document#getToc <em>Toc</em>}</li>
@@ -90,28 +89,6 @@ public interface Document extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(Object)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getDocument_Type()
-	 * @model dataType="ru.arsysop.loft.rgm.model.api.DocumentType"
-	 * @generated
-	 */
-	Object getType();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Document#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
