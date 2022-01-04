@@ -83,7 +83,6 @@ public final class IndexStructure extends BaseStructure<Index> {
 	private void topLevelIndexEntry(Element node) {
 		IndexEntry entry = createIndexEntry(node);
 		container.getEntries().add(entry);
-		context.indexEntries().register("#" + entry.getId(), entry); //$NON-NLS-1$
 	}
 
 	private void fillEntry(Element node) {
@@ -100,16 +99,18 @@ public final class IndexStructure extends BaseStructure<Index> {
 			if (seeNodes.size() > 0) { // Assuming see case
 				String attributeValue = refNodes.get(0).attributeValue("href"); //$NON-NLS-1$
 				System.out.println(attributeValue);
-				IndexEntry seeRef = context.indexEntries().find(attributeValue).get();
-
-				entry.getSee().add(seeRef);
-				IntStream.range(0, seeNodes.size()) //
-						.mapToObj(refNodes::get) //
-						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
-						.map(context.indexEntries()::find) //
-						.filter(Optional::isPresent) //
-						.map(Optional::get) //
-						.forEach(entry.getSee()::add);
+				Optional<IndexEntry> foundSee = context.indexEntries().find(attributeValue);
+				if (foundSee.isPresent()) {
+					IndexEntry seeRef = foundSee.get();
+					entry.getSee().add(seeRef);
+					IntStream.range(0, seeNodes.size()) //
+							.mapToObj(refNodes::get) //
+							.map(element -> element.attributeValue("href")) //$NON-NLS-1$
+							.map(context.indexEntries()::find) //
+							.filter(Optional::isPresent) //
+							.map(Optional::get) //
+							.forEach(entry.getSee()::add);
+				}
 			} else { // Just a link otherwise
 				refNodes.stream() //
 						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
@@ -134,8 +135,10 @@ public final class IndexStructure extends BaseStructure<Index> {
 		// FIXME: AF: not sure, it could be a dedicated entity
 		entry.setKeyword(node.attributeValue("id")); //$NON-NLS-1$
 		entry.setId(node.attributeValue("id")); //$NON-NLS-1$
-
-		
+		entry.getSubentries().addAll(div.elements("div").stream() //$NON-NLS-1$
+				.map(this::createIndexEntry) //
+				.collect(Collectors.toList()));
+		context.indexEntries().register("#" + entry.getId(), entry); //$NON-NLS-1$
 //		boolean pointing = div.getText().contains(","); //$NON-NLS-1$
 //		Element e0 = elements.get(0);
 //		if (elements.size() < 2) {
@@ -182,12 +185,6 @@ public final class IndexStructure extends BaseStructure<Index> {
 //			}
 //		}
 		return entry;
-	}
-
-	private void createSubIndexEntry(IndexEntry parent, Element node) {
-		IndexEntry entry = createIndexEntry(node);
-		parent.getSubentries().add(entry);
-		context.indexEntries().register("#" + entry.getId(), entry); //$NON-NLS-1$
 	}
 
 }
