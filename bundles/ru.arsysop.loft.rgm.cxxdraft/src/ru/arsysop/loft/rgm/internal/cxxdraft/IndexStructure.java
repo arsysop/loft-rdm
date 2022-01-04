@@ -111,25 +111,19 @@ public final class IndexStructure extends BaseStructure<Index> {
 						.map(Optional::get) //
 						.forEach(entry.getParts()::add);
 			}
+			div.elements("div").stream().forEach(this::fillEntry); //$NON-NLS-1$
 		} else {
 			System.err.println("No references were found for " + id); //$NON-NLS-1$
 		}
 	}
 
 	private IndexEntry createIndexEntry(Element node) {
-		IndexEntry entry = factory.createIndexEntry();
-
 		Element div = Optional.ofNullable(node.element("div")).orElse(node); //$NON-NLS-1$
-		Element span = div.element("span"); //$NON-NLS-1$
-		if (span != null) {
-			entry.setText(span.getText());
-		}
-		// FIXME: AF: not sure, it could be a dedicated entity
-		entry.setKeyword(node.attributeValue("id")); //$NON-NLS-1$
+		IndexEntry entry = factory.createIndexEntry();
+		entry.setText(Optional.ofNullable(div.element("span")).map(Element::getText).orElse("")); //$NON-NLS-1$//$NON-NLS-2$
+		entry.setKeyword(node.attributeValue("id")); //$NON-NLS-1$ FIXME: AF: not sure, it could be a dedicated entity
 		entry.setId(node.attributeValue("id")); //$NON-NLS-1$
-		entry.getSubentries().addAll(div.elements("div").stream() //$NON-NLS-1$
-				.map(this::createIndexEntry) //
-				.collect(Collectors.toList()));
+		div.elements("div").stream().map(this::createIndexEntry).forEach(entry.getSubentries()::add); //$NON-NLS-1$
 		context.indexEntries().register("#" + entry.getId(), entry); //$NON-NLS-1$
 		return entry;
 	}
