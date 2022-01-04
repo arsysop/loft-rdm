@@ -95,22 +95,14 @@ public final class IndexStructure extends BaseStructure<Index> {
 			List<Element> seeNodes = div.elements("i").stream() //$NON-NLS-1$
 					.filter(i -> "see".equals(i.getText())) //$NON-NLS-1$
 					.collect(Collectors.toList());
-
 			if (seeNodes.size() > 0) { // Assuming see case
-				String attributeValue = refNodes.get(0).attributeValue("href"); //$NON-NLS-1$
-				System.out.println(attributeValue);
-				Optional<IndexEntry> foundSee = context.indexEntries().find(attributeValue);
-				if (foundSee.isPresent()) {
-					IndexEntry seeRef = foundSee.get();
-					entry.getSee().add(seeRef);
-					IntStream.range(0, seeNodes.size()) //
-							.mapToObj(refNodes::get) //
-							.map(element -> element.attributeValue("href")) //$NON-NLS-1$
-							.map(context.indexEntries()::find) //
-							.filter(Optional::isPresent) //
-							.map(Optional::get) //
-							.forEach(entry.getSee()::add);
-				}
+				IntStream.range(0, seeNodes.size()) //
+						.mapToObj(refNodes::get) //
+						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
+						.map(context.indexEntries()::find) //
+						.filter(Optional::isPresent) //
+						.map(Optional::get) //
+						.forEach(entry.getSee()::add);
 			} else { // Just a link otherwise
 				refNodes.stream() //
 						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
@@ -139,51 +131,6 @@ public final class IndexStructure extends BaseStructure<Index> {
 				.map(this::createIndexEntry) //
 				.collect(Collectors.toList()));
 		context.indexEntries().register("#" + entry.getId(), entry); //$NON-NLS-1$
-//		boolean pointing = div.getText().contains(","); //$NON-NLS-1$
-//		Element e0 = elements.get(0);
-//		if (elements.size() < 2) {
-//			if (pointing) {
-//				String href = e0.attributeValue("href"); //$NON-NLS-1$
-//				String[] split = href.split(","); //$NON-NLS-1$
-//				for (String id : split) {
-//					context.parts().request(id, entry.getParts()::add);
-//				}
-//				entry.setText(entry.getText() + " " + href); //$NON-NLS-1$
-//				return entry;
-//			} else {
-//				createSubIndexEntry(entry, div);
-//				return entry;
-//			}
-//		}
-//		Element e1 = elements.get(1);
-//		if (elements.size() < 3) {
-//			if (pointing) {
-//				String href = e1.attributeValue("href"); //$NON-NLS-1$
-//				context.parts().request(href, entry.getParts()::add);
-//				return entry;
-//			} else {
-//				if ("div".equals(e0.getName())) { //$NON-NLS-1$
-//					// FIXME: AF: investigate "asm"
-//					createSubIndexEntry(entry, e0);
-//				}
-//				createSubIndexEntry(entry, e1);
-//				return entry;
-//			}
-//		}
-//		if (e1.getText().contains("see")) { //$NON-NLS-1$
-//			Element e2 = elements.get(2);
-//			String href = e2.attributeValue("href"); //$NON-NLS-1$
-//			context.indexEntries().request(href, entry.getSee()::add);
-//		} else {
-//			if (pointing) {
-//				Element e2 = elements.get(2);
-//				String href = e2.attributeValue("href"); //$NON-NLS-1$
-//				context.parts().request(href, entry.getParts()::add);
-//			} else {
-//				createSubIndexEntry(entry, div);
-//				return entry;
-//			}
-//		}
 		return entry;
 	}
 
