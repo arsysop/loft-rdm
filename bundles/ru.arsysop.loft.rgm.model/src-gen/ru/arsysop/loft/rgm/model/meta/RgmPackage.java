@@ -277,16 +277,6 @@ public interface RgmPackage extends EPackage {
 	int PARAGRAPH = 6;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.AnchoredImpl <em>Anchored</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.AnchoredImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getAnchored()
-	 * @generated
-	 */
-	int ANCHORED = 7;
-
-	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.MarkupImpl <em>Markup</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -747,13 +737,23 @@ public interface RgmPackage extends EPackage {
 	int PARAGRAPH_OPERATION_COUNT = WITH_PARTS_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.SubParagraphImpl <em>Sub Paragraph</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.SubParagraphImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getSubParagraph()
+	 * @generated
+	 */
+	int SUB_PARAGRAPH = 7;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANCHORED__ID = PART__ID;
+	int SUB_PARAGRAPH__ID = PART__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -762,25 +762,43 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANCHORED__NAME = PART__NAME;
+	int SUB_PARAGRAPH__NAME = PART__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Anchored</em>' class.
+	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANCHORED_FEATURE_COUNT = PART_FEATURE_COUNT + 0;
+	int SUB_PARAGRAPH__REFERENCES = PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Anchored</em>' class.
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANCHORED_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+	int SUB_PARAGRAPH__TEXT = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Sub Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_PARAGRAPH_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Sub Paragraph</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUB_PARAGRAPH_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2096,14 +2114,36 @@ public interface RgmPackage extends EPackage {
 	EAttribute getParagraph_Number();
 
 	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Anchored <em>Anchored</em>}'.
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.SubParagraph <em>Sub Paragraph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Anchored</em>'.
-	 * @see ru.arsysop.loft.rgm.model.api.Anchored
+	 * @return the meta object for class '<em>Sub Paragraph</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph
 	 * @generated
 	 */
-	EClass getAnchored();
+	EClass getSubParagraph();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph#getReferences()
+	 * @see #getSubParagraph()
+	 * @generated
+	 */
+	EReference getSubParagraph_References();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph#getText()
+	 * @see #getSubParagraph()
+	 * @generated
+	 */
+	EAttribute getSubParagraph_Text();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Markup <em>Markup</em>}'.

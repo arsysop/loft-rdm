@@ -1,53 +1,55 @@
-/*******************************************************************************
- * Copyright (c) 2021 ArSysOp.
- *
+/**
+ * Copyright (c) 2021 ArSysOp
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * 	http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
+ * 	SPDX-License-Identifier: Apache-2.0
  * Contributors:
- *     (ArSysOp) - initial API and implementation
- *******************************************************************************/
+ * 	ArSysOp - initial API and implementation
+ * 
+ */
 package ru.arsysop.loft.rgm.edit.providers;
 
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.model.api.Anchored;
+import ru.arsysop.loft.rgm.model.api.SubParagraph;
+
+import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Anchored} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.SubParagraph} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnchoredItemProvider extends PartItemProvider {
+public class SubParagraphItemProvider extends PartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnchoredItemProvider(AdapterFactory adapterFactory) {
+	public SubParagraphItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,8 +64,54 @@ public class AnchoredItemProvider extends PartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addReferencesPropertyDescriptor(object);
+			addTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SubParagraph_references_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SubParagraph_references_feature", "_UI_SubParagraph_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getSubParagraph_References(),
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Text feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SubParagraph_text_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SubParagraph_text_feature", "_UI_SubParagraph_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getSubParagraph_Text(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -99,21 +147,17 @@ public class AnchoredItemProvider extends PartItemProvider {
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		Anchored anchored = (Anchored) object;
-		StyledString styledLabel = new StyledString();
-		styledLabel.append(getString("_UI_Anchored_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		Optional.ofNullable(anchored.getName())//
-				.filter(Objects::nonNull)//
-				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append(' ' + s));
-		Optional.ofNullable(anchored.getId())//
-				.filter(Objects::nonNull)//
-				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append(" " + '[' + s + ']', StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$
+		String label = ((SubParagraph)object).getName();
+    	StyledString styledLabel = new StyledString();
+		if (label == null || label.length() == 0) {
+			styledLabel.append(getString("_UI_SubParagraph_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+		} else {
+			styledLabel.append(getString("_UI_SubParagraph_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+		}
 		return styledLabel;
 	}
 
@@ -127,7 +171,15 @@ public class AnchoredItemProvider extends PartItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
+
+		switch (notification.getFeatureID(SubParagraph.class)) {
+			case RgmPackage.SUB_PARAGRAPH__TEXT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**

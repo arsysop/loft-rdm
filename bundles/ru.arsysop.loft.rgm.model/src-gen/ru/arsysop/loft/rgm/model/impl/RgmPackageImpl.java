@@ -25,8 +25,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import ru.arsysop.loft.rgm.model.api.Anchored;
 import ru.arsysop.loft.rgm.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.model.api.Citation;
 import ru.arsysop.loft.rgm.model.api.ClassDecl;
@@ -50,6 +48,7 @@ import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
+import ru.arsysop.loft.rgm.model.api.SubParagraph;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
 import ru.arsysop.loft.rgm.model.api.Toc;
@@ -102,7 +101,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass anchoredEClass = null;
+	private EClass subParagraphEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -517,8 +516,28 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getAnchored() {
-		return anchoredEClass;
+	public EClass getSubParagraph() {
+		return subParagraphEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSubParagraph_References() {
+		return (EReference)subParagraphEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSubParagraph_Text() {
+		return (EAttribute)subParagraphEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1279,7 +1298,9 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		paragraphEClass = createEClass(PARAGRAPH);
 		createEAttribute(paragraphEClass, PARAGRAPH__NUMBER);
 
-		anchoredEClass = createEClass(ANCHORED);
+		subParagraphEClass = createEClass(SUB_PARAGRAPH);
+		createEReference(subParagraphEClass, SUB_PARAGRAPH__REFERENCES);
+		createEAttribute(subParagraphEClass, SUB_PARAGRAPH__TEXT);
 
 		indexEClass = createEClass(INDEX);
 		createEReference(indexEClass, INDEX__ENTRIES);
@@ -1403,7 +1424,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		tocChapterEClass.getESuperTypes().add(this.getPart());
 		tocChapterEClass.getESuperTypes().add(this.getWithTocChapters());
 		paragraphEClass.getESuperTypes().add(this.getWithParts());
-		anchoredEClass.getESuperTypes().add(this.getPart());
+		subParagraphEClass.getESuperTypes().add(this.getPart());
 		indexEClass.getESuperTypes().add(this.getPart());
 		namespaceEClass.getESuperTypes().add(this.getDeclaration());
 		functionDeclEClass.getESuperTypes().add(this.getDeclaration());
@@ -1452,7 +1473,9 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getParagraph_Number(), ecorePackage.getEString(), "number", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(anchoredEClass, Anchored.class, "Anchored", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(subParagraphEClass, SubParagraph.class, "SubParagraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSubParagraph_References(), this.getPart(), null, "references", null, 0, -1, SubParagraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getSubParagraph_Text(), ecorePackage.getEString(), "text", null, 0, 1, SubParagraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getIndex_Entries(), this.getIndexEntry(), null, "entries", null, 0, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

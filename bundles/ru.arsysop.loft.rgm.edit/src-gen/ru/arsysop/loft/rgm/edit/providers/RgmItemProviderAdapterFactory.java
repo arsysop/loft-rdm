@@ -162,26 +162,26 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Anchored} instances.
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.SubParagraph} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AnchoredItemProvider anchoredItemProvider;
+	protected SubParagraphItemProvider subParagraphItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Anchored}.
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.SubParagraph}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAnchoredAdapter() {
-		if (anchoredItemProvider == null) {
-			anchoredItemProvider = new AnchoredItemProvider(this);
+	public Adapter createSubParagraphAdapter() {
+		if (subParagraphItemProvider == null) {
+			subParagraphItemProvider = new SubParagraphItemProvider(this);
 		}
 
-		return anchoredItemProvider;
+		return subParagraphItemProvider;
 	}
 
 	/**
@@ -920,7 +920,7 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 		if (tocItemProvider != null) tocItemProvider.dispose();
 		if (tocChapterItemProvider != null) tocChapterItemProvider.dispose();
 		if (paragraphItemProvider != null) paragraphItemProvider.dispose();
-		if (anchoredItemProvider != null) anchoredItemProvider.dispose();
+		if (subParagraphItemProvider != null) subParagraphItemProvider.dispose();
 		if (indexItemProvider != null) indexItemProvider.dispose();
 		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
 		if (markupItemProvider != null) markupItemProvider.dispose();

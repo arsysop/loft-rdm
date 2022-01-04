@@ -155,10 +155,10 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RgmPackage.ANCHORED: {
-				Anchored anchored = (Anchored)theEObject;
-				T result = caseAnchored(anchored);
-				if (result == null) result = casePart(anchored);
+			case RgmPackage.SUB_PARAGRAPH: {
+				SubParagraph subParagraph = (SubParagraph)theEObject;
+				T result = caseSubParagraph(subParagraph);
+				if (result == null) result = casePart(subParagraph);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -397,17 +397,17 @@ public class RgmSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Anchored</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Sub Paragraph</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Anchored</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Sub Paragraph</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAnchored(Anchored object) {
+	public T caseSubParagraph(SubParagraph object) {
 		return null;
 	}
 

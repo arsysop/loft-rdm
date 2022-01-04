@@ -136,8 +136,8 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 				return createParagraphAdapter();
 			}
 			@Override
-			public Adapter caseAnchored(Anchored object) {
-				return createAnchoredAdapter();
+			public Adapter caseSubParagraph(SubParagraph object) {
+				return createSubParagraphAdapter();
 			}
 			@Override
 			public Adapter caseIndex(Index object) {
@@ -316,16 +316,16 @@ public class RgmAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.Anchored <em>Anchored</em>}'.
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.model.api.SubParagraph <em>Sub Paragraph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.model.api.Anchored
+	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph
 	 * @generated
 	 */
-	public Adapter createAnchoredAdapter() {
+	public Adapter createSubParagraphAdapter() {
 		return null;
 	}
 
