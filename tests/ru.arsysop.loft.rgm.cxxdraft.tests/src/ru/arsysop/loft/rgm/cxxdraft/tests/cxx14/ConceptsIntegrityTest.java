@@ -3,7 +3,6 @@ package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ru.arsysop.loft.rgm.model.api.TocChapter;
@@ -40,12 +39,28 @@ public final class ConceptsIntegrityTest extends Cxx14IntegrityTest {
 		}
 	}
 
-	// TODO: see https://github.com/arsysop/loft-rgm/issues/23
 	@Test
-	@Ignore
 	public void lookup() {
-		int paragraphs = 8;
+		int paragraphs = 6;
 		assertEquals(paragraphs, basicConcepts.getChapters().get(3).getChapters().size());
+		for (int i = 0; i < paragraphs; i++) {
+			TocChapter paragraph = basicConcepts.getChapters().get(3).getChapters().get(i);
+			assertEquals(paragraph(3, 4, i + 1), paragraph.getNumber());
+			assertNotNull(paragraph.getName());
+			assertNotNull(paragraph.getPart());
+		}
+	}
+
+	@Test
+	public void qualifiedLookup() {
+		int paragraphs = 2;
+		assertEquals(paragraphs, basicConcepts.getChapters().get(3).getChapters().get(2).getChapters().size());
+		for (int i = 0; i < paragraphs; i++) {
+			TocChapter paragraph = basicConcepts.getChapters().get(3).getChapters().get(2).getChapters().get(i);
+			assertEquals(subparagraph(3, 4, 3, i + 1), paragraph.getNumber());
+			assertNotNull(paragraph.getName());
+			assertNotNull(paragraph.getPart());
+		}
 	}
 
 	@Test
@@ -59,12 +74,28 @@ public final class ConceptsIntegrityTest extends Cxx14IntegrityTest {
 		}
 	}
 
-	// TODO: see https://github.com/arsysop/loft-rgm/issues/23
 	@Test
-	@Ignore
 	public void storageDuration() {
-		int paragraphs = 8;
+		int paragraphs = 5;
 		assertEquals(paragraphs, basicConcepts.getChapters().get(6).getChapters().size());
+		for (int i = 0; i < paragraphs; i++) {
+			TocChapter paragraph = basicConcepts.getChapters().get(6).getChapters().get(i);
+			assertEquals(paragraph(3, 7, i + 1), paragraph.getNumber());
+			assertNotNull(paragraph.getName());
+			assertNotNull(paragraph.getPart());
+		}
+	}
+
+	@Test
+	public void dynamicDuration() {
+		int paragraphs = 3;
+		assertEquals(paragraphs, basicConcepts.getChapters().get(6).getChapters().get(3).getChapters().size());
+		for (int i = 0; i < paragraphs; i++) {
+			TocChapter paragraph = basicConcepts.getChapters().get(6).getChapters().get(3).getChapters().get(i);
+			assertEquals(subparagraph(3, 7, 4, i + 1), paragraph.getNumber());
+			assertNotNull(paragraph.getName());
+			assertNotNull(paragraph.getPart());
+		}
 	}
 
 	@Test
