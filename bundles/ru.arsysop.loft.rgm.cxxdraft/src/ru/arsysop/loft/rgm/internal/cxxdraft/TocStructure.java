@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -94,15 +95,15 @@ public final class TocStructure extends BaseStructure<Toc> {
 				.element("a")//$NON-NLS-1$
 				.getText()//
 				.startsWith("[")) { //$NON-NLS-1$
-			completeVisualization(chapter, node);
+			completeVisualization(chapter);
 		} else {
 			if ("annexnum".equals( //$NON-NLS-1$
 					node.element("h2") //$NON-NLS-1$
 							.element("a") //$NON-NLS-1$
 							.attributeValue("class"))) { //$NON-NLS-1$
-				completeAnnex(chapter, node);
+				completeAnnex(chapter);
 			} else {
-				completeParagraph(chapter, node, container.getChapters()::add,
+				completeParagraph(chapter, node.element("div"), container.getChapters()::add, //$NON-NLS-1$
 						container.getDocument().getParagraphs()::add);
 			}
 		}
@@ -137,15 +138,12 @@ public final class TocStructure extends BaseStructure<Toc> {
 		if (a == null && !node.elements().isEmpty()) {
 			a = node.elements().get(0).element("a"); //$NON-NLS-1$
 		}
-		return Optional.ofNullable(a)
-				.map(Element::getText).filter(Objects::nonNull).filter(t -> !t.startsWith("[")) //$NON-NLS-1$
+		return Optional.ofNullable(a).map(Element::getText).filter(Objects::nonNull).filter(t -> !t.startsWith("[")) //$NON-NLS-1$
 				.orElse(""); //$NON-NLS-1$
 	}
 
-	private void completeVisualization(TocChapter chapter, Element node) {
+	private void completeVisualization(TocChapter chapter) {
 		container.getChapters().add(chapter);
-		// TODO Auto-generated method stub
-		
 	}
 
 	private void completeParagraph(TocChapter chapter, Element node, Consumer<TocChapter> chapters,
@@ -158,28 +156,17 @@ public final class TocStructure extends BaseStructure<Toc> {
 		chapter.setPart(paragraph);
 		paragraphs.accept(paragraph);
 		context.parts().register(paragraph.getId(), paragraph);
-		List<Element> divs = node.elements();
-		for (Element div : divs) {
-			if (!"div".equals(div.getName())) { //$NON-NLS-1$
-				continue;
-			}
-			List<Element> elements = div.elements();
-			for (Element element : elements) {
-				TocChapter sub = createTocChapter(element);
-				completeParagraph(sub, element, chapter.getChapters()::add,
-						((Paragraph) chapter.getPart()).getParts()::add);
-			}
-		}
+		Stream<Element> divs = node.elements().stream().filter(e -> "div".equals(e.getName())); //$NON-NLS-1$
+		divs.forEachOrdered(e -> completeParagraph(createTocChapter(e), e, chapter.getChapters()::add,
+				((Paragraph) chapter.getPart()).getParts()::add));
 	}
 
-	private void completeAnnex(TocChapter chapter, Element node) {
+	private void completeAnnex(TocChapter chapter) {
 		container.getChapters().add(chapter);
-		// TODO Auto-generated method stub
-
+		// TODO: Specific processing for annexes
 	}
 
-	private void completeIndex(TocChapter chapter, Element node, Consumer<TocChapter> chapters,
-			Consumer<Index> indexes) {
+	private void completeIndex(TocChapter chapter, Consumer<TocChapter> chapters, Consumer<Index> indexes) {
 		chapters.accept(chapter);
 		Index index = factory.createIndex();
 		index.setId(chapter.getId());
@@ -193,7 +180,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		Element h2a = element.element("a"); //$NON-NLS-1$
 		chapter.setId(h2a.attributeValue("href")); //$NON-NLS-1$
 		chapter.setName(h2a.getText());
-		completeIndex(chapter, h2a, container.getChapters()::add, container.getDocument().getIndexes()::add);
+		completeIndex(chapter, container.getChapters()::add, container.getDocument().getIndexes()::add);
 	}
 
 }
