@@ -3,6 +3,7 @@ package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ru.arsysop.loft.rgm.model.api.TocChapter;
@@ -41,6 +42,7 @@ public final class ConceptsIntegrityTest extends Cxx14IntegrityTest {
 
 	// TODO: see https://github.com/arsysop/loft-rgm/issues/23
 	@Test
+	@Ignore
 	public void lookup() {
 		int paragraphs = 8;
 		assertEquals(paragraphs, basicConcepts.getChapters().get(3).getChapters().size());
@@ -59,6 +61,7 @@ public final class ConceptsIntegrityTest extends Cxx14IntegrityTest {
 
 	// TODO: see https://github.com/arsysop/loft-rgm/issues/23
 	@Test
+	@Ignore
 	public void storageDuration() {
 		int paragraphs = 8;
 		assertEquals(paragraphs, basicConcepts.getChapters().get(6).getChapters().size());
