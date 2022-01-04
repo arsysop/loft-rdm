@@ -50,14 +50,12 @@ public final class IndexStructure extends BaseStructure<Index> {
 	}
 
 	private void fillReferences(Element wrapper) {
-		for (int i = 0; i < wrapper.nodeCount(); i++) {
-			Node node = wrapper.node(i);
-			if (node instanceof Element) {
-				if ("div".equals(node.getName())) { //$NON-NLS-1$
-					fillEntry((Element) node);
-				}
-			}
-		}
+		IntStream.range(0, wrapper.nodeCount()) //
+				.mapToObj(wrapper::node) //
+				.filter(Element.class::isInstance) //
+				.map(Element.class::cast) //
+				.filter(new IsDiv()) //
+				.forEach(this::fillEntry);
 	}
 
 	private void createEntries(Element wrapper) {
@@ -106,6 +104,8 @@ public final class IndexStructure extends BaseStructure<Index> {
 			} else { // Just a link otherwise
 				refNodes.stream() //
 						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
+						.map(href -> href.split("#")[0]) //$NON-NLS-1$
+						.map(href -> href.replace(context.location(context.document()), "")) //$NON-NLS-1$
 						.map(context.parts()::find) //
 						.filter(Optional::isPresent) //
 						.map(Optional::get) //
