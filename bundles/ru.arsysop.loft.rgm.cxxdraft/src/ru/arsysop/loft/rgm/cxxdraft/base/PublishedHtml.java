@@ -49,9 +49,12 @@ public final class PublishedHtml implements ICoreRunnable {
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
 		try (InputStream is = new URL(location).openStream()) {
+
+			Tidy tidy = new Tidy();
+			tidy.setShowWarnings(false);
 			structure.read(//
 					new DOMReader()//
-							.read(new Tidy().parseDOM(is, /* no output */null)));
+							.read(tidy.parseDOM(is, /* no output */null)));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CoreException(//
