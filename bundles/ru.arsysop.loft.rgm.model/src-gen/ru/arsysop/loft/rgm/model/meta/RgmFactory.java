@@ -21,8 +21,6 @@
 package ru.arsysop.loft.rgm.model.meta;
 
 import org.eclipse.emf.ecore.EFactory;
-
-import ru.arsysop.loft.rgm.model.api.Anchored;
 import ru.arsysop.loft.rgm.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.model.api.Citation;
 import ru.arsysop.loft.rgm.model.api.ClassDecl;
@@ -44,6 +42,7 @@ import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
+import ru.arsysop.loft.rgm.model.api.SubParagraph;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
 import ru.arsysop.loft.rgm.model.api.Toc;
@@ -88,13 +87,13 @@ public interface RgmFactory extends EFactory {
 	Paragraph createParagraph();
 
 	/**
-	 * Returns a new object of class '<em>Anchored</em>'.
+	 * Returns a new object of class '<em>Sub Paragraph</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Anchored</em>'.
+	 * @return a new object of class '<em>Sub Paragraph</em>'.
 	 * @generated
 	 */
-	Anchored createAnchored();
+	SubParagraph createSubParagraph();
 
 	/**
 	 * Returns a new object of class '<em>Markup</em>'.

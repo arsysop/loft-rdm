@@ -75,7 +75,7 @@ public final class RgmEditorAdvisor extends WorkbenchAdvisor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final String[] FILE_EXTENSION_FILTERS = ru.arsysop.loft.rgm.editor.RgmEditor.FILE_EXTENSION_FILTERS.toArray(new String[0]); 
+	private static final String[] FILE_EXTENSION_FILTERS = RgmEditor.FILE_EXTENSION_FILTERS.toArray(new String[0]); 
 
 	/**
 	 * This looks up a string in the plugin's plugin.properties file.
