@@ -42,7 +42,7 @@ import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
-import ru.arsysop.loft.rgm.model.api.SubParagraph;
+import ru.arsysop.loft.rgm.model.api.Point;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
 import ru.arsysop.loft.rgm.model.api.Toc;
@@ -87,13 +87,13 @@ public interface RgmFactory extends EFactory {
 	Paragraph createParagraph();
 
 	/**
-	 * Returns a new object of class '<em>Sub Paragraph</em>'.
+	 * Returns a new object of class '<em>Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sub Paragraph</em>'.
+	 * @return a new object of class '<em>Point</em>'.
 	 * @generated
 	 */
-	SubParagraph createSubParagraph();
+	Point createPoint();
 
 	/**
 	 * Returns a new object of class '<em>Markup</em>'.

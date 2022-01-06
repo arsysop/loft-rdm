@@ -35,7 +35,7 @@ import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.Part;
-import ru.arsysop.loft.rgm.model.api.SubParagraph;
+import ru.arsysop.loft.rgm.model.api.Point;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
 public final class ParagraphStructure extends BaseStructure<Paragraph> {
@@ -61,7 +61,7 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 	private void resolveParagraph(Element node) {
 		Optional<Paragraph> found = findParagraph(node);
 		if (found.isPresent()) {
-			readSubParagraphs(found.get(), node);
+			readPoints(found.get(), node);
 			node.elements("div").stream() // //$NON-NLS-1$
 					.filter(new NullClass()) //
 					.forEach(this::resolveParagraph);
@@ -75,20 +75,20 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 				.map(Paragraph.class::cast);
 	}
 
-	private void readSubParagraphs(Paragraph paragraph, Element node) {
+	private void readPoints(Paragraph paragraph, Element node) {
 		node.elements().stream() //
 				.filter(new IsDiv()) //
 				.filter(new OfClass("para")) //$NON-NLS-1$
-				.forEach(e -> appendSubParagraph(paragraph, e));
+				.forEach(e -> appendPoint(paragraph, e));
 	}
 
-	private void appendSubParagraph(Paragraph paragraph, Element node) {
-		SubParagraph subParagraph = factory.createSubParagraph();
-		subParagraph.setId(subParagraphId(node));
-		subParagraph.setName(subParagraphName(node));
-		subParagraph.setText(collectText(node));
-		subParagraph.getReferences().addAll(references(node));
-		paragraph.getParts().add(subParagraph);
+	private void appendPoint(Paragraph paragraph, Element node) {
+		Point point = factory.createPoint();
+		point.setId(subParagraphId(node));
+		point.setName(subParagraphName(node));
+		point.setText(collectText(node));
+		point.getReferences().addAll(references(node));
+		paragraph.getParts().add(point);
 	}
 
 	// TODO: NF: provide a more meaningful way to collect subparagraph's text

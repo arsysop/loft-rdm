@@ -30,22 +30,22 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getReferences <em>References</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Point#getReferences <em>References</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getSubParagraph()
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint()
  * @model
  * @generated
  */
-public interface SubParagraph extends Part {
+public interface Point extends Part {
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Part}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>References</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getSubParagraph_References()
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint_References()
 	 * @model
 	 * @generated
 	 */
@@ -57,14 +57,14 @@ public interface SubParagraph extends Part {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getSubParagraph_Text()
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint_Text()
 	 * @model
 	 * @generated
 	 */
 	String getText();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getText <em>Text</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Text</em>' attribute.

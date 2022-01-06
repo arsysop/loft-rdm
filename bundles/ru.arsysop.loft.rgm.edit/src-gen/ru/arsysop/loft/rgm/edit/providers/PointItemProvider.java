@@ -35,24 +35,24 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.model.api.Part;
-import ru.arsysop.loft.rgm.model.api.SubParagraph;
+import ru.arsysop.loft.rgm.model.api.Point;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
  * This is the item provider adapter for a
- * {@link ru.arsysop.loft.rgm.model.api.SubParagraph} object. <!--
+ * {@link ru.arsysop.loft.rgm.model.api.Point} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
  * 
  * @generated
  */
-public class SubParagraphItemProvider extends PartItemProvider {
+public class PointItemProvider extends PartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public SubParagraphItemProvider(AdapterFactory adapterFactory) {
+	public PointItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,28 +80,41 @@ public class SubParagraphItemProvider extends PartItemProvider {
 	 * @generated
 	 */
 	protected void addReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_SubParagraph_references_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_SubParagraph_references_feature", //$NON-NLS-1$ //$NON-NLS-2$
-								"_UI_SubParagraph_type"), //$NON-NLS-1$
-						RgmPackage.eINSTANCE.getSubParagraph_References(), true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Point_references_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_references_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getPoint_References(),
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Text feature. <!-- begin-user-doc -->
+	 * This adds a property descriptor for the Text feature.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addTextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_SubParagraph_text_feature"), //$NON-NLS-1$
-						getString("_UI_PropertyDescriptor_description", "_UI_SubParagraph_text_feature", //$NON-NLS-1$ //$NON-NLS-2$
-								"_UI_SubParagraph_type"), //$NON-NLS-1$
-						RgmPackage.eINSTANCE.getSubParagraph_Text(), true, true, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Point_text_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_text_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 RgmPackage.eINSTANCE.getPoint_Text(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -114,7 +127,6 @@ public class SubParagraphItemProvider extends PartItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,14 +135,14 @@ public class SubParagraphItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		return ((StyledString) getStyledText(object)).getString();
+		return ((StyledString)getStyledText(object)).getString();
 	}
 
 	/**
@@ -138,9 +150,9 @@ public class SubParagraphItemProvider extends PartItemProvider {
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		SubParagraph item = (SubParagraph) object;
+		Point item = (Point) object;
 		StyledString styledLabel = new StyledString();
-		styledLabel.append(getString("_UI_SubParagraph_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		styledLabel.append(getString("_UI_Point_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
 		Optional.of(item.getName()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
@@ -164,31 +176,30 @@ public class SubParagraphItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update
-	 * any cached children and by creating a viewer notification, which it passes to
-	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SubParagraph.class)) {
-		case RgmPackage.SUB_PARAGRAPH__TEXT:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		default:
-			super.notifyChanged(notification);
-			return;
-		}
+		switch (notification.getFeatureID(Point.class)) {
+			case RgmPackage.POINT__TEXT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
-	 * the children that can be created under this object. <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

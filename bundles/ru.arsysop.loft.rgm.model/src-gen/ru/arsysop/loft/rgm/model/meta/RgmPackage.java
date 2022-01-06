@@ -737,14 +737,14 @@ public interface RgmPackage extends EPackage {
 	int PARAGRAPH_OPERATION_COUNT = WITH_PARTS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.SubParagraphImpl <em>Sub Paragraph</em>}' class.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.PointImpl <em>Point</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.model.impl.SubParagraphImpl
-	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getSubParagraph()
+	 * @see ru.arsysop.loft.rgm.model.impl.PointImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getPoint()
 	 * @generated
 	 */
-	int SUB_PARAGRAPH = 7;
+	int POINT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -753,7 +753,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_PARAGRAPH__ID = PART__ID;
+	int POINT__ID = PART__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -762,7 +762,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_PARAGRAPH__NAME = PART__NAME;
+	int POINT__NAME = PART__NAME;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -771,7 +771,7 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_PARAGRAPH__REFERENCES = PART_FEATURE_COUNT + 0;
+	int POINT__REFERENCES = PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -780,25 +780,25 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_PARAGRAPH__TEXT = PART_FEATURE_COUNT + 1;
+	int POINT__TEXT = PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Sub Paragraph</em>' class.
+	 * The number of structural features of the '<em>Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_PARAGRAPH_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Sub Paragraph</em>' class.
+	 * The number of operations of the '<em>Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUB_PARAGRAPH_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+	int POINT_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2114,36 +2114,36 @@ public interface RgmPackage extends EPackage {
 	EAttribute getParagraph_Number();
 
 	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.SubParagraph <em>Sub Paragraph</em>}'.
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Point <em>Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sub Paragraph</em>'.
-	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph
+	 * @return the meta object for class '<em>Point</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.Point
 	 * @generated
 	 */
-	EClass getSubParagraph();
+	EClass getPoint();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getReferences <em>References</em>}'.
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.Point#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>References</em>'.
-	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph#getReferences()
-	 * @see #getSubParagraph()
+	 * @see ru.arsysop.loft.rgm.model.api.Point#getReferences()
+	 * @see #getPoint()
 	 * @generated
 	 */
-	EReference getSubParagraph_References();
+	EReference getPoint_References();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.SubParagraph#getText <em>Text</em>}'.
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see ru.arsysop.loft.rgm.model.api.SubParagraph#getText()
-	 * @see #getSubParagraph()
+	 * @see ru.arsysop.loft.rgm.model.api.Point#getText()
+	 * @see #getPoint()
 	 * @generated
 	 */
-	EAttribute getSubParagraph_Text();
+	EAttribute getPoint_Text();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Markup <em>Markup</em>}'.

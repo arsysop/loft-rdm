@@ -100,7 +100,7 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 			case RgmPackage.TOC: return createToc();
 			case RgmPackage.TOC_CHAPTER: return createTocChapter();
 			case RgmPackage.PARAGRAPH: return createParagraph();
-			case RgmPackage.SUB_PARAGRAPH: return createSubParagraph();
+			case RgmPackage.POINT: return createPoint();
 			case RgmPackage.INDEX: return createIndex();
 			case RgmPackage.INDEX_ENTRY: return createIndexEntry();
 			case RgmPackage.MARKUP: return createMarkup();
@@ -158,9 +158,9 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	 * @generated
 	 */
 	@Override
-	public SubParagraph createSubParagraph() {
-		SubParagraphImpl subParagraph = new SubParagraphImpl();
-		return subParagraph;
+	public Point createPoint() {
+		PointImpl point = new PointImpl();
+		return point;
 	}
 
 	/**

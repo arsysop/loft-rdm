@@ -45,9 +45,9 @@
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Paragraph">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Paragraph/number"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//SubParagraph">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//SubParagraph/references"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//SubParagraph/text"/>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Point">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Point/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Point/text"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Index">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.ecore/model/rgm.ecore#//Index/entries"/>
