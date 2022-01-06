@@ -139,14 +139,18 @@ public class SubParagraphItemProvider extends PartItemProvider {
 		SubParagraph item = (SubParagraph) object;
 		StyledString styledLabel = new StyledString();
 		styledLabel.append(getString("_UI_SubParagraph_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		Optional.of(item.getId()) //
+		Optional.of(item.getName()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
-		Optional.of(item.getText()) //
+		Optional.of(item.getText().split("\n")[0]) // //$NON-NLS-1$
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s));
+		Optional.of(item.getId()) //
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(" [" + s + "] ", StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$//$NON-NLS-2$
 		return styledLabel;
 	}
 

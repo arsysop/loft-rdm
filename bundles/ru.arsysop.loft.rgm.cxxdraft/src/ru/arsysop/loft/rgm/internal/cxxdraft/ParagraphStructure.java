@@ -28,6 +28,7 @@ import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.NullClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.SubParagraph;
@@ -54,13 +55,20 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 	}
 
 	private void resolveParagraph(Element node) {
-		Optional<Paragraph> found = context.parts() //
-				.find(node.attributeValue("id")) //$NON-NLS-1$
-				.filter(Paragraph.class::isInstance).map(Paragraph.class::cast);
+		Optional<Paragraph> found = findParagraph(node);
 		if (found.isPresent()) {
-			Paragraph paragraph = found.get();
-			readSubParagraphs(paragraph, node);
+			readSubParagraphs(found.get(), node);
+			node.elements("div").stream() // //$NON-NLS-1$
+					.filter(new NullClass()) //
+					.forEach(this::resolveParagraph);
 		}
+	}
+
+	private Optional<Paragraph> findParagraph(Element node) {
+		return context.parts() //
+				.find(node.attributeValue("id")) //$NON-NLS-1$
+				.filter(Paragraph.class::isInstance) //
+				.map(Paragraph.class::cast);
 	}
 
 	private void readSubParagraphs(Paragraph paragraph, Element node) {
@@ -72,14 +80,22 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 
 	private void appendSubParagraph(Paragraph paragraph, Element node) {
 		SubParagraph subParagraph = factory.createSubParagraph();
-		String id = subParagraphId(node);
-		subParagraph.setId(id);
-		subParagraph.setName(id); // NF: Let it be the same thing for now
-		subParagraph.setText(node.elements("p").stream().map(Element::getText).collect(Collectors.joining(" "))); //$NON-NLS-1$//$NON-NLS-2$
+		subParagraph.setId(subParagraphId(node));
+		subParagraph.setName(subParagraphName(node));
+		subParagraph.setText(collectText(node));
 		paragraph.getParts().add(subParagraph);
 	}
 
+	// TODO: NF: provide a more meaningful way to collect subparagraph's text
+	private String collectText(Element node) {
+		return node.elements("p").stream().map(Element::getText).collect(Collectors.joining("\n")); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
 	private String subParagraphId(Element node) {
+		return node.attributeValue("id"); //$NON-NLS-1$
+	}
+
+	private String subParagraphName(Element node) {
 		return node.elements("div").stream() //$NON-NLS-1$
 				.filter(new OfClass("marginalizedparent")) //$NON-NLS-1$
 				.map(e -> e.element("a")) //$NON-NLS-1$
