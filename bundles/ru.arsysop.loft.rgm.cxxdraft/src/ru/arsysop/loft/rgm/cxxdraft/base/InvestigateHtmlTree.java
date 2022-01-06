@@ -20,6 +20,7 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft.base;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.eclipse.core.runtime.CoreException;
@@ -34,6 +35,7 @@ import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 import ru.arsysop.loft.rgm.model.api.Index;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
@@ -70,9 +72,12 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 
 	}
 
-	private void parseParagraphs(SubMonitor sub) {
-		// TODO Auto-generated method stub
-
+	private void parseParagraphs(SubMonitor monitor) throws CoreException {
+		List<Paragraph> paragraphs = context.document().getParagraphs();
+		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size());
+		for (Paragraph paragraph : paragraphs) {
+			parseLocation(paragraph, sub);
+		}
 	}
 
 	private void parseAnnexes(SubMonitor sub) {

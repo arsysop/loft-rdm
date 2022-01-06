@@ -29,6 +29,7 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.model.api.Index;
 import ru.arsysop.loft.rgm.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
