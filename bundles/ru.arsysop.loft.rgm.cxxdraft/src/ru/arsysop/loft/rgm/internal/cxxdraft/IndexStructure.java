@@ -30,6 +30,7 @@ import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.model.api.Index;
 import ru.arsysop.loft.rgm.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
@@ -106,7 +107,7 @@ public final class IndexStructure extends BaseStructure<Index> {
 				refNodes.stream() //
 						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
 						.map(href -> href.split("#")[0]) //$NON-NLS-1$
-						.map(href -> href.replace(context.location(context.document()), "")) //$NON-NLS-1$
+						.map(new PickId(context)) //
 						.map(context.parts()::find) //
 						.filter(Optional::isPresent) //
 						.map(Optional::get) //

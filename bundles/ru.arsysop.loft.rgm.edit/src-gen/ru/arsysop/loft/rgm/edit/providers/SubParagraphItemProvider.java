@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.SubParagraph;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -98,7 +100,7 @@ public class SubParagraphItemProvider extends PartItemProvider {
 						getResourceLocator(), getString("_UI_SubParagraph_text_feature"), //$NON-NLS-1$
 						getString("_UI_PropertyDescriptor_description", "_UI_SubParagraph_text_feature", //$NON-NLS-1$ //$NON-NLS-2$
 								"_UI_SubParagraph_type"), //$NON-NLS-1$
-						RgmPackage.eINSTANCE.getSubParagraph_Text(), true, false, false,
+						RgmPackage.eINSTANCE.getSubParagraph_Text(), true, true, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -143,7 +145,14 @@ public class SubParagraphItemProvider extends PartItemProvider {
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
-		Optional.of(item.getText().split("\n")[0]) // //$NON-NLS-1$
+		Optional.of(item.getReferences().stream().map(Part::getId).collect(Collectors.joining("; "))) //$NON-NLS-1$
+				.filter(s -> !s.isEmpty()) //
+				.ifPresent(s -> {
+					styledLabel.append(" (references: ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
+					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
+					styledLabel.append(") ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
+				});
+		Optional.of(item.getText().split("\n")[0]) //$NON-NLS-1$
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s));

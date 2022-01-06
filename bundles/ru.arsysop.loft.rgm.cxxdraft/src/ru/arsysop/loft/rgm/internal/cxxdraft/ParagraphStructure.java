@@ -20,9 +20,11 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import org.dom4j.Element;
 
@@ -30,7 +32,9 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.NullClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
+import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.SubParagraph;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
@@ -83,12 +87,32 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		subParagraph.setId(subParagraphId(node));
 		subParagraph.setName(subParagraphName(node));
 		subParagraph.setText(collectText(node));
+		subParagraph.getReferences().addAll(references(node));
 		paragraph.getParts().add(subParagraph);
 	}
 
 	// TODO: NF: provide a more meaningful way to collect subparagraph's text
 	private String collectText(Element node) {
 		return node.elements("p").stream().map(Element::getText).collect(Collectors.joining("\n")); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
+	private List<Part> references(Element node) {
+		return Stream.concat(textReferences(node), rawReferences(node)).collect(Collectors.toList());
+	}
+
+	private Stream<Part> textReferences(Element node) {
+		return node.elements("p").stream() //$NON-NLS-1$
+				.flatMap(i -> i.elements("a").stream()) //$NON-NLS-1$
+				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
+				.map(new PickId(context)) //
+				.map(context.parts()::find) //
+				.filter(Optional::isPresent) //
+				.map(Optional::get);
+	}
+
+	// TODO: NF: parse raw references (usually located at the beginning)
+	private Stream<Part> rawReferences(Element node) {
+		return Stream.empty();
 	}
 
 	private String subParagraphId(Element node) {
