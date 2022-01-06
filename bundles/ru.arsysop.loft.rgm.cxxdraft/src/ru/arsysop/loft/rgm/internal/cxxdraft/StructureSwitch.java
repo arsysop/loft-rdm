@@ -29,6 +29,7 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.model.api.Document;
 import ru.arsysop.loft.rgm.model.api.Index;
+import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.Toc;
 import ru.arsysop.loft.rgm.model.util.RgmSwitch;
 
@@ -53,6 +54,11 @@ public final class StructureSwitch extends RgmSwitch<Structure> {
 	@Override
 	public Structure caseToc(Toc object) {
 		return new TocStructure(object, context);
+	}
+
+	@Override
+	public Structure caseParagraph(Paragraph object) {
+		return new ParagraphStructure(object, context);
 	}
 
 	@Override
