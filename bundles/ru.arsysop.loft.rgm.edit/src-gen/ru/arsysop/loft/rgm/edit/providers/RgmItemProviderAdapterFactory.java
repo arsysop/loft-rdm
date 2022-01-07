@@ -162,26 +162,26 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.SubParagraph} instances.
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.model.api.Point} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SubParagraphItemProvider subParagraphItemProvider;
+	protected PointItemProvider pointItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.SubParagraph}.
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.model.api.Point}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSubParagraphAdapter() {
-		if (subParagraphItemProvider == null) {
-			subParagraphItemProvider = new SubParagraphItemProvider(this);
+	public Adapter createPointAdapter() {
+		if (pointItemProvider == null) {
+			pointItemProvider = new PointItemProvider(this);
 		}
 
-		return subParagraphItemProvider;
+		return pointItemProvider;
 	}
 
 	/**
@@ -920,7 +920,7 @@ public class RgmItemProviderAdapterFactory extends RgmAdapterFactory implements 
 		if (tocItemProvider != null) tocItemProvider.dispose();
 		if (tocChapterItemProvider != null) tocChapterItemProvider.dispose();
 		if (paragraphItemProvider != null) paragraphItemProvider.dispose();
-		if (subParagraphItemProvider != null) subParagraphItemProvider.dispose();
+		if (pointItemProvider != null) pointItemProvider.dispose();
 		if (indexItemProvider != null) indexItemProvider.dispose();
 		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
 		if (markupItemProvider != null) markupItemProvider.dispose();

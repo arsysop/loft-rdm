@@ -155,10 +155,10 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RgmPackage.SUB_PARAGRAPH: {
-				SubParagraph subParagraph = (SubParagraph)theEObject;
-				T result = caseSubParagraph(subParagraph);
-				if (result == null) result = casePart(subParagraph);
+			case RgmPackage.POINT: {
+				Point point = (Point)theEObject;
+				T result = casePoint(point);
+				if (result == null) result = casePart(point);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -397,17 +397,17 @@ public class RgmSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sub Paragraph</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sub Paragraph</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Point</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSubParagraph(SubParagraph object) {
+	public T casePoint(Point object) {
 		return null;
 	}
 

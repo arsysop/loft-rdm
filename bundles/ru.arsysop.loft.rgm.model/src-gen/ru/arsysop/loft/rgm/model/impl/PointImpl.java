@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import ru.arsysop.loft.rgm.model.api.Part;
-import ru.arsysop.loft.rgm.model.api.SubParagraph;
+import ru.arsysop.loft.rgm.model.api.Point;
 
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
@@ -44,13 +44,13 @@ import ru.arsysop.loft.rgm.model.meta.RgmPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.SubParagraphImpl#getReferences <em>References</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.SubParagraphImpl#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.PointImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.PointImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SubParagraphImpl extends PartImpl implements SubParagraph {
+public class PointImpl extends PartImpl implements Point {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SubParagraphImpl() {
+	protected PointImpl() {
 		super();
 	}
 
@@ -97,7 +97,7 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RgmPackage.eINSTANCE.getSubParagraph();
+		return RgmPackage.eINSTANCE.getPoint();
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	@Override
 	public EList<Part> getReferences() {
 		if (references == null) {
-			references = new EObjectResolvingEList<Part>(Part.class, this, RgmPackage.SUB_PARAGRAPH__REFERENCES);
+			references = new EObjectResolvingEList<Part>(Part.class, this, RgmPackage.POINT__REFERENCES);
 		}
 		return references;
 	}
@@ -133,7 +133,7 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 		String oldText = text;
 		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.SUB_PARAGRAPH__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, RgmPackage.POINT__TEXT, oldText, text));
 	}
 
 	/**
@@ -144,9 +144,9 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.SUB_PARAGRAPH__REFERENCES:
+			case RgmPackage.POINT__REFERENCES:
 				return getReferences();
-			case RgmPackage.SUB_PARAGRAPH__TEXT:
+			case RgmPackage.POINT__TEXT:
 				return getText();
 			default:
 				return super.eGet(featureID, resolve, coreType);
@@ -162,11 +162,11 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.SUB_PARAGRAPH__REFERENCES:
+			case RgmPackage.POINT__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Part>)newValue);
 				return;
-			case RgmPackage.SUB_PARAGRAPH__TEXT:
+			case RgmPackage.POINT__TEXT:
 				setText((String)newValue);
 				return;
 			default:
@@ -183,10 +183,10 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.SUB_PARAGRAPH__REFERENCES:
+			case RgmPackage.POINT__REFERENCES:
 				getReferences().clear();
 				return;
-			case RgmPackage.SUB_PARAGRAPH__TEXT:
+			case RgmPackage.POINT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
 			default:
@@ -203,9 +203,9 @@ public class SubParagraphImpl extends PartImpl implements SubParagraph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.SUB_PARAGRAPH__REFERENCES:
+			case RgmPackage.POINT__REFERENCES:
 				return references != null && !references.isEmpty();
-			case RgmPackage.SUB_PARAGRAPH__TEXT:
+			case RgmPackage.POINT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			default:
 				return super.eIsSet(featureID);

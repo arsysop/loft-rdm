@@ -181,7 +181,7 @@ public class WithPartsItemProvider extends PartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(RgmPackage.eINSTANCE.getWithParts_Parts(),
-				 RgmFactory.eINSTANCE.createSubParagraph()));
+				 RgmFactory.eINSTANCE.createPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
