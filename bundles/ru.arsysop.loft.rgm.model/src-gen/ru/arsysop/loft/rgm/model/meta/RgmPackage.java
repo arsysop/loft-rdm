@@ -284,7 +284,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getMarkup()
 	 * @generated
 	 */
-	int MARKUP = 10;
+	int MARKUP = 12;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -294,7 +294,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDeclaration()
 	 * @generated
 	 */
-	int DECLARATION = 16;
+	int DECLARATION = 18;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
@@ -304,7 +304,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFunctionDecl()
 	 * @generated
 	 */
-	int FUNCTION_DECL = 18;
+	int FUNCTION_DECL = 20;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.RequirementImpl <em>Requirement</em>}' class.
@@ -314,7 +314,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getRequirement()
 	 * @generated
 	 */
-	int REQUIREMENT = 12;
+	int REQUIREMENT = 14;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.CitationImpl <em>Citation</em>}' class.
@@ -324,7 +324,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getCitation()
 	 * @generated
 	 */
-	int CITATION = 11;
+	int CITATION = 13;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.HeaderImpl <em>Header</em>}' class.
@@ -334,7 +334,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getHeader()
 	 * @generated
 	 */
-	int HEADER = 15;
+	int HEADER = 17;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.NamespaceImpl <em>Namespace</em>}' class.
@@ -344,7 +344,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getNamespace()
 	 * @generated
 	 */
-	int NAMESPACE = 17;
+	int NAMESPACE = 19;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ClassDeclImpl <em>Class Decl</em>}' class.
@@ -354,7 +354,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getClassDecl()
 	 * @generated
 	 */
-	int CLASS_DECL = 19;
+	int CLASS_DECL = 21;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
@@ -364,7 +364,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getEnumDecl()
 	 * @generated
 	 */
-	int ENUM_DECL = 20;
+	int ENUM_DECL = 22;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TagImpl <em>Tag</em>}' class.
@@ -374,7 +374,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTag()
 	 * @generated
 	 */
-	int TAG = 13;
+	int TAG = 15;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ContractImpl <em>Contract</em>}' class.
@@ -384,7 +384,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getContract()
 	 * @generated
 	 */
-	int CONTRACT = 14;
+	int CONTRACT = 16;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.StructDeclImpl <em>Struct Decl</em>}' class.
@@ -394,7 +394,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getStructDecl()
 	 * @generated
 	 */
-	int STRUCT_DECL = 21;
+	int STRUCT_DECL = 23;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.UnionDeclImpl <em>Union Decl</em>}' class.
@@ -404,7 +404,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getUnionDecl()
 	 * @generated
 	 */
-	int UNION_DECL = 22;
+	int UNION_DECL = 24;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FieldDeclImpl <em>Field Decl</em>}' class.
@@ -414,7 +414,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFieldDecl()
 	 * @generated
 	 */
-	int FIELD_DECL = 23;
+	int FIELD_DECL = 25;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.VarDeclImpl <em>Var Decl</em>}' class.
@@ -424,7 +424,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getVarDecl()
 	 * @generated
 	 */
-	int VAR_DECL = 24;
+	int VAR_DECL = 26;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TypedefDeclImpl <em>Typedef Decl</em>}' class.
@@ -434,7 +434,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTypedefDecl()
 	 * @generated
 	 */
-	int TYPEDEF_DECL = 25;
+	int TYPEDEF_DECL = 27;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ParmDeclImpl <em>Parm Decl</em>}' class.
@@ -444,7 +444,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getParmDecl()
 	 * @generated
 	 */
-	int PARM_DECL = 26;
+	int PARM_DECL = 28;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.FunctionTemplateImpl <em>Function Template</em>}' class.
@@ -454,7 +454,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getFunctionTemplate()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE = 27;
+	int FUNCTION_TEMPLATE = 29;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ClassTemplateImpl <em>Class Template</em>}' class.
@@ -464,7 +464,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getClassTemplate()
 	 * @generated
 	 */
-	int CLASS_TEMPLATE = 28;
+	int CLASS_TEMPLATE = 30;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.CXXMethodImpl <em>CXX Method</em>}' class.
@@ -474,7 +474,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getCXXMethod()
 	 * @generated
 	 */
-	int CXX_METHOD = 29;
+	int CXX_METHOD = 31;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.ConstructorImpl <em>Constructor</em>}' class.
@@ -484,7 +484,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getConstructor()
 	 * @generated
 	 */
-	int CONSTRUCTOR = 30;
+	int CONSTRUCTOR = 32;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.DestructorImpl <em>Destructor</em>}' class.
@@ -494,7 +494,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getDestructor()
 	 * @generated
 	 */
-	int DESTRUCTOR = 31;
+	int DESTRUCTOR = 33;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.TemplateTypeParameterImpl <em>Template Type Parameter</em>}' class.
@@ -504,7 +504,7 @@ public interface RgmPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getTemplateTypeParameter()
 	 * @generated
 	 */
-	int TEMPLATE_TYPE_PARAMETER = 32;
+	int TEMPLATE_TYPE_PARAMETER = 34;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.IndexImpl <em>Index</em>}' class.
@@ -774,7 +774,7 @@ public interface RgmPackage extends EPackage {
 	int POINT__REFERENCES = PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * The feature id for the '<em><b>Text</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -916,6 +916,89 @@ public interface RgmPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDEX_ENTRY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.StyledNodeImpl <em>Styled Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.StyledNodeImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getStyledNode()
+	 * @generated
+	 */
+	int STYLED_NODE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_NODE__TEXT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_NODE__TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Styled Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_NODE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Styled Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_NODE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.model.impl.StyledLineImpl <em>Styled Line</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.model.impl.StyledLineImpl
+	 * @see ru.arsysop.loft.rgm.model.impl.RgmPackageImpl#getStyledLine()
+	 * @generated
+	 */
+	int STYLED_LINE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_LINE__TEXT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Styled Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_LINE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Styled Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STYLED_LINE_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Citations</b></em>' containment reference list.
@@ -2135,15 +2218,15 @@ public interface RgmPackage extends EPackage {
 	EReference getPoint_References();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}'.
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @return the meta object for the reference list '<em>Text</em>'.
 	 * @see ru.arsysop.loft.rgm.model.api.Point#getText()
 	 * @see #getPoint()
 	 * @generated
 	 */
-	EAttribute getPoint_Text();
+	EReference getPoint_Text();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.Markup <em>Markup</em>}'.
@@ -2768,6 +2851,59 @@ public interface RgmPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIndexEntry_Subentries();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.StyledNode <em>Styled Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Styled Node</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.StyledNode
+	 * @generated
+	 */
+	EClass getStyledNode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.StyledNode#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.StyledNode#getText()
+	 * @see #getStyledNode()
+	 * @generated
+	 */
+	EAttribute getStyledNode_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.model.api.StyledNode#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.StyledNode#getType()
+	 * @see #getStyledNode()
+	 * @generated
+	 */
+	EAttribute getStyledNode_Type();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.model.api.StyledLine <em>Styled Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Styled Line</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.StyledLine
+	 * @generated
+	 */
+	EClass getStyledLine();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.StyledLine#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Text</em>'.
+	 * @see ru.arsysop.loft.rgm.model.api.StyledLine#getText()
+	 * @see #getStyledLine()
+	 * @generated
+	 */
+	EReference getStyledLine_Text();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.IndexEntry#getSee <em>See</em>}'.

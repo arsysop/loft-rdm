@@ -42,6 +42,8 @@ import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
+import ru.arsysop.loft.rgm.model.api.StyledLine;
+import ru.arsysop.loft.rgm.model.api.StyledNode;
 import ru.arsysop.loft.rgm.model.api.Point;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
@@ -310,6 +312,24 @@ public interface RgmFactory extends EFactory {
 	 * @generated
 	 */
 	IndexEntry createIndexEntry();
+
+	/**
+	 * Returns a new object of class '<em>Styled Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Styled Node</em>'.
+	 * @generated
+	 */
+	StyledNode createStyledNode();
+
+	/**
+	 * Returns a new object of class '<em>Styled Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Styled Line</em>'.
+	 * @generated
+	 */
+	StyledLine createStyledLine();
 
 	/**
 	 * Returns a new object of class '<em>Toc</em>'.

@@ -24,9 +24,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import org.dom4j.Element;
+import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
@@ -36,6 +36,8 @@ import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.model.api.Paragraph;
 import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Point;
+import ru.arsysop.loft.rgm.model.api.StyledLine;
+import ru.arsysop.loft.rgm.model.api.StyledNode;
 import ru.arsysop.loft.rgm.model.meta.RgmFactory;
 
 public final class ParagraphStructure extends BaseStructure<Paragraph> {
@@ -86,33 +88,45 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		Point point = factory.createPoint();
 		point.setId(subParagraphId(node));
 		point.setName(subParagraphName(node));
-		point.setText(collectText(node));
+		point.getText().addAll(collectText(node));
 		point.getReferences().addAll(references(node));
 		paragraph.getParts().add(point);
 	}
 
 	// TODO: NF: provide a more meaningful way to collect subparagraph's text
-	private String collectText(Element node) {
-		return node.elements("p").stream().map(Element::getText).collect(Collectors.joining("\n")); //$NON-NLS-1$ //$NON-NLS-2$
+	private List<StyledLine> collectText(Element node) {
+		return node.elements("p").stream() //$NON-NLS-1$
+				.map(Element::content) //
+				.map(this::collectParagraph) //
+				.map(this::styledLine).collect(Collectors.toList()); // $NON-NLS-1$
+	}
+
+	private List<StyledNode> collectParagraph(List<Node> nodes) {
+		return nodes.stream().map(this::styledNode).collect(Collectors.toList());
+	}
+
+	private StyledLine styledLine(List<StyledNode> nodes) {
+		StyledLine styled = factory.createStyledLine();
+		styled.getText().addAll(nodes);
+		return styled;
+	}
+
+	private StyledNode styledNode(Node node) {
+		StyledNode styled = factory.createStyledNode();
+		styled.setText(node.getText());
+		styled.setType(Optional.ofNullable(node.getName()).orElse("")); //$NON-NLS-1$
+		return styled;
 	}
 
 	private List<Part> references(Element node) {
-		return Stream.concat(textReferences(node), rawReferences(node)).collect(Collectors.toList());
-	}
-
-	private Stream<Part> textReferences(Element node) {
 		return node.elements("p").stream() //$NON-NLS-1$
 				.flatMap(i -> i.elements("a").stream()) //$NON-NLS-1$
 				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
 				.map(new PickId(context)) //
 				.map(context.parts()::find) //
 				.filter(Optional::isPresent) //
-				.map(Optional::get);
-	}
-
-	// TODO: NF: parse raw references (usually located at the beginning)
-	private Stream<Part> rawReferences(Element node) {
-		return Stream.empty();
+				.map(Optional::get) //
+				.collect(Collectors.toList());
 	}
 
 	private String subParagraphId(Element node) {

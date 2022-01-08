@@ -20,47 +20,35 @@
 package ru.arsysop.loft.rgm.model.api;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Sub Paragraph</b></em>'.
+ * A representation of the model object '<em><b>Styled Line</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Point#getReferences <em>References</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.api.StyledLine#getText <em>Text</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint()
+ * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getStyledLine()
  * @model
  * @generated
  */
-public interface Point extends Part {
-	/**
-	 * Returns the value of the '<em><b>References</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.Part}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>References</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint_References()
-	 * @model
-	 * @generated
-	 */
-	EList<Part> getReferences();
-
+public interface StyledLine extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.StyledLine}.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.StyledNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Text</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint_Text()
+	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getStyledLine_Text()
 	 * @model
 	 * @generated
 	 */
-	EList<StyledLine> getText();
+	EList<StyledNode> getText();
 
-} // SubParagraph
+} // StyledLine

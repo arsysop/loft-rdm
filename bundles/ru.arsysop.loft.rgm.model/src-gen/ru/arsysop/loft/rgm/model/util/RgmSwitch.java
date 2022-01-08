@@ -175,6 +175,18 @@ public class RgmSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RgmPackage.STYLED_NODE: {
+				StyledNode styledNode = (StyledNode)theEObject;
+				T result = caseStyledNode(styledNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RgmPackage.STYLED_LINE: {
+				StyledLine styledLine = (StyledLine)theEObject;
+				T result = caseStyledLine(styledLine);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RgmPackage.MARKUP: {
 				Markup markup = (Markup)theEObject;
 				T result = caseMarkup(markup);
@@ -783,6 +795,36 @@ public class RgmSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIndexEntry(IndexEntry object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Styled Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Styled Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStyledNode(StyledNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Styled Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Styled Line</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStyledLine(StyledLine object) {
 		return null;
 	}
 

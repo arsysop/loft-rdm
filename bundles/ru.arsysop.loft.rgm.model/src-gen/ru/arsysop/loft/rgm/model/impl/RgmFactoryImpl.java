@@ -103,6 +103,8 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 			case RgmPackage.POINT: return createPoint();
 			case RgmPackage.INDEX: return createIndex();
 			case RgmPackage.INDEX_ENTRY: return createIndexEntry();
+			case RgmPackage.STYLED_NODE: return createStyledNode();
+			case RgmPackage.STYLED_LINE: return createStyledLine();
 			case RgmPackage.MARKUP: return createMarkup();
 			case RgmPackage.CITATION: return createCitation();
 			case RgmPackage.REQUIREMENT: return createRequirement();
@@ -425,6 +427,28 @@ public class RgmFactoryImpl extends EFactoryImpl implements RgmFactory {
 	public IndexEntry createIndexEntry() {
 		IndexEntryImpl indexEntry = new IndexEntryImpl();
 		return indexEntry;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StyledNode createStyledNode() {
+		StyledNodeImpl styledNode = new StyledNodeImpl();
+		return styledNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StyledLine createStyledLine() {
+		StyledLineImpl styledLine = new StyledLineImpl();
+		return styledLine;
 	}
 
 	/**
