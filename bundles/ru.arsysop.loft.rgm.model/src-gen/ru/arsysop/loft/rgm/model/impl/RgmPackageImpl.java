@@ -48,6 +48,8 @@ import ru.arsysop.loft.rgm.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Requirement;
 import ru.arsysop.loft.rgm.model.api.StructDecl;
+import ru.arsysop.loft.rgm.model.api.StyledLine;
+import ru.arsysop.loft.rgm.model.api.StyledNode;
 import ru.arsysop.loft.rgm.model.api.Point;
 import ru.arsysop.loft.rgm.model.api.Tag;
 import ru.arsysop.loft.rgm.model.api.TemplateTypeParameter;
@@ -277,6 +279,20 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	private EClass indexEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass styledNodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass styledLineEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -536,8 +552,8 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPoint_Text() {
-		return (EAttribute)pointEClass.getEStructuralFeatures().get(1);
+	public EReference getPoint_Text() {
+		return (EReference)pointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1136,6 +1152,56 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getStyledNode() {
+		return styledNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStyledNode_Text() {
+		return (EAttribute)styledNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStyledNode_Type() {
+		return (EAttribute)styledNodeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStyledLine() {
+		return styledLineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getStyledLine_Text() {
+		return (EReference)styledLineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getIndexEntry_See() {
 		return (EReference)indexEntryEClass.getEStructuralFeatures().get(4);
 	}
@@ -1300,7 +1366,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		pointEClass = createEClass(POINT);
 		createEReference(pointEClass, POINT__REFERENCES);
-		createEAttribute(pointEClass, POINT__TEXT);
+		createEReference(pointEClass, POINT__TEXT);
 
 		indexEClass = createEClass(INDEX);
 		createEReference(indexEClass, INDEX__ENTRIES);
@@ -1312,6 +1378,13 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		createEReference(indexEntryEClass, INDEX_ENTRY__PARTS);
 		createEReference(indexEntryEClass, INDEX_ENTRY__SEE);
 		createEReference(indexEntryEClass, INDEX_ENTRY__SUBENTRIES);
+
+		styledNodeEClass = createEClass(STYLED_NODE);
+		createEAttribute(styledNodeEClass, STYLED_NODE__TEXT);
+		createEAttribute(styledNodeEClass, STYLED_NODE__TYPE);
+
+		styledLineEClass = createEClass(STYLED_LINE);
+		createEReference(styledLineEClass, STYLED_LINE__TEXT);
 
 		markupEClass = createEClass(MARKUP);
 		createEReference(markupEClass, MARKUP__CITATIONS);
@@ -1475,7 +1548,7 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getPoint_References(), this.getPart(), null, "references", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getPoint_Text(), ecorePackage.getEString(), "text", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPoint_Text(), this.getStyledLine(), null, "text", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getIndex_Entries(), this.getIndexEntry(), null, "entries", null, 0, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1487,6 +1560,13 @@ public class RgmPackageImpl extends EPackageImpl implements RgmPackage {
 		initEReference(getIndexEntry_Parts(), this.getPart(), null, "parts", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getIndexEntry_See(), this.getIndexEntry(), null, "see", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getIndexEntry_Subentries(), this.getIndexEntry(), null, "subentries", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(styledNodeEClass, StyledNode.class, "StyledNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getStyledNode_Text(), ecorePackage.getEString(), "text", null, 0, 1, StyledNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getStyledNode_Type(), ecorePackage.getEString(), "type", null, 0, 1, StyledNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(styledLineEClass, StyledLine.class, "StyledLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getStyledLine_Text(), this.getStyledNode(), null, "text", null, 0, -1, StyledLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getMarkup_Citations(), this.getCitation(), null, "citations", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

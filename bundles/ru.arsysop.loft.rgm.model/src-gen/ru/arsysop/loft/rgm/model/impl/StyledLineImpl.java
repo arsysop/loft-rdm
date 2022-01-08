@@ -21,41 +21,29 @@ package ru.arsysop.loft.rgm.model.impl;
 
 import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import ru.arsysop.loft.rgm.model.api.Part;
-import ru.arsysop.loft.rgm.model.api.Point;
-
 import ru.arsysop.loft.rgm.model.api.StyledLine;
+
+import ru.arsysop.loft.rgm.model.api.StyledNode;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Sub Paragraph</b></em>'.
+ * An implementation of the model object '<em><b>Styled Line</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.PointImpl#getReferences <em>References</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.model.impl.PointImpl#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.model.impl.StyledLineImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PointImpl extends PartImpl implements Point {
-	/**
-	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferences()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Part> references;
-
+public class StyledLineImpl extends MinimalEObjectImpl.Container implements StyledLine {
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -64,14 +52,14 @@ public class PointImpl extends PartImpl implements Point {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<StyledLine> text;
+	protected EList<StyledNode> text;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PointImpl() {
+	protected StyledLineImpl() {
 		super();
 	}
 
@@ -82,7 +70,7 @@ public class PointImpl extends PartImpl implements Point {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RgmPackage.eINSTANCE.getPoint();
+		return RgmPackage.eINSTANCE.getStyledLine();
 	}
 
 	/**
@@ -91,22 +79,9 @@ public class PointImpl extends PartImpl implements Point {
 	 * @generated
 	 */
 	@Override
-	public EList<Part> getReferences() {
-		if (references == null) {
-			references = new EObjectResolvingEList<Part>(Part.class, this, RgmPackage.POINT__REFERENCES);
-		}
-		return references;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<StyledLine> getText() {
+	public EList<StyledNode> getText() {
 		if (text == null) {
-			text = new EObjectResolvingEList<StyledLine>(StyledLine.class, this, RgmPackage.POINT__TEXT);
+			text = new EObjectResolvingEList<StyledNode>(StyledNode.class, this, RgmPackage.STYLED_LINE__TEXT);
 		}
 		return text;
 	}
@@ -119,9 +94,7 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RgmPackage.POINT__REFERENCES:
-				return getReferences();
-			case RgmPackage.POINT__TEXT:
+			case RgmPackage.STYLED_LINE__TEXT:
 				return getText();
 			default:
 				return super.eGet(featureID, resolve, coreType);
@@ -137,13 +110,9 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RgmPackage.POINT__REFERENCES:
-				getReferences().clear();
-				getReferences().addAll((Collection<? extends Part>)newValue);
-				return;
-			case RgmPackage.POINT__TEXT:
+			case RgmPackage.STYLED_LINE__TEXT:
 				getText().clear();
-				getText().addAll((Collection<? extends StyledLine>)newValue);
+				getText().addAll((Collection<? extends StyledNode>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -159,10 +128,7 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RgmPackage.POINT__REFERENCES:
-				getReferences().clear();
-				return;
-			case RgmPackage.POINT__TEXT:
+			case RgmPackage.STYLED_LINE__TEXT:
 				getText().clear();
 				return;
 			default:
@@ -179,13 +145,11 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RgmPackage.POINT__REFERENCES:
-				return references != null && !references.isEmpty();
-			case RgmPackage.POINT__TEXT:
+			case RgmPackage.STYLED_LINE__TEXT:
 				return text != null && !text.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
 	}
 
-} //SubParagraphImpl
+} //StyledLineImpl

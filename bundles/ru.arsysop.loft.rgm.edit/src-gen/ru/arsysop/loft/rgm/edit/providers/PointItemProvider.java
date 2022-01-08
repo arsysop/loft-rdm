@@ -30,13 +30,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.edit.SplitString;
+import ru.arsysop.loft.rgm.edit.NodeStyle;
 import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Point;
+import ru.arsysop.loft.rgm.model.api.StyledLine;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
 
 /**
@@ -113,7 +113,7 @@ public class PointItemProvider extends PartItemProvider {
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -157,20 +157,17 @@ public class PointItemProvider extends PartItemProvider {
 		Optional.of(item.getName()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
+				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.COUNTER_STYLER));
 		Optional.of(item.getReferences().stream().map(Part::getId).collect(Collectors.joining("; "))) //$NON-NLS-1$
 				.filter(s -> !s.isEmpty()) //
 				.ifPresent(s -> {
 					styledLabel.append(" (references: ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
 					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
-					styledLabel.append(") ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
+					styledLabel.append(")", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
 				});
-		Optional.of(item.getText())
-				.filter(Objects::nonNull)//
-				.filter(s -> !s.isEmpty())//
-				.map(new SplitString("\n")) //$NON-NLS-1$
-				.map(s -> s.get(0)) //
-				.ifPresent(s -> styledLabel.append(' ' + s));
+		item.getText().stream().findFirst().map(StyledLine::getText).map(List::stream)
+				.ifPresent(nodes -> nodes.filter(Objects::nonNull).map(new NodeStyle())
+						.forEach(s -> styledLabel.append(s)));
 		Optional.of(item.getId()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
