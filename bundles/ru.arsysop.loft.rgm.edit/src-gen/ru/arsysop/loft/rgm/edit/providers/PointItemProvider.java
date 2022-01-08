@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import ru.arsysop.loft.rgm.edit.SplitString;
 import ru.arsysop.loft.rgm.model.api.Part;
 import ru.arsysop.loft.rgm.model.api.Point;
 import ru.arsysop.loft.rgm.model.meta.RgmPackage;
@@ -164,9 +165,11 @@ public class PointItemProvider extends PartItemProvider {
 					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
 					styledLabel.append(") ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
 				});
-		Optional.of(item.getText().split("\n")[0]) //$NON-NLS-1$
+		Optional.of(item.getText())
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
+				.map(new SplitString("\n")) //$NON-NLS-1$
+				.map(s -> s.get(0)) //
 				.ifPresent(s -> styledLabel.append(' ' + s));
 		Optional.of(item.getId()) //
 				.filter(Objects::nonNull)//
