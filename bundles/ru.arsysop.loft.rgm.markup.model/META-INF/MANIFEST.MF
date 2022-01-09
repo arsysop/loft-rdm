@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Model
-Bundle-SymbolicName: ru.arsysop.loft.rgm.markup.model
-Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: ru.arsysop.loft.rgm.markup.model
-Bundle-RequiredExecutionEnvironment: JavaSE-11
