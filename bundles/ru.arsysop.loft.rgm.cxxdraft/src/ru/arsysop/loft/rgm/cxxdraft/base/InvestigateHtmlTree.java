@@ -77,7 +77,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		List<Paragraph> paragraphs = context.document().getParagraphs();
 		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size());
 		for (Paragraph paragraph : paragraphs) {
-			monitor.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, paragraph.getName()));
+			sub.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, paragraph.getName()));
 			parseLocation(paragraph, sub.split(1));
 		}
 	}
@@ -94,7 +94,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		}
 		SubMonitor sub = SubMonitor.convert(monitor, indexes.size());
 		for (Index index : indexes) {
-			monitor.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, index.getName()));
+			sub.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, index.getName()));
 			parseLocation(index, sub.split(1));
 		}
 	}
