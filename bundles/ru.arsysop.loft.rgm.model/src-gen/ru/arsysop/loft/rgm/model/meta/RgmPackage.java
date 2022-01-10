@@ -774,7 +774,7 @@ public interface RgmPackage extends EPackage {
 	int POINT__REFERENCES = PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' reference list.
+	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -974,7 +974,7 @@ public interface RgmPackage extends EPackage {
 	int STYLED_LINE = 11;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' reference list.
+	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2218,10 +2218,10 @@ public interface RgmPackage extends EPackage {
 	EReference getPoint_References();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.model.api.Point#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Text</em>'.
+	 * @return the meta object for the containment reference list '<em>Text</em>'.
 	 * @see ru.arsysop.loft.rgm.model.api.Point#getText()
 	 * @see #getPoint()
 	 * @generated
@@ -2895,10 +2895,10 @@ public interface RgmPackage extends EPackage {
 	EClass getStyledLine();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.model.api.StyledLine#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.model.api.StyledLine#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Text</em>'.
+	 * @return the meta object for the containment reference list '<em>Text</em>'.
 	 * @see ru.arsysop.loft.rgm.model.api.StyledLine#getText()
 	 * @see #getStyledLine()
 	 * @generated

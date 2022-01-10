@@ -52,13 +52,13 @@ public interface Point extends Part {
 	EList<Part> getReferences();
 
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' reference list.
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.StyledLine}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' reference list.
+	 * @return the value of the '<em>Text</em>' containment reference list.
 	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getPoint_Text()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<StyledLine> getText();

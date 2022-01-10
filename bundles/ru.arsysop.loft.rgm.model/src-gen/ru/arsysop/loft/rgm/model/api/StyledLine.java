@@ -40,13 +40,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StyledLine extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Text</b></em>' reference list.
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.model.api.StyledNode}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' reference list.
+	 * @return the value of the '<em>Text</em>' containment reference list.
 	 * @see ru.arsysop.loft.rgm.model.meta.RgmPackage#getStyledLine_Text()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<StyledNode> getText();
