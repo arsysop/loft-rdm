@@ -22,4 +22,18 @@
 
 <plugin>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated markup -->
+      <package
+            uri="http://www.arsysop.ru/rgm/markup/0.1.0"
+            class="ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage"
+            genModel="model/markup.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated markup -->
+      <parser
+            type="markup"
+            class="ru.arsysop.loft.rgm.markup.model.util.MarkupResourceFactoryImpl"/>
+   </extension>
 </plugin>
