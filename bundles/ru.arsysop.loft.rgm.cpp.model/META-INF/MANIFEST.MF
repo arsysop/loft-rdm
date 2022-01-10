@@ -8,6 +8,12 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Automatic-Module-Name: ru.arsysop.loft.rgm.cpp.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: ru.arsysop.loft.rgm.cpp.model.api,
+ ru.arsysop.loft.rgm.cpp.model.impl,
+ ru.arsysop.loft.rgm.cpp.model.meta,
+ ru.arsysop.loft.rgm.cpp.model.util
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
- org.eclipse.emf.ecore;bundle-version="0.0.0";visibility:=reexport
+ org.eclipse.emf.ecore;bundle-version="0.0.0";visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ ru.arsysop.loft.rgm.spec.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -22,4 +22,18 @@
 
 <plugin>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cpp -->
+      <package
+            uri="http://www.arsysop.ru/rgm/cpp/0.1.0"
+            class="ru.arsysop.loft.rgm.cpp.model.meta.CppPackage"
+            genModel="model/cpp.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated cpp -->
+      <parser
+            type="cpp"
+            class="ru.arsysop.loft.rgm.cpp.model.util.CppResourceFactoryImpl"/>
+   </extension>
 </plugin>
