@@ -9,7 +9,12 @@ Bundle-Activator: ru.arsysop.loft.rgm.cpp.edit.CppEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: ru.arsysop.loft.rgm.cpp.edit
+Export-Package: ru.arsysop.loft.rgm.cpp.edit,
+ ru.arsysop.loft.rgm.cpp.edit.providers
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
- org.eclipse.emf.edit;bundle-version="0.0.0";visibility:=reexport
+ ru.arsysop.loft.rgm.cpp.model;visibility:=reexport,
+ org.eclipse.emf.edit;bundle-version="0.0.0";visibility:=reexport,
+ ru.arsysop.loft.rgm.spec.model;visibility:=reexport,
+ ru.arsysop.loft.rgm.spec.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.edit
 Bundle-ActivationPolicy: lazy
