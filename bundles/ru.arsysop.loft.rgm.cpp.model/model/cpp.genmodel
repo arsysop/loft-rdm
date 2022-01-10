@@ -52,6 +52,6 @@
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//CXXMethod"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//Constructor"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//Destructor"/>
-    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//TemplateTypeParameter"/>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//TemplateTypeParameter"/>
   </genPackages>
 </genmodel:GenModel>

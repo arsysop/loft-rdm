@@ -22,6 +22,7 @@ package ru.arsysop.loft.rgm.cpp.edit;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin;
 
 /**
  * This is the central singleton for the Cpp edit plugin.
@@ -55,6 +56,7 @@ public final class CppEditPlugin extends EMFPlugin {
 	public CppEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     SpecEditPlugin.INSTANCE,
 		   });
 	}
 
