@@ -9,8 +9,10 @@ Bundle-Activator: ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: ru.arsysop.loft.rgm.spec.edit
+Export-Package: ru.arsysop.loft.rgm.spec.edit,
+ ru.arsysop.loft.rgm.spec.edit.providers
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
  ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0";visibility:=reexport,
- org.eclipse.emf.edit;bundle-version="0.0.0";visibility:=reexport
+ org.eclipse.emf.edit;bundle-version="0.0.0";visibility:=reexport,
+ org.eclipse.emf.ecore.edit;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy
