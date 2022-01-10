@@ -29,6 +29,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.osgi.util.NLS;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
@@ -76,7 +77,8 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		List<Paragraph> paragraphs = context.document().getParagraphs();
 		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size());
 		for (Paragraph paragraph : paragraphs) {
-			parseLocation(paragraph, sub);
+			monitor.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, paragraph.getName()));
+			parseLocation(paragraph, sub.split(1));
 		}
 	}
 
@@ -92,6 +94,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		}
 		SubMonitor sub = SubMonitor.convert(monitor, indexes.size());
 		for (Index index : indexes) {
+			monitor.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, index.getName()));
 			parseLocation(index, sub.split(1));
 		}
 	}
