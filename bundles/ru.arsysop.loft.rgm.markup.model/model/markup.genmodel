@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    copyrightText="Copyright (c) 2022 ArSysOp&#xA;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;you may not use this file except in compliance with the License.&#xA;You may obtain a copy of the License at&#xA;&#xA;&#x9;http://www.apache.org/licenses/LICENSE-2.0&#xA;&#xA;Unless required by applicable law or agreed to in writing, software&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xA;See the License for the specific language governing permissions and&#xA;limitations under the License.&#xA;&#x9;SPDX-License-Identifier: Apache-2.0&#xA;Contributors:&#xA;&#x9;ArSysOp - initial API and implementation&#xA;"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2022 ArSysOp&#xA;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;you may not use this file except in compliance with the License.&#xA;You may obtain a copy of the License at&#xA;&#xA;&#x9;http://www.apache.org/licenses/LICENSE-2.0&#xA;&#xA;Unless required by applicable law or agreed to in writing, software&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xA;See the License for the specific language governing permissions and&#xA;limitations under the License.&#xA;&#x9;SPDX-License-Identifier: Apache-2.0&#xA;Contributors:&#xA;&#x9;ArSysOp - initial API and implementation&#xA;"
     modelDirectory="/ru.arsysop.loft.rgm.markup.model/src-gen" creationIcons="false"
     editDirectory="/ru.arsysop.loft.rgm.markup.edit/src-gen" editorDirectory="/ru.arsysop.loft.rgm.markup.editor/src-gen"
     modelPluginID="ru.arsysop.loft.rgm.markup.model" modelName="Markup" editPluginClass="ru.arsysop.loft.rgm.markup.edit.MarkupEditPlugin"
@@ -9,6 +9,7 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     editPluginID="ru.arsysop.loft.rgm.markup.edit" editorPluginID="ru.arsysop.loft.rgm.markup.editor"
     optimizedHasChildren="true" tableProviders="true" colorProviders="true" fontProviders="true"
+    usedGenPackages="../../ru.arsysop.loft.rgm.spec.model/model/spec.genmodel#//spec ../../ru.arsysop.loft.rgm.cpp.model/model/cpp.genmodel#//cpp"
     operationReflection="true" runtimePlatform="RCP" importOrganizing="true" styleProviders="true"
     findAction="true">
   <foreignModel>../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore</foreignModel>
@@ -16,5 +17,35 @@
       interfacePackageSuffix="model.api" metaDataPackageSuffix="model.meta" classPackageSuffix="model.impl"
       utilityPackageSuffix="model.util" providerPackageSuffix="edit.providers" presentationPackageSuffix="editor"
       testsPackageSuffix="model.tests" literalsInterface="false" extensibleProviderFactory="true"
-      ecorePackage="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#/"/>
+      ecorePackage="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#/">
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/citations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/headers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/requirements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/tags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/contracts"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Citation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Citation/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Citation/content"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Citation/requirements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Citation/location"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Requirement/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Requirement/citation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Requirement/tags"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Requirement/see"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Tag/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Tag/requirements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Tag/contracts"/>
+    </genClasses>
+    <genClasses ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/declaration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/tags"/>
+    </genClasses>
+  </genPackages>
 </genmodel:GenModel>

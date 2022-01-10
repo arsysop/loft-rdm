@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    copyrightText="Copyright (c) 2021 ArSysOp&#xA;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;you may not use this file except in compliance with the License.&#xA;You may obtain a copy of the License at&#xA;&#xA;&#x9;http://www.apache.org/licenses/LICENSE-2.0&#xA;&#xA;Unless required by applicable law or agreed to in writing, software&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xA;See the License for the specific language governing permissions and&#xA;limitations under the License.&#xA;&#x9;SPDX-License-Identifier: Apache-2.0&#xA;Contributors:&#xA;&#x9;ArSysOp - initial API and implementation&#xA;"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2021 ArSysOp&#xA;&#xA;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#xA;you may not use this file except in compliance with the License.&#xA;You may obtain a copy of the License at&#xA;&#xA;&#x9;http://www.apache.org/licenses/LICENSE-2.0&#xA;&#xA;Unless required by applicable law or agreed to in writing, software&#xA;distributed under the License is distributed on an &quot;AS IS&quot; BASIS,&#xA;WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.&#xA;See the License for the specific language governing permissions and&#xA;limitations under the License.&#xA;&#x9;SPDX-License-Identifier: Apache-2.0&#xA;Contributors:&#xA;&#x9;ArSysOp - initial API and implementation&#xA;"
     modelDirectory="/ru.arsysop.loft.rgm.spec.model/src-gen" creationIcons="false"
     editDirectory="/ru.arsysop.loft.rgm.spec.edit/src-gen" editorDirectory="/ru.arsysop.loft.rgm.spec.editor/src-gen"
     modelPluginID="ru.arsysop.loft.rgm.spec.model" modelName="Spec" editPluginClass="ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin"
@@ -16,5 +16,57 @@
       interfacePackageSuffix="model.api" metaDataPackageSuffix="model.meta" classPackageSuffix="model.impl"
       utilityPackageSuffix="model.util" providerPackageSuffix="edit.providers" presentationPackageSuffix="editor"
       testsPackageSuffix="model.tests" literalsInterface="false" extensibleProviderFactory="true"
-      ecorePackage="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#/"/>
+      ecorePackage="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#/">
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/revision"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/toc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/paragraphs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/indexes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//WithParts">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//WithParts/parts"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//WithTocChapters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//WithTocChapters/chapters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Toc">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Toc/document"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter/number"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter/part"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Paragraph">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Paragraph/number"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point/references"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Index">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Index/entries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry/keyword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry/parts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry/see"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//IndexEntry/subentries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledNode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledNode/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledNode/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledLine">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledLine/text"/>
+    </genClasses>
+  </genPackages>
 </genmodel:GenModel>
