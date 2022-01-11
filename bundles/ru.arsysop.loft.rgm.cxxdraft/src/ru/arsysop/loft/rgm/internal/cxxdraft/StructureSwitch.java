@@ -27,13 +27,13 @@ import org.eclipse.emf.ecore.EObject;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
-import ru.arsysop.loft.rgm.model.api.Document;
-import ru.arsysop.loft.rgm.model.api.Index;
-import ru.arsysop.loft.rgm.model.api.Paragraph;
-import ru.arsysop.loft.rgm.model.api.Toc;
-import ru.arsysop.loft.rgm.model.util.RgmSwitch;
+import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Toc;
+import ru.arsysop.loft.rgm.spec.model.util.SpecSwitch;
 
-public final class StructureSwitch extends RgmSwitch<Structure> {
+public final class StructureSwitch extends SpecSwitch<Structure> {
 
 	private final ResolutionContext context;
 

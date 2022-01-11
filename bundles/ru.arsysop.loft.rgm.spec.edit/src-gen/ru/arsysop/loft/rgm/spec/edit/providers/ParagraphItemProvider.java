@@ -39,7 +39,7 @@ import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Paragraph} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Paragraph} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -84,7 +84,7 @@ public class ParagraphItemProvider extends WithPartsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Paragraph_number_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Paragraph_number_feature", "_UI_Paragraph_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getParagraph_Number(),
+						SpecPackage.eINSTANCE.getParagraph_Number(),
 				 true,
 				 false,
 				 false,
@@ -160,7 +160,7 @@ public class ParagraphItemProvider extends WithPartsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Paragraph.class)) {
-			case SpecPackage.PARAGRAPH__NUMBER:
+		case SpecPackage.PARAGRAPH__NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

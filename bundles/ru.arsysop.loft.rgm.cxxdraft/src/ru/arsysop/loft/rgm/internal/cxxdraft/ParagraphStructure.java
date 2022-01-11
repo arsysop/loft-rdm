@@ -33,20 +33,20 @@ import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.NullClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
-import ru.arsysop.loft.rgm.model.api.Paragraph;
-import ru.arsysop.loft.rgm.model.api.Part;
-import ru.arsysop.loft.rgm.model.api.Point;
-import ru.arsysop.loft.rgm.model.api.StyledLine;
-import ru.arsysop.loft.rgm.model.api.StyledNode;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
+import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class ParagraphStructure extends BaseStructure<Paragraph> {
 
-	private final RgmFactory factory;
+	private final SpecFactory factory;
 
 	protected ParagraphStructure(Paragraph container, ResolutionContext context) {
 		super(container, context);
-		this.factory = RgmFactory.eINSTANCE;
+		this.factory = SpecFactory.eINSTANCE;
 	}
 
 	@Override

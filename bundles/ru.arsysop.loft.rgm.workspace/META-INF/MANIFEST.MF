@@ -9,5 +9,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.equinox.common;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.osgi;bundle-version="0.0.0",
  ru.arsysop.loft.rgm.cxxdraft;bundle-version="0.1.0",
- ru.arsysop.loft.rgm.model;bundle-version="0.1.0"
+ ru.arsysop.loft.rgm.spec.model;bundle-version="0.1.0"
 Export-Package: ru.arsysop.loft.rgm.workspace.interchange

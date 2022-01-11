@@ -30,12 +30,13 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import ru.arsysop.loft.rgm.spec.model.api.WithParts;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.WithParts} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.WithParts} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -147,7 +148,7 @@ public class WithPartsItemProvider extends PartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(WithParts.class)) {
-			case SpecPackage.WITH_PARTS__PARTS:
+		case SpecPackage.WITH_PARTS__PARTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -169,23 +170,19 @@ public class WithPartsItemProvider extends PartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createTocChapter()));
+			(SpecPackage.eINSTANCE.getWithParts_Parts(), SpecFactory.eINSTANCE.createTocChapter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createParagraph()));
+			(SpecPackage.eINSTANCE.getWithParts_Parts(), SpecFactory.eINSTANCE.createParagraph()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createPoint()));
+			(SpecPackage.eINSTANCE.getWithParts_Parts(), SpecFactory.eINSTANCE.createPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createIndex()));
+			(SpecPackage.eINSTANCE.getWithParts_Parts(), SpecFactory.eINSTANCE.createIndex()));
 	}
 
 }

@@ -37,10 +37,6 @@
 		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.cxxdraft</module>
 		<module>..\..\tests\ru.arsysop.loft.rgm.cxxdraft.tests</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.ecore</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.model</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.edit</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.editor</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.workbench</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.workspace</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
@@ -54,6 +50,7 @@
 		<module>..\..\bundles\ru.arsysop.loft.rgm.markup.ecore</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.markup.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.markup.edit</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.markup.editor</module>
 
 		<module>..\..\features\ru.arsysop.loft.rgm.cpp.feature</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.cpp.ecore</module>

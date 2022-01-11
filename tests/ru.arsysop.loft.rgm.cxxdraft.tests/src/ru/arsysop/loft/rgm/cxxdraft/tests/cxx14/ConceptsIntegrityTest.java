@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import ru.arsysop.loft.rgm.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 
 public final class ConceptsIntegrityTest extends Cxx14IntegrityTest {
 

@@ -32,9 +32,9 @@ import ru.arsysop.loft.rgm.cxxdraft.ContentResolution;
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.LocationSwitch;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
-import ru.arsysop.loft.rgm.model.api.Document;
-import ru.arsysop.loft.rgm.model.api.IndexEntry;
-import ru.arsysop.loft.rgm.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
 
 public final class SimpleResolutionContext implements ResolutionContext {
 

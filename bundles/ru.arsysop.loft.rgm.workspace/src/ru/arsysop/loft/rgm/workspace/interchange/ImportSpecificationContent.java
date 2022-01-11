@@ -32,9 +32,9 @@ import org.eclipse.osgi.util.NLS;
 
 import ru.arsysop.loft.rgm.cxxdraft.base.InvestigateHtml;
 import ru.arsysop.loft.rgm.cxxdraft.base.SimpleResolutionContext;
-import ru.arsysop.loft.rgm.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.internal.workspace.Messages;
-import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.spec.edit.EObjectEditingDomain;
+import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.workspace.RgmWorkspaceId;
 
 public final class ImportSpecificationContent implements ICoreRunnable {

@@ -45,11 +45,12 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Part} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.Part} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -108,7 +109,7 @@ public class PartItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Part_id_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Part_id_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getPart_Id(),
+						SpecPackage.eINSTANCE.getPart_Id(),
 				 true,
 				 false,
 				 false,
@@ -130,7 +131,7 @@ public class PartItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Part_name_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Part_name_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getPart_Name(),
+						SpecPackage.eINSTANCE.getPart_Name(),
 				 true,
 				 false,
 				 false,
@@ -230,8 +231,8 @@ public class PartItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Part.class)) {
-			case SpecPackage.PART__ID:
-			case SpecPackage.PART__NAME:
+		case SpecPackage.PART__ID:
+		case SpecPackage.PART__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

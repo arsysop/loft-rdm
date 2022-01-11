@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -38,7 +37,6 @@ import ru.arsysop.loft.rgm.spec.edit.NodeStyle;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
-import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -71,6 +69,7 @@ public class PointItemProvider extends PartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addReferencesPropertyDescriptor(object);
+			addTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,7 +87,7 @@ public class PointItemProvider extends PartItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Point_references_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Point_references_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getPoint_References(),
+						SpecPackage.eINSTANCE.getPoint_References(),
 				 true,
 				 false,
 				 true,
@@ -98,33 +97,25 @@ public class PointItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Text feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Text());
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addTextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Point_text_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_text_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						SpecPackage.eINSTANCE.getPoint_Text(),
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -195,8 +186,8 @@ public class PointItemProvider extends PartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Point.class)) {
-			case SpecPackage.POINT__TEXT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		case SpecPackage.POINT__TEXT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:
 				super.notifyChanged(notification);
@@ -214,11 +205,6 @@ public class PointItemProvider extends PartItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getPoint_Text(),
-				 SpecFactory.eINSTANCE.createStyledLine()));
 	}
 
 }
