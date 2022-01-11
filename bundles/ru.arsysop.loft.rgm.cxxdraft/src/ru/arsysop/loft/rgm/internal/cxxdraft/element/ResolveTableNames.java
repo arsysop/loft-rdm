@@ -21,17 +21,15 @@ public final class ResolveTableNames implements Supplier<List<String>> {
 		int size = groups();
 		List<Node> nodes = chapter.content();
 		List<StringBuilder> texts = fill(size);
-		int i = 0;
 		int j = 0;
-		while (j < size) {
-			if (!"a".equals(nodes.get(i).getName())) { //$NON-NLS-1$
-				StringBuilder builder = texts.get(j);
-				builder.append(nodes.get(i).getText() + " "); //$NON-NLS-1$
-			}
-			i++;
-			if ("br".equals(nodes.get(i).getName())) { //$NON-NLS-1$
+		for (Node node : nodes) {
+			if ("br".equals(node.getName())) { //$NON-NLS-1$
 				j++;
-				i++;
+				continue;
+			}
+			if (!"a".equals(node.getName())) { //$NON-NLS-1$
+				StringBuilder builder = texts.get(j);
+				builder.append(node.getText() + " "); //$NON-NLS-1$
 			}
 		}
 		return texts.stream() //
