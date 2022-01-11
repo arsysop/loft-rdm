@@ -35,6 +35,7 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.ResolveTableNames;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.TableId;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
@@ -147,7 +148,10 @@ public final class TocStructure extends BaseStructure<Toc> {
 		IntStream.range(0, spans.size()) //
 				.mapToObj(i -> table(as.get(i), text.get(i))) //
 				.filter(table -> table.getId().contains("tab:")) //$NON-NLS-1$
-				.forEach(context.document().getTables()::add);
+				.forEach(table -> {
+					context.document().getTables().add(table);
+					context.parts().register(new TableId().apply(table), table);
+				});
 	}
 
 	private Table table(Element element, String text) {

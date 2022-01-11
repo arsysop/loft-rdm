@@ -53,8 +53,8 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
 		parseToc(sub.split(10));
-		parseTables(sub.split(10));
-		parseParagraphs(sub.split(70));
+		parseTables(sub.split(40));
+		parseParagraphs(sub.split(40));
 		parseAnnexes(sub.split(5));
 		parseIndexes(sub.split(5));
 	}
