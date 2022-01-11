@@ -50,7 +50,7 @@
                         ifEmpty="false"
                         operator="or">
                      <instanceof
-                           value="ru.arsysop.loft.rgm.model.api.Document">
+                           value="ru.arsysop.loft.rgm.spec.model.api.Document">
                      </instanceof>
                   </iterate>
                </with>

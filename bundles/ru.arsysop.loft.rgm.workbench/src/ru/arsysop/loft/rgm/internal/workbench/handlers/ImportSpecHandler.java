@@ -34,7 +34,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import ru.arsysop.loft.rgm.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.workspace.interchange.ImportSpecificationContent;
 
 public final class ImportSpecHandler extends AbstractHandler {

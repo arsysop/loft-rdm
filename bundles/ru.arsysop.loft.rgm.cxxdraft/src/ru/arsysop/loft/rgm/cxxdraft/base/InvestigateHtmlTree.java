@@ -35,10 +35,10 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
-import ru.arsysop.loft.rgm.model.api.Index;
-import ru.arsysop.loft.rgm.model.api.Paragraph;
-import ru.arsysop.loft.rgm.model.api.Toc;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Toc;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class InvestigateHtmlTree implements ICoreRunnable {
 
@@ -62,7 +62,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		sub.subTask(Messages.InvestigateHtmlTree_subtask_toc);
 		Toc toc = context.document().getToc();
 		if (toc == null) {
-			toc = RgmFactory.eINSTANCE.createToc();
+			toc = SpecFactory.eINSTANCE.createToc();
 			context.document().setToc(toc);
 		}
 		parseLocation(toc, sub);

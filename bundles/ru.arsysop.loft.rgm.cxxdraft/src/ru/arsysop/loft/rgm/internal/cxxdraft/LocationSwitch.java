@@ -4,10 +4,10 @@ import java.util.Objects;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ru.arsysop.loft.rgm.model.api.Part;
-import ru.arsysop.loft.rgm.model.util.RgmSwitch;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.util.SpecSwitch;
 
-public final class LocationSwitch extends RgmSwitch<String> {
+public final class LocationSwitch extends SpecSwitch<String> {
 
 	private final String base;
 

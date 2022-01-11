@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2022 ArSysOp
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+ 	http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ 	SPDX-License-Identifier: Apache-2.0
+ Contributors:
+ 	ArSysOp - initial API and implementation
+ 
+-->
+
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="MarkupEditorAdvisorApplication">
+      <!-- @generated markup -->
+      <application>
+         <run class="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisor$Application"/>
+      </application>
+   </extension>
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated markup -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisor$Perspective"
+            id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated markup -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated markup -->
+      <key
+            commandId="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated markup -->
+      <actionSet
+            label="%_UI_MarkupEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="MarkupEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenURICommand"
+               class="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenCommand"
+               class="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated markup -->
+      <actionSet
+            label="%_UI_MarkupModelWizard_ActionSet_label"
+            visible="true"
+            id="ru.arsysop.loft.rgm.markup.editor.MarkupActionBarContributorActionSet">
+         <action
+               label="%_UI_MarkupModelWizard_label"
+               class="ru.arsysop.loft.rgm.markup.editor.MarkupActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="ru.arsysop.loft.rgm.markup.editor.MarkupActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated markup -->
+      <editor
+            id="ru.arsysop.loft.rgm.markup.editor.MarkupEditorID"
+            name="%_UI_MarkupEditor_label"
+            icon="icons/full/obj16/MarkupModelFile.gif"
+            extensions="rgm"
+            class="ru.arsysop.loft.rgm.markup.editor.MarkupEditor"
+            contributorClass="ru.arsysop.loft.rgm.markup.editor.MarkupActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

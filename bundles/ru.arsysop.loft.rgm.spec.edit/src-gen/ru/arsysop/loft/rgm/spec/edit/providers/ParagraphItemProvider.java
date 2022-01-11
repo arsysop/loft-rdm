@@ -84,7 +84,7 @@ public class ParagraphItemProvider extends WithPartsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Paragraph_number_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Paragraph_number_feature", "_UI_Paragraph_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getParagraph_Number(),
+						SpecPackage.eINSTANCE.getParagraph_Number(),
 				 true,
 				 false,
 				 false,
@@ -160,7 +160,7 @@ public class ParagraphItemProvider extends WithPartsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Paragraph.class)) {
-			case SpecPackage.PARAGRAPH__NUMBER:
+		case SpecPackage.PARAGRAPH__NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

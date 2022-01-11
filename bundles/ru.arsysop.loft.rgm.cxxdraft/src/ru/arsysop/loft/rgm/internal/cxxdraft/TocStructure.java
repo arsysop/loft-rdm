@@ -30,19 +30,19 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.model.api.Index;
-import ru.arsysop.loft.rgm.model.api.Paragraph;
-import ru.arsysop.loft.rgm.model.api.Toc;
-import ru.arsysop.loft.rgm.model.api.TocChapter;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Toc;
+import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class TocStructure extends BaseStructure<Toc> {
 
-	private final RgmFactory factory;
+	private final SpecFactory factory;
 
 	public TocStructure(Toc container, ResolutionContext context) {
 		super(container, context);
-		this.factory = RgmFactory.eINSTANCE;
+		this.factory = SpecFactory.eINSTANCE;
 	}
 
 	@Override
