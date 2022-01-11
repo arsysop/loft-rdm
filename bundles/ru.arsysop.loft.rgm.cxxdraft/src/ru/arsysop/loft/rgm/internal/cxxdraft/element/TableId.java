@@ -31,7 +31,7 @@ public final class TableId implements Function<Table, String> {
 	 */
 	@Override
 	public String apply(Table table) {
-		return table.getId().split("#")[1]; //$NON-NLS-1$
+		return "#" + table.getId().split("#")[1]; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }
