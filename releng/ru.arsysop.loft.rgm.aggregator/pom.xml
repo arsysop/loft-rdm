@@ -39,7 +39,11 @@
 		<module>..\..\tests\ru.arsysop.loft.rgm.cxxdraft.tests</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.workbench</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.workspace</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.ecore</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.model</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.edit</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
+
 
 		<module>..\..\features\ru.arsysop.loft.rgm.spec.feature</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.ecore</module>
