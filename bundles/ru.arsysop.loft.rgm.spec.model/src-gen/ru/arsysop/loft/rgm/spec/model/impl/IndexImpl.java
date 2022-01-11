@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -45,7 +47,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class IndexImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.model.api.Index {
+public class IndexImpl extends PartImpl implements Index {
 	/**
 	 * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -54,7 +56,7 @@ public class IndexImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry> entries;
+	protected EList<IndexEntry> entries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,9 +83,9 @@ public class IndexImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry> getEntries() {
+	public EList<IndexEntry> getEntries() {
 		if (entries == null) {
-			entries = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry>(ru.arsysop.loft.rgm.spec.model.api.IndexEntry.class, this, SpecPackage.INDEX__ENTRIES);
+			entries = new EObjectContainmentEList<IndexEntry>(IndexEntry.class, this, SpecPackage.INDEX__ENTRIES);
 		}
 		return entries;
 	}
@@ -129,7 +131,7 @@ public class IndexImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 		switch (featureID) {
 			case SpecPackage.INDEX__ENTRIES:
 				getEntries().clear();
-				getEntries().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.IndexEntry>)newValue);
+				getEntries().addAll((Collection<? extends IndexEntry>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);

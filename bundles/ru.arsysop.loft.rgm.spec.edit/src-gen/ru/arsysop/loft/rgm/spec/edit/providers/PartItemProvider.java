@@ -27,6 +27,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -109,7 +110,7 @@ public class PartItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Part_id_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Part_id_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						SpecPackage.eINSTANCE.getPart_Id(),
+				 SpecPackage.eINSTANCE.getPart_Id(),
 				 true,
 				 false,
 				 false,
@@ -131,7 +132,7 @@ public class PartItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Part_name_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Part_name_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-						SpecPackage.eINSTANCE.getPart_Name(),
+				 SpecPackage.eINSTANCE.getPart_Name(),
 				 true,
 				 false,
 				 false,
@@ -173,6 +174,14 @@ public class PartItemProvider
 	@Override
 	protected boolean shouldComposeCreationImage() {
 		return true;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -231,8 +240,8 @@ public class PartItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Part.class)) {
-		case SpecPackage.PART__ID:
-		case SpecPackage.PART__NAME:
+			case SpecPackage.PART__ID:
+			case SpecPackage.PART__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

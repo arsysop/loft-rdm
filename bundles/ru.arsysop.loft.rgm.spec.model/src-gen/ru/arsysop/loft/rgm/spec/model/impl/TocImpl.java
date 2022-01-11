@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -40,7 +42,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.spec.model.api.Toc {
+public class TocImpl extends WithTocChaptersImpl implements Toc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,9 +68,9 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 	 * @generated
 	 */
 	@Override
-	public ru.arsysop.loft.rgm.spec.model.api.Document getDocument() {
+	public Document getDocument() {
 		if (eContainerFeatureID() != SpecPackage.TOC__DOCUMENT) return null;
-		return (ru.arsysop.loft.rgm.spec.model.api.Document)eInternalContainer();
+		return (Document)eInternalContainer();
 	}
 
 	/**
@@ -76,7 +78,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDocument(ru.arsysop.loft.rgm.spec.model.api.Document newDocument, NotificationChain msgs) {
+	public NotificationChain basicSetDocument(Document newDocument, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newDocument, SpecPackage.TOC__DOCUMENT, msgs);
 		return msgs;
 	}
@@ -87,7 +89,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 	 * @generated
 	 */
 	@Override
-	public void setDocument(ru.arsysop.loft.rgm.spec.model.api.Document newDocument) {
+	public void setDocument(Document newDocument) {
 		if (newDocument != eInternalContainer() || (eContainerFeatureID() != SpecPackage.TOC__DOCUMENT && newDocument != null)) {
 			if (EcoreUtil.isAncestor(this, newDocument))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
@@ -95,7 +97,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newDocument != null)
-				msgs = ((InternalEObject)newDocument).eInverseAdd(this, SpecPackage.DOCUMENT__TOC, ru.arsysop.loft.rgm.spec.model.api.Document.class, msgs);
+				msgs = ((InternalEObject)newDocument).eInverseAdd(this, SpecPackage.DOCUMENT__TOC, Document.class, msgs);
 			msgs = basicSetDocument(newDocument, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -114,7 +116,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 			case SpecPackage.TOC__DOCUMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetDocument((ru.arsysop.loft.rgm.spec.model.api.Document)otherEnd, msgs);
+				return basicSetDocument((Document)otherEnd, msgs);
 			default:
 				return super.eInverseAdd(otherEnd, featureID, msgs);
 		}
@@ -144,7 +146,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case SpecPackage.TOC__DOCUMENT:
-				return eInternalContainer().eInverseRemove(this, SpecPackage.DOCUMENT__TOC, ru.arsysop.loft.rgm.spec.model.api.Document.class, msgs);
+				return eInternalContainer().eInverseRemove(this, SpecPackage.DOCUMENT__TOC, Document.class, msgs);
 			default:
 				return super.eBasicRemoveFromContainerFeature(msgs);
 		}
@@ -174,7 +176,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SpecPackage.TOC__DOCUMENT:
-				setDocument((ru.arsysop.loft.rgm.spec.model.api.Document)newValue);
+				setDocument((Document)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -191,7 +193,7 @@ public class TocImpl extends WithTocChaptersImpl implements ru.arsysop.loft.rgm.
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case SpecPackage.TOC__DOCUMENT:
-				setDocument((ru.arsysop.loft.rgm.spec.model.api.Document)null);
+				setDocument((Document)null);
 				return;
 			default:
 				super.eUnset(featureID);

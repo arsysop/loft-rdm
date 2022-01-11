@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.WithParts;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -43,7 +45,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public abstract class WithPartsImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.model.api.WithParts {
+public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	/**
 	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -52,7 +54,7 @@ public abstract class WithPartsImpl extends PartImpl implements ru.arsysop.loft.
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.Part> parts;
+	protected EList<Part> parts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,9 +81,9 @@ public abstract class WithPartsImpl extends PartImpl implements ru.arsysop.loft.
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.Part> getParts() {
+	public EList<Part> getParts() {
 		if (parts == null) {
-			parts = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.Part>(ru.arsysop.loft.rgm.spec.model.api.Part.class, this, SpecPackage.WITH_PARTS__PARTS);
+			parts = new EObjectContainmentEList<Part>(Part.class, this, SpecPackage.WITH_PARTS__PARTS);
 		}
 		return parts;
 	}
@@ -127,7 +129,7 @@ public abstract class WithPartsImpl extends PartImpl implements ru.arsysop.loft.
 		switch (featureID) {
 			case SpecPackage.WITH_PARTS__PARTS:
 				getParts().clear();
-				getParts().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.Part>)newValue);
+				getParts().addAll((Collection<? extends Part>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);

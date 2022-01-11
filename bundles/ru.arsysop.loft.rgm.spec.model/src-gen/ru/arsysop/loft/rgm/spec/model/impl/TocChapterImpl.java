@@ -28,6 +28,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.api.WithTocChapters;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -45,7 +48,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.model.api.TocChapter {
+public class TocChapterImpl extends PartImpl implements TocChapter {
 	/**
 	 * The cached value of the '{@link #getChapters() <em>Chapters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -54,7 +57,7 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.TocChapter> chapters;
+	protected EList<TocChapter> chapters;
 
 	/**
 	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
@@ -82,7 +85,7 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 * @generated
 	 * @ordered
 	 */
-	protected ru.arsysop.loft.rgm.spec.model.api.Part part;
+	protected Part part;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,9 +112,9 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.TocChapter> getChapters() {
+	public EList<TocChapter> getChapters() {
 		if (chapters == null) {
-			chapters = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.TocChapter>(ru.arsysop.loft.rgm.spec.model.api.TocChapter.class, this, SpecPackage.TOC_CHAPTER__CHAPTERS);
+			chapters = new EObjectContainmentEList<TocChapter>(TocChapter.class, this, SpecPackage.TOC_CHAPTER__CHAPTERS);
 		}
 		return chapters;
 	}
@@ -145,10 +148,10 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 * @generated
 	 */
 	@Override
-	public ru.arsysop.loft.rgm.spec.model.api.Part getPart() {
+	public Part getPart() {
 		if (part != null && part.eIsProxy()) {
 			InternalEObject oldPart = (InternalEObject)part;
-			part = (ru.arsysop.loft.rgm.spec.model.api.Part)eResolveProxy(oldPart);
+			part = (Part)eResolveProxy(oldPart);
 			if (part != oldPart) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SpecPackage.TOC_CHAPTER__PART, oldPart, part));
@@ -162,7 +165,7 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ru.arsysop.loft.rgm.spec.model.api.Part basicGetPart() {
+	public Part basicGetPart() {
 		return part;
 	}
 
@@ -172,8 +175,8 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 * @generated
 	 */
 	@Override
-	public void setPart(ru.arsysop.loft.rgm.spec.model.api.Part newPart) {
-		ru.arsysop.loft.rgm.spec.model.api.Part oldPart = part;
+	public void setPart(Part newPart) {
+		Part oldPart = part;
 		part = newPart;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TOC_CHAPTER__PART, oldPart, part));
@@ -225,13 +228,13 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 		switch (featureID) {
 			case SpecPackage.TOC_CHAPTER__CHAPTERS:
 				getChapters().clear();
-				getChapters().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.TocChapter>)newValue);
+				getChapters().addAll((Collection<? extends TocChapter>)newValue);
 				return;
 			case SpecPackage.TOC_CHAPTER__NUMBER:
 				setNumber((String)newValue);
 				return;
 			case SpecPackage.TOC_CHAPTER__PART:
-				setPart((ru.arsysop.loft.rgm.spec.model.api.Part)newValue);
+				setPart((Part)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -254,7 +257,7 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 				setNumber(NUMBER_EDEFAULT);
 				return;
 			case SpecPackage.TOC_CHAPTER__PART:
-				setPart((ru.arsysop.loft.rgm.spec.model.api.Part)null);
+				setPart((Part)null);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -288,7 +291,7 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ru.arsysop.loft.rgm.spec.model.api.WithTocChapters.class) {
+		if (baseClass == WithTocChapters.class) {
 			switch (derivedFeatureID) {
 				case SpecPackage.TOC_CHAPTER__CHAPTERS: return SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS;
 				default: return -1;
@@ -304,7 +307,7 @@ public class TocChapterImpl extends PartImpl implements ru.arsysop.loft.rgm.spec
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ru.arsysop.loft.rgm.spec.model.api.WithTocChapters.class) {
+		if (baseClass == WithTocChapters.class) {
 			switch (baseFeatureID) {
 				case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS: return SpecPackage.TOC_CHAPTER__CHAPTERS;
 				default: return -1;

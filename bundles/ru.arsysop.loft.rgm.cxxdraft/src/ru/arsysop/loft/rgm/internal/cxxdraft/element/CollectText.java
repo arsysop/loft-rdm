@@ -20,27 +20,23 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.element;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.function.Predicate;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.dom4j.Element;
+import org.dom4j.Node;
 
-public final class OfClass implements Predicate<Element> {
+public final class CollectText implements Function<Element, String> {
 
-	private final List<String> className;
+	private final String separator;
 
-	public OfClass(String... className) {
-		this.className = Arrays.asList(className);
+	public CollectText(String separator) {
+		this.separator = separator;
 	}
 
 	@Override
-	public boolean test(Element element) {
-		return className.stream() //
-				.filter(Objects::nonNull) //
-				.filter(required -> required.equals(element.attributeValue("class"))) //$NON-NLS-1$
-				.count() > 0;
+	public String apply(Element element) {
+		return element.content().stream().map(Node::getText).collect(Collectors.joining(separator)); // $NON-NLS-1$;
 	}
 
 }

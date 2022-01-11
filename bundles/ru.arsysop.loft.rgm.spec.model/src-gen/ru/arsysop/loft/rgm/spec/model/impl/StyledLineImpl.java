@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
+import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -43,7 +45,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class StyledLineImpl extends MinimalEObjectImpl.Container implements ru.arsysop.loft.rgm.spec.model.api.StyledLine {
+public class StyledLineImpl extends MinimalEObjectImpl.Container implements StyledLine {
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -52,7 +54,7 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.StyledNode> text;
+	protected EList<StyledNode> text;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,9 +81,9 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.StyledNode> getText() {
+	public EList<StyledNode> getText() {
 		if (text == null) {
-			text = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.StyledNode>(ru.arsysop.loft.rgm.spec.model.api.StyledNode.class, this, SpecPackage.STYLED_LINE__TEXT);
+			text = new EObjectContainmentEList<StyledNode>(StyledNode.class, this, SpecPackage.STYLED_LINE__TEXT);
 		}
 		return text;
 	}
@@ -127,7 +129,7 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements ru.a
 		switch (featureID) {
 			case SpecPackage.STYLED_LINE__TEXT:
 				getText().clear();
-				getText().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.StyledNode>)newValue);
+				getText().addAll((Collection<? extends StyledNode>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);

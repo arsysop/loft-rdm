@@ -29,6 +29,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -45,7 +48,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.model.api.Point {
+public class PointImpl extends PartImpl implements Point {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -54,7 +57,7 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.Part> references;
+	protected EList<Part> references;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
@@ -64,7 +67,7 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.StyledLine> text;
+	protected EList<StyledLine> text;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,9 +94,9 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.Part> getReferences() {
+	public EList<Part> getReferences() {
 		if (references == null) {
-			references = new EObjectResolvingEList<ru.arsysop.loft.rgm.spec.model.api.Part>(ru.arsysop.loft.rgm.spec.model.api.Part.class, this, SpecPackage.POINT__REFERENCES);
+			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.POINT__REFERENCES);
 		}
 		return references;
 	}
@@ -104,9 +107,9 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.StyledLine> getText() {
+	public EList<StyledLine> getText() {
 		if (text == null) {
-			text = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.StyledLine>(ru.arsysop.loft.rgm.spec.model.api.StyledLine.class, this, SpecPackage.POINT__TEXT);
+			text = new EObjectContainmentEList<StyledLine>(StyledLine.class, this, SpecPackage.POINT__TEXT);
 		}
 		return text;
 	}
@@ -154,11 +157,11 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 		switch (featureID) {
 			case SpecPackage.POINT__REFERENCES:
 				getReferences().clear();
-				getReferences().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.Part>)newValue);
+				getReferences().addAll((Collection<? extends Part>)newValue);
 				return;
 			case SpecPackage.POINT__TEXT:
 				getText().clear();
-				getText().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.StyledLine>)newValue);
+				getText().addAll((Collection<? extends StyledLine>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);

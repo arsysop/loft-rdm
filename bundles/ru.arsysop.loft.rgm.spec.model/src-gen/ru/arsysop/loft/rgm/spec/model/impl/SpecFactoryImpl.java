@@ -85,6 +85,8 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 			case SpecPackage.INDEX_ENTRY: return createIndexEntry();
 			case SpecPackage.STYLED_NODE: return createStyledNode();
 			case SpecPackage.STYLED_LINE: return createStyledLine();
+			case SpecPackage.TABLE: return createTable();
+			case SpecPackage.TABLE_ROW: return createTableRow();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -187,6 +189,28 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 	public StyledLine createStyledLine() {
 		StyledLineImpl styledLine = new StyledLineImpl();
 		return styledLine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Table createTable() {
+		TableImpl table = new TableImpl();
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TableRow createTableRow() {
+		TableRowImpl tableRow = new TableRowImpl();
+		return tableRow;
 	}
 
 	/**
