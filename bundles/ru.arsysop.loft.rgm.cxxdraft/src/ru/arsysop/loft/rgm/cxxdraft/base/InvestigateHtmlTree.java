@@ -37,6 +37,7 @@ import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
@@ -51,9 +52,9 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
-		parseToc(sub.split(5));
-		parseVisualizations(sub.split(5));
-		parseParagraphs(sub.split(80));
+		parseToc(sub.split(10));
+		parseTables(sub.split(10));
+		parseParagraphs(sub.split(70));
 		parseAnnexes(sub.split(5));
 		parseIndexes(sub.split(5));
 	}
@@ -68,9 +69,13 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		parseLocation(toc, sub);
 	}
 
-	private void parseVisualizations(SubMonitor sub) {
-		// TODO Auto-generated method stub
-
+	private void parseTables(SubMonitor monitor) throws CoreException {
+		List<Table> tables = context.document().getTables();
+		SubMonitor sub = SubMonitor.convert(monitor, tables.size());
+		for (Table table : tables) {
+			sub.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, table.getName()));
+			parseLocation(table, sub.split(1));
+		}
 	}
 
 	private void parseParagraphs(SubMonitor monitor) throws CoreException {

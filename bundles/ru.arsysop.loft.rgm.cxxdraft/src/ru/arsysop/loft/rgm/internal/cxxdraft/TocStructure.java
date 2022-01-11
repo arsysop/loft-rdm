@@ -24,14 +24,20 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.ResolveTableNames;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
@@ -74,19 +80,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		String clazz = node.attributeValue("class"); //$NON-NLS-1$
 		if (clazz == null) {
 			topLevelTocEntry(node);
-			return;
 		}
-		System.out.println("DocumentElements.processDiv() for class: " + clazz); //$NON-NLS-1$
-
-		switch (clazz) {
-		case "tocChapter": //$NON-NLS-1$
-			// processed above
-			break;
-		default:
-			System.out.println("DocumentElements.processDiv()"); //$NON-NLS-1$
-			break;
-		}
-		// TODO process div attributes
 	}
 
 	private void topLevelTocEntry(Element node) {
@@ -95,7 +89,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 				.element("a")//$NON-NLS-1$
 				.getText()//
 				.startsWith("[")) { //$NON-NLS-1$
-			completeVisualization(chapter);
+			completeVisualization(chapter, node);
 		} else {
 			if ("annexnum".equals( //$NON-NLS-1$
 					node.element("h2") //$NON-NLS-1$
@@ -117,7 +111,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 			chapter.setName(new ExtractSubElementText("h2", "h3", "h4").apply(node)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 			String name = chapter.getName();
 			if (name.isEmpty()) {
-				System.out.println("TocStructure.createTocChapter(): no name" + node); //$NON-NLS-1$
+				System.out.println("TocStructure.createTocChapter(): no name " + node.getText()); //$NON-NLS-1$
 			}
 			chapter.setId(id);
 		} else {
@@ -142,8 +136,30 @@ public final class TocStructure extends BaseStructure<Toc> {
 				.orElse(""); //$NON-NLS-1$
 	}
 
-	private void completeVisualization(TocChapter chapter) {
+	private void completeTables(Element div) {
+		List<Element> spans = div.elements("span").stream() //$NON-NLS-1$
+				.filter(new OfClass("secnum")) //$NON-NLS-1$
+				.collect(Collectors.toList());
+		List<Element> as = div.elements("a").stream() //$NON-NLS-1$
+				.filter(new OfClass("abbr_ref")) //$NON-NLS-1$
+				.collect(Collectors.toList());
+		List<String> text = new ResolveTableNames(div).get();
+		IntStream.range(0, spans.size()) //
+				.mapToObj(i -> table(as.get(i), text.get(i))) //
+				.filter(table -> table.getId().contains("tab:")) //$NON-NLS-1$
+				.forEach(context.document().getTables()::add);
+	}
+
+	private Table table(Element element, String text) {
+		Table table = factory.createTable();
+		table.setId(new PickId(context).apply(element.attributeValue("href"))); //$NON-NLS-1$
+		table.setName(text);
+		return table;
+	}
+
+	private void completeVisualization(TocChapter chapter, Element node) {
 		container.getChapters().add(chapter);
+		node.elements("div").stream().filter(new OfClass("tocChapter")).findAny().ifPresent(this::completeTables); //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	private void completeParagraph(TocChapter chapter, Element node, Consumer<TocChapter> chapters,

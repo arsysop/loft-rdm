@@ -19,76 +19,61 @@
  */
 package ru.arsysop.loft.rgm.spec.model.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import ru.arsysop.loft.rgm.spec.model.api.Table;
+import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Styled Node</b></em>'.
+ * An implementation of the model object '<em><b>Table</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.StyledNodeImpl#getText <em>Text</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.StyledNodeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl#getRows <em>Rows</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl#getTitle <em>Title</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StyledNodeImpl extends MinimalEObjectImpl.Container implements StyledNode {
+public class TableImpl extends PartImpl implements Table {
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getRows()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
+	protected EList<TableRow> rows;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getTitle()
 	 * @generated
 	 * @ordered
 	 */
-	protected String text = TEXT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected String type = TYPE_EDEFAULT;
+	protected TableRow title;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StyledNodeImpl() {
+	protected TableImpl() {
 		super();
 	}
 
@@ -99,7 +84,7 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SpecPackage.eINSTANCE.getStyledNode();
+		return SpecPackage.eINSTANCE.getTable();
 	}
 
 	/**
@@ -108,8 +93,11 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	 * @generated
 	 */
 	@Override
-	public String getText() {
-		return text;
+	public EList<TableRow> getRows() {
+		if (rows == null) {
+			rows = new EObjectResolvingEList<TableRow>(TableRow.class, this, SpecPackage.TABLE__ROWS);
+		}
+		return rows;
 	}
 
 	/**
@@ -118,34 +106,38 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	 * @generated
 	 */
 	@Override
-	public void setText(String newText) {
-		String oldText = text;
-		text = newText;
+	public TableRow getTitle() {
+		if (title != null && title.eIsProxy()) {
+			InternalEObject oldTitle = (InternalEObject)title;
+			title = (TableRow)eResolveProxy(oldTitle);
+			if (title != oldTitle) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SpecPackage.TABLE__TITLE, oldTitle, title));
+			}
+		}
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TableRow basicGetTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTitle(TableRow newTitle) {
+		TableRow oldTitle = title;
+		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.STYLED_NODE__TEXT, oldText, text));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.STYLED_NODE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TABLE__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -156,10 +148,11 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecPackage.STYLED_NODE__TEXT:
-				return getText();
-			case SpecPackage.STYLED_NODE__TYPE:
-				return getType();
+			case SpecPackage.TABLE__ROWS:
+				return getRows();
+			case SpecPackage.TABLE__TITLE:
+				if (resolve) return getTitle();
+				return basicGetTitle();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -170,14 +163,16 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecPackage.STYLED_NODE__TEXT:
-				setText((String)newValue);
+			case SpecPackage.TABLE__ROWS:
+				getRows().clear();
+				getRows().addAll((Collection<? extends TableRow>)newValue);
 				return;
-			case SpecPackage.STYLED_NODE__TYPE:
-				setType((String)newValue);
+			case SpecPackage.TABLE__TITLE:
+				setTitle((TableRow)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -193,11 +188,11 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.STYLED_NODE__TEXT:
-				setText(TEXT_EDEFAULT);
+			case SpecPackage.TABLE__ROWS:
+				getRows().clear();
 				return;
-			case SpecPackage.STYLED_NODE__TYPE:
-				setType(TYPE_EDEFAULT);
+			case SpecPackage.TABLE__TITLE:
+				setTitle((TableRow)null);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -213,31 +208,13 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.STYLED_NODE__TEXT:
-				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
-			case SpecPackage.STYLED_NODE__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case SpecPackage.TABLE__ROWS:
+				return rows != null && !rows.isEmpty();
+			case SpecPackage.TABLE__TITLE:
+				return title != null;
 			default:
 				return super.eIsSet(featureID);
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (text: "); //$NON-NLS-1$
-		result.append(text);
-		result.append(", type: "); //$NON-NLS-1$
-		result.append(type);
-		result.append(')');
-		return result.toString();
-	}
-
-} //StyledNodeImpl
+} //TableImpl

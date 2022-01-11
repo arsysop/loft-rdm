@@ -147,13 +147,22 @@ public interface SpecPackage extends EPackage {
 	int DOCUMENT__INDEXES = 6;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT__TABLES = 7;
+
+	/**
 	 * The number of structural features of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 7;
+	int DOCUMENT_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -771,6 +780,116 @@ public interface SpecPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl <em>Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.TableImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTable()
+	 * @generated
+	 */
+	int TABLE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TITLE = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl <em>Table Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTableRow()
+	 * @generated
+	 */
+	int TABLE_ROW = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__VALUES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -856,6 +975,17 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDocument_Indexes();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Document#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tables</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Document#getTables()
+	 * @see #getDocument()
+	 * @generated
+	 */
+	EReference getDocument_Tables();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Part <em>Part</em>}'.
@@ -1186,6 +1316,70 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStyledLine_Text();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Table
+	 * @generated
+	 */
+	EClass getTable();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Table#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Rows</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Table#getRows()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Rows();
+
+	/**
+	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.spec.model.api.Table#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Title</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Table#getTitle()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Title();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow <em>Table Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Row</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow
+	 * @generated
+	 */
+	EClass getTableRow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow#getId()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Id();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Values();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

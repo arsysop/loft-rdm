@@ -20,21 +20,27 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.element;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import org.dom4j.Element;
 
 public final class OfClass implements Predicate<Element> {
 
-	private final String className;
+	private final List<String> className;
 
-	public OfClass(String className) {
-		this.className = className;
+	public OfClass(String... className) {
+		this.className = Arrays.asList(className);
 	}
 
 	@Override
 	public boolean test(Element element) {
-		return className.equals(element.attributeValue("class")); //$NON-NLS-1$
+		return className.stream() //
+				.filter(Objects::nonNull) //
+				.filter(required -> required.equals(element.attributeValue("class"))) //$NON-NLS-1$
+				.count() > 0;
 	}
 
 }

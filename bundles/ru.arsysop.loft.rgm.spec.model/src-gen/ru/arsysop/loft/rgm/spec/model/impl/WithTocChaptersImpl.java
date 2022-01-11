@@ -32,6 +32,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.api.WithTocChapters;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -47,7 +49,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container implements ru.arsysop.loft.rgm.spec.model.api.WithTocChapters {
+public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container implements WithTocChapters {
 	/**
 	 * The cached value of the '{@link #getChapters() <em>Chapters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -56,7 +58,7 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.TocChapter> chapters;
+	protected EList<TocChapter> chapters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,9 +85,9 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.TocChapter> getChapters() {
+	public EList<TocChapter> getChapters() {
 		if (chapters == null) {
-			chapters = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.TocChapter>(ru.arsysop.loft.rgm.spec.model.api.TocChapter.class, this, SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS);
+			chapters = new EObjectContainmentEList<TocChapter>(TocChapter.class, this, SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS);
 		}
 		return chapters;
 	}
@@ -131,7 +133,7 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 		switch (featureID) {
 			case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS:
 				getChapters().clear();
-				getChapters().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.TocChapter>)newValue);
+				getChapters().addAll((Collection<? extends TocChapter>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);

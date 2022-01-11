@@ -98,7 +98,8 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		return node.elements("p").stream() //$NON-NLS-1$
 				.map(Element::content) //
 				.map(this::collectParagraph) //
-				.map(this::styledLine).collect(Collectors.toList()); // $NON-NLS-1$
+				.map(this::styledLine) //
+				.collect(Collectors.toList()); // $NON-NLS-1$
 	}
 
 	private List<StyledNode> collectParagraph(List<Node> nodes) {

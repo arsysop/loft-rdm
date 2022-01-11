@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getToc <em>Toc</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getIndexes <em>Indexes</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getDocument()
@@ -181,5 +182,17 @@ public interface Document extends EObject {
 	 * @generated
 	 */
 	EList<Index> getIndexes();
+
+	/**
+	 * Returns the value of the '<em><b>Tables</b></em>' reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Table}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tables</em>' reference list.
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getDocument_Tables()
+	 * @model
+	 * @generated
+	 */
+	EList<Table> getTables();
 
 } // Document
