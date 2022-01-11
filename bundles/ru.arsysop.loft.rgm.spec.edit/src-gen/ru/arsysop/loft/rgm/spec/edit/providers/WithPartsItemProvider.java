@@ -36,7 +36,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.model.api.WithParts} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.WithParts} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

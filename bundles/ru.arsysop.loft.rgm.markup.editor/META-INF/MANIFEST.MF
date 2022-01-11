@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: ru.arsysop.loft.rgm.markup.editor;singleton:=true
 Automatic-Module-Name: ru.arsysop.loft.rgm.markup.editor
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: ru.arsysop.loft.rgm.markup.editor.MarkupEditorPlugin$Implementation
 Bundle-Vendor: %providerName
