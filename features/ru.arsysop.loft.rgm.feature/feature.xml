@@ -40,13 +40,25 @@
       %license
    </license>
 
+   <includes
+         id="ru.arsysop.loft.rgm.spec.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="ru.arsysop.loft.rgm.cpp.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="ru.arsysop.loft.rgm.markup.feature"
+         version="0.0.0"/>
+
    <plugin
          id="ru.arsysop.loft.rgm"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="ru.arsysop.loft.rgm.ecore"
          download-size="0"
@@ -54,14 +66,14 @@
          version="0.0.0"
          unpack="false"/>
 
-	<plugin
+   <plugin
          id="ru.arsysop.loft.rgm.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
-	<plugin
+   <plugin
          id="ru.arsysop.loft.rgm.model"
          download-size="0"
          install-size="0"
