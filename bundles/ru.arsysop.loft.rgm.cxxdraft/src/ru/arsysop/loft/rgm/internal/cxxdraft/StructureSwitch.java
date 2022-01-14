@@ -30,7 +30,6 @@ import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
-import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.util.SpecSwitch;
 
@@ -60,11 +59,6 @@ public final class StructureSwitch extends SpecSwitch<Structure> {
 	@Override
 	public Structure caseParagraph(Paragraph object) {
 		return new ParagraphStructure(object, context);
-	}
-
-	@Override
-	public Structure caseTable(Table object) {
-		return new TableStructure(object, context);
 	}
 
 	@Override

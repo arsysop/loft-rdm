@@ -149,7 +149,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 				.mapToObj(i -> table(as.get(i), text.get(i))) //
 				.filter(table -> table.getId().contains("tab:")) //$NON-NLS-1$
 				.forEach(table -> {
-					context.document().getTables().add(table);
+//					context.document().getTables().add(table);
 					context.parts().register(new TableId().apply(table), table);
 				});
 	}

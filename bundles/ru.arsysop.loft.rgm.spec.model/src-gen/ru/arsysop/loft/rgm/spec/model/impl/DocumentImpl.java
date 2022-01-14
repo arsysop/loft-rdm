@@ -30,13 +30,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
-import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -56,7 +54,6 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getToc <em>Toc</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getParagraphs <em>Paragraphs</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getIndexes <em>Indexes</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @generated
@@ -171,16 +168,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @ordered
 	 */
 	protected EList<Index> indexes;
-
-	/**
-	 * The cached value of the '{@link #getTables() <em>Tables</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTables()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Table> tables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -370,19 +357,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
-	public EList<Table> getTables() {
-		if (tables == null) {
-			tables = new EObjectResolvingEList<Table>(Table.class, this, SpecPackage.DOCUMENT__TABLES);
-		}
-		return tables;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SpecPackage.DOCUMENT__TOC:
@@ -435,8 +409,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getParagraphs();
 			case SpecPackage.DOCUMENT__INDEXES:
 				return getIndexes();
-			case SpecPackage.DOCUMENT__TABLES:
-				return getTables();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -474,10 +446,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				getIndexes().clear();
 				getIndexes().addAll((Collection<? extends Index>)newValue);
 				return;
-			case SpecPackage.DOCUMENT__TABLES:
-				getTables().clear();
-				getTables().addAll((Collection<? extends Table>)newValue);
-				return;
 			default:
 				super.eSet(featureID, newValue);
 				return;
@@ -513,9 +481,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case SpecPackage.DOCUMENT__INDEXES:
 				getIndexes().clear();
 				return;
-			case SpecPackage.DOCUMENT__TABLES:
-				getTables().clear();
-				return;
 			default:
 				super.eUnset(featureID);
 				return;
@@ -544,8 +509,6 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return paragraphs != null && !paragraphs.isEmpty();
 			case SpecPackage.DOCUMENT__INDEXES:
 				return indexes != null && !indexes.isEmpty();
-			case SpecPackage.DOCUMENT__TABLES:
-				return tables != null && !tables.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

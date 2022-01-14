@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
+import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -44,6 +45,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getReferences <em>References</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +70,16 @@ public class PointImpl extends PartImpl implements Point {
 	 * @ordered
 	 */
 	protected EList<StyledLine> text;
+
+	/**
+	 * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Table> tables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,10 +132,25 @@ public class PointImpl extends PartImpl implements Point {
 	 * @generated
 	 */
 	@Override
+	public EList<Table> getTables() {
+		if (tables == null) {
+			tables = new EObjectContainmentEList<Table>(Table.class, this, SpecPackage.POINT__TABLES);
+		}
+		return tables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SpecPackage.POINT__TEXT:
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case SpecPackage.POINT__TABLES:
+				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -141,6 +168,8 @@ public class PointImpl extends PartImpl implements Point {
 				return getReferences();
 			case SpecPackage.POINT__TEXT:
 				return getText();
+			case SpecPackage.POINT__TABLES:
+				return getTables();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -163,6 +192,10 @@ public class PointImpl extends PartImpl implements Point {
 				getText().clear();
 				getText().addAll((Collection<? extends StyledLine>)newValue);
 				return;
+			case SpecPackage.POINT__TABLES:
+				getTables().clear();
+				getTables().addAll((Collection<? extends Table>)newValue);
+				return;
 			default:
 				super.eSet(featureID, newValue);
 				return;
@@ -183,6 +216,9 @@ public class PointImpl extends PartImpl implements Point {
 			case SpecPackage.POINT__TEXT:
 				getText().clear();
 				return;
+			case SpecPackage.POINT__TABLES:
+				getTables().clear();
+				return;
 			default:
 				super.eUnset(featureID);
 				return;
@@ -201,6 +237,8 @@ public class PointImpl extends PartImpl implements Point {
 				return references != null && !references.isEmpty();
 			case SpecPackage.POINT__TEXT:
 				return text != null && !text.isEmpty();
+			case SpecPackage.POINT__TABLES:
+				return tables != null && !tables.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

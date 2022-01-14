@@ -109,7 +109,7 @@ public class PointItemProvider extends PartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Text());
+			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Tables());
 		}
 		return childrenFeatures;
 	}
@@ -195,7 +195,7 @@ public class PointItemProvider extends PartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Point.class)) {
-			case SpecPackage.POINT__TEXT:
+			case SpecPackage.POINT__TABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -217,8 +217,8 @@ public class PointItemProvider extends PartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getPoint_Text(),
-				 SpecFactory.eINSTANCE.createStyledLine()));
+				(SpecPackage.eINSTANCE.getPoint_Tables(),
+				 SpecFactory.eINSTANCE.createTable()));
 	}
 
 }
