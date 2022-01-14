@@ -38,6 +38,8 @@ import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
 import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
+import ru.arsysop.loft.rgm.spec.model.api.Table;
+import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class ParagraphStructure extends BaseStructure<Paragraph> {
@@ -90,7 +92,38 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		point.setName(subParagraphName(node));
 		point.getText().addAll(collectText(node));
 		point.getReferences().addAll(references(node));
+		point.getTables().addAll(tables(node));
 		paragraph.getParts().add(point);
+	}
+
+	private List<Table> tables(Element node) {
+		return node.elements("div").stream() //$NON-NLS-1$
+				.filter(new OfClass("numberedTable")) //$NON-NLS-1$
+				.map(this::fillTable) //
+				.collect(Collectors.toList());
+	}
+
+	private Table fillTable(Element div) {
+		Table table = factory.createTable();
+		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$//$NON-NLS-2$
+		table.setTitle(collectRow(rows.get(0)));
+		table.setId(div.attributeValue("id")); //$NON-NLS-1$
+		if (rows.size() > 1) {
+			List<Element> remaining = rows.subList(1, rows.size() - 1);
+			table.getRows().addAll(remaining.stream().map(this::collectRow).collect(Collectors.toList()));
+		}
+		return table;
+	}
+
+	private TableRow collectRow(Element tr) {
+		List<Element> cells = tr.elements("td"); //$NON-NLS-1$
+		TableRow row = factory.createTableRow();
+		cells.stream().map(this::extractText).forEach(row.getValues()::add);
+		return row;
+	}
+
+	private String extractText(Element cell) {
+		return cell.content().stream().map(Node::getText).collect(Collectors.joining(" ")); //$NON-NLS-1$
 	}
 
 	// TODO: NF: provide a more meaningful way to collect subparagraph's text

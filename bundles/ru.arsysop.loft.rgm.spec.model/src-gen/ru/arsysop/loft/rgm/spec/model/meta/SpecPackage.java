@@ -147,22 +147,13 @@ public interface SpecPackage extends EPackage {
 	int DOCUMENT__INDEXES = 6;
 
 	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT__TABLES = 7;
-
-	/**
 	 * The number of structural features of the '<em>Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_FEATURE_COUNT = 8;
+	int DOCUMENT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Document</em>' class.
@@ -541,13 +532,22 @@ public interface SpecPackage extends EPackage {
 	int POINT__TEXT = PART_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__TABLES = PART_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Point</em>' class.
@@ -977,17 +977,6 @@ public interface SpecPackage extends EPackage {
 	EReference getDocument_Indexes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Document#getTables <em>Tables</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Tables</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Document#getTables()
-	 * @see #getDocument()
-	 * @generated
-	 */
-	EReference getDocument_Tables();
-
-	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Part <em>Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1166,6 +1155,17 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPoint_Text();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tables</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getTables()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EReference getPoint_Tables();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Index <em>Index</em>}'.

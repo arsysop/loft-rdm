@@ -296,16 +296,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getDocument_Tables() {
-		return (EReference)documentEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPart() {
 		return partEClass;
 	}
@@ -468,6 +458,16 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	@Override
 	public EReference getPoint_Text() {
 		return (EReference)pointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPoint_Tables() {
+		return (EReference)pointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -707,7 +707,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(documentEClass, DOCUMENT__TOC);
 		createEReference(documentEClass, DOCUMENT__PARAGRAPHS);
 		createEReference(documentEClass, DOCUMENT__INDEXES);
-		createEReference(documentEClass, DOCUMENT__TABLES);
 
 		partEClass = createEClass(PART);
 		createEAttribute(partEClass, PART__ID);
@@ -732,6 +731,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		pointEClass = createEClass(POINT);
 		createEReference(pointEClass, POINT__REFERENCES);
 		createEReference(pointEClass, POINT__TEXT);
+		createEReference(pointEClass, POINT__TABLES);
 
 		indexEClass = createEClass(INDEX);
 		createEReference(indexEClass, INDEX__ENTRIES);
@@ -806,7 +806,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getDocument_Toc(), this.getToc(), this.getToc_Document(), "toc", null, 0, 1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDocument_Paragraphs(), this.getParagraph(), null, "paragraphs", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getDocument_Indexes(), this.getIndex(), null, "indexes", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getDocument_Tables(), this.getTable(), null, "tables", null, 0, -1, Document.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(partEClass, Part.class, "Part", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getPart_Id(), ecorePackage.getEString(), "id", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -831,6 +830,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getPoint_References(), this.getPart(), null, "references", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPoint_Text(), this.getStyledLine(), null, "text", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPoint_Tables(), this.getTable(), null, "tables", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getIndex_Entries(), this.getIndexEntry(), null, "entries", null, 0, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

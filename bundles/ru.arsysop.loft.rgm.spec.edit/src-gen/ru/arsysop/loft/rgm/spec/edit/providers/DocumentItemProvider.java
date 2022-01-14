@@ -84,7 +84,6 @@ public class DocumentItemProvider
 			addNamePropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
 			addRevisionPropertyDescriptor(object);
-			addTablesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -178,28 +177,6 @@ public class DocumentItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Tables feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTablesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Document_tables_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Document_tables_feature", "_UI_Document_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getDocument_Tables(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -214,7 +191,6 @@ public class DocumentItemProvider
 			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Toc());
 			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Paragraphs());
 			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Indexes());
-			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Tables());
 		}
 		return childrenFeatures;
 	}
@@ -373,11 +349,6 @@ public class DocumentItemProvider
 			(createChildParameter
 				(SpecPackage.eINSTANCE.getDocument_Indexes(),
 				 SpecFactory.eINSTANCE.createIndex()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getDocument_Tables(),
-				 SpecFactory.eINSTANCE.createTable()));
 	}
 
 	/**

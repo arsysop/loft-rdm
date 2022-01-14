@@ -13,8 +13,6 @@
         eType="#//Paragraph" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
         eType="#//Index" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
-        eType="#//Table"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Part" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -46,6 +44,8 @@
         eType="#//Part"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//StyledLine"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+        eType="#//Table" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
