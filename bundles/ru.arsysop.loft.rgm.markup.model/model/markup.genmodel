@@ -9,7 +9,7 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     editPluginID="ru.arsysop.loft.rgm.markup.edit" editorPluginID="ru.arsysop.loft.rgm.markup.editor"
     optimizedHasChildren="true" tableProviders="true" colorProviders="true" fontProviders="true"
-    usedGenPackages="../../ru.arsysop.loft.rgm.spec.model/model/spec.genmodel#//spec ../../ru.arsysop.loft.rgm.cpp.model/model/cpp.genmodel#//cpp"
+    usedGenPackages="../../ru.arsysop.loft.rgm.spec.model/model/spec.genmodel#//spec ../../ru.arsysop.loft.rgm.synopsis.model/model/synopsis.genmodel#//synopsis"
     operationReflection="true" runtimePlatform="RCP" importOrganizing="true" styleProviders="true"
     findAction="true">
   <foreignModel>../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore</foreignModel>

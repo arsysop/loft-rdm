@@ -34,8 +34,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import ru.arsysop.loft.rgm.cpp.model.api.Header;
-
 import ru.arsysop.loft.rgm.markup.model.api.Citation;
 import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.api.Markup;
@@ -43,6 +41,7 @@ import ru.arsysop.loft.rgm.markup.model.api.Requirement;
 import ru.arsysop.loft.rgm.markup.model.api.Tag;
 
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
+import ru.arsysop.loft.rgm.synopsis.model.api.Header;
 
 /**
  * <!-- begin-user-doc -->
