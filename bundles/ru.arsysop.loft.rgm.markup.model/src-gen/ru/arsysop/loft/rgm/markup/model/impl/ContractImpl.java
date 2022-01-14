@@ -35,12 +35,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import ru.arsysop.loft.rgm.cpp.model.api.Declaration;
-
 import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.api.Tag;
 
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
+import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
 
 /**
  * <!-- begin-user-doc -->

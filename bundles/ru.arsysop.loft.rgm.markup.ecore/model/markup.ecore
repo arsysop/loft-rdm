@@ -5,7 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="citations" upperBound="-1"
         eType="#//Citation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="headers" upperBound="-1"
-        eType="ecore:EClass ../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//Header"/>
+        eType="ecore:EClass ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Header"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
         eType="#//Requirement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
@@ -43,7 +43,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
-        eType="ecore:EClass ../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//Declaration"/>
+        eType="ecore:EClass ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Declaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
         eOpposite="#//Tag/contracts"/>
   </eClassifiers>

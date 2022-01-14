@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ru.arsysop.loft.rgm.cpp.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
 
 /**
  * <!-- begin-user-doc -->

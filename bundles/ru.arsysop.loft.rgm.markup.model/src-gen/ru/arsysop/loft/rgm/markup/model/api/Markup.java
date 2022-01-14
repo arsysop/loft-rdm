@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ru.arsysop.loft.rgm.cpp.model.api.Header;
+import ru.arsysop.loft.rgm.synopsis.model.api.Header;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public interface Markup extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Headers</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.cpp.model.api.Header}.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.Header}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Headers</em>' reference list.

@@ -22,8 +22,9 @@ package ru.arsysop.loft.rgm.markup.edit;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import ru.arsysop.loft.rgm.cpp.edit.CppEditPlugin;
+
 import ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin;
+import ru.arsysop.loft.rgm.synopsis.edit.SynopsisEditPlugin;
 
 /**
  * This is the central singleton for the Markup edit plugin.
@@ -58,7 +59,7 @@ public final class MarkupEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     SpecEditPlugin.INSTANCE,
-		     CppEditPlugin.INSTANCE,
+		     SynopsisEditPlugin.INSTANCE,
 		   });
 	}
 

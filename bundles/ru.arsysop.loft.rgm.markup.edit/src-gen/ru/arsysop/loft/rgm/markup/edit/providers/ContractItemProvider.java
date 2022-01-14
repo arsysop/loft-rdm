@@ -48,9 +48,9 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.cpp.model.api.Declaration;
 import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
+import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
 
 /**
  * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.markup.model.api.Contract} object.
