@@ -34,18 +34,14 @@
 
 		<module>..\..\features\ru.arsysop.loft.rgm.license.feature</module>
 
-		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.cxxdraft</module>
-		<module>..\..\tests\ru.arsysop.loft.rgm.cxxdraft.tests</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.workbench</module>
-		<module>..\..\bundles\ru.arsysop.loft.rgm.workspace</module>
-		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
-
-
-		<module>..\..\features\ru.arsysop.loft.rgm.spec.feature</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.ecore</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.edit</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.workbench</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.workspace</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.cxxdraft</module>
+		<module>..\..\tests\ru.arsysop.loft.rgm.cxxdraft.tests</module>
+		<module>..\..\features\ru.arsysop.loft.rgm.spec.feature</module>
 
 		<module>..\..\features\ru.arsysop.loft.rgm.markup.feature</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.markup.ecore</module>
@@ -57,6 +53,9 @@
 		<module>..\..\bundles\ru.arsysop.loft.rgm.synopsis.ecore</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.synopsis.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.synopsis.edit</module>
+
+		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
+		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
 
 		<module>..\..\releng\ru.arsysop.loft.rgm.repository</module>
 	 <!-- 
