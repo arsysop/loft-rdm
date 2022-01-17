@@ -86,8 +86,8 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	protected SynopsisSwitch<Adapter> modelSwitch =
 		new SynopsisSwitch<Adapter>() {
 			@Override
-			public Adapter caseHeader(Header object) {
-				return createHeaderAdapter();
+			public Adapter caseSynopsis(Synopsis object) {
+				return createSynopsisAdapter();
 			}
 			@Override
 			public Adapter caseDeclaration(Declaration object) {
@@ -178,16 +178,16 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Header <em>Header</em>}'.
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis <em>Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Header
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis
 	 * @generated
 	 */
-	public Adapter createHeaderAdapter() {
+	public Adapter createSynopsisAdapter() {
 		return null;
 	}
 

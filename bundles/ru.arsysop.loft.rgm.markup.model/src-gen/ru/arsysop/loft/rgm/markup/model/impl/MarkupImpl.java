@@ -41,7 +41,7 @@ import ru.arsysop.loft.rgm.markup.model.api.Requirement;
 import ru.arsysop.loft.rgm.markup.model.api.Tag;
 
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
-import ru.arsysop.loft.rgm.synopsis.model.api.Header;
+import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.Header;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.MarkupImpl#getCitations <em>Citations</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.MarkupImpl#getHeaders <em>Headers</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.MarkupImpl#getSynopses <em>Synopses</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.MarkupImpl#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.MarkupImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.MarkupImpl#getContracts <em>Contracts</em>}</li>
@@ -72,14 +72,14 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	protected EList<Citation> citations;
 
 	/**
-	 * The cached value of the '{@link #getHeaders() <em>Headers</em>}' reference list.
+	 * The cached value of the '{@link #getSynopses() <em>Synopses</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHeaders()
+	 * @see #getSynopses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Header> headers;
+	protected EList<Synopsis> synopses;
 
 	/**
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
@@ -149,11 +149,11 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 	 * @generated
 	 */
 	@Override
-	public EList<Header> getHeaders() {
-		if (headers == null) {
-			headers = new EObjectResolvingEList<Header>(Header.class, this, MarkupPackage.MARKUP__HEADERS);
+	public EList<Synopsis> getSynopses() {
+		if (synopses == null) {
+			synopses = new EObjectResolvingEList<Synopsis>(Synopsis.class, this, MarkupPackage.MARKUP__SYNOPSES);
 		}
-		return headers;
+		return synopses;
 	}
 
 	/**
@@ -226,8 +226,8 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 		switch (featureID) {
 			case MarkupPackage.MARKUP__CITATIONS:
 				return getCitations();
-			case MarkupPackage.MARKUP__HEADERS:
-				return getHeaders();
+			case MarkupPackage.MARKUP__SYNOPSES:
+				return getSynopses();
 			case MarkupPackage.MARKUP__REQUIREMENTS:
 				return getRequirements();
 			case MarkupPackage.MARKUP__TAGS:
@@ -252,9 +252,9 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 				getCitations().clear();
 				getCitations().addAll((Collection<? extends Citation>)newValue);
 				return;
-			case MarkupPackage.MARKUP__HEADERS:
-				getHeaders().clear();
-				getHeaders().addAll((Collection<? extends Header>)newValue);
+			case MarkupPackage.MARKUP__SYNOPSES:
+				getSynopses().clear();
+				getSynopses().addAll((Collection<? extends Synopsis>)newValue);
 				return;
 			case MarkupPackage.MARKUP__REQUIREMENTS:
 				getRequirements().clear();
@@ -285,8 +285,8 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 			case MarkupPackage.MARKUP__CITATIONS:
 				getCitations().clear();
 				return;
-			case MarkupPackage.MARKUP__HEADERS:
-				getHeaders().clear();
+			case MarkupPackage.MARKUP__SYNOPSES:
+				getSynopses().clear();
 				return;
 			case MarkupPackage.MARKUP__REQUIREMENTS:
 				getRequirements().clear();
@@ -313,8 +313,8 @@ public class MarkupImpl extends MinimalEObjectImpl.Container implements Markup {
 		switch (featureID) {
 			case MarkupPackage.MARKUP__CITATIONS:
 				return citations != null && !citations.isEmpty();
-			case MarkupPackage.MARKUP__HEADERS:
-				return headers != null && !headers.isEmpty();
+			case MarkupPackage.MARKUP__SYNOPSES:
+				return synopses != null && !synopses.isEmpty();
 			case MarkupPackage.MARKUP__REQUIREMENTS:
 				return requirements != null && !requirements.isEmpty();
 			case MarkupPackage.MARKUP__TAGS:

@@ -47,6 +47,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import ru.arsysop.loft.rgm.markup.model.api.Requirement;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
 /**
@@ -91,9 +92,8 @@ public class RequirementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
-			addCitationPropertyDescriptor(object);
-			addTagsPropertyDescriptor(object);
-			addSeePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addOriginPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,63 +121,41 @@ public class RequirementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Citation feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCitationPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Requirement_citation_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_citation_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 MarkupPackage.eINSTANCE.getRequirement_Citation(),
+				 getString("_UI_Requirement_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_name_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 MarkupPackage.eINSTANCE.getRequirement_Name(),
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Tags feature.
+	 * This adds a property descriptor for the Origin feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTagsPropertyDescriptor(Object object) {
+	protected void addOriginPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Requirement_tags_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_tags_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 MarkupPackage.eINSTANCE.getRequirement_Tags(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the See feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSeePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Requirement_see_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_see_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 MarkupPackage.eINSTANCE.getRequirement_See(),
+				 getString("_UI_Requirement_origin_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Requirement_origin_feature", "_UI_Requirement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 MarkupPackage.eINSTANCE.getRequirement_Origin(),
 				 true,
 				 false,
 				 true,
@@ -263,7 +241,7 @@ public class RequirementItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((ru.arsysop.loft.rgm.markup.model.api.Requirement)object).getId();
+		String label = ((Requirement)object).getName();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
 			styledLabel.append(getString("_UI_Requirement_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
@@ -284,8 +262,9 @@ public class RequirementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ru.arsysop.loft.rgm.markup.model.api.Requirement.class)) {
+		switch (notification.getFeatureID(Requirement.class)) {
 			case MarkupPackage.REQUIREMENT__ID:
+			case MarkupPackage.REQUIREMENT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

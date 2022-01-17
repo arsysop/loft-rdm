@@ -19,8 +19,6 @@
  */
 package ru.arsysop.loft.rgm.markup.model.api;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 import ru.arsysop.loft.rgm.spec.model.api.Part;
@@ -35,13 +33,12 @@ import ru.arsysop.loft.rgm.spec.model.api.Part;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getCitation <em>Citation</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getTags <em>Tags</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getSee <em>See</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getOrigin <em>Origin</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Requirement extends EObject {
@@ -52,7 +49,7 @@ public interface Requirement extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement_Id()
-	 * @model id="true" required="true"
+	 * @model
 	 * @generated
 	 */
 	String getId();
@@ -68,53 +65,47 @@ public interface Requirement extends EObject {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Citation</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.markup.model.api.Citation#getRequirements <em>Requirements</em>}'.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Citation</em>' reference.
-	 * @see #setCitation(Citation)
-	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement_Citation()
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Citation#getRequirements
-	 * @model opposite="requirements"
-	 * @generated
-	 */
-	Citation getCitation();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getCitation <em>Citation</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Citation</em>' reference.
-	 * @see #getCitation()
-	 * @generated
-	 */
-	void setCitation(Citation value);
-
-	/**
-	 * Returns the value of the '<em><b>Tags</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.markup.model.api.Tag}.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.markup.model.api.Tag#getRequirements <em>Requirements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tags</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement_Tags()
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Tag#getRequirements
-	 * @model opposite="requirements"
-	 * @generated
-	 */
-	EList<Tag> getTags();
-
-	/**
-	 * Returns the value of the '<em><b>See</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Part}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>See</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement_See()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement_Name()
 	 * @model
 	 * @generated
 	 */
-	EList<Part> getSee();
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Origin</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Origin</em>' reference.
+	 * @see #setOrigin(Part)
+	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getRequirement_Origin()
+	 * @model
+	 * @generated
+	 */
+	Part getOrigin();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getOrigin <em>Origin</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Origin</em>' reference.
+	 * @see #getOrigin()
+	 * @generated
+	 */
+	void setOrigin(Part value);
 
 } // Requirement

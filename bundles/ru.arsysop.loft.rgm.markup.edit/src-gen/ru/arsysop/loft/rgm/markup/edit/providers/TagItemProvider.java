@@ -47,6 +47,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import ru.arsysop.loft.rgm.markup.model.api.Tag;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
 /**
@@ -240,7 +241,7 @@ public class TagItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((ru.arsysop.loft.rgm.markup.model.api.Tag)object).getId();
+		String label = ((Tag)object).getId();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
 			styledLabel.append(getString("_UI_Tag_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
@@ -261,7 +262,7 @@ public class TagItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ru.arsysop.loft.rgm.markup.model.api.Tag.class)) {
+		switch (notification.getFeatureID(Tag.class)) {
 			case MarkupPackage.TAG__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

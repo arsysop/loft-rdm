@@ -47,6 +47,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import ru.arsysop.loft.rgm.markup.model.api.Markup;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupFactory;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
@@ -91,25 +92,25 @@ public class MarkupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHeadersPropertyDescriptor(object);
+			addSynopsesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Headers feature.
+	 * This adds a property descriptor for the Synopses feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHeadersPropertyDescriptor(Object object) {
+	protected void addSynopsesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Markup_headers_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Markup_headers_feature", "_UI_Markup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 MarkupPackage.eINSTANCE.getMarkup_Headers(),
+				 getString("_UI_Markup_synopses_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Markup_synopses_feature", "_UI_Markup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 MarkupPackage.eINSTANCE.getMarkup_Synopses(),
 				 true,
 				 false,
 				 true,
@@ -242,7 +243,7 @@ public class MarkupItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ru.arsysop.loft.rgm.markup.model.api.Markup.class)) {
+		switch (notification.getFeatureID(Markup.class)) {
 			case MarkupPackage.MARKUP__CITATIONS:
 			case MarkupPackage.MARKUP__REQUIREMENTS:
 			case MarkupPackage.MARKUP__TAGS:
@@ -274,7 +275,7 @@ public class MarkupItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MarkupPackage.eINSTANCE.getMarkup_Requirements(),
-				 MarkupFactory.eINSTANCE.createRequirement()));
+				 MarkupFactory.eINSTANCE.createParsedRequirement()));
 
 		newChildDescriptors.add
 			(createChildParameter

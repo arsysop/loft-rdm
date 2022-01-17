@@ -78,9 +78,9 @@ public class MarkupFactoryImpl extends EFactoryImpl implements MarkupFactory {
 		switch (eClass.getClassifierID()) {
 			case MarkupPackage.MARKUP: return createMarkup();
 			case MarkupPackage.CITATION: return createCitation();
-			case MarkupPackage.REQUIREMENT: return createRequirement();
 			case MarkupPackage.TAG: return createTag();
 			case MarkupPackage.CONTRACT: return createContract();
+			case MarkupPackage.PARSED_REQUIREMENT: return createParsedRequirement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -114,17 +114,6 @@ public class MarkupFactoryImpl extends EFactoryImpl implements MarkupFactory {
 	 * @generated
 	 */
 	@Override
-	public Requirement createRequirement() {
-		RequirementImpl requirement = new RequirementImpl();
-		return requirement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Tag createTag() {
 		TagImpl tag = new TagImpl();
 		return tag;
@@ -139,6 +128,17 @@ public class MarkupFactoryImpl extends EFactoryImpl implements MarkupFactory {
 	public Contract createContract() {
 		ContractImpl contract = new ContractImpl();
 		return contract;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParsedRequirement createParsedRequirement() {
+		ParsedRequirementImpl parsedRequirement = new ParsedRequirementImpl();
+		return parsedRequirement;
 	}
 
 	/**

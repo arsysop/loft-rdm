@@ -36,7 +36,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
-import ru.arsysop.loft.rgm.synopsis.model.api.Header;
+import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
@@ -59,7 +59,7 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass headerEClass = null;
+	private EClass synopsisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,8 +250,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getHeader() {
-		return headerEClass;
+	public EClass getSynopsis() {
+		return synopsisEClass;
 	}
 
 	/**
@@ -260,8 +260,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getHeader_Name() {
-		return (EAttribute)headerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSynopsis_Name() {
+		return (EAttribute)synopsisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -270,8 +270,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getHeader_Synopsis() {
-		return (EReference)headerEClass.getEStructuralFeatures().get(1);
+	public EReference getSynopsis_Part() {
+		return (EReference)synopsisEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -280,8 +280,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getHeader_Declarations() {
-		return (EReference)headerEClass.getEStructuralFeatures().get(2);
+	public EReference getSynopsis_Declarations() {
+		return (EReference)synopsisEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -573,10 +573,10 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		isCreated = true;
 
 		// Create classes and their features
-		headerEClass = createEClass(HEADER);
-		createEAttribute(headerEClass, HEADER__NAME);
-		createEReference(headerEClass, HEADER__SYNOPSIS);
-		createEReference(headerEClass, HEADER__DECLARATIONS);
+		synopsisEClass = createEClass(SYNOPSIS);
+		createEAttribute(synopsisEClass, SYNOPSIS__NAME);
+		createEReference(synopsisEClass, SYNOPSIS__PART);
+		createEReference(synopsisEClass, SYNOPSIS__DECLARATIONS);
 
 		declarationEClass = createEClass(DECLARATION);
 		createEAttribute(declarationEClass, DECLARATION__ID);
@@ -671,10 +671,10 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		templateTypeParameterEClass.getESuperTypes().add(this.getDeclaration());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(headerEClass, Header.class, "Header", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getHeader_Name(), ecorePackage.getEString(), "name", null, 0, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getHeader_Synopsis(), theSpecPackage.getPart(), null, "synopsis", null, 1, 1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getHeader_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Header.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(synopsisEClass, Synopsis.class, "Synopsis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getSynopsis_Name(), ecorePackage.getEString(), "name", null, 0, 1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSynopsis_Part(), theSpecPackage.getPart(), null, "part", null, 1, 1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSynopsis_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(declarationEClass, Declaration.class, "Declaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getDeclaration_Id(), ecorePackage.getEString(), "id", null, 1, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

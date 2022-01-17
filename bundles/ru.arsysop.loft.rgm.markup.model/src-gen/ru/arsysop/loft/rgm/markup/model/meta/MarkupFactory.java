@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EFactory;
 import ru.arsysop.loft.rgm.markup.model.api.Citation;
 import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.api.Markup;
-import ru.arsysop.loft.rgm.markup.model.api.Requirement;
+import ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement;
 import ru.arsysop.loft.rgm.markup.model.api.Tag;
 
 /**
@@ -63,15 +63,6 @@ public interface MarkupFactory extends EFactory {
 	Citation createCitation();
 
 	/**
-	 * Returns a new object of class '<em>Requirement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Requirement</em>'.
-	 * @generated
-	 */
-	Requirement createRequirement();
-
-	/**
 	 * Returns a new object of class '<em>Tag</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +79,15 @@ public interface MarkupFactory extends EFactory {
 	 * @generated
 	 */
 	Contract createContract();
+
+	/**
+	 * Returns a new object of class '<em>Parsed Requirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parsed Requirement</em>'.
+	 * @generated
+	 */
+	ParsedRequirement createParsedRequirement();
 
 	/**
 	 * Returns the package supported by this factory.

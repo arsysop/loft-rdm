@@ -116,26 +116,26 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.Header} instances.
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HeaderItemProvider headerItemProvider;
+	protected SynopsisItemProvider synopsisItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.Header}.
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createHeaderAdapter() {
-		if (headerItemProvider == null) {
-			headerItemProvider = new HeaderItemProvider(this);
+	public Adapter createSynopsisAdapter() {
+		if (synopsisItemProvider == null) {
+			synopsisItemProvider = new SynopsisItemProvider(this);
 		}
 
-		return headerItemProvider;
+		return synopsisItemProvider;
 	}
 
 	/**
@@ -640,7 +640,7 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (headerItemProvider != null) headerItemProvider.dispose();
+		if (synopsisItemProvider != null) synopsisItemProvider.dispose();
 		if (namespaceItemProvider != null) namespaceItemProvider.dispose();
 		if (functionDeclItemProvider != null) functionDeclItemProvider.dispose();
 		if (classDeclItemProvider != null) classDeclItemProvider.dispose();
