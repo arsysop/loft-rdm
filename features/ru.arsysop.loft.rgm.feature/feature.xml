@@ -59,32 +59,4 @@
          version="0.0.0"
          unpack="false"/>
 
-   <plugin
-         id="ru.arsysop.loft.rgm.cxxdraft"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.workbench"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.workspace"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="wrapped.com.github.jtidy.jtidy"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 </feature>
