@@ -115,6 +115,13 @@ public class MarkupSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MarkupPackage.PARSED_REQUIREMENT: {
+				ParsedRequirement parsedRequirement = (ParsedRequirement)theEObject;
+				T result = caseParsedRequirement(parsedRequirement);
+				if (result == null) result = caseRequirement(parsedRequirement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -191,6 +198,21 @@ public class MarkupSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContract(Contract object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parsed Requirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parsed Requirement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParsedRequirement(ParsedRequirement object) {
 		return null;
 	}
 

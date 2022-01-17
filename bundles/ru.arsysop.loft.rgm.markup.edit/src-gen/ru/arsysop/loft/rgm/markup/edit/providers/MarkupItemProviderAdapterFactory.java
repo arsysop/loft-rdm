@@ -161,29 +161,6 @@ public class MarkupItemProviderAdapterFactory extends MarkupAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.markup.model.api.Requirement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RequirementItemProvider requirementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.markup.model.api.Requirement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRequirementAdapter() {
-		if (requirementItemProvider == null) {
-			requirementItemProvider = new RequirementItemProvider(this);
-		}
-
-		return requirementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.markup.model.api.Tag} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +204,29 @@ public class MarkupItemProviderAdapterFactory extends MarkupAdapterFactory imple
 		}
 
 		return contractItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParsedRequirementItemProvider parsedRequirementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParsedRequirementAdapter() {
+		if (parsedRequirementItemProvider == null) {
+			parsedRequirementItemProvider = new ParsedRequirementItemProvider(this);
+		}
+
+		return parsedRequirementItemProvider;
 	}
 
 	/**
@@ -365,9 +365,9 @@ public class MarkupItemProviderAdapterFactory extends MarkupAdapterFactory imple
 	public void dispose() {
 		if (markupItemProvider != null) markupItemProvider.dispose();
 		if (citationItemProvider != null) citationItemProvider.dispose();
-		if (requirementItemProvider != null) requirementItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (contractItemProvider != null) contractItemProvider.dispose();
+		if (parsedRequirementItemProvider != null) parsedRequirementItemProvider.dispose();
 	}
 
 }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="synopsis" nsURI="http://www.arsysop.ru/rgm/synopsis/0.1.0" nsPrefix="synopsis">
-  <eClassifiers xsi:type="ecore:EClass" name="Header">
+  <eClassifiers xsi:type="ecore:EClass" name="Synopsis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="synopsis" lowerBound="1"
-        eType="ecore:EClass ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="part" lowerBound="1" eType="ecore:EClass ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
         eType="#//Declaration" containment="true"/>
   </eClassifiers>

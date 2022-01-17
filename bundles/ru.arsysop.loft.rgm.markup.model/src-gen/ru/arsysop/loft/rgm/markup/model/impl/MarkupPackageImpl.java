@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import ru.arsysop.loft.rgm.markup.model.api.Citation;
 import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.api.Markup;
+import ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement;
 import ru.arsysop.loft.rgm.markup.model.api.Requirement;
 import ru.arsysop.loft.rgm.markup.model.api.Tag;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupFactory;
@@ -76,6 +77,13 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	private EClass contractEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parsedRequirementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -168,7 +176,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMarkup_Headers() {
+	public EReference getMarkup_Synopses() {
 		return (EReference)markupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -278,8 +286,8 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getRequirement_Citation() {
-		return (EReference)requirementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRequirement_Name() {
+		return (EAttribute)requirementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -288,18 +296,8 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getRequirement_Tags() {
+	public EReference getRequirement_Origin() {
 		return (EReference)requirementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRequirement_See() {
-		return (EReference)requirementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -388,6 +386,16 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getParsedRequirement() {
+		return parsedRequirementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public MarkupFactory getMarkupFactory() {
 		return (MarkupFactory)getEFactoryInstance();
 	}
@@ -413,7 +421,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		// Create classes and their features
 		markupEClass = createEClass(MARKUP);
 		createEReference(markupEClass, MARKUP__CITATIONS);
-		createEReference(markupEClass, MARKUP__HEADERS);
+		createEReference(markupEClass, MARKUP__SYNOPSES);
 		createEReference(markupEClass, MARKUP__REQUIREMENTS);
 		createEReference(markupEClass, MARKUP__TAGS);
 		createEReference(markupEClass, MARKUP__CONTRACTS);
@@ -426,9 +434,8 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 
 		requirementEClass = createEClass(REQUIREMENT);
 		createEAttribute(requirementEClass, REQUIREMENT__ID);
-		createEReference(requirementEClass, REQUIREMENT__CITATION);
-		createEReference(requirementEClass, REQUIREMENT__TAGS);
-		createEReference(requirementEClass, REQUIREMENT__SEE);
+		createEAttribute(requirementEClass, REQUIREMENT__NAME);
+		createEReference(requirementEClass, REQUIREMENT__ORIGIN);
 
 		tagEClass = createEClass(TAG);
 		createEAttribute(tagEClass, TAG__ID);
@@ -439,6 +446,8 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		createEAttribute(contractEClass, CONTRACT__ID);
 		createEReference(contractEClass, CONTRACT__DECLARATION);
 		createEReference(contractEClass, CONTRACT__TAGS);
+
+		parsedRequirementEClass = createEClass(PARSED_REQUIREMENT);
 	}
 
 	/**
@@ -465,7 +474,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SynopsisPackage thesynopsisPackage = (SynopsisPackage) EPackage.Registry.INSTANCE.getEPackage(SynopsisPackage.eNS_URI);
+		SynopsisPackage theSynopsisPackage = (SynopsisPackage)EPackage.Registry.INSTANCE.getEPackage(SynopsisPackage.eNS_URI);
 		SpecPackage theSpecPackage = (SpecPackage)EPackage.Registry.INSTANCE.getEPackage(SpecPackage.eNS_URI);
 
 		// Create type parameters
@@ -473,11 +482,12 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		parsedRequirementEClass.getESuperTypes().add(this.getRequirement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getMarkup_Citations(), this.getCitation(), null, "citations", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getMarkup_Headers(), thesynopsisPackage.getHeader(), null, "headers", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getMarkup_Synopses(), theSynopsisPackage.getSynopsis(), null, "synopses", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Tags(), this.getTag(), null, "tags", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Contracts(), this.getContract(), null, "contracts", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -485,24 +495,25 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		initEClass(citationEClass, Citation.class, "Citation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getCitation_Id(), ecorePackage.getEString(), "id", null, 1, 1, Citation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getCitation_Content(), ecorePackage.getEString(), "content", null, 0, 1, Citation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getCitation_Requirements(), this.getRequirement(), this.getRequirement_Citation(), "requirements", null, 0, -1, Citation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCitation_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, Citation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getCitation_Location(), theSpecPackage.getPart(), null, "location", null, 1, 1, Citation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getRequirement_Id(), ecorePackage.getEString(), "id", null, 1, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getRequirement_Citation(), this.getCitation(), this.getCitation_Requirements(), "citation", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getRequirement_Tags(), this.getTag(), this.getTag_Requirements(), "tags", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getRequirement_See(), theSpecPackage.getPart(), null, "see", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(requirementEClass, Requirement.class, "Requirement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getRequirement_Id(), ecorePackage.getEString(), "id", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRequirement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRequirement_Origin(), theSpecPackage.getPart(), null, "origin", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getTag_Id(), ecorePackage.getEString(), "id", null, 1, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getTag_Requirements(), this.getRequirement(), this.getRequirement_Tags(), "requirements", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getTag_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getTag_Contracts(), this.getContract(), this.getContract_Tags(), "contracts", null, 0, -1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getContract_Id(), ecorePackage.getEString(), "id", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getContract_Declaration(), thesynopsisPackage.getDeclaration(), null, "declaration", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getContract_Declaration(), theSynopsisPackage.getDeclaration(), null, "declaration", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getContract_Tags(), this.getTag(), this.getTag_Contracts(), "tags", null, 0, -1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(parsedRequirementEClass, ParsedRequirement.class, "ParsedRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

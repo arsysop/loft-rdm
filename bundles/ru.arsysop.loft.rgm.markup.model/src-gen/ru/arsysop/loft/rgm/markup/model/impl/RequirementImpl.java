@@ -19,27 +19,13 @@
  */
 package ru.arsysop.loft.rgm.markup.model.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import ru.arsysop.loft.rgm.markup.model.api.Citation;
 import ru.arsysop.loft.rgm.markup.model.api.Requirement;
-import ru.arsysop.loft.rgm.markup.model.api.Tag;
-
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
 import ru.arsysop.loft.rgm.spec.model.api.Part;
@@ -53,14 +39,13 @@ import ru.arsysop.loft.rgm.spec.model.api.Part;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.RequirementImpl#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.RequirementImpl#getCitation <em>Citation</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.RequirementImpl#getTags <em>Tags</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.RequirementImpl#getSee <em>See</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.RequirementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.RequirementImpl#getOrigin <em>Origin</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RequirementImpl extends MinimalEObjectImpl.Container implements Requirement {
+public abstract class RequirementImpl extends MinimalEObjectImpl.Container implements Requirement {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -82,34 +67,34 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCitation() <em>Citation</em>}' reference.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCitation()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected Citation citation;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTags()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Tag> tags;
+	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSee() <em>See</em>}' reference list.
+	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSee()
+	 * @see #getOrigin()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Part> see;
+	protected Part origin;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,16 +144,39 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 */
 	@Override
-	public Citation getCitation() {
-		if (citation != null && citation.eIsProxy()) {
-			InternalEObject oldCitation = (InternalEObject)citation;
-			citation = (Citation)eResolveProxy(oldCitation);
-			if (citation != oldCitation) {
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.REQUIREMENT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Part getOrigin() {
+		if (origin != null && origin.eIsProxy()) {
+			InternalEObject oldOrigin = (InternalEObject)origin;
+			origin = (Part)eResolveProxy(oldOrigin);
+			if (origin != oldOrigin) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MarkupPackage.REQUIREMENT__CITATION, oldCitation, citation));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MarkupPackage.REQUIREMENT__ORIGIN, oldOrigin, origin));
 			}
 		}
-		return citation;
+		return origin;
 	}
 
 	/**
@@ -176,23 +184,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Citation basicGetCitation() {
-		return citation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCitation(Citation newCitation, NotificationChain msgs) {
-		Citation oldCitation = citation;
-		citation = newCitation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MarkupPackage.REQUIREMENT__CITATION, oldCitation, newCitation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Part basicGetOrigin() {
+		return origin;
 	}
 
 	/**
@@ -201,81 +194,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 */
 	@Override
-	public void setCitation(Citation newCitation) {
-		if (newCitation != citation) {
-			NotificationChain msgs = null;
-			if (citation != null)
-				msgs = ((InternalEObject)citation).eInverseRemove(this, MarkupPackage.CITATION__REQUIREMENTS, Citation.class, msgs);
-			if (newCitation != null)
-				msgs = ((InternalEObject)newCitation).eInverseAdd(this, MarkupPackage.CITATION__REQUIREMENTS, Citation.class, msgs);
-			msgs = basicSetCitation(newCitation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.REQUIREMENT__CITATION, newCitation, newCitation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Tag> getTags() {
-		if (tags == null) {
-			tags = new EObjectWithInverseResolvingEList.ManyInverse<Tag>(Tag.class, this, MarkupPackage.REQUIREMENT__TAGS, MarkupPackage.TAG__REQUIREMENTS);
-		}
-		return tags;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Part> getSee() {
-		if (see == null) {
-			see = new EObjectResolvingEList<Part>(Part.class, this, MarkupPackage.REQUIREMENT__SEE);
-		}
-		return see;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MarkupPackage.REQUIREMENT__CITATION:
-				if (citation != null)
-					msgs = ((InternalEObject)citation).eInverseRemove(this, MarkupPackage.CITATION__REQUIREMENTS, Citation.class, msgs);
-				return basicSetCitation((Citation)otherEnd, msgs);
-			case MarkupPackage.REQUIREMENT__TAGS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTags()).basicAdd(otherEnd, msgs);
-			default:
-				return super.eInverseAdd(otherEnd, featureID, msgs);
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MarkupPackage.REQUIREMENT__CITATION:
-				return basicSetCitation(null, msgs);
-			case MarkupPackage.REQUIREMENT__TAGS:
-				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
-		}
+	public void setOrigin(Part newOrigin) {
+		Part oldOrigin = origin;
+		origin = newOrigin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.REQUIREMENT__ORIGIN, oldOrigin, origin));
 	}
 
 	/**
@@ -288,13 +211,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		switch (featureID) {
 			case MarkupPackage.REQUIREMENT__ID:
 				return getId();
-			case MarkupPackage.REQUIREMENT__CITATION:
-				if (resolve) return getCitation();
-				return basicGetCitation();
-			case MarkupPackage.REQUIREMENT__TAGS:
-				return getTags();
-			case MarkupPackage.REQUIREMENT__SEE:
-				return getSee();
+			case MarkupPackage.REQUIREMENT__NAME:
+				return getName();
+			case MarkupPackage.REQUIREMENT__ORIGIN:
+				if (resolve) return getOrigin();
+				return basicGetOrigin();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -312,16 +233,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			case MarkupPackage.REQUIREMENT__ID:
 				setId((String)newValue);
 				return;
-			case MarkupPackage.REQUIREMENT__CITATION:
-				setCitation((Citation)newValue);
+			case MarkupPackage.REQUIREMENT__NAME:
+				setName((String)newValue);
 				return;
-			case MarkupPackage.REQUIREMENT__TAGS:
-				getTags().clear();
-				getTags().addAll((Collection<? extends Tag>)newValue);
-				return;
-			case MarkupPackage.REQUIREMENT__SEE:
-				getSee().clear();
-				getSee().addAll((Collection<? extends Part>)newValue);
+			case MarkupPackage.REQUIREMENT__ORIGIN:
+				setOrigin((Part)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -340,14 +256,11 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			case MarkupPackage.REQUIREMENT__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case MarkupPackage.REQUIREMENT__CITATION:
-				setCitation((Citation)null);
+			case MarkupPackage.REQUIREMENT__NAME:
+				setName(NAME_EDEFAULT);
 				return;
-			case MarkupPackage.REQUIREMENT__TAGS:
-				getTags().clear();
-				return;
-			case MarkupPackage.REQUIREMENT__SEE:
-				getSee().clear();
+			case MarkupPackage.REQUIREMENT__ORIGIN:
+				setOrigin((Part)null);
 				return;
 			default:
 				super.eUnset(featureID);
@@ -365,12 +278,10 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		switch (featureID) {
 			case MarkupPackage.REQUIREMENT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case MarkupPackage.REQUIREMENT__CITATION:
-				return citation != null;
-			case MarkupPackage.REQUIREMENT__TAGS:
-				return tags != null && !tags.isEmpty();
-			case MarkupPackage.REQUIREMENT__SEE:
-				return see != null && !see.isEmpty();
+			case MarkupPackage.REQUIREMENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MarkupPackage.REQUIREMENT__ORIGIN:
+				return origin != null;
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -388,6 +299,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
+		result.append(", name: "); //$NON-NLS-1$
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

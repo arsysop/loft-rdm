@@ -22,7 +22,6 @@ package ru.arsysop.loft.rgm.synopsis.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-
 import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
@@ -33,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
-import ru.arsysop.loft.rgm.synopsis.model.api.Header;
+import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
@@ -100,9 +99,9 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SynopsisPackage.HEADER: {
-				Header header = (Header)theEObject;
-				T result = caseHeader(header);
+			case SynopsisPackage.SYNOPSIS: {
+				Synopsis synopsis = (Synopsis)theEObject;
+				T result = caseSynopsis(synopsis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,17 +231,17 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Header</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Synopsis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Header</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Synopsis</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseHeader(Header object) {
+	public T caseSynopsis(Synopsis object) {
 		return null;
 	}
 

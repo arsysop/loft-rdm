@@ -92,13 +92,11 @@ public interface Citation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Requirements</b></em>' reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.markup.model.api.Requirement}.
-	 * It is bidirectional and its opposite is '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getCitation <em>Citation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Requirements</em>' reference list.
 	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getCitation_Requirements()
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Requirement#getCitation
-	 * @model opposite="citation"
+	 * @model
 	 * @generated
 	 */
 	EList<Requirement> getRequirements();

@@ -22,8 +22,6 @@ package ru.arsysop.loft.rgm.markup.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -32,9 +30,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import ru.arsysop.loft.rgm.markup.model.api.Citation;
 import ru.arsysop.loft.rgm.markup.model.api.Requirement;
 
@@ -192,7 +188,7 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 	@Override
 	public EList<Requirement> getRequirements() {
 		if (requirements == null) {
-			requirements = new EObjectWithInverseResolvingEList<Requirement>(Requirement.class, this, MarkupPackage.CITATION__REQUIREMENTS, MarkupPackage.REQUIREMENT__CITATION);
+			requirements = new EObjectResolvingEList<Requirement>(Requirement.class, this, MarkupPackage.CITATION__REQUIREMENTS);
 		}
 		return requirements;
 	}
@@ -235,37 +231,6 @@ public class CitationImpl extends MinimalEObjectImpl.Container implements Citati
 		location = newLocation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.CITATION__LOCATION, oldLocation, location));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MarkupPackage.CITATION__REQUIREMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequirements()).basicAdd(otherEnd, msgs);
-			default:
-				return super.eInverseAdd(otherEnd, featureID, msgs);
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case MarkupPackage.CITATION__REQUIREMENTS:
-				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
-		}
 	}
 
 	/**

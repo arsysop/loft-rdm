@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -147,7 +148,7 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public EList<Requirement> getRequirements() {
 		if (requirements == null) {
-			requirements = new EObjectWithInverseResolvingEList.ManyInverse<Requirement>(Requirement.class, this, MarkupPackage.TAG__REQUIREMENTS, MarkupPackage.REQUIREMENT__TAGS);
+			requirements = new EObjectResolvingEList<Requirement>(Requirement.class, this, MarkupPackage.TAG__REQUIREMENTS);
 		}
 		return requirements;
 	}
@@ -174,8 +175,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MarkupPackage.TAG__REQUIREMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequirements()).basicAdd(otherEnd, msgs);
 			case MarkupPackage.TAG__CONTRACTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContracts()).basicAdd(otherEnd, msgs);
 			default:
@@ -191,8 +190,6 @@ public class TagImpl extends MinimalEObjectImpl.Container implements Tag {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MarkupPackage.TAG__REQUIREMENTS:
-				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
 			case MarkupPackage.TAG__CONTRACTS:
 				return ((InternalEList<?>)getContracts()).basicRemove(otherEnd, msgs);
 			default:

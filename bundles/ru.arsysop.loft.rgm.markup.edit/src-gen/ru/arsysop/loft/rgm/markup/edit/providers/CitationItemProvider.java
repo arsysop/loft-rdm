@@ -47,6 +47,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import ru.arsysop.loft.rgm.markup.model.api.Citation;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
 /**
@@ -263,7 +264,7 @@ public class CitationItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((ru.arsysop.loft.rgm.markup.model.api.Citation)object).getId();
+		String label = ((Citation)object).getId();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
 			styledLabel.append(getString("_UI_Citation_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
@@ -284,7 +285,7 @@ public class CitationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ru.arsysop.loft.rgm.markup.model.api.Citation.class)) {
+		switch (notification.getFeatureID(Citation.class)) {
 			case MarkupPackage.CITATION__ID:
 			case MarkupPackage.CITATION__CONTENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

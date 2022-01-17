@@ -93,13 +93,13 @@ public interface MarkupPackage extends EPackage {
 	int MARKUP__CITATIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Synopses</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP__HEADERS = 1;
+	int MARKUP__SYNOPSES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
@@ -230,31 +230,22 @@ public interface MarkupPackage extends EPackage {
 	int REQUIREMENT__ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Citation</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__CITATION = 1;
+	int REQUIREMENT__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * The feature id for the '<em><b>Origin</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT__TAGS = 2;
-
-	/**
-	 * The feature id for the '<em><b>See</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIREMENT__SEE = 3;
+	int REQUIREMENT__ORIGIN = 2;
 
 	/**
 	 * The number of structural features of the '<em>Requirement</em>' class.
@@ -263,7 +254,7 @@ public interface MarkupPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIREMENT_FEATURE_COUNT = 4;
+	int REQUIREMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Requirement</em>' class.
@@ -386,6 +377,62 @@ public interface MarkupPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.markup.model.impl.ParsedRequirementImpl <em>Parsed Requirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.markup.model.impl.ParsedRequirementImpl
+	 * @see ru.arsysop.loft.rgm.markup.model.impl.MarkupPackageImpl#getParsedRequirement()
+	 * @generated
+	 */
+	int PARSED_REQUIREMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSED_REQUIREMENT__ID = REQUIREMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSED_REQUIREMENT__NAME = REQUIREMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Origin</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSED_REQUIREMENT__ORIGIN = REQUIREMENT__ORIGIN;
+
+	/**
+	 * The number of structural features of the '<em>Parsed Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSED_REQUIREMENT_FEATURE_COUNT = REQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parsed Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARSED_REQUIREMENT_OPERATION_COUNT = REQUIREMENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.markup.model.api.Markup <em>Markup</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -407,15 +454,15 @@ public interface MarkupPackage extends EPackage {
 	EReference getMarkup_Citations();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getHeaders <em>Headers</em>}'.
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getSynopses <em>Synopses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Headers</em>'.
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Markup#getHeaders()
+	 * @return the meta object for the reference list '<em>Synopses</em>'.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.Markup#getSynopses()
 	 * @see #getMarkup()
 	 * @generated
 	 */
-	EReference getMarkup_Headers();
+	EReference getMarkup_Synopses();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getRequirements <em>Requirements</em>}'.
@@ -526,37 +573,26 @@ public interface MarkupPackage extends EPackage {
 	EAttribute getRequirement_Id();
 
 	/**
-	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getCitation <em>Citation</em>}'.
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Citation</em>'.
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Requirement#getCitation()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.Requirement#getName()
 	 * @see #getRequirement()
 	 * @generated
 	 */
-	EReference getRequirement_Citation();
+	EAttribute getRequirement_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getTags <em>Tags</em>}'.
+	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getOrigin <em>Origin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Tags</em>'.
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Requirement#getTags()
+	 * @return the meta object for the reference '<em>Origin</em>'.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.Requirement#getOrigin()
 	 * @see #getRequirement()
 	 * @generated
 	 */
-	EReference getRequirement_Tags();
-
-	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Requirement#getSee <em>See</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>See</em>'.
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Requirement#getSee()
-	 * @see #getRequirement()
-	 * @generated
-	 */
-	EReference getRequirement_See();
+	EReference getRequirement_Origin();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.markup.model.api.Tag <em>Tag</em>}'.
@@ -643,6 +679,16 @@ public interface MarkupPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContract_Tags();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement <em>Parsed Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parsed Requirement</em>'.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement
+	 * @generated
+	 */
+	EClass getParsedRequirement();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

@@ -270,7 +270,7 @@ public class ContractItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ru.arsysop.loft.rgm.markup.model.api.Contract.class)) {
+		switch (notification.getFeatureID(Contract.class)) {
 			case MarkupPackage.CONTRACT__ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

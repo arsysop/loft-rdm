@@ -107,6 +107,10 @@ public class MarkupAdapterFactory extends AdapterFactoryImpl {
 				return createContractAdapter();
 			}
 			@Override
+			public Adapter caseParsedRequirement(ParsedRequirement object) {
+				return createParsedRequirementAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -193,6 +197,20 @@ public class MarkupAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContractAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement <em>Parsed Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.ParsedRequirement
+	 * @generated
+	 */
+	public Adapter createParsedRequirementAdapter() {
 		return null;
 	}
 
