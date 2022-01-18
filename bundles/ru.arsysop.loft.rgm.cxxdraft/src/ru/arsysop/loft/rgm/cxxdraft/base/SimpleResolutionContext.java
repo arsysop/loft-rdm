@@ -28,13 +28,14 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.osgi.util.NLS;
 
-import ru.arsysop.loft.rgm.cxxdraft.ContentResolution;
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.LocationSwitch;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
+import ru.arsysop.loft.rgm.spec.model.api.ContentResolution;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.base.SimpleContentResolution;
 
 public final class SimpleResolutionContext implements ResolutionContext {
 

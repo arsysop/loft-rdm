@@ -8,6 +8,7 @@ Bundle-Vendor: %Bundle-Vendor
 Bundle-Copyright: %Bundle-Copyright
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ru.arsysop.loft.rgm.spec.model.api,
+ ru.arsysop.loft.rgm.spec.model.base,
  ru.arsysop.loft.rgm.spec.model.impl,
  ru.arsysop.loft.rgm.spec.model.meta,
  ru.arsysop.loft.rgm.spec.model.util

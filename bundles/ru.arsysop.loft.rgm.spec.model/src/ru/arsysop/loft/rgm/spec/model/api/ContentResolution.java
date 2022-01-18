@@ -18,7 +18,7 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft;
+package ru.arsysop.loft.rgm.spec.model.api;
 
 import java.util.Optional;
 import java.util.function.Consumer;
