@@ -26,29 +26,45 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.dom4j.Element;
+import org.dom4j.Node;
 
-import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
-import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
+import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class ParseReferences implements Function<Element, List<Part>> {
+public final class ParseText implements Function<Element, List<StyledLine>> {
 
-	private final ResolutionContext context;
+	private final SpecFactory factory;
 
-	public ParseReferences(ResolutionContext context) {
-		this.context = context;
+	public ParseText(SpecFactory factory) {
+		this.factory = factory;
 	}
 
+	// TODO: NF: provide a more meaningful way to collect subparagraph's text
 	@Override
-	public List<Part> apply(Element node) {
+	public List<StyledLine> apply(Element node) {
 		return node.elements("p").stream() //$NON-NLS-1$
-				.flatMap(i -> i.elements("a").stream()) //$NON-NLS-1$
-				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
-				.map(new PickId(context)) //
-				.map(context.parts()::find) //
-				.filter(Optional::isPresent) //
-				.map(Optional::get) //
-				.collect(Collectors.toList());
+		.map(Element::content) //
+		.map(this::collectParagraph) //
+		.map(this::styledLine) //
+		.collect(Collectors.toList()); // $NON-NLS-1$
+	}
+
+	private List<StyledNode> collectParagraph(List<Node> nodes) {
+		return nodes.stream().map(this::styledNode).collect(Collectors.toList());
+	}
+
+	private StyledLine styledLine(List<StyledNode> nodes) {
+		StyledLine styled = factory.createStyledLine();
+		styled.getText().addAll(nodes);
+		return styled;
+	}
+
+	private StyledNode styledNode(Node node) {
+		StyledNode styled = factory.createStyledNode();
+		styled.setText(node.getText());
+		styled.setType(Optional.ofNullable(node.getName()).orElse("")); //$NON-NLS-1$
+		return styled;
 	}
 
 }

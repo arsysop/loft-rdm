@@ -20,20 +20,14 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 
 import org.dom4j.Element;
-import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
-import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class AppendPoint implements BiConsumer<Paragraph, Element> {
@@ -50,36 +44,10 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		Point point = factory.createPoint();
 		point.setId(pointId(node));
 		point.setName(pointName(paragraph, node));
-		point.getText().addAll(pointText(node));
+		point.getText().addAll(new ParseText(factory).apply(node));
 		point.getReferences().addAll(new ParseReferences(context).apply(node));
 		point.getTables().addAll(new ParseTables(factory).apply(node));
 		paragraph.getParts().add(point);
-	}
-
-	// TODO: NF: provide a more meaningful way to collect subparagraph's text
-	private List<StyledLine> pointText(Element node) {
-		return node.elements("p").stream() //$NON-NLS-1$
-				.map(Element::content) //
-				.map(this::collectParagraph) //
-				.map(this::styledLine) //
-				.collect(Collectors.toList()); // $NON-NLS-1$
-	}
-
-	private List<StyledNode> collectParagraph(List<Node> nodes) {
-		return nodes.stream().map(this::styledNode).collect(Collectors.toList());
-	}
-
-	private StyledLine styledLine(List<StyledNode> nodes) {
-		StyledLine styled = factory.createStyledLine();
-		styled.getText().addAll(nodes);
-		return styled;
-	}
-
-	private StyledNode styledNode(Node node) {
-		StyledNode styled = factory.createStyledNode();
-		styled.setText(node.getText());
-		styled.setType(Optional.ofNullable(node.getName()).orElse("")); //$NON-NLS-1$
-		return styled;
 	}
 
 	private String pointId(Element node) {
