@@ -18,7 +18,7 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft.base;
+package ru.arsysop.loft.rgm.spec.model.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import ru.arsysop.loft.rgm.cxxdraft.ContentResolution;
+import ru.arsysop.loft.rgm.spec.model.api.ContentResolution;
 
 public final class SimpleContentResolution<C> implements ContentResolution<C> {
 

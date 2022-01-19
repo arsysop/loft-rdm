@@ -24,6 +24,7 @@ import org.dom4j.Node;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EObject;
 
+import ru.arsysop.loft.rgm.spec.model.api.ContentResolution;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
