@@ -89,7 +89,7 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 	private void appendPoint(Paragraph paragraph, Element node) {
 		Point point = factory.createPoint();
 		point.setId(subParagraphId(node));
-		point.setName(subParagraphName(node));
+		point.setName(subParagraphName(paragraph, node));
 		point.getText().addAll(collectText(node));
 		point.getReferences().addAll(references(node));
 		point.getTables().addAll(tables(node));
@@ -167,12 +167,12 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		return node.attributeValue("id"); //$NON-NLS-1$
 	}
 
-	private String subParagraphName(Element node) {
-		return node.elements("div").stream() //$NON-NLS-1$
+	private String subParagraphName(Paragraph paragraph, Element node) {
+		return paragraph.getNumber().concat("-").concat(node.elements("div").stream() //$NON-NLS-1$ //$NON-NLS-2$
 				.filter(new OfClass("marginalizedparent")) //$NON-NLS-1$
 				.map(e -> e.element("a")) //$NON-NLS-1$
 				.map(Element::getText) //
-				.findAny().orElse(""); //$NON-NLS-1$
+				.findAny().orElse("")); //$NON-NLS-1$
 	}
 
 }
