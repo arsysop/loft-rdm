@@ -21,12 +21,14 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
 
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
@@ -34,10 +36,12 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class ParseTables implements Function<Element, List<Table>> {
 
+	private final ResolutionContext context;
 	private final SpecFactory factory;
 
-	public ParseTables(SpecFactory factory) {
-		this.factory = factory;
+	public ParseTables(ResolutionContext context, SpecFactory factory) {
+		this.context = Objects.requireNonNull(context, "ParseTables::context"); //$NON-NLS-1$
+		this.factory = Objects.requireNonNull(factory, "ParseTables::factory"); //$NON-NLS-1$
 	}
 
 	@Override
@@ -53,6 +57,7 @@ public final class ParseTables implements Function<Element, List<Table>> {
 		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$//$NON-NLS-2$
 		table.setTitle(collectRow(rows.get(0)));
 		table.setId(div.attributeValue("id")); //$NON-NLS-1$
+		table.setLocation(context.location(table));
 		if (rows.size() > 1) {
 			List<Element> remaining = rows.subList(1, rows.size() - 1);
 			table.getRows().addAll(remaining.stream().map(this::collectRow).collect(Collectors.toList()));

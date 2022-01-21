@@ -43,10 +43,11 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	public void accept(Paragraph paragraph, Element node) {
 		Point point = factory.createPoint();
 		point.setId(pointId(node));
+		point.setLocation(context.location(point));
 		point.setName(pointName(paragraph, node));
 		point.getText().addAll(new ParseText(factory).apply(node));
 		point.getReferences().addAll(new ParseReferences(context).apply(node));
-		point.getTables().addAll(new ParseTables(factory).apply(node));
+		point.getTables().addAll(new ParseTables(context, factory).apply(node));
 		paragraph.getParts().add(point);
 	}
 

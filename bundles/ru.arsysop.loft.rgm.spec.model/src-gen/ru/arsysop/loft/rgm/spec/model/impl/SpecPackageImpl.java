@@ -40,7 +40,6 @@ import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 import ru.arsysop.loft.rgm.spec.model.api.WithParts;
 import ru.arsysop.loft.rgm.spec.model.api.WithTocChapters;
-
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -318,6 +317,16 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	@Override
 	public EAttribute getPart_Name() {
 		return (EAttribute)partEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPart_Location() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -711,6 +720,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		partEClass = createEClass(PART);
 		createEAttribute(partEClass, PART__ID);
 		createEAttribute(partEClass, PART__NAME);
+		createEAttribute(partEClass, PART__LOCATION);
 
 		withPartsEClass = createEClass(WITH_PARTS);
 		createEReference(withPartsEClass, WITH_PARTS__PARTS);
@@ -810,6 +820,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEClass(partEClass, Part.class, "Part", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getPart_Id(), ecorePackage.getEString(), "id", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getPart_Name(), ecorePackage.getEString(), "name", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getPart_Location(), ecorePackage.getEString(), "location", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(withPartsEClass, WithParts.class, "WithParts", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getWithParts_Parts(), this.getPart(), null, "parts", null, 0, -1, WithParts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

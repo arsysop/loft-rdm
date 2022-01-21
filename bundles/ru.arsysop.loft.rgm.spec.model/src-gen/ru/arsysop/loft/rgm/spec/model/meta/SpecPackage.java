@@ -193,13 +193,22 @@ public interface SpecPackage extends EPackage {
 	int PART__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__LOCATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_FEATURE_COUNT = 2;
+	int PART_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Part</em>' class.
@@ -237,6 +246,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int WITH_PARTS__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_PARTS__LOCATION = PART__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -377,6 +395,15 @@ public interface SpecPackage extends EPackage {
 	int TOC_CHAPTER__NAME = PART__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__LOCATION = PART__LOCATION;
+
+	/**
 	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -450,6 +477,15 @@ public interface SpecPackage extends EPackage {
 	int PARAGRAPH__NAME = WITH_PARTS__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__LOCATION = WITH_PARTS__LOCATION;
+
+	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -512,6 +548,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINT__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__LOCATION = PART__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -585,6 +630,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDEX__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__LOCATION = PART__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -808,6 +862,15 @@ public interface SpecPackage extends EPackage {
 	int TABLE__NAME = PART__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LOCATION = PART__LOCATION;
+
+	/**
 	 * The feature id for the '<em><b>Rows</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1007,6 +1070,17 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPart_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Part#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Part#getLocation()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Location();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.WithParts <em>With Parts</em>}'.

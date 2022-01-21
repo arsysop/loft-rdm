@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPart()
@@ -83,5 +84,27 @@ public interface Part extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location</em>' attribute.
+	 * @see #setLocation(String)
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPart_Location()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getLocation();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.Part#getLocation <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' attribute.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(String value);
 
 } // Part
