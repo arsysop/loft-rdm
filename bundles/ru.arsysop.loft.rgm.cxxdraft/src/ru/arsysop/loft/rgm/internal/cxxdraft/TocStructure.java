@@ -124,6 +124,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 				chapter.setId(elements.get(1).attributeValue("href")); //$NON-NLS-1$
 			}
 		}
+		chapter.setLocation(context.location(chapter));
 		chapter.setNumber(paragraphNumber(node));
 		return chapter;
 	}
@@ -157,6 +158,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 	private Table table(Element element, String text) {
 		Table table = factory.createTable();
 		table.setId(new PickId(context).apply(element.attributeValue("href"))); //$NON-NLS-1$
+		table.setLocation(context.location(table));
 		table.setName(text);
 		return table;
 	}
@@ -171,6 +173,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		chapters.accept(chapter);
 		Paragraph paragraph = factory.createParagraph();
 		paragraph.setId(chapter.getId());
+		paragraph.setLocation(context.location(paragraph));
 		paragraph.setName(chapter.getName());
 		paragraph.setNumber(chapter.getNumber());
 		chapter.setPart(paragraph);
@@ -190,6 +193,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		chapters.accept(chapter);
 		Index index = factory.createIndex();
 		index.setId(chapter.getId());
+		index.setLocation(context.location(index));
 		index.setName(chapter.getName());
 		chapter.setPart(index);
 		indexes.accept(index);
@@ -199,6 +203,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		TocChapter chapter = factory.createTocChapter();
 		Element h2a = element.element("a"); //$NON-NLS-1$
 		chapter.setId(h2a.attributeValue("href")); //$NON-NLS-1$
+		chapter.setLocation(context.location(chapter));
 		chapter.setName(h2a.getText());
 		completeIndex(chapter, container.getChapters()::add, container.getDocument().getIndexes()::add);
 	}
