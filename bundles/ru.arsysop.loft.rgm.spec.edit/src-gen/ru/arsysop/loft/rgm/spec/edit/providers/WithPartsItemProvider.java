@@ -180,11 +180,6 @@ public class WithPartsItemProvider extends PartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createTocChapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
 				 SpecFactory.eINSTANCE.createParagraph()));
 
 		newChildDescriptors.add

@@ -28,26 +28,34 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.base.EncodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 
-	private final ResolutionContext context;
 	private final SpecFactory factory = SpecFactory.eINSTANCE;
+	private final ParseText text;
+	private final ParseTables tables;
+	private final ParseReferences references;
+	private final EncodeId encode;
 
 	public AppendPoint(ResolutionContext context) {
-		this.context = context;
+		this.encode = new EncodeId();
+		this.text = new ParseText(factory);
+		this.references = new ParseReferences(context);
+		this.tables = new ParseTables(factory);
 	}
 
 	@Override
 	public void accept(Paragraph paragraph, Element node) {
 		Point point = factory.createPoint();
-		point.setId(pointId(node));
-		point.setLocation(context.location(point));
+		String id = pointId(node);
+		point.setId(encode.apply(id));
+		point.setLocation(paragraph.getLocation() + '#' + id);
 		point.setName(pointName(paragraph, node));
-		point.getText().addAll(new ParseText(factory).apply(node));
-		point.getReferences().addAll(new ParseReferences(context).apply(node));
-		point.getTables().addAll(new ParseTables(context, factory).apply(node));
+		point.getText().addAll(text.apply(node));
+		point.getReferences().addAll(references.apply(node));
+		point.getTables().addAll(tables.apply(paragraph, node));
 		paragraph.getParts().add(point);
 	}
 

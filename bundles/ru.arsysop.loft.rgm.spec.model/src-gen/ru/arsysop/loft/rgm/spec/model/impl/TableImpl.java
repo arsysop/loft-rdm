@@ -22,13 +22,15 @@ package ru.arsysop.loft.rgm.spec.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
@@ -41,25 +43,15 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl#getRows <em>Rows</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl#getRows <em>Rows</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TableImpl extends PartImpl implements Table {
 	/**
-	 * The cached value of the '{@link #getRows() <em>Rows</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRows()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TableRow> rows;
-
-	/**
-	 * The cached value of the '{@link #getTitle() <em>Title</em>}' reference.
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTitle()
@@ -67,6 +59,16 @@ public class TableImpl extends PartImpl implements Table {
 	 * @ordered
 	 */
 	protected TableRow title;
+
+	/**
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRows()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TableRow> rows;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,7 +97,7 @@ public class TableImpl extends PartImpl implements Table {
 	@Override
 	public EList<TableRow> getRows() {
 		if (rows == null) {
-			rows = new EObjectResolvingEList<TableRow>(TableRow.class, this, SpecPackage.TABLE__ROWS);
+			rows = new EObjectContainmentEList<TableRow>(TableRow.class, this, SpecPackage.TABLE__ROWS);
 		}
 		return rows;
 	}
@@ -107,14 +109,6 @@ public class TableImpl extends PartImpl implements Table {
 	 */
 	@Override
 	public TableRow getTitle() {
-		if (title != null && title.eIsProxy()) {
-			InternalEObject oldTitle = (InternalEObject)title;
-			title = (TableRow)eResolveProxy(oldTitle);
-			if (title != oldTitle) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SpecPackage.TABLE__TITLE, oldTitle, title));
-			}
-		}
 		return title;
 	}
 
@@ -123,8 +117,14 @@ public class TableImpl extends PartImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRow basicGetTitle() {
-		return title;
+	public NotificationChain basicSetTitle(TableRow newTitle, NotificationChain msgs) {
+		TableRow oldTitle = title;
+		title = newTitle;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SpecPackage.TABLE__TITLE, oldTitle, newTitle);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -134,10 +134,34 @@ public class TableImpl extends PartImpl implements Table {
 	 */
 	@Override
 	public void setTitle(TableRow newTitle) {
-		TableRow oldTitle = title;
-		title = newTitle;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TABLE__TITLE, oldTitle, title));
+		if (newTitle != title) {
+			NotificationChain msgs = null;
+			if (title != null)
+				msgs = ((InternalEObject)title).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SpecPackage.TABLE__TITLE, null, msgs);
+			if (newTitle != null)
+				msgs = ((InternalEObject)newTitle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SpecPackage.TABLE__TITLE, null, msgs);
+			msgs = basicSetTitle(newTitle, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TABLE__TITLE, newTitle, newTitle));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SpecPackage.TABLE__TITLE:
+				return basicSetTitle(null, msgs);
+			case SpecPackage.TABLE__ROWS:
+				return ((InternalEList<?>)getRows()).basicRemove(otherEnd, msgs);
+			default:
+				return super.eInverseRemove(otherEnd, featureID, msgs);
+		}
 	}
 
 	/**
@@ -148,11 +172,10 @@ public class TableImpl extends PartImpl implements Table {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SpecPackage.TABLE__TITLE:
+				return getTitle();
 			case SpecPackage.TABLE__ROWS:
 				return getRows();
-			case SpecPackage.TABLE__TITLE:
-				if (resolve) return getTitle();
-				return basicGetTitle();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -167,12 +190,12 @@ public class TableImpl extends PartImpl implements Table {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SpecPackage.TABLE__TITLE:
+				setTitle((TableRow)newValue);
+				return;
 			case SpecPackage.TABLE__ROWS:
 				getRows().clear();
 				getRows().addAll((Collection<? extends TableRow>)newValue);
-				return;
-			case SpecPackage.TABLE__TITLE:
-				setTitle((TableRow)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -188,11 +211,11 @@ public class TableImpl extends PartImpl implements Table {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.TABLE__ROWS:
-				getRows().clear();
-				return;
 			case SpecPackage.TABLE__TITLE:
 				setTitle((TableRow)null);
+				return;
+			case SpecPackage.TABLE__ROWS:
+				getRows().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -208,10 +231,10 @@ public class TableImpl extends PartImpl implements Table {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.TABLE__ROWS:
-				return rows != null && !rows.isEmpty();
 			case SpecPackage.TABLE__TITLE:
 				return title != null;
+			case SpecPackage.TABLE__ROWS:
+				return rows != null && !rows.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

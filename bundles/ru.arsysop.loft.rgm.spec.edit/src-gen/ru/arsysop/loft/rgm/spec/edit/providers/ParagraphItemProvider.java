@@ -36,6 +36,7 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -144,6 +145,7 @@ public class ParagraphItemProvider extends WithPartsItemProvider {
 		Optional.ofNullable(paragraph.getId())//
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
+				.map(new DecodeId())//
 				.ifPresent(s -> styledLabel.append(" " + '[' + s + ']', StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$
 		return styledLabel;
 	}

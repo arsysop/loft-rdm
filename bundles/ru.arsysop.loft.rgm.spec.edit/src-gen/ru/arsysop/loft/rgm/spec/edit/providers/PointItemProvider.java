@@ -38,6 +38,7 @@ import ru.arsysop.loft.rgm.spec.edit.NodeStyle;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
+import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -167,7 +168,10 @@ public class PointItemProvider extends PartItemProvider {
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.COUNTER_STYLER));
-		Optional.of(item.getReferences().stream().map(Part::getId).collect(Collectors.joining("; "))) //$NON-NLS-1$
+		Optional.of(item.getReferences().stream()//
+				.map(Part::getId)//
+				.map(new DecodeId())//
+				.collect(Collectors.joining("; "))) //$NON-NLS-1$
 				.filter(s -> !s.isEmpty()) //
 				.ifPresent(s -> {
 					styledLabel.append(" (references: ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$

@@ -100,7 +100,7 @@ public class PartItemProvider
 				 getString("_UI_Part_id_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Part_id_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 SpecPackage.eINSTANCE.getPart_Id(),
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -144,7 +144,7 @@ public class PartItemProvider
 				 getString("_UI_Part_location_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_Part_location_feature", "_UI_Part_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 SpecPackage.eINSTANCE.getPart_Location(),
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

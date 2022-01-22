@@ -30,8 +30,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Table#getRows <em>Rows</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Table#getTitle <em>Title</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Table#getRows <em>Rows</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTable()
@@ -40,34 +40,34 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Table extends Part {
 	/**
-	 * Returns the value of the '<em><b>Rows</b></em>' reference list.
+	 * Returns the value of the '<em><b>Rows</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.TableRow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rows</em>' reference list.
+	 * @return the value of the '<em>Rows</em>' containment reference list.
 	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTable_Rows()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<TableRow> getRows();
 
 	/**
-	 * Returns the value of the '<em><b>Title</b></em>' reference.
+	 * Returns the value of the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Title</em>' reference.
+	 * @return the value of the '<em>Title</em>' containment reference.
 	 * @see #setTitle(TableRow)
 	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTable_Title()
-	 * @model
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	TableRow getTitle();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.Table#getTitle <em>Title</em>}' reference.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.Table#getTitle <em>Title</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Title</em>' reference.
+	 * @param value the new value of the '<em>Title</em>' containment reference.
 	 * @see #getTitle()
 	 * @generated
 	 */
