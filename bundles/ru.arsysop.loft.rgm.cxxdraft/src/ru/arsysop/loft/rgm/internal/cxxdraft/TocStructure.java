@@ -41,15 +41,18 @@ import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.base.EncodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class TocStructure extends BaseStructure<Toc> {
 
 	private final SpecFactory factory;
+	private final EncodeId encode;
 
 	public TocStructure(Toc container, ResolutionContext context) {
 		super(container, context);
 		this.factory = SpecFactory.eINSTANCE;
+		this.encode = new EncodeId();
 	}
 
 	@Override
@@ -108,23 +111,19 @@ public final class TocStructure extends BaseStructure<Toc> {
 		TocChapter chapter = factory.createTocChapter();
 		String raw = node.attributeValue("id"); //$NON-NLS-1$
 		if (raw != null) {
-			String id = raw.trim();
+			chapter.setId(raw.trim());
 			chapter.setName(new ExtractSubElementText("h2", "h3", "h4").apply(node)); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			String name = chapter.getName();
-			if (name.isEmpty()) {
-				System.out.println("TocStructure.createTocChapter(): no name " + node.getText()); //$NON-NLS-1$
-			}
-			chapter.setId(id);
 		} else {
 			List<Element> elements = node.elements();
 			chapter.setName(node.getText().trim());
 			if (elements.size() == 3) {
-				chapter.setId(elements.get(2).attributeValue("href")); //$NON-NLS-1$
+				String id = elements.get(2).attributeValue("href"); //$NON-NLS-1$
+				chapter.setId(id);
 			} else if (elements.size() == 2) {
-				chapter.setId(elements.get(1).attributeValue("href")); //$NON-NLS-1$
+				String id = elements.get(1).attributeValue("href"); //$NON-NLS-1$
+				chapter.setId(id);
 			}
 		}
-		chapter.setLocation(context.location(chapter));
 		chapter.setNumber(paragraphNumber(node));
 		return chapter;
 	}
@@ -157,8 +156,9 @@ public final class TocStructure extends BaseStructure<Toc> {
 
 	private Table table(Element element, String text) {
 		Table table = factory.createTable();
-		table.setId(new PickId(context).apply(element.attributeValue("href"))); //$NON-NLS-1$
-		table.setLocation(context.location(table));
+		String href = element.attributeValue("href"); //$NON-NLS-1$
+		table.setId(encode.apply(new PickId(context).apply(href)));
+		table.setLocation(href);
 		table.setName(text);
 		return table;
 	}
@@ -172,8 +172,8 @@ public final class TocStructure extends BaseStructure<Toc> {
 			Consumer<Paragraph> paragraphs) {
 		chapters.accept(chapter);
 		Paragraph paragraph = factory.createParagraph();
-		paragraph.setId(chapter.getId());
-		paragraph.setLocation(context.location(paragraph));
+		paragraph.setId(encode.apply(chapter.getId()));
+		paragraph.setLocation(context.location() + chapter.getId());
 		paragraph.setName(chapter.getName());
 		paragraph.setNumber(chapter.getNumber());
 		chapter.setPart(paragraph);
@@ -192,8 +192,8 @@ public final class TocStructure extends BaseStructure<Toc> {
 	private void completeIndex(TocChapter chapter, Consumer<TocChapter> chapters, Consumer<Index> indexes) {
 		chapters.accept(chapter);
 		Index index = factory.createIndex();
-		index.setId(chapter.getId());
-		index.setLocation(context.location(index));
+		index.setId(encode.apply(chapter.getId()));
+		index.setLocation(context.location() + chapter.getId());
 		index.setName(chapter.getName());
 		chapter.setPart(index);
 		indexes.accept(index);
@@ -203,7 +203,6 @@ public final class TocStructure extends BaseStructure<Toc> {
 		TocChapter chapter = factory.createTocChapter();
 		Element h2a = element.element("a"); //$NON-NLS-1$
 		chapter.setId(h2a.attributeValue("href")); //$NON-NLS-1$
-		chapter.setLocation(context.location(chapter));
 		chapter.setName(h2a.getText());
 		completeIndex(chapter, container.getChapters()::add, container.getDocument().getIndexes()::add);
 	}

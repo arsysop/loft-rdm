@@ -405,7 +405,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTocChapter_Number() {
+	public EAttribute getTocChapter_Id() {
 		return (EAttribute)tocChapterEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -415,8 +415,28 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTocChapter_Name() {
+		return (EAttribute)tocChapterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTocChapter_Number() {
+		return (EAttribute)tocChapterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getTocChapter_Part() {
-		return (EReference)tocChapterEClass.getEStructuralFeatures().get(1);
+		return (EReference)tocChapterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -636,7 +656,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 */
 	@Override
 	public EReference getTable_Rows() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(0);
+		return (EReference)tableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -646,7 +666,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 */
 	@Override
 	public EReference getTable_Title() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(1);
+		return (EReference)tableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -732,6 +752,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(tocEClass, TOC__DOCUMENT);
 
 		tocChapterEClass = createEClass(TOC_CHAPTER);
+		createEAttribute(tocChapterEClass, TOC_CHAPTER__ID);
+		createEAttribute(tocChapterEClass, TOC_CHAPTER__NAME);
 		createEAttribute(tocChapterEClass, TOC_CHAPTER__NUMBER);
 		createEReference(tocChapterEClass, TOC_CHAPTER__PART);
 
@@ -762,8 +784,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(styledLineEClass, STYLED_LINE__TEXT);
 
 		tableEClass = createEClass(TABLE);
-		createEReference(tableEClass, TABLE__ROWS);
 		createEReference(tableEClass, TABLE__TITLE);
+		createEReference(tableEClass, TABLE__ROWS);
 
 		tableRowEClass = createEClass(TABLE_ROW);
 		createEAttribute(tableRowEClass, TABLE_ROW__ID);
@@ -800,7 +822,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		// Add supertypes to classes
 		withPartsEClass.getESuperTypes().add(this.getPart());
 		tocEClass.getESuperTypes().add(this.getWithTocChapters());
-		tocChapterEClass.getESuperTypes().add(this.getPart());
 		tocChapterEClass.getESuperTypes().add(this.getWithTocChapters());
 		paragraphEClass.getESuperTypes().add(this.getWithParts());
 		pointEClass.getESuperTypes().add(this.getPart());
@@ -832,6 +853,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getToc_Document(), this.getDocument(), this.getDocument_Toc(), "document", null, 1, 1, Toc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tocChapterEClass, TocChapter.class, "TocChapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getTocChapter_Id(), ecorePackage.getEString(), "id", null, 1, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getTocChapter_Name(), ecorePackage.getEString(), "name", null, 0, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getTocChapter_Number(), ecorePackage.getEString(), "number", null, 0, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getTocChapter_Part(), this.getPart(), null, "part", null, 0, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
@@ -862,8 +885,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getStyledLine_Text(), this.getStyledNode(), null, "text", null, 0, -1, StyledLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getTable_Rows(), this.getTableRow(), null, "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getTable_Title(), this.getTableRow(), null, "title", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getTable_Title(), this.getTableRow(), null, "title", null, 1, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getTable_Rows(), this.getTableRow(), null, "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getTableRow_Id(), ecorePackage.getEInt(), "id", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

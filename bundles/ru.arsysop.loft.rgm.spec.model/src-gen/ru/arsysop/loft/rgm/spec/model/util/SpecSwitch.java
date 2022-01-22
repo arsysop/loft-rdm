@@ -120,7 +120,6 @@ public class SpecSwitch<T> extends Switch<T> {
 			case SpecPackage.TOC_CHAPTER: {
 				TocChapter tocChapter = (TocChapter)theEObject;
 				T result = caseTocChapter(tocChapter);
-				if (result == null) result = casePart(tocChapter);
 				if (result == null) result = caseWithTocChapters(tocChapter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

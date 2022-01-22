@@ -71,7 +71,7 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		node.elements().stream() //
 				.filter(new IsDiv()) //
 				.filter(new OfClass("para")) //$NON-NLS-1$
-				.forEach(e -> new AppendPoint(context).accept(paragraph, node));
+				.forEach(e -> new AppendPoint(context).accept(paragraph, e));
 	}
 
 }

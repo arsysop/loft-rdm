@@ -22,42 +22,43 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
 
-import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
+import ru.arsysop.loft.rgm.spec.model.base.EncodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class ParseTables implements Function<Element, List<Table>> {
+public final class ParseTables implements BiFunction<Paragraph, Element, List<Table>> {
 
-	private final ResolutionContext context;
+	private final EncodeId encode;
 	private final SpecFactory factory;
 
-	public ParseTables(ResolutionContext context, SpecFactory factory) {
-		this.context = Objects.requireNonNull(context, "ParseTables::context"); //$NON-NLS-1$
+	public ParseTables(SpecFactory factory) {
+		this.encode = new EncodeId();
 		this.factory = Objects.requireNonNull(factory, "ParseTables::factory"); //$NON-NLS-1$
 	}
 
 	@Override
-	public List<Table> apply(Element node) {
+	public List<Table> apply(Paragraph paragraph, Element node) {
 		return node.elements("div").stream() //$NON-NLS-1$
 				.filter(new OfClass("numberedTable")) //$NON-NLS-1$
-				.map(this::fillTable) //
+				.map(e -> fillTable(paragraph, e)) //
 				.collect(Collectors.toList());
 	}
 
-	private Table fillTable(Element div) {
+	private Table fillTable(Paragraph paragraph, Element div) {
 		Table table = factory.createTable();
 		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$//$NON-NLS-2$
 		table.setTitle(collectRow(rows.get(0)));
-		table.setId(div.attributeValue("id")); //$NON-NLS-1$
-		table.setLocation(context.location(table));
+		table.setId(encode.apply(div.attributeValue("id"))); //$NON-NLS-1$
+		table.setLocation(paragraph.getLocation() + '#' + div.attributeValue("id")); //$NON-NLS-1$
 		if (rows.size() > 1) {
 			List<Element> remaining = rows.subList(1, rows.size() - 1);
 			table.getRows().addAll(remaining.stream().map(this::collectRow).collect(Collectors.toList()));

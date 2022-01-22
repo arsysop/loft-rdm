@@ -16,33 +16,24 @@
  * SPDX-License-Identifier: Apache-2.0
  *
  * Contributors:
- *     Nikifor Fedorov (ArSysOp) - initial API and implementation
+ *     Alexander Fedorov (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft;
+package ru.arsysop.loft.rgm.spec.model.base;
 
-import java.util.Objects;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.function.Function;
 
-import org.eclipse.emf.ecore.EObject;
-
-import ru.arsysop.loft.rgm.spec.model.api.Part;
-import ru.arsysop.loft.rgm.spec.model.util.SpecSwitch;
-
-public final class LocationSwitch extends SpecSwitch<String> {
-
-	private final String base;
-
-	public LocationSwitch(String base) {
-		this.base = Objects.requireNonNull(base, "LocationSwitch::base"); //$NON-NLS-1$
-	}
+public final class DecodeId implements Function<String, String> {
 
 	@Override
-	public String casePart(Part object) {
-		return base + '/' + object.getId();
-	}
-
-	@Override
-	public String defaultCase(EObject object) {
-		return base;
+	public String apply(String encoded) {
+		try {
+			return URLDecoder.decode(encoded, StandardCharsets.UTF_8.name());
+		} catch (UnsupportedEncodingException e) {
+			return encoded;
+		}
 	}
 
 }

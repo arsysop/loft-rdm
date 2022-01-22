@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2021 ArSysOp.
+ * Copyright (c) 2022 ArSysOp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,30 +16,24 @@
  * SPDX-License-Identifier: Apache-2.0
  *
  * Contributors:
- *     (ArSysOp) - initial API and implementation
+ *     Alexander Fedorov (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft;
+package ru.arsysop.loft.rgm.spec.model.base;
 
-import org.dom4j.Node;
-import org.eclipse.emf.common.util.Diagnostic;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.function.Function;
 
-import ru.arsysop.loft.rgm.spec.model.api.ContentResolution;
-import ru.arsysop.loft.rgm.spec.model.api.Document;
-import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
-import ru.arsysop.loft.rgm.spec.model.api.Part;
+public final class EncodeId implements Function<String, String> {
 
-public interface ResolutionContext {
+	@Override
+	public String apply(String input) {
+		try {
+			return URLEncoder.encode(input, StandardCharsets.UTF_8.name());
+		} catch (UnsupportedEncodingException e) {
+			return input;
+		}
+	}
 
-	Document document();
-
-	String location();
-
-	ContentResolution<Part> parts();
-
-	ContentResolution<IndexEntry> indexEntries();
-
-	void warning(Node node, String message);
-
-	Diagnostic diagnostic();
 }
-

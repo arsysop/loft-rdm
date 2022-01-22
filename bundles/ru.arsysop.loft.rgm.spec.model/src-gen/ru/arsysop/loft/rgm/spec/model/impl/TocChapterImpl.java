@@ -19,18 +19,13 @@
  */
 package ru.arsysop.loft.rgm.spec.model.impl;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
-import ru.arsysop.loft.rgm.spec.model.api.WithTocChapters;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -41,23 +36,54 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TocChapterImpl#getChapters <em>Chapters</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TocChapterImpl#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TocChapterImpl#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TocChapterImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TocChapterImpl#getPart <em>Part</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TocChapterImpl extends PartImpl implements TocChapter {
+public class TocChapterImpl extends WithTocChaptersImpl implements TocChapter {
 	/**
-	 * The cached value of the '{@link #getChapters() <em>Chapters</em>}' containment reference list.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChapters()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TocChapter> chapters;
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
@@ -112,11 +138,44 @@ public class TocChapterImpl extends PartImpl implements TocChapter {
 	 * @generated
 	 */
 	@Override
-	public EList<TocChapter> getChapters() {
-		if (chapters == null) {
-			chapters = new EObjectContainmentEList<TocChapter>(TocChapter.class, this, SpecPackage.TOC_CHAPTER__CHAPTERS);
-		}
-		return chapters;
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TOC_CHAPTER__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TOC_CHAPTER__NAME, oldName, name));
 	}
 
 	/**
@@ -188,25 +247,12 @@ public class TocChapterImpl extends PartImpl implements TocChapter {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SpecPackage.TOC_CHAPTER__CHAPTERS:
-				return ((InternalEList<?>)getChapters()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecPackage.TOC_CHAPTER__CHAPTERS:
-				return getChapters();
+			case SpecPackage.TOC_CHAPTER__ID:
+				return getId();
+			case SpecPackage.TOC_CHAPTER__NAME:
+				return getName();
 			case SpecPackage.TOC_CHAPTER__NUMBER:
 				return getNumber();
 			case SpecPackage.TOC_CHAPTER__PART:
@@ -222,13 +268,14 @@ public class TocChapterImpl extends PartImpl implements TocChapter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecPackage.TOC_CHAPTER__CHAPTERS:
-				getChapters().clear();
-				getChapters().addAll((Collection<? extends TocChapter>)newValue);
+			case SpecPackage.TOC_CHAPTER__ID:
+				setId((String)newValue);
+				return;
+			case SpecPackage.TOC_CHAPTER__NAME:
+				setName((String)newValue);
 				return;
 			case SpecPackage.TOC_CHAPTER__NUMBER:
 				setNumber((String)newValue);
@@ -250,8 +297,11 @@ public class TocChapterImpl extends PartImpl implements TocChapter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.TOC_CHAPTER__CHAPTERS:
-				getChapters().clear();
+			case SpecPackage.TOC_CHAPTER__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case SpecPackage.TOC_CHAPTER__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case SpecPackage.TOC_CHAPTER__NUMBER:
 				setNumber(NUMBER_EDEFAULT);
@@ -273,8 +323,10 @@ public class TocChapterImpl extends PartImpl implements TocChapter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.TOC_CHAPTER__CHAPTERS:
-				return chapters != null && !chapters.isEmpty();
+			case SpecPackage.TOC_CHAPTER__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case SpecPackage.TOC_CHAPTER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SpecPackage.TOC_CHAPTER__NUMBER:
 				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
 			case SpecPackage.TOC_CHAPTER__PART:
@@ -290,43 +342,15 @@ public class TocChapterImpl extends PartImpl implements TocChapter {
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == WithTocChapters.class) {
-			switch (derivedFeatureID) {
-				case SpecPackage.TOC_CHAPTER__CHAPTERS: return SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == WithTocChapters.class) {
-			switch (baseFeatureID) {
-				case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS: return SpecPackage.TOC_CHAPTER__CHAPTERS;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (number: "); //$NON-NLS-1$
+		result.append(" (id: "); //$NON-NLS-1$
+		result.append(id);
+		result.append(", name: "); //$NON-NLS-1$
+		result.append(name);
+		result.append(", number: "); //$NON-NLS-1$
 		result.append(number);
 		result.append(')');
 		return result.toString();

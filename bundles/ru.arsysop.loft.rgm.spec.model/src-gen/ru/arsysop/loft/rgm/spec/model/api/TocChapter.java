@@ -28,6 +28,8 @@ package ru.arsysop.loft.rgm.spec.model.api;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getNumber <em>Number</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getPart <em>Part</em>}</li>
  * </ul>
@@ -36,7 +38,51 @@ package ru.arsysop.loft.rgm.spec.model.api;
  * @model
  * @generated
  */
-public interface TocChapter extends Part, WithTocChapters {
+public interface TocChapter extends WithTocChapters {
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTocChapter_Id()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTocChapter_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute.

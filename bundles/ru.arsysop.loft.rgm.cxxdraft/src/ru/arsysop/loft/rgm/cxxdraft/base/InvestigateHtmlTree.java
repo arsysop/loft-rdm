@@ -22,6 +22,7 @@ package ru.arsysop.loft.rgm.cxxdraft.base;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ICoreRunnable;
@@ -37,6 +38,7 @@ import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
@@ -94,7 +96,11 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 	}
 
 	private void parseLocation(EObject container, SubMonitor split) throws CoreException {
-		String location = context.location(container);
+		String location = Optional.of(container)//
+				.filter(Part.class::isInstance)//
+				.map(Part.class::cast)//
+				.map(Part::getLocation)//
+				.orElseGet(context::location);
 		Structure structure = new StructureSwitch(context).doSwitch(container);
 		new PublishedHtml(location, structure).run(split);
 	}
