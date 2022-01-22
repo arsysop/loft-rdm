@@ -27,8 +27,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Document/indexes"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part/id"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part/name"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part/location"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//WithParts">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//WithParts/parts"/>
@@ -40,6 +41,8 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Toc/document"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter/number"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TocChapter/part"/>
     </genClasses>
@@ -48,7 +51,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point/references"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point/text"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Point/tables"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Index">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Index/entries"/>
@@ -66,7 +70,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledNode/type"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledLine">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledLine/text"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledLine/text"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table/rows"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TableRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TableRow/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TableRow/values"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

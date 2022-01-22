@@ -25,27 +25,26 @@ import java.util.Objects;
 import org.dom4j.Node;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.osgi.util.NLS;
 
-import ru.arsysop.loft.rgm.cxxdraft.ContentResolution;
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.LocationSwitch;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
-import ru.arsysop.loft.rgm.model.api.Document;
-import ru.arsysop.loft.rgm.model.api.IndexEntry;
-import ru.arsysop.loft.rgm.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.ContentResolution;
+import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.base.SimpleContentResolution;
 
 public final class SimpleResolutionContext implements ResolutionContext {
 
-	private final LocationSwitch location;
+	private final String location;
 	private final Document document;
 	private final ContentResolution<Part> parts;
 	private final ContentResolution<IndexEntry> ientries;
 	private final BasicDiagnostic status;
 
 	public SimpleResolutionContext(String location, Document document) {
-		this.location = new LocationSwitch(location);
+		this.location = Objects.requireNonNull(location, "SimpleResolutionContext::location"); //$NON-NLS-1$
 		this.document = Objects.requireNonNull(document, "SimpleResolutionContext::document"); //$NON-NLS-1$
 		this.parts = new SimpleContentResolution<>();
 		this.ientries = new SimpleContentResolution<>();
@@ -55,8 +54,8 @@ public final class SimpleResolutionContext implements ResolutionContext {
 	}
 
 	@Override
-	public String location(EObject data) {
-		return location.doSwitch(data);
+	public String location() {
+		return location;
 	}
 
 	@Override

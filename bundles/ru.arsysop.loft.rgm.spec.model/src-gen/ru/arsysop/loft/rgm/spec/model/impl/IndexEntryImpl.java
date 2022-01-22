@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -55,7 +57,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.arsysop.loft.rgm.spec.model.api.IndexEntry {
+public class IndexEntryImpl extends MinimalEObjectImpl.Container implements IndexEntry {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -124,7 +126,7 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.Part> parts;
+	protected EList<Part> parts;
 
 	/**
 	 * The cached value of the '{@link #getSee() <em>See</em>}' reference list.
@@ -134,7 +136,7 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry> see;
+	protected EList<IndexEntry> see;
 
 	/**
 	 * The cached value of the '{@link #getSubentries() <em>Subentries</em>}' containment reference list.
@@ -144,7 +146,7 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry> subentries;
+	protected EList<IndexEntry> subentries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,9 +196,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry> getSubentries() {
+	public EList<IndexEntry> getSubentries() {
 		if (subentries == null) {
-			subentries = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry>(ru.arsysop.loft.rgm.spec.model.api.IndexEntry.class, this, SpecPackage.INDEX_ENTRY__SUBENTRIES);
+			subentries = new EObjectContainmentEList<IndexEntry>(IndexEntry.class, this, SpecPackage.INDEX_ENTRY__SUBENTRIES);
 		}
 		return subentries;
 	}
@@ -207,9 +209,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry> getSee() {
+	public EList<IndexEntry> getSee() {
 		if (see == null) {
-			see = new EObjectResolvingEList<ru.arsysop.loft.rgm.spec.model.api.IndexEntry>(ru.arsysop.loft.rgm.spec.model.api.IndexEntry.class, this, SpecPackage.INDEX_ENTRY__SEE);
+			see = new EObjectResolvingEList<IndexEntry>(IndexEntry.class, this, SpecPackage.INDEX_ENTRY__SEE);
 		}
 		return see;
 	}
@@ -243,9 +245,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.Part> getParts() {
+	public EList<Part> getParts() {
 		if (parts == null) {
-			parts = new EObjectResolvingEList<ru.arsysop.loft.rgm.spec.model.api.Part>(ru.arsysop.loft.rgm.spec.model.api.Part.class, this, SpecPackage.INDEX_ENTRY__PARTS);
+			parts = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.INDEX_ENTRY__PARTS);
 		}
 		return parts;
 	}
@@ -333,15 +335,15 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements ru.a
 				return;
 			case SpecPackage.INDEX_ENTRY__PARTS:
 				getParts().clear();
-				getParts().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.Part>)newValue);
+				getParts().addAll((Collection<? extends Part>)newValue);
 				return;
 			case SpecPackage.INDEX_ENTRY__SEE:
 				getSee().clear();
-				getSee().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.IndexEntry>)newValue);
+				getSee().addAll((Collection<? extends IndexEntry>)newValue);
 				return;
 			case SpecPackage.INDEX_ENTRY__SUBENTRIES:
 				getSubentries().clear();
-				getSubentries().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.IndexEntry>)newValue);
+				getSubentries().addAll((Collection<? extends IndexEntry>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);

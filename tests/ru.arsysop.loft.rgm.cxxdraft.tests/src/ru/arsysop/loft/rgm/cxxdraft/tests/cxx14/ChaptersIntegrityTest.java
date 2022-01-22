@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.eclipse.emf.common.util.EList;
 import org.junit.Test;
 
-import ru.arsysop.loft.rgm.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 
 @SuppressWarnings("nls")
 public final class ChaptersIntegrityTest extends Cxx14IntegrityTest {

@@ -4,8 +4,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Markup">
     <eStructuralFeatures xsi:type="ecore:EReference" name="citations" upperBound="-1"
         eType="#//Citation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="headers" upperBound="-1"
-        eType="ecore:EClass ../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//Header"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="synopses" upperBound="-1"
+        eType="ecore:EClass ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
         eType="#//Requirement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
@@ -18,24 +18,20 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
-        eType="#//Requirement" eOpposite="#//Requirement/citation"/>
+        eType="#//Requirement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
         eType="ecore:EClass ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Requirement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="citation" eType="#//Citation"
-        eOpposite="#//Citation/requirements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
-        eOpposite="#//Tag/requirements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="see" upperBound="-1" eType="ecore:EClass ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" eType="ecore:EClass ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tag">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
-        eType="#//Requirement" eOpposite="#//Requirement/tags"/>
+        eType="#//Requirement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contracts" upperBound="-1"
         eType="#//Contract" eOpposite="#//Contract/tags"/>
   </eClassifiers>
@@ -43,8 +39,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
-        eType="ecore:EClass ../../ru.arsysop.loft.rgm.cpp.ecore/model/cpp.ecore#//Declaration"/>
+        eType="ecore:EClass ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Declaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
         eOpposite="#//Tag/contracts"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParsedRequirement" eSuperTypes="#//Requirement"/>
 </ecore:EPackage>

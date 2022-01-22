@@ -22,6 +22,7 @@ package ru.arsysop.loft.rgm.cxxdraft.base;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ICoreRunnable;
@@ -35,10 +36,11 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
-import ru.arsysop.loft.rgm.model.api.Index;
-import ru.arsysop.loft.rgm.model.api.Paragraph;
-import ru.arsysop.loft.rgm.model.api.Toc;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Toc;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class InvestigateHtmlTree implements ICoreRunnable {
 
@@ -51,8 +53,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
-		parseToc(sub.split(5));
-		parseVisualizations(sub.split(5));
+		parseToc(sub.split(10));
 		parseParagraphs(sub.split(80));
 		parseAnnexes(sub.split(5));
 		parseIndexes(sub.split(5));
@@ -62,15 +63,10 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		sub.subTask(Messages.InvestigateHtmlTree_subtask_toc);
 		Toc toc = context.document().getToc();
 		if (toc == null) {
-			toc = RgmFactory.eINSTANCE.createToc();
+			toc = SpecFactory.eINSTANCE.createToc();
 			context.document().setToc(toc);
 		}
 		parseLocation(toc, sub);
-	}
-
-	private void parseVisualizations(SubMonitor sub) {
-		// TODO Auto-generated method stub
-
 	}
 
 	private void parseParagraphs(SubMonitor monitor) throws CoreException {
@@ -100,7 +96,11 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 	}
 
 	private void parseLocation(EObject container, SubMonitor split) throws CoreException {
-		String location = context.location(container);
+		String location = Optional.of(container)//
+				.filter(Part.class::isInstance)//
+				.map(Part.class::cast)//
+				.map(Part::getLocation)//
+				.orElseGet(context::location);
 		Structure structure = new StructureSwitch(context).doSwitch(container);
 		new PublishedHtml(location, structure).run(split);
 	}

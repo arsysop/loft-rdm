@@ -8,6 +8,13 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Automatic-Module-Name: ru.arsysop.loft.rgm.markup.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: ru.arsysop.loft.rgm.markup.model.api,
+ ru.arsysop.loft.rgm.markup.model.impl,
+ ru.arsysop.loft.rgm.markup.model.meta,
+ ru.arsysop.loft.rgm.markup.model.util
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
- org.eclipse.emf.ecore;bundle-version="0.0.0";visibility:=reexport
+ org.eclipse.emf.ecore;bundle-version="0.0.0";visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;bundle-version="0.0.0";visibility:=reexport,
+ ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0";visibility:=reexport,
+ ru.arsysop.loft.rgm.synopsis.model;bundle-version="0.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

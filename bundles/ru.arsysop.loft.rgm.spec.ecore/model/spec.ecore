@@ -18,6 +18,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WithParts" abstract="true" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
@@ -31,7 +33,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="document" lowerBound="1"
         eType="#//Document" eOpposite="#//Document/toc"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TocChapter" eSuperTypes="#//Part #//WithTocChapters">
+  <eClassifiers xsi:type="ecore:EClass" name="TocChapter" eSuperTypes="#//WithTocChapters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//Part"/>
   </eClassifiers>
@@ -44,6 +48,8 @@
         eType="#//Part"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//StyledLine"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+        eType="#//Table" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
@@ -67,5 +73,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="StyledLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//StyledNode"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Part">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" lowerBound="1" eType="#//TableRow"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//TableRow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableRow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

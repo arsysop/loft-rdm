@@ -322,6 +322,52 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Table} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableItemProvider tableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Table}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableAdapter() {
+		if (tableItemProvider == null) {
+			tableItemProvider = new TableItemProvider(this);
+		}
+
+		return tableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.TableRow} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TableRowItemProvider tableRowItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.TableRow}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTableRowAdapter() {
+		if (tableRowItemProvider == null) {
+			tableRowItemProvider = new TableRowItemProvider(this);
+		}
+
+		return tableRowItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,6 +510,8 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
 		if (styledNodeItemProvider != null) styledNodeItemProvider.dispose();
 		if (styledLineItemProvider != null) styledLineItemProvider.dispose();
+		if (tableItemProvider != null) tableItemProvider.dispose();
+		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
 	}
 
 }

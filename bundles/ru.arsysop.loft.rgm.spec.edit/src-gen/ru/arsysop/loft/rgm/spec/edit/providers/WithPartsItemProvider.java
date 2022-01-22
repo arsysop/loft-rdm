@@ -27,9 +27,11 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import ru.arsysop.loft.rgm.spec.model.api.WithParts;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
@@ -118,6 +120,14 @@ public class WithPartsItemProvider extends PartItemProvider {
 	}
 
 	/**
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
+	}
+
+	/**
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,11 +180,6 @@ public class WithPartsItemProvider extends PartItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createTocChapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
 				 SpecFactory.eINSTANCE.createParagraph()));
 
 		newChildDescriptors.add
@@ -186,6 +191,11 @@ public class WithPartsItemProvider extends PartItemProvider {
 			(createChildParameter
 				(SpecPackage.eINSTANCE.getWithParts_Parts(),
 				 SpecFactory.eINSTANCE.createIndex()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpecPackage.eINSTANCE.getWithParts_Parts(),
+				 SpecFactory.eINSTANCE.createTable()));
 	}
 
 }

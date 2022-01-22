@@ -53,6 +53,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -339,7 +340,10 @@ public class IndexEntryItemProvider
 		EList<Part> parts = entry.getParts();
 		if (!parts.isEmpty()) {
 			styledLabel.append(" --> "); //$NON-NLS-1$
-			String refs = parts.stream().map(Part::getId).collect(Collectors.joining(",")); //$NON-NLS-1$
+			String refs = parts.stream()//
+					.map(Part::getId)//
+					.map(new DecodeId())//
+					.collect(Collectors.joining(",")); //$NON-NLS-1$
 			styledLabel.append(refs, StyledString.Style.COUNTER_STYLER);
 		}
 		Optional.ofNullable(entry.getText())//

@@ -31,17 +31,17 @@ import org.dom4j.Node;
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
-import ru.arsysop.loft.rgm.model.api.Index;
-import ru.arsysop.loft.rgm.model.api.IndexEntry;
-import ru.arsysop.loft.rgm.model.meta.RgmFactory;
+import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
 public final class IndexStructure extends BaseStructure<Index> {
 
-	private final RgmFactory factory;
+	private final SpecFactory factory;
 
 	public IndexStructure(Index container, ResolutionContext context) {
 		super(container, context);
-		this.factory = RgmFactory.eINSTANCE;
+		this.factory = SpecFactory.eINSTANCE;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Copyright (c) 2021 ArSysOp
+	Copyright (c) 2021, 2022 ArSysOp
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -40,64 +40,20 @@
       %license
    </license>
 
+   <includes
+         id="ru.arsysop.loft.rgm.spec.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="ru.arsysop.loft.rgm.synopsis.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="ru.arsysop.loft.rgm.markup.feature"
+         version="0.0.0"/>
+
    <plugin
          id="ru.arsysop.loft.rgm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.cxxdraft"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.ecore"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.model"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.workbench"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.workspace"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="wrapped.com.github.jtidy.jtidy"
          download-size="0"
          install-size="0"
          version="0.0.0"

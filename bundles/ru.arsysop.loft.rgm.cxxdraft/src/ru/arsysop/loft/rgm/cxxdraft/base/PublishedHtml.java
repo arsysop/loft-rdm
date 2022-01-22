@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2021 ArSysOp.
+ * Copyright (c) 2021, 2022 ArSysOp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ public final class PublishedHtml implements ICoreRunnable {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new CoreException(//
-					new Status(IStatus.ERROR, getClass(), //
+					new Status(IStatus.ERROR, getClass().getName(), //
 							NLS.bind(Messages.PublishedHtml_e_parsing_failed, location, e)));
 		}
 	}

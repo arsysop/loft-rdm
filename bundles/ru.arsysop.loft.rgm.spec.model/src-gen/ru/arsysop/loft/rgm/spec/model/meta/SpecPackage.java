@@ -193,13 +193,22 @@ public interface SpecPackage extends EPackage {
 	int PART__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__LOCATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_FEATURE_COUNT = 2;
+	int PART_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Part</em>' class.
@@ -237,6 +246,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int WITH_PARTS__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_PARTS__LOCATION = PART__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -359,13 +377,22 @@ public interface SpecPackage extends EPackage {
 	int TOC_CHAPTER = 5;
 
 	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_CHAPTER__ID = PART__ID;
+	int TOC_CHAPTER__ID = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -374,16 +401,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_CHAPTER__NAME = PART__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER__CHAPTERS = PART_FEATURE_COUNT + 0;
+	int TOC_CHAPTER__NAME = WITH_TOC_CHAPTERS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -392,7 +410,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_CHAPTER__NUMBER = PART_FEATURE_COUNT + 1;
+	int TOC_CHAPTER__NUMBER = WITH_TOC_CHAPTERS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Part</b></em>' reference.
@@ -401,7 +419,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_CHAPTER__PART = PART_FEATURE_COUNT + 2;
+	int TOC_CHAPTER__PART = WITH_TOC_CHAPTERS_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Toc Chapter</em>' class.
@@ -410,7 +428,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_CHAPTER_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
+	int TOC_CHAPTER_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Toc Chapter</em>' class.
@@ -419,7 +437,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOC_CHAPTER_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+	int TOC_CHAPTER_OPERATION_COUNT = WITH_TOC_CHAPTERS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.ParagraphImpl <em>Paragraph</em>}' class.
@@ -448,6 +466,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAGRAPH__NAME = WITH_PARTS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__LOCATION = WITH_PARTS__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -514,6 +541,15 @@ public interface SpecPackage extends EPackage {
 	int POINT__NAME = PART__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__LOCATION = PART__LOCATION;
+
+	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,13 +568,22 @@ public interface SpecPackage extends EPackage {
 	int POINT__TEXT = PART_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__TABLES = PART_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Point</em>' class.
@@ -576,6 +621,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDEX__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__LOCATION = PART__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -771,6 +825,125 @@ public interface SpecPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl <em>Table</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.TableImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTable()
+	 * @generated
+	 */
+	int TABLE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TITLE = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl <em>Table Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTableRow()
+	 * @generated
+	 */
+	int TABLE_ROW = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__VALUES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Document <em>Document</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -890,6 +1063,17 @@ public interface SpecPackage extends EPackage {
 	EAttribute getPart_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Part#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Part#getLocation()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Location();
+
+	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.WithParts <em>With Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -961,6 +1145,28 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTocChapter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TocChapter#getId()
+	 * @see #getTocChapter()
+	 * @generated
+	 */
+	EAttribute getTocChapter_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TocChapter#getName()
+	 * @see #getTocChapter()
+	 * @generated
+	 */
+	EAttribute getTocChapter_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.TocChapter#getNumber <em>Number</em>}'.
@@ -1036,6 +1242,17 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPoint_Text();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tables</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getTables()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EReference getPoint_Tables();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Index <em>Index</em>}'.
@@ -1186,6 +1403,70 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStyledLine_Text();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Table <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Table
+	 * @generated
+	 */
+	EClass getTable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Table#getRows <em>Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rows</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Table#getRows()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Rows();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ru.arsysop.loft.rgm.spec.model.api.Table#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Title</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Table#getTitle()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Title();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow <em>Table Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Row</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow
+	 * @generated
+	 */
+	EClass getTableRow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow#getId()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Id();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Values();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

@@ -29,6 +29,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.emf.ecore.util.InternalEList;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
+import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -41,11 +45,12 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getReferences <em>References</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getText <em>Text</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.model.api.Point {
+public class PointImpl extends PartImpl implements Point {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -54,7 +59,7 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.Part> references;
+	protected EList<Part> references;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
@@ -64,7 +69,17 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ru.arsysop.loft.rgm.spec.model.api.StyledLine> text;
+	protected EList<StyledLine> text;
+
+	/**
+	 * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Table> tables;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,9 +106,9 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.Part> getReferences() {
+	public EList<Part> getReferences() {
 		if (references == null) {
-			references = new EObjectResolvingEList<ru.arsysop.loft.rgm.spec.model.api.Part>(ru.arsysop.loft.rgm.spec.model.api.Part.class, this, SpecPackage.POINT__REFERENCES);
+			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.POINT__REFERENCES);
 		}
 		return references;
 	}
@@ -104,11 +119,24 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 	 * @generated
 	 */
 	@Override
-	public EList<ru.arsysop.loft.rgm.spec.model.api.StyledLine> getText() {
+	public EList<StyledLine> getText() {
 		if (text == null) {
-			text = new EObjectContainmentEList<ru.arsysop.loft.rgm.spec.model.api.StyledLine>(ru.arsysop.loft.rgm.spec.model.api.StyledLine.class, this, SpecPackage.POINT__TEXT);
+			text = new EObjectContainmentEList<StyledLine>(StyledLine.class, this, SpecPackage.POINT__TEXT);
 		}
 		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Table> getTables() {
+		if (tables == null) {
+			tables = new EObjectContainmentEList<Table>(Table.class, this, SpecPackage.POINT__TABLES);
+		}
+		return tables;
 	}
 
 	/**
@@ -121,6 +149,8 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 		switch (featureID) {
 			case SpecPackage.POINT__TEXT:
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case SpecPackage.POINT__TABLES:
+				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -138,6 +168,8 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 				return getReferences();
 			case SpecPackage.POINT__TEXT:
 				return getText();
+			case SpecPackage.POINT__TABLES:
+				return getTables();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -154,11 +186,15 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 		switch (featureID) {
 			case SpecPackage.POINT__REFERENCES:
 				getReferences().clear();
-				getReferences().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.Part>)newValue);
+				getReferences().addAll((Collection<? extends Part>)newValue);
 				return;
 			case SpecPackage.POINT__TEXT:
 				getText().clear();
-				getText().addAll((Collection<? extends ru.arsysop.loft.rgm.spec.model.api.StyledLine>)newValue);
+				getText().addAll((Collection<? extends StyledLine>)newValue);
+				return;
+			case SpecPackage.POINT__TABLES:
+				getTables().clear();
+				getTables().addAll((Collection<? extends Table>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -180,6 +216,9 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 			case SpecPackage.POINT__TEXT:
 				getText().clear();
 				return;
+			case SpecPackage.POINT__TABLES:
+				getTables().clear();
+				return;
 			default:
 				super.eUnset(featureID);
 				return;
@@ -198,6 +237,8 @@ public class PointImpl extends PartImpl implements ru.arsysop.loft.rgm.spec.mode
 				return references != null && !references.isEmpty();
 			case SpecPackage.POINT__TEXT:
 				return text != null && !text.isEmpty();
+			case SpecPackage.POINT__TABLES:
+				return tables != null && !tables.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

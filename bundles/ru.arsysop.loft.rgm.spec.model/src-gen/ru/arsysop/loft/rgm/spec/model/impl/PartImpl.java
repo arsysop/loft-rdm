@@ -24,6 +24,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -36,11 +38,12 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class PartImpl extends MinimalEObjectImpl.Container implements ru.arsysop.loft.rgm.spec.model.api.Part {
+public abstract class PartImpl extends MinimalEObjectImpl.Container implements Part {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,6 +83,26 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements r
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String location = LOCATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,12 +175,37 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements r
 	 * @generated
 	 */
 	@Override
+	public String getLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLocation(String newLocation) {
+		String oldLocation = location;
+		location = newLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.PART__LOCATION, oldLocation, location));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SpecPackage.PART__ID:
 				return getId();
 			case SpecPackage.PART__NAME:
 				return getName();
+			case SpecPackage.PART__LOCATION:
+				return getLocation();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -176,6 +224,9 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements r
 				return;
 			case SpecPackage.PART__NAME:
 				setName((String)newValue);
+				return;
+			case SpecPackage.PART__LOCATION:
+				setLocation((String)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -197,6 +248,9 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements r
 			case SpecPackage.PART__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case SpecPackage.PART__LOCATION:
+				setLocation(LOCATION_EDEFAULT);
+				return;
 			default:
 				super.eUnset(featureID);
 				return;
@@ -215,6 +269,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements r
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case SpecPackage.PART__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SpecPackage.PART__LOCATION:
+				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
 			default:
 				return super.eIsSet(featureID);
 		}
@@ -234,6 +290,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements r
 		result.append(id);
 		result.append(", name: "); //$NON-NLS-1$
 		result.append(name);
+		result.append(", location: "); //$NON-NLS-1$
+		result.append(location);
 		result.append(')');
 		return result.toString();
 	}

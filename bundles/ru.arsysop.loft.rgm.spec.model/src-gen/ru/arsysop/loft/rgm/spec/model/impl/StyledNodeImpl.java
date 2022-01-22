@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -41,7 +42,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class StyledNodeImpl extends MinimalEObjectImpl.Container implements ru.arsysop.loft.rgm.spec.model.api.StyledNode {
+public class StyledNodeImpl extends MinimalEObjectImpl.Container implements StyledNode {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
