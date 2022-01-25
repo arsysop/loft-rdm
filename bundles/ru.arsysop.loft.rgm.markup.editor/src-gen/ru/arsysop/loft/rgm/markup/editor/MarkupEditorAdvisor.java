@@ -22,9 +22,13 @@ package ru.arsysop.loft.rgm.markup.editor;
 import java.io.File;
 import java.util.Arrays;
 
+import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.edit.ui.action.LoadResourceAction;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -55,12 +59,6 @@ import org.eclipse.ui.application.IWorkbenchConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-
-import org.eclipse.emf.common.ui.URIEditorInput;
-import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.edit.ui.action.LoadResourceAction;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 
 /**
@@ -168,6 +166,7 @@ public final class MarkupEditorAdvisor extends WorkbenchAdvisor {
 			layout.addPerspectiveShortcut(ID_PERSPECTIVE);
 
 			IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, (float)0.66, layout.getEditorArea()); //$NON-NLS-1$
+			right.addView(new BrowserView.Id().get());
 			right.addView(IPageLayout.ID_OUTLINE);
 
 			IFolderLayout bottonRight = layout.createFolder("bottonRight", IPageLayout.BOTTOM, (float)0.60, "right"); //$NON-NLS-1$ //$NON-NLS-2$
