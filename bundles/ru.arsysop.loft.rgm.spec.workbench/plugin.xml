@@ -64,12 +64,12 @@
             allowMultiple="false"
             class="ru.arsysop.loft.rgm.internal.spec.workbench.BrowserView"
             icon="platform:/plugin/org.eclipse.ui.browser/icons/obj16/internal_browser.png"
-            id="ru.arsysop.loft.rgm.markup.editor.browser"
+            id="ru.arsysop.loft.rgm.spec.workbench.views.view.browser"
             name="%view.browser.name"
             restorable="true">
       </view>
       <category
-            id="ru.arsysop.loft.rgm.markup.editor.category"
+            id="ru.arsysop.loft.rgm.spec.workbench.views.category.specification"
             name="%category.name">
       </category>
    </extension>
