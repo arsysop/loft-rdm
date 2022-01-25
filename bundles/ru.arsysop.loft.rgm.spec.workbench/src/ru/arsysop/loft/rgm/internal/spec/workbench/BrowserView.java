@@ -20,8 +20,10 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.spec.workbench;
 
+import java.util.Objects;
 import java.util.Optional;
 
+import org.eclipse.core.runtime.Adapters;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
@@ -60,9 +62,9 @@ public final class BrowserView extends ViewPart implements ISelectionListener {
 		Optional.of(selection) //
 				.filter(IStructuredSelection.class::isInstance) //
 				.map(IStructuredSelection.class::cast) //
-				.map(IStructuredSelection::getFirstElement) //
-				.filter(Part.class::isInstance) //
-				.map(Part.class::cast) //
+				.map(IStructuredSelection::getFirstElement)//
+				.map(f -> Adapters.adapt(f, Part.class))//
+				.filter(Objects::nonNull)//
 				.map(Part::getLocation) //
 				.ifPresent(this::changeLocation);
 	}
