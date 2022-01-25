@@ -23,7 +23,7 @@
       id="ru.arsysop.loft.rgm.spec.feature"
       label="%featureName"
       version="0.1.0.qualifier"
-      provider-name="%providerName"      
+      provider-name="%providerName"
       license-feature="ru.arsysop.loft.rgm.license.feature"
       license-feature-version="0.1.0">
 
@@ -83,6 +83,13 @@
 
    <plugin
          id="wrapped.com.github.jtidy.jtidy"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+   <plugin
+         id="wrapped.org.dom4j.dom4j"
          download-size="0"
          install-size="0"
          version="0.0.0"
