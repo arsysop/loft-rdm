@@ -18,7 +18,7 @@
  * Contributors:
  *     Nikifor Fedorov (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.markup.editor;
+package ru.arsysop.loft.rgm.spec.workbench;
 
 import java.util.function.Supplier;
 

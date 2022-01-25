@@ -60,6 +60,8 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
+import ru.arsysop.loft.rgm.spec.workbench.BrowserViewId;
+
 
 /**
  * Customized {@link WorkbenchAdvisor} for the RCP application.
