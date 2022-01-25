@@ -26,7 +26,7 @@ public final class BrowserViewId implements Supplier<String> {
 
 	@Override
 	public String get() {
-		return "ru.arsysop.loft.rgm.markup.editor.browser"; //$NON-NLS-1$
+		return "ru.arsysop.loft.rgm.spec.workbench.views.view.browser"; //$NON-NLS-1$
 	}
 
 }
