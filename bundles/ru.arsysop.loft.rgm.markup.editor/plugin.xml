@@ -122,7 +122,7 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="false"
-            class="ru.arsysop.loft.rgm.markup.editor.BrowserView"
+            class="ru.arsysop.loft.rgm.markup.internal.editor.BrowserView"
             icon="platform:/plugin/org.eclipse.ui.browser/icons/obj16/internal_browser.png"
             id="ru.arsysop.loft.rgm.markup.editor.browser"
             name="%view.browser.name"

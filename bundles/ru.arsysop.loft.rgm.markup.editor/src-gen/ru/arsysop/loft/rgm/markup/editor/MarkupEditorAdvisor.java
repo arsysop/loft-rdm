@@ -166,7 +166,7 @@ public final class MarkupEditorAdvisor extends WorkbenchAdvisor {
 			layout.addPerspectiveShortcut(ID_PERSPECTIVE);
 
 			IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, (float)0.66, layout.getEditorArea()); //$NON-NLS-1$
-			right.addView(new BrowserView.Id().get());
+			right.addView(new BrowserViewId().get());
 			right.addView(IPageLayout.ID_OUTLINE);
 
 			IFolderLayout bottonRight = layout.createFolder("bottonRight", IPageLayout.BOTTOM, (float)0.60, "right"); //$NON-NLS-1$ //$NON-NLS-2$

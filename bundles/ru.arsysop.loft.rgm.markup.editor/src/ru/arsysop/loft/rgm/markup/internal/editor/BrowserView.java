@@ -18,10 +18,9 @@
  * Contributors:
  *     Nikifor Fedorov (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.markup.editor;
+package ru.arsysop.loft.rgm.markup.internal.editor;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -50,6 +49,13 @@ public final class BrowserView extends ViewPart implements ISelectionListener {
 	}
 
 	@Override
+	public void dispose() {
+		getSite().getWorkbenchWindow().getSelectionService().removeSelectionListener(this);
+		browser.dispose();
+		super.dispose();
+	}
+
+	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		Optional.of(selection) //
 				.filter(IStructuredSelection.class::isInstance) //
@@ -57,16 +63,14 @@ public final class BrowserView extends ViewPart implements ISelectionListener {
 				.map(IStructuredSelection::getFirstElement) //
 				.filter(Part.class::isInstance) //
 				.map(Part.class::cast) //
-				.ifPresent(p -> browser.setUrl(p.getLocation()));
+				.map(Part::getLocation) //
+				.ifPresent(this::changeLocation);
 	}
 
-	public static class Id implements Supplier<String> {
-
-		@Override
-		public String get() {
-			return "ru.arsysop.loft.rgm.markup.editor.browser"; //$NON-NLS-1$
+	private void changeLocation(String location) {
+		if (!browser.isDisposed()) {
+			browser.setUrl(location);
 		}
-
 	}
 
 }
