@@ -27,7 +27,8 @@
          point="org.eclipse.core.runtime.applications"
          id="MarkupEditorAdvisorApplication">
       <!-- @generated markup -->
-      <application>
+      <application
+            icon="platform:/plugin/ru.arsysop.loft.rgm/images/rgm16.png">
          <run class="ru.arsysop.loft.rgm.markup.editor.MarkupEditorAdvisor$Application"/>
       </application>
    </extension>
