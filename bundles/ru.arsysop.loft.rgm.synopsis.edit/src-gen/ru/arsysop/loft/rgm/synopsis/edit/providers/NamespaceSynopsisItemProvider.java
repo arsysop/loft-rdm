@@ -23,38 +23,33 @@ package ru.arsysop.loft.rgm.synopsis.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.spec.model.api.Part;
-import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisFactory;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class HeaderSynopsisItemProvider 
-	extends DefinitionSynopsisItemProvider {
+public class NamespaceSynopsisItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HeaderSynopsisItemProvider(AdapterFactory adapterFactory) {
+	public NamespaceSynopsisItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,31 +64,8 @@ public class HeaderSynopsisItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPartPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Part feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPartPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_HeaderSynopsis_part_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderSynopsis_part_feature", "_UI_HeaderSynopsis_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SynopsisPackage.eINSTANCE.getHeaderSynopsis_Part(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -108,7 +80,7 @@ public class HeaderSynopsisItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions());
+			childrenFeatures.add(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions());
 		}
 		return childrenFeatures;
 	}
@@ -159,24 +131,17 @@ public class HeaderSynopsisItemProvider
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		HeaderSynopsis header = (HeaderSynopsis)object;
-		StyledString styledLabel = new StyledString();
-		styledLabel.append(getString("_UI_Synopsis_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		Optional.ofNullable(header.getName())//
-				.filter(Objects::nonNull)//
-				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append('<' + s + '>'));
-		Optional.ofNullable(header.getPart())//
-				.filter(Objects::nonNull)//
-				.map(Part::getId)//
-				.filter(Objects::nonNull)//
-				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append(" --> ", StyledString.Style.COUNTER_STYLER) //$NON-NLS-1$
-						.append('[' + s + ']', StyledString.Style.DECORATIONS_STYLER));
+		String label = ((NamespaceSynopsis)object).getName();
+    	StyledString styledLabel = new StyledString();
+		if (label == null || label.length() == 0) {
+			styledLabel.append(getString("_UI_NamespaceSynopsis_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+		} else {
+			styledLabel.append(getString("_UI_NamespaceSynopsis_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+		}
 		return styledLabel;
 	}
 
@@ -191,8 +156,8 @@ public class HeaderSynopsisItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(HeaderSynopsis.class)) {
-			case SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS:
+		switch (notification.getFeatureID(NamespaceSynopsis.class)) {
+			case SynopsisPackage.NAMESPACE_SYNOPSIS__DEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -214,87 +179,87 @@ public class HeaderSynopsisItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createHeaderSynopsis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createNamespaceSynopsis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createClassDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createEnumDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createStructDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createUnionDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFieldDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createVarDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createTypedefDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createParmDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createClassTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createCXXMethod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createConstructor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createDestructor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createTemplateTypeParameter()));
 	}
 

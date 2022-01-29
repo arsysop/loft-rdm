@@ -11,7 +11,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
         eType="#//DefinitionSynopsis" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamespaceSynopsis" eSuperTypes="#//DefinitionSynopsis">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
+        eType="#//DefinitionSynopsis" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//DefinitionSynopsis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"

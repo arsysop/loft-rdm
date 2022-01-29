@@ -22,7 +22,6 @@ package ru.arsysop.loft.rgm.synopsis.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import ru.arsysop.loft.rgm.synopsis.model.api.*;
 import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
@@ -34,7 +33,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
 import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
-import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
+import ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter;
@@ -113,10 +112,10 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SynopsisPackage.NAMESPACE: {
-				Namespace namespace = (Namespace)theEObject;
-				T result = caseNamespace(namespace);
-				if (result == null) result = caseDefinitionSynopsis(namespace);
+			case SynopsisPackage.NAMESPACE_SYNOPSIS: {
+				NamespaceSynopsis namespaceSynopsis = (NamespaceSynopsis)theEObject;
+				T result = caseNamespaceSynopsis(namespaceSynopsis);
+				if (result == null) result = caseDefinitionSynopsis(namespaceSynopsis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,17 +262,17 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Namespace Synopsis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Namespace Synopsis</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamespace(Namespace object) {
+	public T caseNamespaceSynopsis(NamespaceSynopsis object) {
 		return null;
 	}
 

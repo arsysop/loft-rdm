@@ -94,8 +94,8 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 				return createHeaderSynopsisAdapter();
 			}
 			@Override
-			public Adapter caseNamespace(Namespace object) {
-				return createNamespaceAdapter();
+			public Adapter caseNamespaceSynopsis(NamespaceSynopsis object) {
+				return createNamespaceSynopsisAdapter();
 			}
 			@Override
 			public Adapter caseFunctionDecl(FunctionDecl object) {
@@ -206,16 +206,16 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Namespace <em>Namespace</em>}'.
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis <em>Namespace Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Namespace
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis
 	 * @generated
 	 */
-	public Adapter createNamespaceAdapter() {
+	public Adapter createNamespaceSynopsisAdapter() {
 		return null;
 	}
 

@@ -139,26 +139,26 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.Namespace} instances.
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamespaceItemProvider namespaceItemProvider;
+	protected NamespaceSynopsisItemProvider namespaceSynopsisItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.Namespace}.
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNamespaceAdapter() {
-		if (namespaceItemProvider == null) {
-			namespaceItemProvider = new NamespaceItemProvider(this);
+	public Adapter createNamespaceSynopsisAdapter() {
+		if (namespaceSynopsisItemProvider == null) {
+			namespaceSynopsisItemProvider = new NamespaceSynopsisItemProvider(this);
 		}
 
-		return namespaceItemProvider;
+		return namespaceSynopsisItemProvider;
 	}
 
 	/**
@@ -641,7 +641,7 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	@Override
 	public void dispose() {
 		if (headerSynopsisItemProvider != null) headerSynopsisItemProvider.dispose();
-		if (namespaceItemProvider != null) namespaceItemProvider.dispose();
+		if (namespaceSynopsisItemProvider != null) namespaceSynopsisItemProvider.dispose();
 		if (functionDeclItemProvider != null) functionDeclItemProvider.dispose();
 		if (classDeclItemProvider != null) classDeclItemProvider.dispose();
 		if (enumDeclItemProvider != null) enumDeclItemProvider.dispose();

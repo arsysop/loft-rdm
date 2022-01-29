@@ -37,7 +37,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
 import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
-import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
+import ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter;
@@ -73,7 +73,7 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass namespaceEClass = null;
+	private EClass namespaceSynopsisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -310,8 +310,18 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getNamespace() {
-		return namespaceEClass;
+	public EClass getNamespaceSynopsis() {
+		return namespaceSynopsisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNamespaceSynopsis_Definitions() {
+		return (EReference)namespaceSynopsisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -571,7 +581,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		createEReference(headerSynopsisEClass, HEADER_SYNOPSIS__PART);
 		createEReference(headerSynopsisEClass, HEADER_SYNOPSIS__DEFINITIONS);
 
-		namespaceEClass = createEClass(NAMESPACE);
+		namespaceSynopsisEClass = createEClass(NAMESPACE_SYNOPSIS);
+		createEReference(namespaceSynopsisEClass, NAMESPACE_SYNOPSIS__DEFINITIONS);
 
 		functionDeclEClass = createEClass(FUNCTION_DECL);
 		createEAttribute(functionDeclEClass, FUNCTION_DECL__SIGNATURE);
@@ -643,7 +654,7 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 
 		// Add supertypes to classes
 		headerSynopsisEClass.getESuperTypes().add(this.getDefinitionSynopsis());
-		namespaceEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		namespaceSynopsisEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		functionDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		classDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		enumDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
@@ -669,7 +680,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		initEReference(getHeaderSynopsis_Part(), theSpecPackage.getPart(), null, "part", null, 1, 1, HeaderSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getHeaderSynopsis_Definitions(), this.getDefinitionSynopsis(), null, "definitions", null, 0, -1, HeaderSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(namespaceSynopsisEClass, NamespaceSynopsis.class, "NamespaceSynopsis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getNamespaceSynopsis_Definitions(), this.getDefinitionSynopsis(), null, "definitions", null, 0, -1, NamespaceSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(functionDeclEClass, FunctionDecl.class, "FunctionDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getFunctionDecl_Signature(), ecorePackage.getEString(), "signature", null, 0, 1, FunctionDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
