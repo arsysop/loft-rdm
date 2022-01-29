@@ -90,8 +90,8 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 				return createSynopsisAdapter();
 			}
 			@Override
-			public Adapter caseDeclaration(Declaration object) {
-				return createDeclarationAdapter();
+			public Adapter caseDefinitionSynopsis(DefinitionSynopsis object) {
+				return createDefinitionSynopsisAdapter();
 			}
 			@Override
 			public Adapter caseNamespace(Namespace object) {
@@ -192,16 +192,16 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Declaration <em>Declaration</em>}'.
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis <em>Definition Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Declaration
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis
 	 * @generated
 	 */
-	public Adapter createDeclarationAdapter() {
+	public Adapter createDefinitionSynopsisAdapter() {
 		return null;
 	}
 

@@ -340,13 +340,13 @@ public interface MarkupPackage extends EPackage {
 	int CONTRACT__ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Declaration</b></em>' reference.
+	 * The feature id for the '<em><b>Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRACT__DECLARATION = 1;
+	int CONTRACT__DEFINITION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
@@ -659,15 +659,15 @@ public interface MarkupPackage extends EPackage {
 	EAttribute getContract_Id();
 
 	/**
-	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDeclaration <em>Declaration</em>}'.
+	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDefinition <em>Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Declaration</em>'.
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Contract#getDeclaration()
+	 * @return the meta object for the reference '<em>Definition</em>'.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.Contract#getDefinition()
 	 * @see #getContract()
 	 * @generated
 	 */
-	EReference getContract_Declaration();
+	EReference getContract_Definition();
 
 	/**
 	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getTags <em>Tags</em>}'.

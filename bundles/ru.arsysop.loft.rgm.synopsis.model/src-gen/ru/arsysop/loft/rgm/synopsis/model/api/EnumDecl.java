@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface EnumDecl extends Declaration {
+public interface EnumDecl extends DefinitionSynopsis {
 } // EnumDecl

@@ -158,7 +158,7 @@ public class SynopsisItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SynopsisPackage.eINSTANCE.getSynopsis_Declarations());
+			childrenFeatures.add(SynopsisPackage.eINSTANCE.getSynopsis_Definitions());
 		}
 		return childrenFeatures;
 	}
@@ -285,7 +285,7 @@ public class SynopsisItemProvider
 			case SynopsisPackage.SYNOPSIS__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SynopsisPackage.SYNOPSIS__DECLARATIONS:
+			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -307,82 +307,82 @@ public class SynopsisItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createNamespace()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createClassDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createEnumDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createStructDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createUnionDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFieldDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createVarDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createTypedefDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createParmDecl()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createClassTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createCXXMethod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createConstructor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createDestructor()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getSynopsis_Declarations(),
+				(SynopsisPackage.eINSTANCE.getSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createTemplateTypeParameter()));
 	}
 

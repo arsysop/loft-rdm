@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDeclaration <em>Declaration</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDefinition <em>Definition</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getTags <em>Tags</em>}</li>
  * </ul>
  *
@@ -67,26 +67,26 @@ public interface Contract extends EObject {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Declaration</b></em>' reference.
+	 * Returns the value of the '<em><b>Definition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Declaration</em>' reference.
-	 * @see #setDeclaration(Declaration)
-	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getContract_Declaration()
+	 * @return the value of the '<em>Definition</em>' reference.
+	 * @see #setDefinition(DefinitionSynopsis)
+	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getContract_Definition()
 	 * @model required="true"
 	 * @generated
 	 */
-	Declaration getDeclaration();
+	DefinitionSynopsis getDefinition();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDeclaration <em>Declaration</em>}' reference.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDefinition <em>Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Declaration</em>' reference.
-	 * @see #getDeclaration()
+	 * @param value the new value of the '<em>Definition</em>' reference.
+	 * @see #getDefinition()
 	 * @generated
 	 */
-	void setDeclaration(Declaration value);
+	void setDefinition(DefinitionSynopsis value);
 
 	/**
 	 * Returns the value of the '<em><b>Tags</b></em>' reference list.

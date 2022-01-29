@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TemplateTypeParameterItemProvider extends DeclarationItemProvider {
+public class TemplateTypeParameterItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

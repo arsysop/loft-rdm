@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class VarDeclImpl extends DeclarationImpl implements VarDecl {
+public class VarDeclImpl extends DefinitionSynopsisImpl implements VarDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

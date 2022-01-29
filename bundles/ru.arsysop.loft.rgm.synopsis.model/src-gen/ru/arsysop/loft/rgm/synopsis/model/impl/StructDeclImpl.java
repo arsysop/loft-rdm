@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class StructDeclImpl extends DeclarationImpl implements StructDecl {
+public class StructDeclImpl extends DefinitionSynopsisImpl implements StructDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

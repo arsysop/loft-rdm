@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface VarDecl extends Declaration {
+public interface VarDecl extends DefinitionSynopsis {
 } // VarDecl

@@ -43,7 +43,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/declaration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/definition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Contract/tags"/>
     </genClasses>
     <genClasses ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//ParsedRequirement"/>

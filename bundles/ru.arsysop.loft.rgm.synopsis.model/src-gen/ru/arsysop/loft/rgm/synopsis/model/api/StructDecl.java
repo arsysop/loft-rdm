@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface StructDecl extends Declaration {
+public interface StructDecl extends DefinitionSynopsis {
 } // StructDecl

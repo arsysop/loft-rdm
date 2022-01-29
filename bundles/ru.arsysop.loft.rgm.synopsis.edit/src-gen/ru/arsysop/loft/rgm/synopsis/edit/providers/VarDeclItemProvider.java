@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.VarDecl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VarDeclItemProvider extends DeclarationItemProvider {
+public class VarDeclItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

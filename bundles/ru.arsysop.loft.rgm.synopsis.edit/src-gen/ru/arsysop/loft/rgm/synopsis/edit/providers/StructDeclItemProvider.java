@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StructDeclItemProvider extends DeclarationItemProvider {
+public class StructDeclItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

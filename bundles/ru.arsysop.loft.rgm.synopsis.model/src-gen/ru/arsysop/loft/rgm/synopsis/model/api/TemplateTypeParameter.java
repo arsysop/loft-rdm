@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface TemplateTypeParameter extends Declaration {
+public interface TemplateTypeParameter extends DefinitionSynopsis {
 } // TemplateTypeParameter

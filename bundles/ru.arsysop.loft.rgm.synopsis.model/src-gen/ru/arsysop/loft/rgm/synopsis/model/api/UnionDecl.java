@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface UnionDecl extends Declaration {
+public interface UnionDecl extends DefinitionSynopsis {
 } // UnionDecl

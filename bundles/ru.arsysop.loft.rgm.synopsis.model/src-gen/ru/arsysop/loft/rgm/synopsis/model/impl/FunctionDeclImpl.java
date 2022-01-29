@@ -49,7 +49,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class FunctionDeclImpl extends DeclarationImpl implements FunctionDecl {
+public class FunctionDeclImpl extends DefinitionSynopsisImpl implements FunctionDecl {
 	/**
 	 * The default value of the '{@link #getSignature() <em>Signature</em>}' attribute.
 	 * <!-- begin-user-doc -->

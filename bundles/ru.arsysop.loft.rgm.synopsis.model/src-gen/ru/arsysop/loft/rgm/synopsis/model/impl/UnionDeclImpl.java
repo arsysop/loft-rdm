@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class UnionDeclImpl extends DeclarationImpl implements UnionDecl {
+public class UnionDeclImpl extends DefinitionSynopsisImpl implements UnionDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

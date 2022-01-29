@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class TypedefDeclImpl extends DeclarationImpl implements TypedefDecl {
+public class TypedefDeclImpl extends DefinitionSynopsisImpl implements TypedefDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ClassTemplate extends Declaration {
+public interface ClassTemplate extends DefinitionSynopsis {
 	/**
 	 * Returns the value of the '<em><b>Templatetypeparameter</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter}.

@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
 /**
@@ -36,13 +36,13 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.DeclarationImpl#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.DeclarationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.DefinitionSynopsisImpl#getId <em>Id</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.DefinitionSynopsisImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration {
+public abstract class DefinitionSynopsisImpl extends MinimalEObjectImpl.Container implements DefinitionSynopsis {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,7 +88,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DeclarationImpl() {
+	protected DefinitionSynopsisImpl() {
 		super();
 	}
 
@@ -99,7 +99,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SynopsisPackage.eINSTANCE.getDeclaration();
+		return SynopsisPackage.eINSTANCE.getDefinitionSynopsis();
 	}
 
 	/**
@@ -122,7 +122,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.DECLARATION__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.DEFINITION_SYNOPSIS__ID, oldId, id));
 	}
 
 	/**
@@ -145,7 +145,7 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.DECLARATION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.DEFINITION_SYNOPSIS__NAME, oldName, name));
 	}
 
 	/**
@@ -156,9 +156,9 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SynopsisPackage.DECLARATION__ID:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__ID:
 				return getId();
-			case SynopsisPackage.DECLARATION__NAME:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__NAME:
 				return getName();
 			default:
 				return super.eGet(featureID, resolve, coreType);
@@ -173,10 +173,10 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SynopsisPackage.DECLARATION__ID:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__ID:
 				setId((String)newValue);
 				return;
-			case SynopsisPackage.DECLARATION__NAME:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__NAME:
 				setName((String)newValue);
 				return;
 			default:
@@ -193,10 +193,10 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SynopsisPackage.DECLARATION__ID:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case SynopsisPackage.DECLARATION__NAME:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			default:
@@ -213,9 +213,9 @@ public abstract class DeclarationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SynopsisPackage.DECLARATION__ID:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case SynopsisPackage.DECLARATION__NAME:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			default:
 				return super.eIsSet(featureID);

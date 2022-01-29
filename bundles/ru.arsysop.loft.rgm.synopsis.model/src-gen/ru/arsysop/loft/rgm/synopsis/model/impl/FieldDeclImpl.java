@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class FieldDeclImpl extends DeclarationImpl implements FieldDecl {
+public class FieldDeclImpl extends DefinitionSynopsisImpl implements FieldDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

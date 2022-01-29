@@ -46,7 +46,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class ClassTemplateImpl extends DeclarationImpl implements ClassTemplate {
+public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTemplate {
 	/**
 	 * The cached value of the '{@link #getTemplatetypeparameter() <em>Templatetypeparameter</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

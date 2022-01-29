@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.TypedefDecl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypedefDeclItemProvider extends DeclarationItemProvider {
+public class TypedefDeclItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

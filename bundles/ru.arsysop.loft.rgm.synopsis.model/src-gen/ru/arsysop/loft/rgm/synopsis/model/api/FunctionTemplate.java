@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface FunctionTemplate extends Declaration {
+public interface FunctionTemplate extends DefinitionSynopsis {
 } // FunctionTemplate

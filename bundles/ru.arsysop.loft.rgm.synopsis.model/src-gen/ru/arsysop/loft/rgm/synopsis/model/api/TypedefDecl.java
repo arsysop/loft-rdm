@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface TypedefDecl extends Declaration {
+public interface TypedefDecl extends DefinitionSynopsis {
 } // TypedefDecl

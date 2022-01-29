@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class ParmDeclImpl extends DeclarationImpl implements ParmDecl {
+public class ParmDeclImpl extends DefinitionSynopsisImpl implements ParmDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

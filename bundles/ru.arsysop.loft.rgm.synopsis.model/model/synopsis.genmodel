@@ -21,11 +21,11 @@
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/part"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/definitions"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Declaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Declaration/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Declaration/name"/>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Namespace"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//FunctionDecl">

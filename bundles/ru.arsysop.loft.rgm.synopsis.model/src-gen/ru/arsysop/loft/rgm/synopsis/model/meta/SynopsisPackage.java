@@ -102,13 +102,13 @@ public interface SynopsisPackage extends EPackage {
 	int SYNOPSIS__PART = 1;
 
 	/**
-	 * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__DECLARATIONS = 2;
+	int SYNOPSIS__DEFINITIONS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Synopsis</em>' class.
@@ -129,14 +129,14 @@ public interface SynopsisPackage extends EPackage {
 	int SYNOPSIS_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.DeclarationImpl <em>Declaration</em>}' class.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.DefinitionSynopsisImpl <em>Definition Synopsis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.DeclarationImpl
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getDeclaration()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.DefinitionSynopsisImpl
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getDefinitionSynopsis()
 	 * @generated
 	 */
-	int DECLARATION = 1;
+	int DEFINITION_SYNOPSIS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -145,7 +145,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION__ID = 0;
+	int DEFINITION_SYNOPSIS__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -154,25 +154,25 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION__NAME = 1;
+	int DEFINITION_SYNOPSIS__NAME = 1;
 
 	/**
-	 * The number of structural features of the '<em>Declaration</em>' class.
+	 * The number of structural features of the '<em>Definition Synopsis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION_FEATURE_COUNT = 2;
+	int DEFINITION_SYNOPSIS_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Declaration</em>' class.
+	 * The number of operations of the '<em>Definition Synopsis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARATION_OPERATION_COUNT = 0;
+	int DEFINITION_SYNOPSIS_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.NamespaceImpl <em>Namespace</em>}' class.
@@ -191,7 +191,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__ID = DECLARATION__ID;
+	int NAMESPACE__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -200,7 +200,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__NAME = DECLARATION__NAME;
+	int NAMESPACE__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Namespace</em>' class.
@@ -209,7 +209,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int NAMESPACE_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Namespace</em>' class.
@@ -218,7 +218,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int NAMESPACE_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
@@ -237,7 +237,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_DECL__ID = DECLARATION__ID;
+	int FUNCTION_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -246,7 +246,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_DECL__NAME = DECLARATION__NAME;
+	int FUNCTION_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' attribute.
@@ -255,7 +255,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_DECL__SIGNATURE = DECLARATION_FEATURE_COUNT + 0;
+	int FUNCTION_DECL__SIGNATURE = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -264,7 +264,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_DECL__PARAMETERS = DECLARATION_FEATURE_COUNT + 1;
+	int FUNCTION_DECL__PARAMETERS = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Function Decl</em>' class.
@@ -273,7 +273,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 2;
+	int FUNCTION_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Function Decl</em>' class.
@@ -282,7 +282,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int FUNCTION_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.ClassDeclImpl <em>Class Decl</em>}' class.
@@ -301,7 +301,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL__ID = DECLARATION__ID;
+	int CLASS_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -310,7 +310,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL__NAME = DECLARATION__NAME;
+	int CLASS_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -319,7 +319,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL__FIELDS = DECLARATION_FEATURE_COUNT + 0;
+	int CLASS_DECL__FIELDS = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Destructor</b></em>' reference list.
@@ -328,7 +328,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL__DESTRUCTOR = DECLARATION_FEATURE_COUNT + 1;
+	int CLASS_DECL__DESTRUCTOR = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Constructors</b></em>' reference list.
@@ -337,7 +337,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL__CONSTRUCTORS = DECLARATION_FEATURE_COUNT + 2;
+	int CLASS_DECL__CONSTRUCTORS = DEFINITION_SYNOPSIS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Cxxmethod</b></em>' reference list.
@@ -346,7 +346,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL__CXXMETHOD = DECLARATION_FEATURE_COUNT + 3;
+	int CLASS_DECL__CXXMETHOD = DEFINITION_SYNOPSIS_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Class Decl</em>' class.
@@ -355,7 +355,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 4;
+	int CLASS_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Class Decl</em>' class.
@@ -364,7 +364,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int CLASS_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.EnumDeclImpl <em>Enum Decl</em>}' class.
@@ -383,7 +383,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DECL__ID = DECLARATION__ID;
+	int ENUM_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -392,7 +392,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DECL__NAME = DECLARATION__NAME;
+	int ENUM_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Enum Decl</em>' class.
@@ -401,7 +401,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int ENUM_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Enum Decl</em>' class.
@@ -410,7 +410,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int ENUM_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.StructDeclImpl <em>Struct Decl</em>}' class.
@@ -429,7 +429,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_DECL__ID = DECLARATION__ID;
+	int STRUCT_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -438,7 +438,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_DECL__NAME = DECLARATION__NAME;
+	int STRUCT_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Struct Decl</em>' class.
@@ -447,7 +447,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int STRUCT_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Struct Decl</em>' class.
@@ -456,7 +456,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCT_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int STRUCT_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.UnionDeclImpl <em>Union Decl</em>}' class.
@@ -475,7 +475,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNION_DECL__ID = DECLARATION__ID;
+	int UNION_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -484,7 +484,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNION_DECL__NAME = DECLARATION__NAME;
+	int UNION_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Union Decl</em>' class.
@@ -493,7 +493,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNION_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int UNION_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Union Decl</em>' class.
@@ -502,7 +502,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNION_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int UNION_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.FieldDeclImpl <em>Field Decl</em>}' class.
@@ -521,7 +521,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_DECL__ID = DECLARATION__ID;
+	int FIELD_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -530,7 +530,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_DECL__NAME = DECLARATION__NAME;
+	int FIELD_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Field Decl</em>' class.
@@ -539,7 +539,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int FIELD_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Field Decl</em>' class.
@@ -548,7 +548,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int FIELD_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.VarDeclImpl <em>Var Decl</em>}' class.
@@ -567,7 +567,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VAR_DECL__ID = DECLARATION__ID;
+	int VAR_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -576,7 +576,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VAR_DECL__NAME = DECLARATION__NAME;
+	int VAR_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Var Decl</em>' class.
@@ -585,7 +585,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VAR_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int VAR_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Var Decl</em>' class.
@@ -594,7 +594,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VAR_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int VAR_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.TypedefDeclImpl <em>Typedef Decl</em>}' class.
@@ -613,7 +613,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPEDEF_DECL__ID = DECLARATION__ID;
+	int TYPEDEF_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -622,7 +622,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPEDEF_DECL__NAME = DECLARATION__NAME;
+	int TYPEDEF_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Typedef Decl</em>' class.
@@ -631,7 +631,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPEDEF_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int TYPEDEF_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Typedef Decl</em>' class.
@@ -640,7 +640,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPEDEF_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int TYPEDEF_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.ParmDeclImpl <em>Parm Decl</em>}' class.
@@ -659,7 +659,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARM_DECL__ID = DECLARATION__ID;
+	int PARM_DECL__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -668,7 +668,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARM_DECL__NAME = DECLARATION__NAME;
+	int PARM_DECL__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Parm Decl</em>' class.
@@ -677,7 +677,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARM_DECL_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int PARM_DECL_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Parm Decl</em>' class.
@@ -686,7 +686,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARM_DECL_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int PARM_DECL_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.FunctionTemplateImpl <em>Function Template</em>}' class.
@@ -705,7 +705,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_TEMPLATE__ID = DECLARATION__ID;
+	int FUNCTION_TEMPLATE__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -714,7 +714,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_TEMPLATE__NAME = DECLARATION__NAME;
+	int FUNCTION_TEMPLATE__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Function Template</em>' class.
@@ -723,7 +723,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_TEMPLATE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int FUNCTION_TEMPLATE_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Function Template</em>' class.
@@ -732,7 +732,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FUNCTION_TEMPLATE_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int FUNCTION_TEMPLATE_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateImpl <em>Class Template</em>}' class.
@@ -751,7 +751,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_TEMPLATE__ID = DECLARATION__ID;
+	int CLASS_TEMPLATE__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -760,7 +760,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_TEMPLATE__NAME = DECLARATION__NAME;
+	int CLASS_TEMPLATE__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Templatetypeparameter</b></em>' containment reference list.
@@ -769,7 +769,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_TEMPLATE__TEMPLATETYPEPARAMETER = DECLARATION_FEATURE_COUNT + 0;
+	int CLASS_TEMPLATE__TEMPLATETYPEPARAMETER = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Class Template</em>' class.
@@ -778,7 +778,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_TEMPLATE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+	int CLASS_TEMPLATE_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Class Template</em>' class.
@@ -787,7 +787,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_TEMPLATE_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int CLASS_TEMPLATE_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.CXXMethodImpl <em>CXX Method</em>}' class.
@@ -998,7 +998,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_TYPE_PARAMETER__ID = DECLARATION__ID;
+	int TEMPLATE_TYPE_PARAMETER__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1007,7 +1007,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_TYPE_PARAMETER__NAME = DECLARATION__NAME;
+	int TEMPLATE_TYPE_PARAMETER__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Template Type Parameter</em>' class.
@@ -1016,7 +1016,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_TYPE_PARAMETER_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 0;
+	int TEMPLATE_TYPE_PARAMETER_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Template Type Parameter</em>' class.
@@ -1025,7 +1025,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_TYPE_PARAMETER_OPERATION_COUNT = DECLARATION_OPERATION_COUNT + 0;
+	int TEMPLATE_TYPE_PARAMETER_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1061,47 +1061,47 @@ public interface SynopsisPackage extends EPackage {
 	EReference getSynopsis_Part();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDeclarations <em>Declarations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDefinitions <em>Definitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Declarations</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDeclarations()
+	 * @return the meta object for the containment reference list '<em>Definitions</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDefinitions()
 	 * @see #getSynopsis()
 	 * @generated
 	 */
-	EReference getSynopsis_Declarations();
+	EReference getSynopsis_Definitions();
 
 	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Declaration <em>Declaration</em>}'.
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis <em>Definition Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Declaration</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Declaration
+	 * @return the meta object for class '<em>Definition Synopsis</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis
 	 * @generated
 	 */
-	EClass getDeclaration();
+	EClass getDefinitionSynopsis();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.synopsis.model.api.Declaration#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Declaration#getId()
-	 * @see #getDeclaration()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis#getId()
+	 * @see #getDefinitionSynopsis()
 	 * @generated
 	 */
-	EAttribute getDeclaration_Id();
+	EAttribute getDefinitionSynopsis_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.synopsis.model.api.Declaration#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Declaration#getName()
-	 * @see #getDeclaration()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis#getName()
+	 * @see #getDefinitionSynopsis()
 	 * @generated
 	 */
-	EAttribute getDeclaration_Name();
+	EAttribute getDefinitionSynopsis_Name();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Namespace <em>Namespace</em>}'.
