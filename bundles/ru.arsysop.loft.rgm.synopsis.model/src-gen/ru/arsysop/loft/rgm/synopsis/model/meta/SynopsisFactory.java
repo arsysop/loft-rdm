@@ -31,7 +31,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
 import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
-import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
+import ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter;
@@ -66,13 +66,13 @@ public interface SynopsisFactory extends EFactory {
 	HeaderSynopsis createHeaderSynopsis();
 
 	/**
-	 * Returns a new object of class '<em>Namespace</em>'.
+	 * Returns a new object of class '<em>Namespace Synopsis</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Namespace</em>'.
+	 * @return a new object of class '<em>Namespace Synopsis</em>'.
 	 * @generated
 	 */
-	Namespace createNamespace();
+	NamespaceSynopsis createNamespaceSynopsis();
 
 	/**
 	 * Returns a new object of class '<em>Function Decl</em>'.

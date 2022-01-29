@@ -184,14 +184,14 @@ public interface SynopsisPackage extends EPackage {
 	int HEADER_SYNOPSIS_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.NamespaceImpl <em>Namespace</em>}' class.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.NamespaceSynopsisImpl <em>Namespace Synopsis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.NamespaceImpl
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getNamespace()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.NamespaceSynopsisImpl
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getNamespaceSynopsis()
 	 * @generated
 	 */
-	int NAMESPACE = 2;
+	int NAMESPACE_SYNOPSIS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -200,7 +200,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__ID = DEFINITION_SYNOPSIS__ID;
+	int NAMESPACE_SYNOPSIS__ID = DEFINITION_SYNOPSIS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -209,25 +209,34 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE__NAME = DEFINITION_SYNOPSIS__NAME;
+	int NAMESPACE_SYNOPSIS__NAME = DEFINITION_SYNOPSIS__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Namespace</em>' class.
+	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
+	int NAMESPACE_SYNOPSIS__DEFINITIONS = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Namespace</em>' class.
+	 * The number of structural features of the '<em>Namespace Synopsis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACE_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
+	int NAMESPACE_SYNOPSIS_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Namespace Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACE_SYNOPSIS_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
@@ -1102,14 +1111,25 @@ public interface SynopsisPackage extends EPackage {
 	EReference getHeaderSynopsis_Definitions();
 
 	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Namespace <em>Namespace</em>}'.
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis <em>Namespace Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Namespace</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Namespace
+	 * @return the meta object for class '<em>Namespace Synopsis</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis
 	 * @generated
 	 */
-	EClass getNamespace();
+	EClass getNamespaceSynopsis();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis#getDefinitions <em>Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Definitions</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis#getDefinitions()
+	 * @see #getNamespaceSynopsis()
+	 * @generated
+	 */
+	EReference getNamespaceSynopsis_Definitions();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl <em>Function Decl</em>}'.

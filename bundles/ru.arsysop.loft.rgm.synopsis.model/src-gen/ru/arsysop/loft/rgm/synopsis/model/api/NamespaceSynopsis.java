@@ -18,38 +18,38 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.synopsis.model.impl;
+package ru.arsysop.loft.rgm.synopsis.model.api;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.util.EList;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
-import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Namespace</b></em>'.
+ * A representation of the model object '<em><b>Namespace</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis#getDefinitions <em>Definitions</em>}</li>
+ * </ul>
+ *
+ * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getNamespaceSynopsis()
+ * @model
  * @generated
  */
-public class NamespaceImpl extends DefinitionSynopsisImpl implements Namespace {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NamespaceImpl() {
-		super();
-	}
+public interface NamespaceSynopsis extends DefinitionSynopsis {
 
 	/**
+	 * Returns the value of the '<em><b>Definitions</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Definitions</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getNamespaceSynopsis_Definitions()
+	 * @model containment="true"
 	 * @generated
 	 */
-	@Override
-	protected EClass eStaticClass() {
-		return SynopsisPackage.eINSTANCE.getNamespace();
-	}
-
-} //NamespaceImpl
+	EList<DefinitionSynopsis> getDefinitions();
+} // Namespace
