@@ -176,7 +176,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMarkup_Synopses() {
+	public EReference getMarkup_Definitions() {
 		return (EReference)markupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -421,7 +421,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		// Create classes and their features
 		markupEClass = createEClass(MARKUP);
 		createEReference(markupEClass, MARKUP__CITATIONS);
-		createEReference(markupEClass, MARKUP__SYNOPSES);
+		createEReference(markupEClass, MARKUP__DEFINITIONS);
 		createEReference(markupEClass, MARKUP__REQUIREMENTS);
 		createEReference(markupEClass, MARKUP__TAGS);
 		createEReference(markupEClass, MARKUP__CONTRACTS);
@@ -487,7 +487,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getMarkup_Citations(), this.getCitation(), null, "citations", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getMarkup_Synopses(), theSynopsisPackage.getSynopsis(), null, "synopses", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getMarkup_Definitions(), theSynopsisPackage.getDefinitionSynopsis(), null, "definitions", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Tags(), this.getTag(), null, "tags", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getMarkup_Contracts(), this.getContract(), null, "contracts", null, 0, -1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

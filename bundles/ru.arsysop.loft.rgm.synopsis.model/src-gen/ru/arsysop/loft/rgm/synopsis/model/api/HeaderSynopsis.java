@@ -21,7 +21,6 @@
 package ru.arsysop.loft.rgm.synopsis.model.api;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 
 /**
@@ -33,52 +32,29 @@ import ru.arsysop.loft.rgm.spec.model.api.Part;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getName <em>Name</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getPart <em>Part</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDefinitions <em>Definitions</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getPart <em>Part</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis()
+ * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getHeaderSynopsis()
  * @model
  * @generated
  */
-public interface Synopsis extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface HeaderSynopsis extends DefinitionSynopsis {
 	/**
 	 * Returns the value of the '<em><b>Part</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Part</em>' reference.
 	 * @see #setPart(Part)
-	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis_Part()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getHeaderSynopsis_Part()
 	 * @model required="true"
 	 * @generated
 	 */
 	Part getPart();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getPart <em>Part</em>}' reference.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getPart <em>Part</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Part</em>' reference.
@@ -93,7 +69,7 @@ public interface Synopsis extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Definitions</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis_Definitions()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getHeaderSynopsis_Definitions()
 	 * @model containment="true"
 	 * @generated
 	 */

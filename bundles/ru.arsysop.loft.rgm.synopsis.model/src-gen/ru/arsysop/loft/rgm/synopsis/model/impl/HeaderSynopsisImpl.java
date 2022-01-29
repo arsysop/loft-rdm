@@ -30,13 +30,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
-import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
+import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
 /**
@@ -47,34 +45,13 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getName <em>Name</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getPart <em>Part</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getDefinitions <em>Definitions</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.HeaderSynopsisImpl#getPart <em>Part</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.HeaderSynopsisImpl#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synopsis {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class HeaderSynopsisImpl extends DefinitionSynopsisImpl implements HeaderSynopsis {
 	/**
 	 * The cached value of the '{@link #getPart() <em>Part</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -100,7 +77,7 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SynopsisImpl() {
+	protected HeaderSynopsisImpl() {
 		super();
 	}
 
@@ -111,30 +88,7 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SynopsisPackage.eINSTANCE.getSynopsis();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.SYNOPSIS__NAME, oldName, name));
+		return SynopsisPackage.eINSTANCE.getHeaderSynopsis();
 	}
 
 	/**
@@ -149,7 +103,7 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 			part = (Part)eResolveProxy(oldPart);
 			if (part != oldPart) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SynopsisPackage.SYNOPSIS__PART, oldPart, part));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SynopsisPackage.HEADER_SYNOPSIS__PART, oldPart, part));
 			}
 		}
 		return part;
@@ -174,7 +128,7 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 		Part oldPart = part;
 		part = newPart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.SYNOPSIS__PART, oldPart, part));
+			eNotify(new ENotificationImpl(this, Notification.SET, SynopsisPackage.HEADER_SYNOPSIS__PART, oldPart, part));
 	}
 
 	/**
@@ -185,7 +139,7 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public EList<DefinitionSynopsis> getDefinitions() {
 		if (definitions == null) {
-			definitions = new EObjectContainmentEList<DefinitionSynopsis>(DefinitionSynopsis.class, this, SynopsisPackage.SYNOPSIS__DEFINITIONS);
+			definitions = new EObjectContainmentEList<DefinitionSynopsis>(DefinitionSynopsis.class, this, SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS);
 		}
 		return definitions;
 	}
@@ -198,7 +152,7 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+			case SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS:
 				return ((InternalEList<?>)getDefinitions()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -213,12 +167,10 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SynopsisPackage.SYNOPSIS__NAME:
-				return getName();
-			case SynopsisPackage.SYNOPSIS__PART:
+			case SynopsisPackage.HEADER_SYNOPSIS__PART:
 				if (resolve) return getPart();
 				return basicGetPart();
-			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+			case SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS:
 				return getDefinitions();
 			default:
 				return super.eGet(featureID, resolve, coreType);
@@ -234,13 +186,10 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SynopsisPackage.SYNOPSIS__NAME:
-				setName((String)newValue);
-				return;
-			case SynopsisPackage.SYNOPSIS__PART:
+			case SynopsisPackage.HEADER_SYNOPSIS__PART:
 				setPart((Part)newValue);
 				return;
-			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+			case SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS:
 				getDefinitions().clear();
 				getDefinitions().addAll((Collection<? extends DefinitionSynopsis>)newValue);
 				return;
@@ -258,13 +207,10 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SynopsisPackage.SYNOPSIS__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case SynopsisPackage.SYNOPSIS__PART:
+			case SynopsisPackage.HEADER_SYNOPSIS__PART:
 				setPart((Part)null);
 				return;
-			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+			case SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS:
 				getDefinitions().clear();
 				return;
 			default:
@@ -281,31 +227,13 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SynopsisPackage.SYNOPSIS__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SynopsisPackage.SYNOPSIS__PART:
+			case SynopsisPackage.HEADER_SYNOPSIS__PART:
 				return part != null;
-			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+			case SynopsisPackage.HEADER_SYNOPSIS__DEFINITIONS:
 				return definitions != null && !definitions.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: "); //$NON-NLS-1$
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //HeaderImpl

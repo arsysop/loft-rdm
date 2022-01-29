@@ -20,7 +20,7 @@
       ecorePackage="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#/">
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/citations"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/synopses"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/definitions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/requirements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/tags"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.markup.ecore/model/markup.ecore#//Markup/contracts"/>

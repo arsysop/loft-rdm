@@ -93,13 +93,13 @@ public interface MarkupPackage extends EPackage {
 	int MARKUP__CITATIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Synopses</b></em>' reference list.
+	 * The feature id for the '<em><b>Definitions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP__SYNOPSES = 1;
+	int MARKUP__DEFINITIONS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
@@ -454,15 +454,15 @@ public interface MarkupPackage extends EPackage {
 	EReference getMarkup_Citations();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getSynopses <em>Synopses</em>}'.
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getDefinitions <em>Definitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Synopses</em>'.
-	 * @see ru.arsysop.loft.rgm.markup.model.api.Markup#getSynopses()
+	 * @return the meta object for the reference list '<em>Definitions</em>'.
+	 * @see ru.arsysop.loft.rgm.markup.model.api.Markup#getDefinitions()
 	 * @see #getMarkup()
 	 * @generated
 	 */
-	EReference getMarkup_Synopses();
+	EReference getMarkup_Definitions();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getRequirements <em>Requirements</em>}'.

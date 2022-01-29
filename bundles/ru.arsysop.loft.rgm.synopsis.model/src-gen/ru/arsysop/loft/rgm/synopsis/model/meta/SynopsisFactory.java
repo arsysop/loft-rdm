@@ -30,7 +30,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
-import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
+import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
@@ -57,13 +57,13 @@ public interface SynopsisFactory extends EFactory {
 	SynopsisFactory eINSTANCE = ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Synopsis</em>'.
+	 * Returns a new object of class '<em>Header Synopsis</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Synopsis</em>'.
+	 * @return a new object of class '<em>Header Synopsis</em>'.
 	 * @generated
 	 */
-	Synopsis createSynopsis();
+	HeaderSynopsis createHeaderSynopsis();
 
 	/**
 	 * Returns a new object of class '<em>Namespace</em>'.
