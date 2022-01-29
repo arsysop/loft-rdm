@@ -94,32 +94,10 @@ public class ContractItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
-			addDeclarationPropertyDescriptor(object);
+			addDefinitionPropertyDescriptor(object);
 			addTagsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Declaration feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDeclarationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Contract_declaration_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Contract_declaration_feature", "_UI_Contract_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 MarkupPackage.eINSTANCE.getContract_Declaration(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -162,6 +140,28 @@ public class ContractItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Definition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefinitionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Contract_definition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Contract_definition_feature", "_UI_Contract_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 MarkupPackage.eINSTANCE.getContract_Definition(),
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -246,7 +246,7 @@ public class ContractItemProvider
 		Contract contract = (Contract) object;
 		StyledString styledLabel = new StyledString();
 		styledLabel.append(getString("_UI_Contract_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		DefinitionSynopsis declaration = contract.getDeclaration();
+		DefinitionSynopsis declaration = contract.getDefinition();
 		if (declaration != null) {
 			styledLabel.append(" --> ", StyledString.Style.COUNTER_STYLER); //$NON-NLS-1$
 			Optional.ofNullable(

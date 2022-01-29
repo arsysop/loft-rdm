@@ -38,8 +38,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Contract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="declaration" lowerBound="1"
-        eType="ecore:EClass ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Declaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
+        eType="ecore:EClass ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
         eOpposite="#//Tag/contracts"/>
   </eClassifiers>

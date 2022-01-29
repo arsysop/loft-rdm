@@ -366,7 +366,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getContract_Declaration() {
+	public EReference getContract_Definition() {
 		return (EReference)contractEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -444,7 +444,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 
 		contractEClass = createEClass(CONTRACT);
 		createEAttribute(contractEClass, CONTRACT__ID);
-		createEReference(contractEClass, CONTRACT__DECLARATION);
+		createEReference(contractEClass, CONTRACT__DEFINITION);
 		createEReference(contractEClass, CONTRACT__TAGS);
 
 		parsedRequirementEClass = createEClass(PARSED_REQUIREMENT);
@@ -510,7 +510,7 @@ public class MarkupPackageImpl extends EPackageImpl implements MarkupPackage {
 
 		initEClass(contractEClass, Contract.class, "Contract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getContract_Id(), ecorePackage.getEString(), "id", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getContract_Declaration(), theSynopsisPackage.getDeclaration(), null, "declaration", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getContract_Definition(), theSynopsisPackage.getDefinitionSynopsis(), null, "definition", null, 1, 1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getContract_Tags(), this.getTag(), this.getTag_Contracts(), "tags", null, 0, -1, Contract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(parsedRequirementEClass, ParsedRequirement.class, "ParsedRequirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

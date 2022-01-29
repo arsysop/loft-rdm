@@ -50,7 +50,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.ContractImpl#getId <em>Id</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.ContractImpl#getDeclaration <em>Declaration</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.ContractImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.impl.ContractImpl#getTags <em>Tags</em>}</li>
  * </ul>
  *
@@ -78,14 +78,14 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	protected String id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDeclaration() <em>Declaration</em>}' reference.
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeclaration()
+	 * @see #getDefinition()
 	 * @generated
 	 * @ordered
 	 */
-	protected DefinitionSynopsis declaration;
+	protected DefinitionSynopsis definition;
 
 	/**
 	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
@@ -145,16 +145,16 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 */
 	@Override
-	public DefinitionSynopsis getDeclaration() {
-		if (declaration != null && declaration.eIsProxy()) {
-			InternalEObject oldDeclaration = (InternalEObject)declaration;
-			declaration = (DefinitionSynopsis)eResolveProxy(oldDeclaration);
-			if (declaration != oldDeclaration) {
+	public DefinitionSynopsis getDefinition() {
+		if (definition != null && definition.eIsProxy()) {
+			InternalEObject oldDefinition = (InternalEObject)definition;
+			definition = (DefinitionSynopsis)eResolveProxy(oldDefinition);
+			if (definition != oldDefinition) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MarkupPackage.CONTRACT__DECLARATION, oldDeclaration, declaration));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MarkupPackage.CONTRACT__DEFINITION, oldDefinition, definition));
 			}
 		}
-		return declaration;
+		return definition;
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DefinitionSynopsis basicGetDeclaration() {
-		return declaration;
+	public DefinitionSynopsis basicGetDefinition() {
+		return definition;
 	}
 
 	/**
@@ -172,11 +172,11 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 */
 	@Override
-	public void setDeclaration(DefinitionSynopsis newDeclaration) {
-		DefinitionSynopsis oldDeclaration = declaration;
-		declaration = newDeclaration;
+	public void setDefinition(DefinitionSynopsis newDefinition) {
+		DefinitionSynopsis oldDefinition = definition;
+		definition = newDefinition;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.CONTRACT__DECLARATION, oldDeclaration, declaration));
+			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.CONTRACT__DEFINITION, oldDefinition, definition));
 	}
 
 	/**
@@ -233,9 +233,9 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 		switch (featureID) {
 			case MarkupPackage.CONTRACT__ID:
 				return getId();
-			case MarkupPackage.CONTRACT__DECLARATION:
-				if (resolve) return getDeclaration();
-				return basicGetDeclaration();
+			case MarkupPackage.CONTRACT__DEFINITION:
+				if (resolve) return getDefinition();
+				return basicGetDefinition();
 			case MarkupPackage.CONTRACT__TAGS:
 				return getTags();
 			default:
@@ -255,8 +255,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 			case MarkupPackage.CONTRACT__ID:
 				setId((String)newValue);
 				return;
-			case MarkupPackage.CONTRACT__DECLARATION:
-				setDeclaration((DefinitionSynopsis)newValue);
+			case MarkupPackage.CONTRACT__DEFINITION:
+				setDefinition((DefinitionSynopsis)newValue);
 				return;
 			case MarkupPackage.CONTRACT__TAGS:
 				getTags().clear();
@@ -279,8 +279,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 			case MarkupPackage.CONTRACT__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case MarkupPackage.CONTRACT__DECLARATION:
-				setDeclaration((DefinitionSynopsis)null);
+			case MarkupPackage.CONTRACT__DEFINITION:
+				setDefinition((DefinitionSynopsis)null);
 				return;
 			case MarkupPackage.CONTRACT__TAGS:
 				getTags().clear();
@@ -301,8 +301,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 		switch (featureID) {
 			case MarkupPackage.CONTRACT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case MarkupPackage.CONTRACT__DECLARATION:
-				return declaration != null;
+			case MarkupPackage.CONTRACT__DEFINITION:
+				return definition != null;
 			case MarkupPackage.CONTRACT__TAGS:
 				return tags != null && !tags.isEmpty();
 			default:
