@@ -86,12 +86,12 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	protected SynopsisSwitch<Adapter> modelSwitch =
 		new SynopsisSwitch<Adapter>() {
 			@Override
-			public Adapter caseSynopsis(Synopsis object) {
-				return createSynopsisAdapter();
-			}
-			@Override
 			public Adapter caseDefinitionSynopsis(DefinitionSynopsis object) {
 				return createDefinitionSynopsisAdapter();
+			}
+			@Override
+			public Adapter caseHeaderSynopsis(HeaderSynopsis object) {
+				return createHeaderSynopsisAdapter();
 			}
 			@Override
 			public Adapter caseNamespace(Namespace object) {
@@ -178,20 +178,6 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis <em>Synopsis</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis
-	 * @generated
-	 */
-	public Adapter createSynopsisAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis <em>Definition Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -202,6 +188,20 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDefinitionSynopsisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis <em>Header Synopsis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis
+	 * @generated
+	 */
+	public Adapter createHeaderSynopsisAdapter() {
 		return null;
 	}
 

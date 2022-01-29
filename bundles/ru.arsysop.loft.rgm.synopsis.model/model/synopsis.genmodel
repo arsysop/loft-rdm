@@ -18,14 +18,13 @@
       classPackageSuffix="model.impl" utilityPackageSuffix="model.util" providerPackageSuffix="edit.providers"
       presentationPackageSuffix="editor" testsPackageSuffix="model.tests" literalsInterface="false"
       extensibleProviderFactory="true" ecorePackage="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#/">
-    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/part"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Synopsis/definitions"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//DefinitionSynopsis/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//HeaderSynopsis">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//HeaderSynopsis/part"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//HeaderSynopsis/definitions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Namespace"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//FunctionDecl">

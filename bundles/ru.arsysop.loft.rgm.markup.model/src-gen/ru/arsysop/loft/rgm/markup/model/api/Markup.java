@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getCitations <em>Citations</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getSynopses <em>Synopses</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getDefinitions <em>Definitions</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getRequirements <em>Requirements</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getTags <em>Tags</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.markup.model.api.Markup#getContracts <em>Contracts</em>}</li>
@@ -59,16 +59,16 @@ public interface Markup extends EObject {
 	EList<Citation> getCitations();
 
 	/**
-	 * Returns the value of the '<em><b>Synopses</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis}.
+	 * Returns the value of the '<em><b>Definitions</b></em>' reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Synopses</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getMarkup_Synopses()
+	 * @return the value of the '<em>Definitions</em>' reference list.
+	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getMarkup_Definitions()
 	 * @model
 	 * @generated
 	 */
-	EList<Synopsis> getSynopses();
+	EList<DefinitionSynopsis> getDefinitions();
 
 	/**
 	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference list.

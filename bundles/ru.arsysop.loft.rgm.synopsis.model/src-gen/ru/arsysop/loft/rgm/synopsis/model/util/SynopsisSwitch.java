@@ -33,7 +33,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
-import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
+import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
 import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
@@ -100,15 +100,16 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SynopsisPackage.SYNOPSIS: {
-				Synopsis synopsis = (Synopsis)theEObject;
-				T result = caseSynopsis(synopsis);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SynopsisPackage.DEFINITION_SYNOPSIS: {
 				DefinitionSynopsis definitionSynopsis = (DefinitionSynopsis)theEObject;
 				T result = caseDefinitionSynopsis(definitionSynopsis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SynopsisPackage.HEADER_SYNOPSIS: {
+				HeaderSynopsis headerSynopsis = (HeaderSynopsis)theEObject;
+				T result = caseHeaderSynopsis(headerSynopsis);
+				if (result == null) result = caseDefinitionSynopsis(headerSynopsis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,21 +233,6 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Synopsis</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Synopsis</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSynopsis(Synopsis object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Definition Synopsis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -258,6 +244,21 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDefinitionSynopsis(DefinitionSynopsis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Header Synopsis</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Header Synopsis</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHeaderSynopsis(HeaderSynopsis object) {
 		return null;
 	}
 

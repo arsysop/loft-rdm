@@ -75,7 +75,7 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SynopsisPackage.SYNOPSIS: return createSynopsis();
+			case SynopsisPackage.HEADER_SYNOPSIS: return createHeaderSynopsis();
 			case SynopsisPackage.NAMESPACE: return createNamespace();
 			case SynopsisPackage.FUNCTION_DECL: return createFunctionDecl();
 			case SynopsisPackage.CLASS_DECL: return createClassDecl();
@@ -103,9 +103,9 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 	 * @generated
 	 */
 	@Override
-	public Synopsis createSynopsis() {
-		SynopsisImpl synopsis = new SynopsisImpl();
-		return synopsis;
+	public HeaderSynopsis createHeaderSynopsis() {
+		HeaderSynopsisImpl headerSynopsis = new HeaderSynopsisImpl();
+		return headerSynopsis;
 	}
 
 	/**

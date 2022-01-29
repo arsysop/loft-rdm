@@ -92,25 +92,25 @@ public class MarkupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSynopsesPropertyDescriptor(object);
+			addDefinitionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Synopses feature.
+	 * This adds a property descriptor for the Definitions feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSynopsesPropertyDescriptor(Object object) {
+	protected void addDefinitionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Markup_synopses_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Markup_synopses_feature", "_UI_Markup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 MarkupPackage.eINSTANCE.getMarkup_Synopses(),
+				 getString("_UI_Markup_definitions_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Markup_definitions_feature", "_UI_Markup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 MarkupPackage.eINSTANCE.getMarkup_Definitions(),
 				 true,
 				 false,
 				 true,

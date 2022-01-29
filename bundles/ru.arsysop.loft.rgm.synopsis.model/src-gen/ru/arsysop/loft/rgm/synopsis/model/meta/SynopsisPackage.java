@@ -74,61 +74,6 @@ public interface SynopsisPackage extends EPackage {
 	SynopsisPackage eINSTANCE = ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl <em>Synopsis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getSynopsis()
-	 * @generated
-	 */
-	int SYNOPSIS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNOPSIS__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Part</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNOPSIS__PART = 1;
-
-	/**
-	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNOPSIS__DEFINITIONS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Synopsis</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNOPSIS_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Synopsis</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNOPSIS_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.DefinitionSynopsisImpl <em>Definition Synopsis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,7 +81,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getDefinitionSynopsis()
 	 * @generated
 	 */
-	int DEFINITION_SYNOPSIS = 1;
+	int DEFINITION_SYNOPSIS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -173,6 +118,70 @@ public interface SynopsisPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEFINITION_SYNOPSIS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.HeaderSynopsisImpl <em>Header Synopsis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.HeaderSynopsisImpl
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getHeaderSynopsis()
+	 * @generated
+	 */
+	int HEADER_SYNOPSIS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_SYNOPSIS__ID = DEFINITION_SYNOPSIS__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_SYNOPSIS__NAME = DEFINITION_SYNOPSIS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Part</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_SYNOPSIS__PART = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Definitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_SYNOPSIS__DEFINITIONS = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Header Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_SYNOPSIS_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Header Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_SYNOPSIS_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.NamespaceImpl <em>Namespace</em>}' class.
@@ -1029,49 +1038,6 @@ public interface SynopsisPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis <em>Synopsis</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Synopsis</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis
-	 * @generated
-	 */
-	EClass getSynopsis();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getName()
-	 * @see #getSynopsis()
-	 * @generated
-	 */
-	EAttribute getSynopsis_Name();
-
-	/**
-	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getPart <em>Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Part</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getPart()
-	 * @see #getSynopsis()
-	 * @generated
-	 */
-	EReference getSynopsis_Part();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDefinitions <em>Definitions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Definitions</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDefinitions()
-	 * @see #getSynopsis()
-	 * @generated
-	 */
-	EReference getSynopsis_Definitions();
-
-	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis <em>Definition Synopsis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1102,6 +1068,38 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDefinitionSynopsis_Name();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis <em>Header Synopsis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Header Synopsis</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis
+	 * @generated
+	 */
+	EClass getHeaderSynopsis();
+
+	/**
+	 * Returns the meta object for the reference '{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getPart <em>Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Part</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getPart()
+	 * @see #getHeaderSynopsis()
+	 * @generated
+	 */
+	EReference getHeaderSynopsis_Part();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getDefinitions <em>Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Definitions</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis#getDefinitions()
+	 * @see #getHeaderSynopsis()
+	 * @generated
+	 */
+	EReference getHeaderSynopsis_Definitions();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.Namespace <em>Namespace</em>}'.
