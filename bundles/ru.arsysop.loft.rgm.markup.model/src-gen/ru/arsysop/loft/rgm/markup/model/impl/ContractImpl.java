@@ -39,7 +39,7 @@ import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.api.Tag;
 
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,7 +85,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 * @ordered
 	 */
-	protected Declaration declaration;
+	protected DefinitionSynopsis declaration;
 
 	/**
 	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
@@ -145,10 +145,10 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 */
 	@Override
-	public Declaration getDeclaration() {
+	public DefinitionSynopsis getDeclaration() {
 		if (declaration != null && declaration.eIsProxy()) {
 			InternalEObject oldDeclaration = (InternalEObject)declaration;
-			declaration = (Declaration)eResolveProxy(oldDeclaration);
+			declaration = (DefinitionSynopsis)eResolveProxy(oldDeclaration);
 			if (declaration != oldDeclaration) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MarkupPackage.CONTRACT__DECLARATION, oldDeclaration, declaration));
@@ -162,7 +162,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Declaration basicGetDeclaration() {
+	public DefinitionSynopsis basicGetDeclaration() {
 		return declaration;
 	}
 
@@ -172,8 +172,8 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 	 * @generated
 	 */
 	@Override
-	public void setDeclaration(Declaration newDeclaration) {
-		Declaration oldDeclaration = declaration;
+	public void setDeclaration(DefinitionSynopsis newDeclaration) {
+		DefinitionSynopsis oldDeclaration = declaration;
 		declaration = newDeclaration;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MarkupPackage.CONTRACT__DECLARATION, oldDeclaration, declaration));
@@ -256,7 +256,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 				setId((String)newValue);
 				return;
 			case MarkupPackage.CONTRACT__DECLARATION:
-				setDeclaration((Declaration)newValue);
+				setDeclaration((DefinitionSynopsis)newValue);
 				return;
 			case MarkupPackage.CONTRACT__TAGS:
 				getTags().clear();
@@ -280,7 +280,7 @@ public class ContractImpl extends MinimalEObjectImpl.Container implements Contra
 				setId(ID_EDEFAULT);
 				return;
 			case MarkupPackage.CONTRACT__DECLARATION:
-				setDeclaration((Declaration)null);
+				setDeclaration((DefinitionSynopsis)null);
 				return;
 			case MarkupPackage.CONTRACT__TAGS:
 				getTags().clear();

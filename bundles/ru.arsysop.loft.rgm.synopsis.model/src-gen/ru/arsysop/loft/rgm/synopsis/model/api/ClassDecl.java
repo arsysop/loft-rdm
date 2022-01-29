@@ -41,7 +41,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ClassDecl extends Declaration {
+public interface ClassDecl extends DefinitionSynopsis {
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl}.

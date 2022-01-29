@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class FunctionTemplateImpl extends DeclarationImpl implements FunctionTemplate {
+public class FunctionTemplateImpl extends DefinitionSynopsisImpl implements FunctionTemplate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

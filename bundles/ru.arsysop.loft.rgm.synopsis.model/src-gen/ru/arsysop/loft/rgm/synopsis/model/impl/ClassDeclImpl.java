@@ -52,7 +52,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class ClassDeclImpl extends DeclarationImpl implements ClassDecl {
+public class ClassDeclImpl extends DefinitionSynopsisImpl implements ClassDecl {
 	/**
 	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

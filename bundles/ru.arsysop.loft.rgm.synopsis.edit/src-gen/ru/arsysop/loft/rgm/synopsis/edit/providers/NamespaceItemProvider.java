@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.Namespace;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamespaceItemProvider extends DeclarationItemProvider {
+public class NamespaceItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

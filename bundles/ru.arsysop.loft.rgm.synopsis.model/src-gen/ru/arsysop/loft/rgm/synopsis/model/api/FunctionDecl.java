@@ -39,7 +39,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface FunctionDecl extends Declaration {
+public interface FunctionDecl extends DefinitionSynopsis {
 	/**
 	 * Returns the value of the '<em><b>Signature</b></em>' attribute.
 	 * <!-- begin-user-doc -->

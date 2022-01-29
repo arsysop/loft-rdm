@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionTemplateItemProvider extends DeclarationItemProvider {
+public class FunctionTemplateItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

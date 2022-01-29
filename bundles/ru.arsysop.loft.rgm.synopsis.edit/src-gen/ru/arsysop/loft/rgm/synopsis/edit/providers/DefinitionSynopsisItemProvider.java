@@ -46,16 +46,16 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.Declaration} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeclarationItemProvider 
+public class DefinitionSynopsisItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -75,7 +75,7 @@ public class DeclarationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeclarationItemProvider(AdapterFactory adapterFactory) {
+	public DefinitionSynopsisItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -107,9 +107,9 @@ public class DeclarationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Declaration_id_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Declaration_id_feature", "_UI_Declaration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SynopsisPackage.eINSTANCE.getDeclaration_Id(),
+				 getString("_UI_DefinitionSynopsis_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefinitionSynopsis_id_feature", "_UI_DefinitionSynopsis_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SynopsisPackage.eINSTANCE.getDefinitionSynopsis_Id(),
 				 true,
 				 false,
 				 false,
@@ -129,9 +129,9 @@ public class DeclarationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Declaration_name_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Declaration_name_feature", "_UI_Declaration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SynopsisPackage.eINSTANCE.getDeclaration_Name(),
+				 getString("_UI_DefinitionSynopsis_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefinitionSynopsis_name_feature", "_UI_DefinitionSynopsis_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SynopsisPackage.eINSTANCE.getDefinitionSynopsis_Name(),
 				 true,
 				 false,
 				 false,
@@ -209,12 +209,12 @@ public class DeclarationItemProvider
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Declaration)object).getName();
+		String label = ((DefinitionSynopsis)object).getName();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Declaration_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+			styledLabel.append(getString("_UI_DefinitionSynopsis_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
 		} else {
-			styledLabel.append(getString("_UI_Declaration_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+			styledLabel.append(getString("_UI_DefinitionSynopsis_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		return styledLabel;
 	}
@@ -230,9 +230,9 @@ public class DeclarationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Declaration.class)) {
-			case SynopsisPackage.DECLARATION__ID:
-			case SynopsisPackage.DECLARATION__NAME:
+		switch (notification.getFeatureID(DefinitionSynopsis.class)) {
+			case SynopsisPackage.DEFINITION_SYNOPSIS__ID:
+			case SynopsisPackage.DEFINITION_SYNOPSIS__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

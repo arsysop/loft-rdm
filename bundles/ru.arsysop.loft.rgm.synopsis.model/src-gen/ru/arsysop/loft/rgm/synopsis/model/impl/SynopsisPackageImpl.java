@@ -30,7 +30,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
 import ru.arsysop.loft.rgm.synopsis.model.api.Constructor;
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Destructor;
 import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
@@ -66,7 +66,7 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass declarationEClass = null;
+	private EClass definitionSynopsisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,7 +280,7 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EReference getSynopsis_Declarations() {
+	public EReference getSynopsis_Definitions() {
 		return (EReference)synopsisEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -290,8 +290,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getDeclaration() {
-		return declarationEClass;
+	public EClass getDefinitionSynopsis() {
+		return definitionSynopsisEClass;
 	}
 
 	/**
@@ -300,8 +300,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDeclaration_Id() {
-		return (EAttribute)declarationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDefinitionSynopsis_Id() {
+		return (EAttribute)definitionSynopsisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -310,8 +310,8 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDeclaration_Name() {
-		return (EAttribute)declarationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDefinitionSynopsis_Name() {
+		return (EAttribute)definitionSynopsisEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -576,11 +576,11 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		synopsisEClass = createEClass(SYNOPSIS);
 		createEAttribute(synopsisEClass, SYNOPSIS__NAME);
 		createEReference(synopsisEClass, SYNOPSIS__PART);
-		createEReference(synopsisEClass, SYNOPSIS__DECLARATIONS);
+		createEReference(synopsisEClass, SYNOPSIS__DEFINITIONS);
 
-		declarationEClass = createEClass(DECLARATION);
-		createEAttribute(declarationEClass, DECLARATION__ID);
-		createEAttribute(declarationEClass, DECLARATION__NAME);
+		definitionSynopsisEClass = createEClass(DEFINITION_SYNOPSIS);
+		createEAttribute(definitionSynopsisEClass, DEFINITION_SYNOPSIS__ID);
+		createEAttribute(definitionSynopsisEClass, DEFINITION_SYNOPSIS__NAME);
 
 		namespaceEClass = createEClass(NAMESPACE);
 
@@ -653,32 +653,32 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		namespaceEClass.getESuperTypes().add(this.getDeclaration());
-		functionDeclEClass.getESuperTypes().add(this.getDeclaration());
-		classDeclEClass.getESuperTypes().add(this.getDeclaration());
-		enumDeclEClass.getESuperTypes().add(this.getDeclaration());
-		structDeclEClass.getESuperTypes().add(this.getDeclaration());
-		unionDeclEClass.getESuperTypes().add(this.getDeclaration());
-		fieldDeclEClass.getESuperTypes().add(this.getDeclaration());
-		varDeclEClass.getESuperTypes().add(this.getDeclaration());
-		typedefDeclEClass.getESuperTypes().add(this.getDeclaration());
-		parmDeclEClass.getESuperTypes().add(this.getDeclaration());
-		functionTemplateEClass.getESuperTypes().add(this.getDeclaration());
-		classTemplateEClass.getESuperTypes().add(this.getDeclaration());
+		namespaceEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		functionDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		classDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		enumDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		structDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		unionDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		fieldDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		varDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		typedefDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		parmDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		functionTemplateEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		classTemplateEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		cxxMethodEClass.getESuperTypes().add(this.getFunctionDecl());
 		constructorEClass.getESuperTypes().add(this.getFunctionDecl());
 		destructorEClass.getESuperTypes().add(this.getFunctionDecl());
-		templateTypeParameterEClass.getESuperTypes().add(this.getDeclaration());
+		templateTypeParameterEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(synopsisEClass, Synopsis.class, "Synopsis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getSynopsis_Name(), ecorePackage.getEString(), "name", null, 0, 1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getSynopsis_Part(), theSpecPackage.getPart(), null, "part", null, 1, 1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getSynopsis_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSynopsis_Definitions(), this.getDefinitionSynopsis(), null, "definitions", null, 0, -1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(declarationEClass, Declaration.class, "Declaration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getDeclaration_Id(), ecorePackage.getEString(), "id", null, 1, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(definitionSynopsisEClass, DefinitionSynopsis.class, "DefinitionSynopsis", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getDefinitionSynopsis_Id(), ecorePackage.getEString(), "id", null, 1, 1, DefinitionSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getDefinitionSynopsis_Name(), ecorePackage.getEString(), "name", null, 0, 1, DefinitionSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

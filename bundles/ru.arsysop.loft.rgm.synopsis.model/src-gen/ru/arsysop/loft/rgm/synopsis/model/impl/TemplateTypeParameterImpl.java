@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class TemplateTypeParameterImpl extends DeclarationImpl implements TemplateTypeParameter {
+public class TemplateTypeParameterImpl extends DefinitionSynopsisImpl implements TemplateTypeParameter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

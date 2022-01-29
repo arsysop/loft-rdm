@@ -42,7 +42,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClassTemplateItemProvider extends DeclarationItemProvider {
+public class ClassTemplateItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

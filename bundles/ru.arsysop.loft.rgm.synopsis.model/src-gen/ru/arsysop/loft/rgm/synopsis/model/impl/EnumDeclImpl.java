@@ -32,7 +32,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  *
  * @generated
  */
-public class EnumDeclImpl extends DeclarationImpl implements EnumDecl {
+public class EnumDeclImpl extends DefinitionSynopsisImpl implements EnumDecl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

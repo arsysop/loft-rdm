@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Synopsis;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
@@ -49,7 +49,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getPart <em>Part</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getDeclarations <em>Declarations</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisImpl#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,14 +86,14 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	protected Part part;
 
 	/**
-	 * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
+	 * The cached value of the '{@link #getDefinitions() <em>Definitions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeclarations()
+	 * @see #getDefinitions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Declaration> declarations;
+	protected EList<DefinitionSynopsis> definitions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,11 +183,11 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	 * @generated
 	 */
 	@Override
-	public EList<Declaration> getDeclarations() {
-		if (declarations == null) {
-			declarations = new EObjectContainmentEList<Declaration>(Declaration.class, this, SynopsisPackage.SYNOPSIS__DECLARATIONS);
+	public EList<DefinitionSynopsis> getDefinitions() {
+		if (definitions == null) {
+			definitions = new EObjectContainmentEList<DefinitionSynopsis>(DefinitionSynopsis.class, this, SynopsisPackage.SYNOPSIS__DEFINITIONS);
 		}
-		return declarations;
+		return definitions;
 	}
 
 	/**
@@ -198,8 +198,8 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SynopsisPackage.SYNOPSIS__DECLARATIONS:
-				return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
+			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+				return ((InternalEList<?>)getDefinitions()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -218,8 +218,8 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 			case SynopsisPackage.SYNOPSIS__PART:
 				if (resolve) return getPart();
 				return basicGetPart();
-			case SynopsisPackage.SYNOPSIS__DECLARATIONS:
-				return getDeclarations();
+			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+				return getDefinitions();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -240,9 +240,9 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 			case SynopsisPackage.SYNOPSIS__PART:
 				setPart((Part)newValue);
 				return;
-			case SynopsisPackage.SYNOPSIS__DECLARATIONS:
-				getDeclarations().clear();
-				getDeclarations().addAll((Collection<? extends Declaration>)newValue);
+			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+				getDefinitions().clear();
+				getDefinitions().addAll((Collection<? extends DefinitionSynopsis>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -264,8 +264,8 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 			case SynopsisPackage.SYNOPSIS__PART:
 				setPart((Part)null);
 				return;
-			case SynopsisPackage.SYNOPSIS__DECLARATIONS:
-				getDeclarations().clear();
+			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+				getDefinitions().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -285,8 +285,8 @@ public class SynopsisImpl extends MinimalEObjectImpl.Container implements Synops
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SynopsisPackage.SYNOPSIS__PART:
 				return part != null;
-			case SynopsisPackage.SYNOPSIS__DECLARATIONS:
-				return declarations != null && !declarations.isEmpty();
+			case SynopsisPackage.SYNOPSIS__DEFINITIONS:
+				return definitions != null && !definitions.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}

@@ -4,21 +4,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="Synopsis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" lowerBound="1" eType="ecore:EClass ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Part"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
-        eType="#//Declaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
+        eType="#//DefinitionSynopsis" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Declaration" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionSynopsis" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//DefinitionSynopsis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//ParmDecl" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassDecl" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="ClassDecl" eSuperTypes="#//DefinitionSynopsis">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
         eType="#//FieldDecl" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="destructor" upperBound="-1"
@@ -28,20 +28,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cxxmethod" upperBound="-1"
         eType="#//CXXMethod"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StructDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UnionDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FieldDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VarDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedefDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParmDecl" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionTemplate" eSuperTypes="#//Declaration"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassTemplate" eSuperTypes="#//Declaration">
+  <eClassifiers xsi:type="ecore:EClass" name="EnumDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StructDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnionDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FieldDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VarDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedefDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParmDecl" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionTemplate" eSuperTypes="#//DefinitionSynopsis"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassTemplate" eSuperTypes="#//DefinitionSynopsis">
     <eStructuralFeatures xsi:type="ecore:EReference" name="templatetypeparameter"
         upperBound="-1" eType="#//TemplateTypeParameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CXXMethod" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="Destructor" eSuperTypes="#//FunctionDecl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TemplateTypeParameter" eSuperTypes="#//Declaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TemplateTypeParameter" eSuperTypes="#//DefinitionSynopsis"/>
 </ecore:EPackage>

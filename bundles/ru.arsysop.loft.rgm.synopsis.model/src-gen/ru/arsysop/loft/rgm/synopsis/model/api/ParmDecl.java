@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface ParmDecl extends Declaration {
+public interface ParmDecl extends DefinitionSynopsis {
 } // ParmDecl

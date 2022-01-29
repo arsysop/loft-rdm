@@ -22,11 +22,12 @@ package ru.arsysop.loft.rgm.synopsis.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import ru.arsysop.loft.rgm.synopsis.model.api.*;
 import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
 import ru.arsysop.loft.rgm.synopsis.model.api.Constructor;
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Destructor;
 import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
@@ -105,93 +106,93 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SynopsisPackage.DECLARATION: {
-				Declaration declaration = (Declaration)theEObject;
-				T result = caseDeclaration(declaration);
+			case SynopsisPackage.DEFINITION_SYNOPSIS: {
+				DefinitionSynopsis definitionSynopsis = (DefinitionSynopsis)theEObject;
+				T result = caseDefinitionSynopsis(definitionSynopsis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.NAMESPACE: {
 				Namespace namespace = (Namespace)theEObject;
 				T result = caseNamespace(namespace);
-				if (result == null) result = caseDeclaration(namespace);
+				if (result == null) result = caseDefinitionSynopsis(namespace);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.FUNCTION_DECL: {
 				FunctionDecl functionDecl = (FunctionDecl)theEObject;
 				T result = caseFunctionDecl(functionDecl);
-				if (result == null) result = caseDeclaration(functionDecl);
+				if (result == null) result = caseDefinitionSynopsis(functionDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.CLASS_DECL: {
 				ClassDecl classDecl = (ClassDecl)theEObject;
 				T result = caseClassDecl(classDecl);
-				if (result == null) result = caseDeclaration(classDecl);
+				if (result == null) result = caseDefinitionSynopsis(classDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.ENUM_DECL: {
 				EnumDecl enumDecl = (EnumDecl)theEObject;
 				T result = caseEnumDecl(enumDecl);
-				if (result == null) result = caseDeclaration(enumDecl);
+				if (result == null) result = caseDefinitionSynopsis(enumDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.STRUCT_DECL: {
 				StructDecl structDecl = (StructDecl)theEObject;
 				T result = caseStructDecl(structDecl);
-				if (result == null) result = caseDeclaration(structDecl);
+				if (result == null) result = caseDefinitionSynopsis(structDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.UNION_DECL: {
 				UnionDecl unionDecl = (UnionDecl)theEObject;
 				T result = caseUnionDecl(unionDecl);
-				if (result == null) result = caseDeclaration(unionDecl);
+				if (result == null) result = caseDefinitionSynopsis(unionDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.FIELD_DECL: {
 				FieldDecl fieldDecl = (FieldDecl)theEObject;
 				T result = caseFieldDecl(fieldDecl);
-				if (result == null) result = caseDeclaration(fieldDecl);
+				if (result == null) result = caseDefinitionSynopsis(fieldDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.VAR_DECL: {
 				VarDecl varDecl = (VarDecl)theEObject;
 				T result = caseVarDecl(varDecl);
-				if (result == null) result = caseDeclaration(varDecl);
+				if (result == null) result = caseDefinitionSynopsis(varDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.TYPEDEF_DECL: {
 				TypedefDecl typedefDecl = (TypedefDecl)theEObject;
 				T result = caseTypedefDecl(typedefDecl);
-				if (result == null) result = caseDeclaration(typedefDecl);
+				if (result == null) result = caseDefinitionSynopsis(typedefDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.PARM_DECL: {
 				ParmDecl parmDecl = (ParmDecl)theEObject;
 				T result = caseParmDecl(parmDecl);
-				if (result == null) result = caseDeclaration(parmDecl);
+				if (result == null) result = caseDefinitionSynopsis(parmDecl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.FUNCTION_TEMPLATE: {
 				FunctionTemplate functionTemplate = (FunctionTemplate)theEObject;
 				T result = caseFunctionTemplate(functionTemplate);
-				if (result == null) result = caseDeclaration(functionTemplate);
+				if (result == null) result = caseDefinitionSynopsis(functionTemplate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.CLASS_TEMPLATE: {
 				ClassTemplate classTemplate = (ClassTemplate)theEObject;
 				T result = caseClassTemplate(classTemplate);
-				if (result == null) result = caseDeclaration(classTemplate);
+				if (result == null) result = caseDefinitionSynopsis(classTemplate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,7 +200,7 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				CXXMethod cxxMethod = (CXXMethod)theEObject;
 				T result = caseCXXMethod(cxxMethod);
 				if (result == null) result = caseFunctionDecl(cxxMethod);
-				if (result == null) result = caseDeclaration(cxxMethod);
+				if (result == null) result = caseDefinitionSynopsis(cxxMethod);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,7 +208,7 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				Constructor constructor = (Constructor)theEObject;
 				T result = caseConstructor(constructor);
 				if (result == null) result = caseFunctionDecl(constructor);
-				if (result == null) result = caseDeclaration(constructor);
+				if (result == null) result = caseDefinitionSynopsis(constructor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -215,14 +216,14 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				Destructor destructor = (Destructor)theEObject;
 				T result = caseDestructor(destructor);
 				if (result == null) result = caseFunctionDecl(destructor);
-				if (result == null) result = caseDeclaration(destructor);
+				if (result == null) result = caseDefinitionSynopsis(destructor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SynopsisPackage.TEMPLATE_TYPE_PARAMETER: {
 				TemplateTypeParameter templateTypeParameter = (TemplateTypeParameter)theEObject;
 				T result = caseTemplateTypeParameter(templateTypeParameter);
-				if (result == null) result = caseDeclaration(templateTypeParameter);
+				if (result == null) result = caseDefinitionSynopsis(templateTypeParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -246,17 +247,17 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Definition Synopsis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Definition Synopsis</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDeclaration(Declaration object) {
+	public T caseDefinitionSynopsis(DefinitionSynopsis object) {
 		return null;
 	}
 

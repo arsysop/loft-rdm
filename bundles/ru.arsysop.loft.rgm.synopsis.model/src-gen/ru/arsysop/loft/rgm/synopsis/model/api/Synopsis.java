@@ -35,7 +35,7 @@ import ru.arsysop.loft.rgm.spec.model.api.Part;
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getPart <em>Part</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDeclarations <em>Declarations</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.Synopsis#getDefinitions <em>Definitions</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis()
@@ -43,18 +43,6 @@ import ru.arsysop.loft.rgm.spec.model.api.Part;
  * @generated
  */
 public interface Synopsis extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Declarations</b></em>' containment reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.Declaration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Declarations</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis_Declarations()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Declaration> getDeclarations();
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,5 +86,17 @@ public interface Synopsis extends EObject {
 	 * @generated
 	 */
 	void setPart(Part value);
+
+	/**
+	 * Returns the value of the '<em><b>Definitions</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Definitions</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getSynopsis_Definitions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DefinitionSynopsis> getDefinitions();
 
 } // Header

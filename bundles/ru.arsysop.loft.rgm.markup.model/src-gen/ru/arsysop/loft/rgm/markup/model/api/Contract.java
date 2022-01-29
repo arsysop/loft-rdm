@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,12 +71,12 @@ public interface Contract extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Declaration</em>' reference.
-	 * @see #setDeclaration(Declaration)
+	 * @see #setDeclaration(DefinitionSynopsis)
 	 * @see ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage#getContract_Declaration()
 	 * @model required="true"
 	 * @generated
 	 */
-	Declaration getDeclaration();
+	DefinitionSynopsis getDeclaration();
 
 	/**
 	 * Sets the value of the '{@link ru.arsysop.loft.rgm.markup.model.api.Contract#getDeclaration <em>Declaration</em>}' reference.
@@ -86,7 +86,7 @@ public interface Contract extends EObject {
 	 * @see #getDeclaration()
 	 * @generated
 	 */
-	void setDeclaration(Declaration value);
+	void setDeclaration(DefinitionSynopsis value);
 
 	/**
 	 * Returns the value of the '<em><b>Tags</b></em>' reference list.

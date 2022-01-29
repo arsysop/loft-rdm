@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumDeclItemProvider extends DeclarationItemProvider {
+public class EnumDeclItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

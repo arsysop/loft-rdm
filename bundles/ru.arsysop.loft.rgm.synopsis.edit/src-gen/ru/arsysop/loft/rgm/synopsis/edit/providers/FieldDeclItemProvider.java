@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FieldDeclItemProvider extends DeclarationItemProvider {
+public class FieldDeclItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

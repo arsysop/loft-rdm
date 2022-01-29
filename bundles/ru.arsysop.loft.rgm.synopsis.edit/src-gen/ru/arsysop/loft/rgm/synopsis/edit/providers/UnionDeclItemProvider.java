@@ -38,7 +38,7 @@ import ru.arsysop.loft.rgm.synopsis.model.api.UnionDecl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnionDeclItemProvider extends DeclarationItemProvider {
+public class UnionDeclItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

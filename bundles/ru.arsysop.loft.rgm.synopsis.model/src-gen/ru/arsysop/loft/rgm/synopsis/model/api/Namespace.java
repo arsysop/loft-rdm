@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface Namespace extends Declaration {
+public interface Namespace extends DefinitionSynopsis {
 } // Namespace

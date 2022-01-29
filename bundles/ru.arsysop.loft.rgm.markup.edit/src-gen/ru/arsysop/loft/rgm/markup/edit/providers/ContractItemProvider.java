@@ -50,7 +50,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ru.arsysop.loft.rgm.markup.model.api.Contract;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
-import ru.arsysop.loft.rgm.synopsis.model.api.Declaration;
+import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 
 /**
  * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.markup.model.api.Contract} object.
@@ -246,7 +246,7 @@ public class ContractItemProvider
 		Contract contract = (Contract) object;
 		StyledString styledLabel = new StyledString();
 		styledLabel.append(getString("_UI_Contract_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		Declaration declaration = contract.getDeclaration();
+		DefinitionSynopsis declaration = contract.getDeclaration();
 		if (declaration != null) {
 			styledLabel.append(" --> ", StyledString.Style.COUNTER_STYLER); //$NON-NLS-1$
 			Optional.ofNullable(

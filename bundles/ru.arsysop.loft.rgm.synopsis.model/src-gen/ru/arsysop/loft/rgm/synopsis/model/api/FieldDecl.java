@@ -31,5 +31,5 @@ package ru.arsysop.loft.rgm.synopsis.model.api;
  * @model
  * @generated
  */
-public interface FieldDecl extends Declaration {
+public interface FieldDecl extends DefinitionSynopsis {
 } // FieldDecl
