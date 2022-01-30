@@ -22,9 +22,10 @@ package ru.arsysop.loft.rgm.synopsis.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import ru.arsysop.loft.rgm.synopsis.model.api.*;
 import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
+import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Constructor;
 import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Destructor;
@@ -119,6 +120,13 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS: {
+				ClassTemplateSynopsis classTemplateSynopsis = (ClassTemplateSynopsis)theEObject;
+				T result = caseClassTemplateSynopsis(classTemplateSynopsis);
+				if (result == null) result = caseDefinitionSynopsis(classTemplateSynopsis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SynopsisPackage.FUNCTION_DECL: {
 				FunctionDecl functionDecl = (FunctionDecl)theEObject;
 				T result = caseFunctionDecl(functionDecl);
@@ -186,13 +194,6 @@ public class SynopsisSwitch<T> extends Switch<T> {
 				FunctionTemplate functionTemplate = (FunctionTemplate)theEObject;
 				T result = caseFunctionTemplate(functionTemplate);
 				if (result == null) result = caseDefinitionSynopsis(functionTemplate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SynopsisPackage.CLASS_TEMPLATE: {
-				ClassTemplate classTemplate = (ClassTemplate)theEObject;
-				T result = caseClassTemplate(classTemplate);
-				if (result == null) result = caseDefinitionSynopsis(classTemplate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -273,6 +274,21 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamespaceSynopsis(NamespaceSynopsis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Class Template Synopsis</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Class Template Synopsis</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassTemplateSynopsis(ClassTemplateSynopsis object) {
 		return null;
 	}
 
@@ -423,21 +439,6 @@ public class SynopsisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFunctionTemplate(FunctionTemplate object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Class Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Class Template</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClassTemplate(ClassTemplate object) {
 		return null;
 	}
 

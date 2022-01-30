@@ -162,6 +162,29 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClassTemplateSynopsisItemProvider classTemplateSynopsisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClassTemplateSynopsisAdapter() {
+		if (classTemplateSynopsisItemProvider == null) {
+			classTemplateSynopsisItemProvider = new ClassTemplateSynopsisItemProvider(this);
+		}
+
+		return classTemplateSynopsisItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,29 +415,6 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ClassTemplateItemProvider classTemplateItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createClassTemplateAdapter() {
-		if (classTemplateItemProvider == null) {
-			classTemplateItemProvider = new ClassTemplateItemProvider(this);
-		}
-
-		return classTemplateItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,6 +642,7 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 	public void dispose() {
 		if (headerSynopsisItemProvider != null) headerSynopsisItemProvider.dispose();
 		if (namespaceSynopsisItemProvider != null) namespaceSynopsisItemProvider.dispose();
+		if (classTemplateSynopsisItemProvider != null) classTemplateSynopsisItemProvider.dispose();
 		if (functionDeclItemProvider != null) functionDeclItemProvider.dispose();
 		if (classDeclItemProvider != null) classDeclItemProvider.dispose();
 		if (enumDeclItemProvider != null) enumDeclItemProvider.dispose();
@@ -652,7 +653,6 @@ public class SynopsisItemProviderAdapterFactory extends SynopsisAdapterFactory
 		if (typedefDeclItemProvider != null) typedefDeclItemProvider.dispose();
 		if (parmDeclItemProvider != null) parmDeclItemProvider.dispose();
 		if (functionTemplateItemProvider != null) functionTemplateItemProvider.dispose();
-		if (classTemplateItemProvider != null) classTemplateItemProvider.dispose();
 		if (cxxMethodItemProvider != null) cxxMethodItemProvider.dispose();
 		if (constructorItemProvider != null) constructorItemProvider.dispose();
 		if (destructorItemProvider != null) destructorItemProvider.dispose();

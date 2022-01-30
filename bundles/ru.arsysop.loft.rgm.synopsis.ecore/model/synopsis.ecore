@@ -15,6 +15,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" upperBound="-1"
         eType="#//DefinitionSynopsis" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClassTemplateSynopsis" eSuperTypes="#//DefinitionSynopsis">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templatetypeparameter"
+        upperBound="-1" eType="#//TemplateTypeParameter" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionDecl" eSuperTypes="#//DefinitionSynopsis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -38,10 +42,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypedefDecl" eSuperTypes="#//DefinitionSynopsis"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParmDecl" eSuperTypes="#//DefinitionSynopsis"/>
   <eClassifiers xsi:type="ecore:EClass" name="FunctionTemplate" eSuperTypes="#//DefinitionSynopsis"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassTemplate" eSuperTypes="#//DefinitionSynopsis">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="templatetypeparameter"
-        upperBound="-1" eType="#//TemplateTypeParameter" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CXXMethod" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="#//FunctionDecl"/>
   <eClassifiers xsi:type="ecore:EClass" name="Destructor" eSuperTypes="#//FunctionDecl"/>

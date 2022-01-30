@@ -225,6 +225,11 @@ public class HeaderSynopsisItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
+				 SynopsisFactory.eINSTANCE.createClassTemplateSynopsis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionDecl()));
 
 		newChildDescriptors.add
@@ -271,11 +276,6 @@ public class HeaderSynopsisItemProvider
 			(createChildParameter
 				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionTemplate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getHeaderSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createClassTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter

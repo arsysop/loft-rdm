@@ -29,6 +29,9 @@
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//NamespaceSynopsis">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//NamespaceSynopsis/definitions"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//ClassTemplateSynopsis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//ClassTemplateSynopsis/templatetypeparameter"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//FunctionDecl">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//FunctionDecl/signature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//FunctionDecl/parameters"/>
@@ -47,9 +50,6 @@
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//TypedefDecl"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//ParmDecl"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//FunctionTemplate"/>
-    <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//ClassTemplate">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//ClassTemplate/templatetypeparameter"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//CXXMethod"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Constructor"/>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore#//Destructor"/>

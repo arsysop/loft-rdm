@@ -31,21 +31,21 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate#getTemplatetypeparameter <em>Templatetypeparameter</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis#getTemplatetypeparameter <em>Templatetypeparameter</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getClassTemplate()
+ * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getClassTemplateSynopsis()
  * @model
  * @generated
  */
-public interface ClassTemplate extends DefinitionSynopsis {
+public interface ClassTemplateSynopsis extends DefinitionSynopsis {
 	/**
 	 * Returns the value of the '<em><b>Templatetypeparameter</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Templatetypeparameter</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getClassTemplate_Templatetypeparameter()
+	 * @see ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage#getClassTemplateSynopsis_Templatetypeparameter()
 	 * @model containment="true"
 	 * @generated
 	 */
