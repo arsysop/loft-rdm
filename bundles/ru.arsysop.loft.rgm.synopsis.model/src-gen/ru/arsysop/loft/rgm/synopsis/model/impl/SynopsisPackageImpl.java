@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
+import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Constructor;
 import ru.arsysop.loft.rgm.synopsis.model.api.DefinitionSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Destructor;
@@ -74,6 +74,13 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	private EClass namespaceSynopsisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass classTemplateSynopsisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,13 +151,6 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	private EClass functionTemplateEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass classTemplateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,6 +330,26 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
+	public EClass getClassTemplateSynopsis() {
+		return classTemplateSynopsisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getClassTemplateSynopsis_Templatetypeparameter() {
+		return (EReference)classTemplateSynopsisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFunctionDecl() {
 		return functionDeclEClass;
 	}
@@ -490,26 +510,6 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getClassTemplate() {
-		return classTemplateEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getClassTemplate_Templatetypeparameter() {
-		return (EReference)classTemplateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getCXXMethod() {
 		return cxxMethodEClass;
 	}
@@ -584,6 +584,9 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		namespaceSynopsisEClass = createEClass(NAMESPACE_SYNOPSIS);
 		createEReference(namespaceSynopsisEClass, NAMESPACE_SYNOPSIS__DEFINITIONS);
 
+		classTemplateSynopsisEClass = createEClass(CLASS_TEMPLATE_SYNOPSIS);
+		createEReference(classTemplateSynopsisEClass, CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER);
+
 		functionDeclEClass = createEClass(FUNCTION_DECL);
 		createEAttribute(functionDeclEClass, FUNCTION_DECL__SIGNATURE);
 		createEReference(functionDeclEClass, FUNCTION_DECL__PARAMETERS);
@@ -609,9 +612,6 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		parmDeclEClass = createEClass(PARM_DECL);
 
 		functionTemplateEClass = createEClass(FUNCTION_TEMPLATE);
-
-		classTemplateEClass = createEClass(CLASS_TEMPLATE);
-		createEReference(classTemplateEClass, CLASS_TEMPLATE__TEMPLATETYPEPARAMETER);
 
 		cxxMethodEClass = createEClass(CXX_METHOD);
 
@@ -655,6 +655,7 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		// Add supertypes to classes
 		headerSynopsisEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		namespaceSynopsisEClass.getESuperTypes().add(this.getDefinitionSynopsis());
+		classTemplateSynopsisEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		functionDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		classDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		enumDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
@@ -665,7 +666,6 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		typedefDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		parmDeclEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		functionTemplateEClass.getESuperTypes().add(this.getDefinitionSynopsis());
-		classTemplateEClass.getESuperTypes().add(this.getDefinitionSynopsis());
 		cxxMethodEClass.getESuperTypes().add(this.getFunctionDecl());
 		constructorEClass.getESuperTypes().add(this.getFunctionDecl());
 		destructorEClass.getESuperTypes().add(this.getFunctionDecl());
@@ -682,6 +682,9 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 
 		initEClass(namespaceSynopsisEClass, NamespaceSynopsis.class, "NamespaceSynopsis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getNamespaceSynopsis_Definitions(), this.getDefinitionSynopsis(), null, "definitions", null, 0, -1, NamespaceSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(classTemplateSynopsisEClass, ClassTemplateSynopsis.class, "ClassTemplateSynopsis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getClassTemplateSynopsis_Templatetypeparameter(), this.getTemplateTypeParameter(), null, "templatetypeparameter", null, 0, -1, ClassTemplateSynopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(functionDeclEClass, FunctionDecl.class, "FunctionDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getFunctionDecl_Signature(), ecorePackage.getEString(), "signature", null, 0, 1, FunctionDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -708,9 +711,6 @@ public class SynopsisPackageImpl extends EPackageImpl implements SynopsisPackage
 		initEClass(parmDeclEClass, ParmDecl.class, "ParmDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(functionTemplateEClass, FunctionTemplate.class, "FunctionTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-
-		initEClass(classTemplateEClass, ClassTemplate.class, "ClassTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getClassTemplate_Templatetypeparameter(), this.getTemplateTypeParameter(), null, "templatetypeparameter", null, 0, -1, ClassTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(cxxMethodEClass, CXXMethod.class, "CXXMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

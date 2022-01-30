@@ -190,6 +190,11 @@ public class NamespaceSynopsisItemProvider extends DefinitionSynopsisItemProvide
 		newChildDescriptors.add
 			(createChildParameter
 				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
+				 SynopsisFactory.eINSTANCE.createClassTemplateSynopsis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionDecl()));
 
 		newChildDescriptors.add
@@ -236,11 +241,6 @@ public class NamespaceSynopsisItemProvider extends DefinitionSynopsisItemProvide
 			(createChildParameter
 				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionTemplate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createClassTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter

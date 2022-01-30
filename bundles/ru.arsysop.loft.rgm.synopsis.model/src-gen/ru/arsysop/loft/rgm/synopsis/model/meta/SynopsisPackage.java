@@ -239,6 +239,61 @@ public interface SynopsisPackage extends EPackage {
 	int NAMESPACE_SYNOPSIS_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateSynopsisImpl <em>Class Template Synopsis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateSynopsisImpl
+	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getClassTemplateSynopsis()
+	 * @generated
+	 */
+	int CLASS_TEMPLATE_SYNOPSIS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TEMPLATE_SYNOPSIS__ID = DEFINITION_SYNOPSIS__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TEMPLATE_SYNOPSIS__NAME = DEFINITION_SYNOPSIS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Templatetypeparameter</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Class Template Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TEMPLATE_SYNOPSIS_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Class Template Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_TEMPLATE_SYNOPSIS_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.FunctionDeclImpl <em>Function Decl</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,7 +301,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getFunctionDecl()
 	 * @generated
 	 */
-	int FUNCTION_DECL = 3;
+	int FUNCTION_DECL = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -310,7 +365,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getClassDecl()
 	 * @generated
 	 */
-	int CLASS_DECL = 4;
+	int CLASS_DECL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -392,7 +447,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getEnumDecl()
 	 * @generated
 	 */
-	int ENUM_DECL = 5;
+	int ENUM_DECL = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -438,7 +493,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getStructDecl()
 	 * @generated
 	 */
-	int STRUCT_DECL = 6;
+	int STRUCT_DECL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -484,7 +539,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getUnionDecl()
 	 * @generated
 	 */
-	int UNION_DECL = 7;
+	int UNION_DECL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -530,7 +585,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getFieldDecl()
 	 * @generated
 	 */
-	int FIELD_DECL = 8;
+	int FIELD_DECL = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -576,7 +631,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getVarDecl()
 	 * @generated
 	 */
-	int VAR_DECL = 9;
+	int VAR_DECL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -622,7 +677,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getTypedefDecl()
 	 * @generated
 	 */
-	int TYPEDEF_DECL = 10;
+	int TYPEDEF_DECL = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -668,7 +723,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getParmDecl()
 	 * @generated
 	 */
-	int PARM_DECL = 11;
+	int PARM_DECL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -714,7 +769,7 @@ public interface SynopsisPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getFunctionTemplate()
 	 * @generated
 	 */
-	int FUNCTION_TEMPLATE = 12;
+	int FUNCTION_TEMPLATE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -751,61 +806,6 @@ public interface SynopsisPackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION_TEMPLATE_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateImpl <em>Class Template</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateImpl
-	 * @see ru.arsysop.loft.rgm.synopsis.model.impl.SynopsisPackageImpl#getClassTemplate()
-	 * @generated
-	 */
-	int CLASS_TEMPLATE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_TEMPLATE__ID = DEFINITION_SYNOPSIS__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_TEMPLATE__NAME = DEFINITION_SYNOPSIS__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Templatetypeparameter</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_TEMPLATE__TEMPLATETYPEPARAMETER = DEFINITION_SYNOPSIS_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Class Template</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_TEMPLATE_FEATURE_COUNT = DEFINITION_SYNOPSIS_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Class Template</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS_TEMPLATE_OPERATION_COUNT = DEFINITION_SYNOPSIS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.synopsis.model.impl.CXXMethodImpl <em>CXX Method</em>}' class.
@@ -1132,6 +1132,27 @@ public interface SynopsisPackage extends EPackage {
 	EReference getNamespaceSynopsis_Definitions();
 
 	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis <em>Class Template Synopsis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class Template Synopsis</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis
+	 * @generated
+	 */
+	EClass getClassTemplateSynopsis();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis#getTemplatetypeparameter <em>Templatetypeparameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Templatetypeparameter</em>'.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis#getTemplatetypeparameter()
+	 * @see #getClassTemplateSynopsis()
+	 * @generated
+	 */
+	EReference getClassTemplateSynopsis_Templatetypeparameter();
+
+	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl <em>Function Decl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1296,27 +1317,6 @@ public interface SynopsisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFunctionTemplate();
-
-	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate <em>Class Template</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Class Template</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate
-	 * @generated
-	 */
-	EClass getClassTemplate();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate#getTemplatetypeparameter <em>Templatetypeparameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Templatetypeparameter</em>'.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate#getTemplatetypeparameter()
-	 * @see #getClassTemplate()
-	 * @generated
-	 */
-	EReference getClassTemplate_Templatetypeparameter();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod <em>CXX Method</em>}'.

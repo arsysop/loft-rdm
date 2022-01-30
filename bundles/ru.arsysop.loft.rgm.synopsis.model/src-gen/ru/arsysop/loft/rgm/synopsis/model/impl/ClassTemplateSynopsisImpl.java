@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
+import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
@@ -41,12 +41,12 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateImpl#getTemplatetypeparameter <em>Templatetypeparameter</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.synopsis.model.impl.ClassTemplateSynopsisImpl#getTemplatetypeparameter <em>Templatetypeparameter</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTemplate {
+public class ClassTemplateSynopsisImpl extends DefinitionSynopsisImpl implements ClassTemplateSynopsis {
 	/**
 	 * The cached value of the '{@link #getTemplatetypeparameter() <em>Templatetypeparameter</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ClassTemplateImpl() {
+	protected ClassTemplateSynopsisImpl() {
 		super();
 	}
 
@@ -73,7 +73,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SynopsisPackage.eINSTANCE.getClassTemplate();
+		return SynopsisPackage.eINSTANCE.getClassTemplateSynopsis();
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	@Override
 	public EList<TemplateTypeParameter> getTemplatetypeparameter() {
 		if (templatetypeparameter == null) {
-			templatetypeparameter = new EObjectContainmentEList<TemplateTypeParameter>(TemplateTypeParameter.class, this, SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER);
+			templatetypeparameter = new EObjectContainmentEList<TemplateTypeParameter>(TemplateTypeParameter.class, this, SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER);
 		}
 		return templatetypeparameter;
 	}
@@ -97,7 +97,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER:
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER:
 				return ((InternalEList<?>)getTemplatetypeparameter()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -112,7 +112,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER:
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER:
 				return getTemplatetypeparameter();
 			default:
 				return super.eGet(featureID, resolve, coreType);
@@ -128,7 +128,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER:
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER:
 				getTemplatetypeparameter().clear();
 				getTemplatetypeparameter().addAll((Collection<? extends TemplateTypeParameter>)newValue);
 				return;
@@ -146,7 +146,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER:
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER:
 				getTemplatetypeparameter().clear();
 				return;
 			default:
@@ -163,7 +163,7 @@ public class ClassTemplateImpl extends DefinitionSynopsisImpl implements ClassTe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER:
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER:
 				return templatetypeparameter != null && !templatetypeparameter.isEmpty();
 			default:
 				return super.eIsSet(featureID);

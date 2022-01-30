@@ -32,24 +32,24 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
+import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisFactory;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClassTemplateItemProvider extends DefinitionSynopsisItemProvider {
+public class ClassTemplateSynopsisItemProvider extends DefinitionSynopsisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClassTemplateItemProvider(AdapterFactory adapterFactory) {
+	public ClassTemplateSynopsisItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,7 +80,7 @@ public class ClassTemplateItemProvider extends DefinitionSynopsisItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SynopsisPackage.eINSTANCE.getClassTemplate_Templatetypeparameter());
+			childrenFeatures.add(SynopsisPackage.eINSTANCE.getClassTemplateSynopsis_Templatetypeparameter());
 		}
 		return childrenFeatures;
 	}
@@ -135,12 +135,12 @@ public class ClassTemplateItemProvider extends DefinitionSynopsisItemProvider {
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((ClassTemplate)object).getName();
+		String label = ((ClassTemplateSynopsis)object).getName();
     	StyledString styledLabel = new StyledString();
 		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_ClassTemplate_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
+			styledLabel.append(getString("_UI_ClassTemplateSynopsis_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
 		} else {
-			styledLabel.append(getString("_UI_ClassTemplate_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
+			styledLabel.append(getString("_UI_ClassTemplateSynopsis_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		return styledLabel;
 	}
@@ -156,8 +156,8 @@ public class ClassTemplateItemProvider extends DefinitionSynopsisItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ClassTemplate.class)) {
-			case SynopsisPackage.CLASS_TEMPLATE__TEMPLATETYPEPARAMETER:
+		switch (notification.getFeatureID(ClassTemplateSynopsis.class)) {
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS__TEMPLATETYPEPARAMETER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -179,7 +179,7 @@ public class ClassTemplateItemProvider extends DefinitionSynopsisItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getClassTemplate_Templatetypeparameter(),
+				(SynopsisPackage.eINSTANCE.getClassTemplateSynopsis_Templatetypeparameter(),
 				 SynopsisFactory.eINSTANCE.createTemplateTypeParameter()));
 	}
 

@@ -98,6 +98,10 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 				return createNamespaceSynopsisAdapter();
 			}
 			@Override
+			public Adapter caseClassTemplateSynopsis(ClassTemplateSynopsis object) {
+				return createClassTemplateSynopsisAdapter();
+			}
+			@Override
 			public Adapter caseFunctionDecl(FunctionDecl object) {
 				return createFunctionDeclAdapter();
 			}
@@ -136,10 +140,6 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseFunctionTemplate(FunctionTemplate object) {
 				return createFunctionTemplateAdapter();
-			}
-			@Override
-			public Adapter caseClassTemplate(ClassTemplate object) {
-				return createClassTemplateAdapter();
 			}
 			@Override
 			public Adapter caseCXXMethod(CXXMethod object) {
@@ -216,6 +216,20 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamespaceSynopsisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis <em>Class Template Synopsis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis
+	 * @generated
+	 */
+	public Adapter createClassTemplateSynopsisAdapter() {
 		return null;
 	}
 
@@ -356,20 +370,6 @@ public class SynopsisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFunctionTemplateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate <em>Class Template</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate
-	 * @generated
-	 */
-	public Adapter createClassTemplateAdapter() {
 		return null;
 	}
 

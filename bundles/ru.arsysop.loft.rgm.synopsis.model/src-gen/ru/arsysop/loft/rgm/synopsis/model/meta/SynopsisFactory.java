@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EFactory;
 
 import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplate;
+import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.Constructor;
 import ru.arsysop.loft.rgm.synopsis.model.api.Destructor;
 import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
@@ -73,6 +73,15 @@ public interface SynopsisFactory extends EFactory {
 	 * @generated
 	 */
 	NamespaceSynopsis createNamespaceSynopsis();
+
+	/**
+	 * Returns a new object of class '<em>Class Template Synopsis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class Template Synopsis</em>'.
+	 * @generated
+	 */
+	ClassTemplateSynopsis createClassTemplateSynopsis();
 
 	/**
 	 * Returns a new object of class '<em>Function Decl</em>'.
@@ -163,15 +172,6 @@ public interface SynopsisFactory extends EFactory {
 	 * @generated
 	 */
 	FunctionTemplate createFunctionTemplate();
-
-	/**
-	 * Returns a new object of class '<em>Class Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Class Template</em>'.
-	 * @generated
-	 */
-	ClassTemplate createClassTemplate();
 
 	/**
 	 * Returns a new object of class '<em>CXX Method</em>'.

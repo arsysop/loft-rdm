@@ -77,6 +77,7 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 		switch (eClass.getClassifierID()) {
 			case SynopsisPackage.HEADER_SYNOPSIS: return createHeaderSynopsis();
 			case SynopsisPackage.NAMESPACE_SYNOPSIS: return createNamespaceSynopsis();
+			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS: return createClassTemplateSynopsis();
 			case SynopsisPackage.FUNCTION_DECL: return createFunctionDecl();
 			case SynopsisPackage.CLASS_DECL: return createClassDecl();
 			case SynopsisPackage.ENUM_DECL: return createEnumDecl();
@@ -87,7 +88,6 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 			case SynopsisPackage.TYPEDEF_DECL: return createTypedefDecl();
 			case SynopsisPackage.PARM_DECL: return createParmDecl();
 			case SynopsisPackage.FUNCTION_TEMPLATE: return createFunctionTemplate();
-			case SynopsisPackage.CLASS_TEMPLATE: return createClassTemplate();
 			case SynopsisPackage.CXX_METHOD: return createCXXMethod();
 			case SynopsisPackage.CONSTRUCTOR: return createConstructor();
 			case SynopsisPackage.DESTRUCTOR: return createDestructor();
@@ -117,6 +117,17 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 	public NamespaceSynopsis createNamespaceSynopsis() {
 		NamespaceSynopsisImpl namespaceSynopsis = new NamespaceSynopsisImpl();
 		return namespaceSynopsis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ClassTemplateSynopsis createClassTemplateSynopsis() {
+		ClassTemplateSynopsisImpl classTemplateSynopsis = new ClassTemplateSynopsisImpl();
+		return classTemplateSynopsis;
 	}
 
 	/**
@@ -227,17 +238,6 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 	public FunctionTemplate createFunctionTemplate() {
 		FunctionTemplateImpl functionTemplate = new FunctionTemplateImpl();
 		return functionTemplate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ClassTemplate createClassTemplate() {
-		ClassTemplateImpl classTemplate = new ClassTemplateImpl();
-		return classTemplate;
 	}
 
 	/**
