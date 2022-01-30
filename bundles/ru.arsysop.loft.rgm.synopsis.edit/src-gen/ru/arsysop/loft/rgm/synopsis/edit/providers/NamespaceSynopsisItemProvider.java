@@ -195,67 +195,7 @@ public class NamespaceSynopsisItemProvider extends DefinitionSynopsisItemProvide
 		newChildDescriptors.add
 			(createChildParameter
 				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createFunctionDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createClassDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createEnumDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createStructDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createUnionDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createFieldDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createVarDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createTypedefDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createParmDecl()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
 				 SynopsisFactory.eINSTANCE.createFunctionTemplate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createCXXMethod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createConstructor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SynopsisPackage.eINSTANCE.getNamespaceSynopsis_Definitions(),
-				 SynopsisFactory.eINSTANCE.createDestructor()));
 
 		newChildDescriptors.add
 			(createChildParameter

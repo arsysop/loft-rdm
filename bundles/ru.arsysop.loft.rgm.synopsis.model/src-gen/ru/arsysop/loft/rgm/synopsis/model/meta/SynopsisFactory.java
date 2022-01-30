@@ -20,24 +20,11 @@
 package ru.arsysop.loft.rgm.synopsis.model.meta;
 
 import org.eclipse.emf.ecore.EFactory;
-
-import ru.arsysop.loft.rgm.synopsis.model.api.CXXMethod;
-import ru.arsysop.loft.rgm.synopsis.model.api.ClassDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.ClassTemplateSynopsis;
-import ru.arsysop.loft.rgm.synopsis.model.api.Constructor;
-import ru.arsysop.loft.rgm.synopsis.model.api.Destructor;
-import ru.arsysop.loft.rgm.synopsis.model.api.EnumDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.FieldDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.FunctionDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.FunctionTemplate;
 import ru.arsysop.loft.rgm.synopsis.model.api.HeaderSynopsis;
 import ru.arsysop.loft.rgm.synopsis.model.api.NamespaceSynopsis;
-import ru.arsysop.loft.rgm.synopsis.model.api.ParmDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.StructDecl;
 import ru.arsysop.loft.rgm.synopsis.model.api.TemplateTypeParameter;
-import ru.arsysop.loft.rgm.synopsis.model.api.TypedefDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.UnionDecl;
-import ru.arsysop.loft.rgm.synopsis.model.api.VarDecl;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,87 +71,6 @@ public interface SynopsisFactory extends EFactory {
 	ClassTemplateSynopsis createClassTemplateSynopsis();
 
 	/**
-	 * Returns a new object of class '<em>Function Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Decl</em>'.
-	 * @generated
-	 */
-	FunctionDecl createFunctionDecl();
-
-	/**
-	 * Returns a new object of class '<em>Class Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Class Decl</em>'.
-	 * @generated
-	 */
-	ClassDecl createClassDecl();
-
-	/**
-	 * Returns a new object of class '<em>Enum Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enum Decl</em>'.
-	 * @generated
-	 */
-	EnumDecl createEnumDecl();
-
-	/**
-	 * Returns a new object of class '<em>Struct Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Struct Decl</em>'.
-	 * @generated
-	 */
-	StructDecl createStructDecl();
-
-	/**
-	 * Returns a new object of class '<em>Union Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Union Decl</em>'.
-	 * @generated
-	 */
-	UnionDecl createUnionDecl();
-
-	/**
-	 * Returns a new object of class '<em>Field Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Field Decl</em>'.
-	 * @generated
-	 */
-	FieldDecl createFieldDecl();
-
-	/**
-	 * Returns a new object of class '<em>Var Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Var Decl</em>'.
-	 * @generated
-	 */
-	VarDecl createVarDecl();
-
-	/**
-	 * Returns a new object of class '<em>Typedef Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Typedef Decl</em>'.
-	 * @generated
-	 */
-	TypedefDecl createTypedefDecl();
-
-	/**
-	 * Returns a new object of class '<em>Parm Decl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parm Decl</em>'.
-	 * @generated
-	 */
-	ParmDecl createParmDecl();
-
-	/**
 	 * Returns a new object of class '<em>Function Template</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,33 +78,6 @@ public interface SynopsisFactory extends EFactory {
 	 * @generated
 	 */
 	FunctionTemplate createFunctionTemplate();
-
-	/**
-	 * Returns a new object of class '<em>CXX Method</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>CXX Method</em>'.
-	 * @generated
-	 */
-	CXXMethod createCXXMethod();
-
-	/**
-	 * Returns a new object of class '<em>Constructor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constructor</em>'.
-	 * @generated
-	 */
-	Constructor createConstructor();
-
-	/**
-	 * Returns a new object of class '<em>Destructor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Destructor</em>'.
-	 * @generated
-	 */
-	Destructor createDestructor();
 
 	/**
 	 * Returns a new object of class '<em>Template Type Parameter</em>'.

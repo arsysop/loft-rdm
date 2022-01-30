@@ -78,19 +78,7 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 			case SynopsisPackage.HEADER_SYNOPSIS: return createHeaderSynopsis();
 			case SynopsisPackage.NAMESPACE_SYNOPSIS: return createNamespaceSynopsis();
 			case SynopsisPackage.CLASS_TEMPLATE_SYNOPSIS: return createClassTemplateSynopsis();
-			case SynopsisPackage.FUNCTION_DECL: return createFunctionDecl();
-			case SynopsisPackage.CLASS_DECL: return createClassDecl();
-			case SynopsisPackage.ENUM_DECL: return createEnumDecl();
-			case SynopsisPackage.STRUCT_DECL: return createStructDecl();
-			case SynopsisPackage.UNION_DECL: return createUnionDecl();
-			case SynopsisPackage.FIELD_DECL: return createFieldDecl();
-			case SynopsisPackage.VAR_DECL: return createVarDecl();
-			case SynopsisPackage.TYPEDEF_DECL: return createTypedefDecl();
-			case SynopsisPackage.PARM_DECL: return createParmDecl();
 			case SynopsisPackage.FUNCTION_TEMPLATE: return createFunctionTemplate();
-			case SynopsisPackage.CXX_METHOD: return createCXXMethod();
-			case SynopsisPackage.CONSTRUCTOR: return createConstructor();
-			case SynopsisPackage.DESTRUCTOR: return createDestructor();
 			case SynopsisPackage.TEMPLATE_TYPE_PARAMETER: return createTemplateTypeParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -136,141 +124,9 @@ public class SynopsisFactoryImpl extends EFactoryImpl implements SynopsisFactory
 	 * @generated
 	 */
 	@Override
-	public FunctionDecl createFunctionDecl() {
-		FunctionDeclImpl functionDecl = new FunctionDeclImpl();
-		return functionDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ClassDecl createClassDecl() {
-		ClassDeclImpl classDecl = new ClassDeclImpl();
-		return classDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EnumDecl createEnumDecl() {
-		EnumDeclImpl enumDecl = new EnumDeclImpl();
-		return enumDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public StructDecl createStructDecl() {
-		StructDeclImpl structDecl = new StructDeclImpl();
-		return structDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public UnionDecl createUnionDecl() {
-		UnionDeclImpl unionDecl = new UnionDeclImpl();
-		return unionDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public FieldDecl createFieldDecl() {
-		FieldDeclImpl fieldDecl = new FieldDeclImpl();
-		return fieldDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public VarDecl createVarDecl() {
-		VarDeclImpl varDecl = new VarDeclImpl();
-		return varDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TypedefDecl createTypedefDecl() {
-		TypedefDeclImpl typedefDecl = new TypedefDeclImpl();
-		return typedefDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ParmDecl createParmDecl() {
-		ParmDeclImpl parmDecl = new ParmDeclImpl();
-		return parmDecl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public FunctionTemplate createFunctionTemplate() {
 		FunctionTemplateImpl functionTemplate = new FunctionTemplateImpl();
 		return functionTemplate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CXXMethod createCXXMethod() {
-		CXXMethodImpl cxxMethod = new CXXMethodImpl();
-		return cxxMethod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Constructor createConstructor() {
-		ConstructorImpl constructor = new ConstructorImpl();
-		return constructor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Destructor createDestructor() {
-		DestructorImpl destructor = new DestructorImpl();
-		return destructor;
 	}
 
 	/**
