@@ -10,8 +10,7 @@
     editPluginID="ru.arsysop.loft.rgm.synopsis.edit" editorPluginID="ru.arsysop.loft.rgm.synopsis.editor"
     optimizedHasChildren="true" tableProviders="true" colorProviders="true" fontProviders="true"
     usedGenPackages="../../ru.arsysop.loft.rgm.spec.model/model/spec.genmodel#//spec"
-    operationReflection="true" runtimePlatform="RCP" importOrganizing="true" styleProviders="true"
-    findAction="true">
+    operationReflection="true" importOrganizing="true" styleProviders="true" findAction="true">
   <foreignModel>../../ru.arsysop.loft.rgm.synopsis.ecore/model/synopsis.ecore</foreignModel>
   <genPackages prefix="Synopsis" basePackage="ru.arsysop.loft.rgm" resource="XMI"
       disposableProviderFactory="true" interfacePackageSuffix="model.api" metaDataPackageSuffix="model.meta"
