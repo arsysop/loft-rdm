@@ -165,7 +165,7 @@ public class HeaderSynopsisItemProvider
 	public Object getStyledText(Object object) {
 		HeaderSynopsis header = (HeaderSynopsis)object;
 		StyledString styledLabel = new StyledString();
-		styledLabel.append(getString("_UI_Synopsis_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		styledLabel.append(getString("_UI_HeaderSynopsis_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
 		Optional.ofNullable(header.getName())//
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
