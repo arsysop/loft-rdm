@@ -24,15 +24,15 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated synopsis -->
+      <!-- @generated NOT synopsis -->
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="ru.arsysop.loft.rgm.synopsis.editor.newWizards.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
             id="ru.arsysop.loft.rgm.synopsis.editor.SynopsisModelWizardID"
             name="%_UI_SynopsisModelWizard_label"
             class="ru.arsysop.loft.rgm.synopsis.editor.SynopsisModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="ru.arsysop.loft.rgm.synopsis.editor.newWizards.category.ID"
             icon="icons/full/obj16/SynopsisModelFile.gif">
          <description>%_UI_SynopsisModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
