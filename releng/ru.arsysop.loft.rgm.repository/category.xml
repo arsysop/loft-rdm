@@ -32,6 +32,10 @@
 		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
 	<feature
+		id="ru.arsysop.loft.rgm.synopsis.editor.feature">
+		<category name="ru.arsysop.loft.rgm.category" />
+	</feature>
+	<feature
 		id="ru.arsysop.loft.rgm.license.feature">
 		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
@@ -45,6 +49,10 @@
 	</category-def>
 	<feature
 		id="ru.arsysop.loft.rgm.feature.source">
+		<category name="ru.arsysop.loft.rgm.category.source" />
+	</feature>
+	<feature
+		id="ru.arsysop.loft.rgm.synopsis.editor.feature.source">
 		<category name="ru.arsysop.loft.rgm.category.source" />
 	</feature>
 -->
