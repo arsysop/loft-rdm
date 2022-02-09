@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
@@ -54,22 +56,41 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 	}
 
 	private Table fillTable(Paragraph paragraph, Element div) {
+		// $NON-NLS-1$//$NON-NLS-2$
 		Table table = factory.createTable();
-		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$//$NON-NLS-2$
-		table.setTitle(collectRow(rows.get(0)));
 		table.setId(encode.apply(div.attributeValue("id"))); //$NON-NLS-1$
 		table.setLocation(paragraph.getLocation() + '#' + div.attributeValue("id")); //$NON-NLS-1$
-		if (rows.size() > 1) {
-			List<Element> remaining = rows.subList(1, rows.size() - 1);
-			table.getRows().addAll(remaining.stream().map(this::collectRow).collect(Collectors.toList()));
-		}
+		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$ //$NON-NLS-2$
+		int offset = fillTitle(table, rows);
+		Stream.of(rows) //
+				.flatMapToInt(r -> IntStream.range(offset, r.size())) //
+				.forEach(j -> collectRow(rows.get(j), table, j - offset + 1)); //
 		return table;
 	}
 
-	private TableRow collectRow(Element tr) {
-		List<Element> cells = tr.elements("td"); //$NON-NLS-1$
-		TableRow row = factory.createTableRow();
-		cells.stream().map(this::extractText).forEach(row.getValues()::add);
+	private int fillTitle(Table table, List<Element> rows) {
+		TableRow titleRow = row("Title", table.getId() + "-title", table.getLocation()); //$NON-NLS-1$ //$NON-NLS-2$
+		if (rows.stream().filter(e -> "capsep".equals(e.attributeValue("class"))).count() > 0) { //$NON-NLS-1$ //$NON-NLS-2$
+			List<String> titleValues = rows.get(0).elements("td").stream().map(this::extractText) //$NON-NLS-1$
+					.collect(Collectors.toList());
+			int i = 1;
+			while (!"capsep".equals(rows.get(i).attributeValue("class"))) { //$NON-NLS-1$ //$NON-NLS-2$
+				List<String> content = rows.get(i).elements("td").stream().map(this::extractText) //$NON-NLS-1$
+						.collect(Collectors.toList());
+				IntStream.range(0, content.size()).forEach(j -> titleValues.get(j).concat(" " + content.get(j))); //$NON-NLS-1$
+				i++;
+			}
+			titleRow.getValues().addAll(titleValues);
+			table.setTitle(titleRow);
+			return i;
+		}
+		return 0; // No title here
+	}
+
+	private TableRow collectRow(Element tr, Table table, int index) {
+		TableRow row = row(String.valueOf(index), table.getId() + "-" + index, table.getLocation()); //$NON-NLS-1$
+		tr.elements("td").stream().map(this::extractText).forEach(row.getValues()::add); //$NON-NLS-1$
+		table.getRows().add(row);
 		return row;
 	}
 
@@ -77,4 +98,11 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		return cell.content().stream().map(Node::getText).collect(Collectors.joining(" ")); //$NON-NLS-1$
 	}
 
+	private TableRow row(String name, String id, String location) {
+		TableRow row = factory.createTableRow();
+		row.setLocation(location);
+		row.setId(id);
+		row.setName(name);
+		return row;
+	}
 }

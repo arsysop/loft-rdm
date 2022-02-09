@@ -73,11 +73,11 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//StyledLine/text"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table/title"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyMultiLine="true"
+          ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//Table/rows"/>
     </genClasses>
     <genClasses image="false" ecoreClass="../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TableRow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TableRow/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore#//TableRow/values"/>
     </genClasses>
   </genPackages>

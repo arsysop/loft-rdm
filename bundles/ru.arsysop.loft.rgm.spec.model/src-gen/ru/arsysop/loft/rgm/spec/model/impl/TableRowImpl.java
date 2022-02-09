@@ -20,14 +20,8 @@
 package ru.arsysop.loft.rgm.spec.model.impl;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 
@@ -41,33 +35,12 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TableRowImpl extends MinimalEObjectImpl.Container implements TableRow {
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
-
+public class TableRowImpl extends PartImpl implements TableRow {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -103,29 +76,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	 * @generated
 	 */
 	@Override
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.TABLE_ROW__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<String> getValues() {
 		if (values == null) {
 			values = new EDataTypeUniqueEList<String>(String.class, this, SpecPackage.TABLE_ROW__VALUES);
@@ -141,8 +91,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecPackage.TABLE_ROW__ID:
-				return getId();
 			case SpecPackage.TABLE_ROW__VALUES:
 				return getValues();
 			default:
@@ -159,9 +107,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecPackage.TABLE_ROW__ID:
-				setId((Integer)newValue);
-				return;
 			case SpecPackage.TABLE_ROW__VALUES:
 				getValues().clear();
 				getValues().addAll((Collection<? extends String>)newValue);
@@ -180,9 +125,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.TABLE_ROW__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case SpecPackage.TABLE_ROW__VALUES:
 				getValues().clear();
 				return;
@@ -200,8 +142,6 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.TABLE_ROW__ID:
-				return id != ID_EDEFAULT;
 			case SpecPackage.TABLE_ROW__VALUES:
 				return values != null && !values.isEmpty();
 			default:
@@ -219,9 +159,7 @@ public class TableRowImpl extends MinimalEObjectImpl.Container implements TableR
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: "); //$NON-NLS-1$
-		result.append(id);
-		result.append(", values: "); //$NON-NLS-1$
+		result.append(" (values: "); //$NON-NLS-1$
 		result.append(values);
 		result.append(')');
 		return result.toString();

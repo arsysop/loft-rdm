@@ -20,7 +20,6 @@
 package ru.arsysop.loft.rgm.spec.model.api;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues <em>Values</em>}</li>
  * </ul>
  *
@@ -39,29 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface TableRow extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTableRow_Id()
-	 * @model
-	 * @generated
-	 */
-	int getId();
-
-	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(int value);
-
+public interface TableRow extends Part {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
