@@ -685,18 +685,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTableRow_Id() {
-		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getTableRow_Values() {
-		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -788,7 +778,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(tableEClass, TABLE__ROWS);
 
 		tableRowEClass = createEClass(TABLE_ROW);
-		createEAttribute(tableRowEClass, TABLE_ROW__ID);
 		createEAttribute(tableRowEClass, TABLE_ROW__VALUES);
 	}
 
@@ -827,6 +816,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		pointEClass.getESuperTypes().add(this.getPart());
 		indexEClass.getESuperTypes().add(this.getPart());
 		tableEClass.getESuperTypes().add(this.getPart());
+		tableRowEClass.getESuperTypes().add(this.getPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -889,7 +879,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getTable_Rows(), this.getTableRow(), null, "rows", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getTableRow_Id(), ecorePackage.getEInt(), "id", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getTableRow_Values(), ecorePackage.getEString(), "values", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource

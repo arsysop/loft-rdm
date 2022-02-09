@@ -196,6 +196,11 @@ public class WithPartsItemProvider extends PartItemProvider {
 			(createChildParameter
 				(SpecPackage.eINSTANCE.getWithParts_Parts(),
 				 SpecFactory.eINSTANCE.createTable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpecPackage.eINSTANCE.getWithParts_Parts(),
+				 SpecFactory.eINSTANCE.createTableRow()));
 	}
 
 }

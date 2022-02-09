@@ -27,6 +27,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 
@@ -64,8 +65,31 @@ public class TableItemProvider extends PartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTitlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_title_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_title_feature", "_UI_Table_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SpecPackage.eINSTANCE.getTable_Title(),
+				 false,
+				 true,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -80,7 +104,6 @@ public class TableItemProvider extends PartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpecPackage.eINSTANCE.getTable_Title());
 			childrenFeatures.add(SpecPackage.eINSTANCE.getTable_Rows());
 		}
 		return childrenFeatures;
@@ -160,7 +183,6 @@ public class TableItemProvider extends PartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
-			case SpecPackage.TABLE__TITLE:
 			case SpecPackage.TABLE__ROWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -183,36 +205,8 @@ public class TableItemProvider extends PartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getTable_Title(),
-				 SpecFactory.eINSTANCE.createTableRow()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(SpecPackage.eINSTANCE.getTable_Rows(),
 				 SpecFactory.eINSTANCE.createTableRow()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == SpecPackage.eINSTANCE.getTable_Title() ||
-			childFeature == SpecPackage.eINSTANCE.getTable_Rows();
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2", //$NON-NLS-1$
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

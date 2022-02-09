@@ -914,7 +914,25 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__ID = 0;
+	int TABLE_ROW__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__LOCATION = PART__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -923,7 +941,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__VALUES = 1;
+	int TABLE_ROW__VALUES = PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -932,7 +950,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = 2;
+	int TABLE_ROW_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Table Row</em>' class.
@@ -941,7 +959,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_OPERATION_COUNT = 0;
+	int TABLE_ROW_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Document <em>Document</em>}'.
@@ -1445,17 +1463,6 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTableRow();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.TableRow#getId()
-	 * @see #getTableRow()
-	 * @generated
-	 */
-	EAttribute getTableRow_Id();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues <em>Values</em>}'.

@@ -174,6 +174,7 @@ public class SpecSwitch<T> extends Switch<T> {
 			case SpecPackage.TABLE_ROW: {
 				TableRow tableRow = (TableRow)theEObject;
 				T result = caseTableRow(tableRow);
+				if (result == null) result = casePart(tableRow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
