@@ -100,9 +100,8 @@ public class IndexImpl extends PartImpl implements Index {
 		switch (featureID) {
 			case SpecPackage.INDEX__ENTRIES:
 				return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -115,9 +114,8 @@ public class IndexImpl extends PartImpl implements Index {
 		switch (featureID) {
 			case SpecPackage.INDEX__ENTRIES:
 				return getEntries();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -133,10 +131,8 @@ public class IndexImpl extends PartImpl implements Index {
 				getEntries().clear();
 				getEntries().addAll((Collection<? extends IndexEntry>)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -150,10 +146,8 @@ public class IndexImpl extends PartImpl implements Index {
 			case SpecPackage.INDEX__ENTRIES:
 				getEntries().clear();
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -166,9 +160,8 @@ public class IndexImpl extends PartImpl implements Index {
 		switch (featureID) {
 			case SpecPackage.INDEX__ENTRIES:
 				return entries != null && !entries.isEmpty();
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 } //IndexImpl

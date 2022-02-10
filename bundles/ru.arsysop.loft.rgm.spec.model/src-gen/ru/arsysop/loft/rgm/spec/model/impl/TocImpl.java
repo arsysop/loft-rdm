@@ -117,9 +117,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetDocument((Document)otherEnd, msgs);
-			default:
-				return super.eInverseAdd(otherEnd, featureID, msgs);
 		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -132,9 +131,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 		switch (featureID) {
 			case SpecPackage.TOC__DOCUMENT:
 				return basicSetDocument(null, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -147,9 +145,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 		switch (eContainerFeatureID()) {
 			case SpecPackage.TOC__DOCUMENT:
 				return eInternalContainer().eInverseRemove(this, SpecPackage.DOCUMENT__TOC, Document.class, msgs);
-			default:
-				return super.eBasicRemoveFromContainerFeature(msgs);
 		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -162,9 +159,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 		switch (featureID) {
 			case SpecPackage.TOC__DOCUMENT:
 				return getDocument();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -178,10 +174,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 			case SpecPackage.TOC__DOCUMENT:
 				setDocument((Document)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -195,10 +189,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 			case SpecPackage.TOC__DOCUMENT:
 				setDocument((Document)null);
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -211,9 +203,8 @@ public class TocImpl extends WithTocChaptersImpl implements Toc {
 		switch (featureID) {
 			case SpecPackage.TOC__DOCUMENT:
 				return getDocument() != null;
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 } //TocImpl

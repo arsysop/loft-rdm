@@ -143,6 +143,10 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 				return createTableRowAdapter();
 			}
 			@Override
+			public Adapter caseWithReferences(WithReferences object) {
+				return createWithReferencesAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -355,6 +359,20 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableRowAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.WithReferences <em>With References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.WithReferences
+	 * @generated
+	 */
+	public Adapter createWithReferencesAdapter() {
 		return null;
 	}
 

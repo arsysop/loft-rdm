@@ -87,6 +87,7 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 			case SpecPackage.STYLED_LINE: return createStyledLine();
 			case SpecPackage.TABLE: return createTable();
 			case SpecPackage.TABLE_ROW: return createTableRow();
+			case SpecPackage.WITH_REFERENCES: return createWithReferences();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -211,6 +212,16 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 	public TableRow createTableRow() {
 		TableRowImpl tableRow = new TableRowImpl();
 		return tableRow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WithReferences createWithReferences() {
+		WithReferencesImpl withReferences = new WithReferencesImpl();
+		return withReferences;
 	}
 
 	/**

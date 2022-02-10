@@ -136,6 +136,7 @@ public class SpecSwitch<T> extends Switch<T> {
 				Point point = (Point)theEObject;
 				T result = casePoint(point);
 				if (result == null) result = casePart(point);
+				if (result == null) result = caseWithReferences(point);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,6 +176,13 @@ public class SpecSwitch<T> extends Switch<T> {
 				TableRow tableRow = (TableRow)theEObject;
 				T result = caseTableRow(tableRow);
 				if (result == null) result = casePart(tableRow);
+				if (result == null) result = caseWithReferences(tableRow);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.WITH_REFERENCES: {
+				WithReferences withReferences = (WithReferences)theEObject;
+				T result = caseWithReferences(withReferences);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -389,6 +397,21 @@ public class SpecSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTableRow(TableRow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>With References</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>With References</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWithReferences(WithReferences object) {
 		return null;
 	}
 

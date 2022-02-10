@@ -27,12 +27,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
+import ru.arsysop.loft.rgm.spec.model.api.WithReferences;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -105,7 +105,6 @@ public class PointImpl extends PartImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EList<Part> getReferences() {
 		if (references == null) {
 			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.POINT__REFERENCES);
@@ -151,9 +150,8 @@ public class PointImpl extends PartImpl implements Point {
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
 			case SpecPackage.POINT__TABLES:
 				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -170,9 +168,8 @@ public class PointImpl extends PartImpl implements Point {
 				return getText();
 			case SpecPackage.POINT__TABLES:
 				return getTables();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -196,10 +193,8 @@ public class PointImpl extends PartImpl implements Point {
 				getTables().clear();
 				getTables().addAll((Collection<? extends Table>)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -219,10 +214,8 @@ public class PointImpl extends PartImpl implements Point {
 			case SpecPackage.POINT__TABLES:
 				getTables().clear();
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -239,9 +232,40 @@ public class PointImpl extends PartImpl implements Point {
 				return text != null && !text.isEmpty();
 			case SpecPackage.POINT__TABLES:
 				return tables != null && !tables.isEmpty();
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == WithReferences.class) {
+			switch (derivedFeatureID) {
+				case SpecPackage.POINT__REFERENCES: return SpecPackage.WITH_REFERENCES__REFERENCES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == WithReferences.class) {
+			switch (baseFeatureID) {
+				case SpecPackage.WITH_REFERENCES__REFERENCES: return SpecPackage.POINT__REFERENCES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //SubParagraphImpl

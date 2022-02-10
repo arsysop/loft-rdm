@@ -20,6 +20,7 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
+import java.util.List;
 import java.util.function.BiConsumer;
 
 import org.dom4j.Element;
@@ -43,7 +44,7 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		this.encode = new EncodeId();
 		this.text = new ParseText(factory);
 		this.references = new ParseReferences(context);
-		this.tables = new ParseTables(factory);
+		this.tables = new ParseTables(factory, context);
 	}
 
 	@Override
@@ -54,8 +55,8 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		point.setLocation(paragraph.getLocation() + '#' + id);
 		point.setName(pointName(paragraph, node));
 		point.getText().addAll(text.apply(node));
-		point.getReferences().addAll(references.apply(node));
 		point.getTables().addAll(tables.apply(paragraph, node));
+		node.elements("p").stream().map(references).flatMap(List::stream).forEach(point.getReferences()::add); //$NON-NLS-1$
 		paragraph.getParts().add(point);
 	}
 

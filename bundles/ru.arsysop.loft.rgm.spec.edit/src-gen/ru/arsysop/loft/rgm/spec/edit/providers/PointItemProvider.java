@@ -77,9 +77,9 @@ public class PointItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the References feature. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addReferencesPropertyDescriptor(Object object) {
@@ -87,9 +87,9 @@ public class PointItemProvider extends PartItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Point_references_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Point_references_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getPoint_References(),
+				 getString("_UI_WithReferences_references_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_WithReferences_references_feature", "_UI_WithReferences_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SpecPackage.eINSTANCE.getWithReferences_References(),
 				 true,
 				 false,
 				 true,
@@ -202,10 +202,8 @@ public class PointItemProvider extends PartItemProvider {
 			case SpecPackage.POINT__TABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
-			default:
-				super.notifyChanged(notification);
-				return;
-			}
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

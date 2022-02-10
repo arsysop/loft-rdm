@@ -32,6 +32,7 @@ import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
+import ru.arsysop.loft.rgm.spec.model.api.WithReferences;
 
 /**
  * <!-- begin-user-doc -->
@@ -148,6 +149,15 @@ public interface SpecFactory extends EFactory {
 	 * @generated
 	 */
 	TableRow createTableRow();
+
+	/**
+	 * Returns a new object of class '<em>With References</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>With References</em>'.
+	 * @generated
+	 */
+	WithReferences createWithReferences();
 
 	/**
 	 * Returns the package supported by this factory.

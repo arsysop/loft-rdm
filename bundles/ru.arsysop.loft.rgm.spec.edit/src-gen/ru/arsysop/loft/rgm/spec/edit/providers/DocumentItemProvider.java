@@ -318,10 +318,8 @@ public class DocumentItemProvider
 			case SpecPackage.DOCUMENT__INDEXES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
-			default:
-				super.notifyChanged(notification);
-				return;
-			}
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

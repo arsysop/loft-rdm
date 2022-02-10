@@ -373,10 +373,8 @@ public class IndexEntryItemProvider
 			case SpecPackage.INDEX_ENTRY__SUBENTRIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
-			default:
-				super.notifyChanged(notification);
-				return;
-			}
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

@@ -102,9 +102,8 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 		switch (featureID) {
 			case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS:
 				return ((InternalEList<?>)getChapters()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -117,9 +116,8 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 		switch (featureID) {
 			case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS:
 				return getChapters();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -135,10 +133,8 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 				getChapters().clear();
 				getChapters().addAll((Collection<? extends TocChapter>)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -152,10 +148,8 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 			case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS:
 				getChapters().clear();
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -168,9 +162,8 @@ public abstract class WithTocChaptersImpl extends MinimalEObjectImpl.Container i
 		switch (featureID) {
 			case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS:
 				return chapters != null && !chapters.isEmpty();
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 } //WithTocChaptersImpl
