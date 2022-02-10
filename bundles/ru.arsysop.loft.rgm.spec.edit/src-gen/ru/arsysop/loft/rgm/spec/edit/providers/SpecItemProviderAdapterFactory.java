@@ -368,29 +368,6 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.WithReferences} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WithReferencesItemProvider withReferencesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.WithReferences}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWithReferencesAdapter() {
-		if (withReferencesItemProvider == null) {
-			withReferencesItemProvider = new WithReferencesItemProvider(this);
-		}
-
-		return withReferencesItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,7 +512,6 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 		if (styledLineItemProvider != null) styledLineItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
-		if (withReferencesItemProvider != null) withReferencesItemProvider.dispose();
 	}
 
 }

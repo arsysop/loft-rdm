@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getWithReferences()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface WithReferences extends EObject {

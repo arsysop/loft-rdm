@@ -47,7 +47,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *
  * @generated
  */
-public class WithReferencesImpl extends MinimalEObjectImpl.Container implements WithReferences {
+public abstract class WithReferencesImpl extends MinimalEObjectImpl.Container implements WithReferences {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
