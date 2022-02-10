@@ -41,8 +41,7 @@ public final class ParseReferences implements Function<Element, List<Part>> {
 
 	@Override
 	public List<Part> apply(Element node) {
-		return node.elements("p").stream() //$NON-NLS-1$
-				.flatMap(i -> i.elements("a").stream()) //$NON-NLS-1$
+		return node.elements("a").stream() //$NON-NLS-1$
 				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
 				.map(new PickId(context)) //
 				.map(context.parts()::find) //

@@ -39,6 +39,7 @@ import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 import ru.arsysop.loft.rgm.spec.model.api.WithParts;
+import ru.arsysop.loft.rgm.spec.model.api.WithReferences;
 import ru.arsysop.loft.rgm.spec.model.api.WithTocChapters;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
@@ -147,6 +148,13 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	private EClass tableRowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass withReferencesEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -475,7 +483,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPoint_References() {
+	public EReference getPoint_Text() {
 		return (EReference)pointEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -485,18 +493,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPoint_Text() {
-		return (EReference)pointEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getPoint_Tables() {
-		return (EReference)pointEClass.getEStructuralFeatures().get(2);
+		return (EReference)pointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -694,6 +692,24 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getWithReferences() {
+		return withReferencesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWithReferences_References() {
+		return (EReference)withReferencesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public SpecFactory getSpecFactory() {
 		return (SpecFactory)getEFactoryInstance();
@@ -751,7 +767,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEAttribute(paragraphEClass, PARAGRAPH__NUMBER);
 
 		pointEClass = createEClass(POINT);
-		createEReference(pointEClass, POINT__REFERENCES);
 		createEReference(pointEClass, POINT__TEXT);
 		createEReference(pointEClass, POINT__TABLES);
 
@@ -779,6 +794,9 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 
 		tableRowEClass = createEClass(TABLE_ROW);
 		createEAttribute(tableRowEClass, TABLE_ROW__VALUES);
+
+		withReferencesEClass = createEClass(WITH_REFERENCES);
+		createEReference(withReferencesEClass, WITH_REFERENCES__REFERENCES);
 	}
 
 	/**
@@ -814,9 +832,11 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		tocChapterEClass.getESuperTypes().add(this.getWithTocChapters());
 		paragraphEClass.getESuperTypes().add(this.getWithParts());
 		pointEClass.getESuperTypes().add(this.getPart());
+		pointEClass.getESuperTypes().add(this.getWithReferences());
 		indexEClass.getESuperTypes().add(this.getPart());
 		tableEClass.getESuperTypes().add(this.getPart());
 		tableRowEClass.getESuperTypes().add(this.getPart());
+		tableRowEClass.getESuperTypes().add(this.getWithReferences());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(documentEClass, Document.class, "Document", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -852,7 +872,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEAttribute(getParagraph_Number(), ecorePackage.getEString(), "number", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getPoint_References(), this.getPart(), null, "references", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPoint_Text(), this.getStyledLine(), null, "text", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPoint_Tables(), this.getTable(), null, "tables", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
@@ -880,6 +899,9 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getTableRow_Values(), ecorePackage.getEString(), "values", null, 0, -1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(withReferencesEClass, WithReferences.class, "WithReferences", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getWithReferences_References(), this.getPart(), null, "references", null, 0, -1, WithReferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

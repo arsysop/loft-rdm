@@ -159,9 +159,8 @@ public class TableImpl extends PartImpl implements Table {
 				return basicSetTitle(null, msgs);
 			case SpecPackage.TABLE__ROWS:
 				return ((InternalEList<?>)getRows()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -176,9 +175,8 @@ public class TableImpl extends PartImpl implements Table {
 				return getTitle();
 			case SpecPackage.TABLE__ROWS:
 				return getRows();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -197,10 +195,8 @@ public class TableImpl extends PartImpl implements Table {
 				getRows().clear();
 				getRows().addAll((Collection<? extends TableRow>)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -217,10 +213,8 @@ public class TableImpl extends PartImpl implements Table {
 			case SpecPackage.TABLE__ROWS:
 				getRows().clear();
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -235,9 +229,8 @@ public class TableImpl extends PartImpl implements Table {
 				return title != null;
 			case SpecPackage.TABLE__ROWS:
 				return rows != null && !rows.isEmpty();
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 } //TableImpl

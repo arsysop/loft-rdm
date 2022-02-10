@@ -24,7 +24,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -206,9 +205,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 				return getName();
 			case SpecPackage.PART__LOCATION:
 				return getLocation();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -216,6 +214,7 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -228,10 +227,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 			case SpecPackage.PART__LOCATION:
 				setLocation((String)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -251,10 +248,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 			case SpecPackage.PART__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -271,9 +266,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SpecPackage.PART__LOCATION:
 				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 	/**

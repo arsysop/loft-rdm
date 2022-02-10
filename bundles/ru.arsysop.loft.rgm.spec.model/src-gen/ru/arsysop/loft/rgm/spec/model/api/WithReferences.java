@@ -21,33 +21,39 @@ package ru.arsysop.loft.rgm.spec.model.api;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Table Row</b></em>'.
+ * A representation of the model object '<em><b>With References</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.TableRow#getValues <em>Values</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.WithReferences#getReferences <em>References</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTableRow()
- * @model
+ * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getWithReferences()
+ * @model abstract="true"
  * @generated
  */
-public interface TableRow extends Part, WithReferences {
+public interface WithReferences extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>References</b></em>' reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Part}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>References</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' attribute list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getTableRow_Values()
+	 * @return the value of the '<em>References</em>' reference list.
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getWithReferences_References()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getValues();
+	EList<Part> getReferences();
 
-} // TableRow
+} // WithReferences

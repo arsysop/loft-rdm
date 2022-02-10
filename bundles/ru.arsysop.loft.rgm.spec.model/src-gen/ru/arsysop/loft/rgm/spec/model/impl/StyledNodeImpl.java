@@ -160,9 +160,8 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 				return getText();
 			case SpecPackage.STYLED_NODE__TYPE:
 				return getType();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -179,10 +178,8 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 			case SpecPackage.STYLED_NODE__TYPE:
 				setType((String)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -199,10 +196,8 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 			case SpecPackage.STYLED_NODE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -217,9 +212,8 @@ public class StyledNodeImpl extends MinimalEObjectImpl.Container implements Styl
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			case SpecPackage.STYLED_NODE__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 	/**

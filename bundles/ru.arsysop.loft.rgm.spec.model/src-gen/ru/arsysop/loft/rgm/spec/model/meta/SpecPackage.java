@@ -935,13 +935,22 @@ public interface SpecPackage extends EPackage {
 	int TABLE_ROW__LOCATION = PART__LOCATION;
 
 	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__REFERENCES = PART_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__VALUES = PART_FEATURE_COUNT + 0;
+	int TABLE_ROW__VALUES = PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -950,7 +959,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
+	int TABLE_ROW_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Table Row</em>' class.
@@ -960,6 +969,43 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_ROW_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.WithReferencesImpl <em>With References</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.WithReferencesImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getWithReferences()
+	 * @generated
+	 */
+	int WITH_REFERENCES = 14;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_REFERENCES__REFERENCES = 0;
+
+	/**
+	 * The number of structural features of the '<em>With References</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_REFERENCES_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>With References</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_REFERENCES_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Document <em>Document</em>}'.
@@ -1240,17 +1286,6 @@ public interface SpecPackage extends EPackage {
 	EClass getPoint();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getReferences <em>References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>References</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getReferences()
-	 * @see #getPoint()
-	 * @generated
-	 */
-	EReference getPoint_References();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1474,6 +1509,27 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTableRow_Values();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.WithReferences <em>With References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>With References</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.WithReferences
+	 * @generated
+	 */
+	EClass getWithReferences();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.WithReferences#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.WithReferences#getReferences()
+	 * @see #getWithReferences()
+	 * @generated
+	 */
+	EReference getWithReferences_References();
 
 	/**
 	 * Returns the factory that creates the instances of the model.

@@ -30,7 +30,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getReferences <em>References</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getText <em>Text</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}</li>
  * </ul>
@@ -39,19 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Point extends Part {
-	/**
-	 * Returns the value of the '<em><b>References</b></em>' reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Part}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>References</em>' reference list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_References()
-	 * @model
-	 * @generated
-	 */
-	EList<Part> getReferences();
-
+public interface Point extends Part, WithReferences {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.StyledLine}.

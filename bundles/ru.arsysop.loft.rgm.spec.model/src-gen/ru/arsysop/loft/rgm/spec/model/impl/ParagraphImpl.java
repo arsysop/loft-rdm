@@ -112,9 +112,8 @@ public class ParagraphImpl extends WithPartsImpl implements Paragraph {
 		switch (featureID) {
 			case SpecPackage.PARAGRAPH__NUMBER:
 				return getNumber();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -128,10 +127,8 @@ public class ParagraphImpl extends WithPartsImpl implements Paragraph {
 			case SpecPackage.PARAGRAPH__NUMBER:
 				setNumber((String)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -145,10 +142,8 @@ public class ParagraphImpl extends WithPartsImpl implements Paragraph {
 			case SpecPackage.PARAGRAPH__NUMBER:
 				setNumber(NUMBER_EDEFAULT);
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -161,9 +156,8 @@ public class ParagraphImpl extends WithPartsImpl implements Paragraph {
 		switch (featureID) {
 			case SpecPackage.PARAGRAPH__NUMBER:
 				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 	/**

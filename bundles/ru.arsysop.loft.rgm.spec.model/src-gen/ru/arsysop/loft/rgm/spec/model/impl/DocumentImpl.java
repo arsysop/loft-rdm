@@ -363,9 +363,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				if (toc != null)
 					msgs = ((InternalEObject)toc).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SpecPackage.DOCUMENT__TOC, null, msgs);
 				return basicSetToc((Toc)otherEnd, msgs);
-			default:
-				return super.eInverseAdd(otherEnd, featureID, msgs);
 		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -382,9 +381,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return ((InternalEList<?>)getParagraphs()).basicRemove(otherEnd, msgs);
 			case SpecPackage.DOCUMENT__INDEXES:
 				return ((InternalEList<?>)getIndexes()).basicRemove(otherEnd, msgs);
-			default:
-				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -409,9 +407,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getParagraphs();
 			case SpecPackage.DOCUMENT__INDEXES:
 				return getIndexes();
-			default:
-				return super.eGet(featureID, resolve, coreType);
 		}
+		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -446,10 +443,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				getIndexes().clear();
 				getIndexes().addAll((Collection<? extends Index>)newValue);
 				return;
-			default:
-				super.eSet(featureID, newValue);
-				return;
 		}
+		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -481,10 +476,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case SpecPackage.DOCUMENT__INDEXES:
 				getIndexes().clear();
 				return;
-			default:
-				super.eUnset(featureID);
-				return;
 		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -509,9 +502,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return paragraphs != null && !paragraphs.isEmpty();
 			case SpecPackage.DOCUMENT__INDEXES:
 				return indexes != null && !indexes.isEmpty();
-			default:
-				return super.eIsSet(featureID);
 		}
+		return super.eIsSet(featureID);
 	}
 
 	/**
