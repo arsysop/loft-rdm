@@ -53,6 +53,7 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		String id = pointId(node);
 		point.setId(encode.apply(id));
 		point.setLocation(paragraph.getLocation() + '#' + id);
+		point.setNumber(id);
 		point.setName(pointName(paragraph, node));
 		point.getText().addAll(text.apply(node));
 		point.getTables().addAll(tables.apply(paragraph, node));

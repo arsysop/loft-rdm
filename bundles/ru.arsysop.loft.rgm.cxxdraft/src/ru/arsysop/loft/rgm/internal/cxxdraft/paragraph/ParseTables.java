@@ -63,6 +63,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		table.setId(tableId(div));
 		table.setLocation(tableLocation(paragraph, div));
 		table.setName(tableName(div));
+		table.setNumber(tableNumber(div));
 		fillTableContent(div, table);
 		return table;
 	}
@@ -82,12 +83,16 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		return paragraph.getLocation() + '#' + div.attributeValue("id"); //$NON-NLS-1$
 	}
 
+	private String tableNumber(Element div) {
+		List<Node> content = div.content();
+		return content.get(1).getText();
+	}
+
 	private String tableName(Element div) {
 		List<Node> content = div.content();
-		String number = content.get(1).getText();
 		String name = content.subList(3, content.indexOf(div.element("table"))).stream().map(Node::getText) //$NON-NLS-1$
 				.collect(Collectors.joining());
-		return number.concat(" ").concat(name); //$NON-NLS-1$
+		return name;
 	}
 
 	private int fillTitle(Table table, List<Element> rows) {
@@ -126,6 +131,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		TableRow row = factory.createTableRow();
 		row.setLocation(location);
 		row.setId(id);
+		row.setNumber(name);
 		row.setName(name);
 		return row;
 	}

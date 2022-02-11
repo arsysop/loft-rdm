@@ -202,13 +202,22 @@ public interface SpecPackage extends EPackage {
 	int PART__LOCATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PART__NUMBER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PART_FEATURE_COUNT = 3;
+	int PART_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Part</em>' class.
@@ -255,6 +264,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int WITH_PARTS__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_PARTS__NUMBER = PART__NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
@@ -477,6 +495,15 @@ public interface SpecPackage extends EPackage {
 	int PARAGRAPH__LOCATION = WITH_PARTS__LOCATION;
 
 	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAGRAPH__NUMBER = WITH_PARTS__NUMBER;
+
+	/**
 	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,22 +513,13 @@ public interface SpecPackage extends EPackage {
 	int PARAGRAPH__PARTS = WITH_PARTS__PARTS;
 
 	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__NUMBER = WITH_PARTS_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Paragraph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAGRAPH_FEATURE_COUNT = WITH_PARTS_FEATURE_COUNT + 1;
+	int PARAGRAPH_FEATURE_COUNT = WITH_PARTS_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Paragraph</em>' class.
@@ -548,6 +566,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINT__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__NUMBER = PART__NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -630,6 +657,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDEX__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__NUMBER = PART__NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -862,6 +898,15 @@ public interface SpecPackage extends EPackage {
 	int TABLE__LOCATION = PART__LOCATION;
 
 	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NUMBER = PART__NUMBER;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -933,6 +978,15 @@ public interface SpecPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_ROW__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__NUMBER = PART__NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -1138,6 +1192,17 @@ public interface SpecPackage extends EPackage {
 	EAttribute getPart_Location();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Part#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Part#getNumber()
+	 * @see #getPart()
+	 * @generated
+	 */
+	EAttribute getPart_Number();
+
+	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.WithParts <em>With Parts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1263,17 +1328,6 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParagraph();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Paragraph#getNumber <em>Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Number</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Paragraph#getNumber()
-	 * @see #getParagraph()
-	 * @generated
-	 */
-	EAttribute getParagraph_Number();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Point <em>Point</em>}'.

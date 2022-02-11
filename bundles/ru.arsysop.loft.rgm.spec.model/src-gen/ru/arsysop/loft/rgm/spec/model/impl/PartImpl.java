@@ -38,6 +38,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PartImpl#getNumber <em>Number</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +103,26 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 	 * @ordered
 	 */
 	protected String location = LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NUMBER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected String number = NUMBER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,6 +218,29 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 	 * @generated
 	 */
 	@Override
+	public String getNumber() {
+		return number;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNumber(String newNumber) {
+		String oldNumber = number;
+		number = newNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.PART__NUMBER, oldNumber, number));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SpecPackage.PART__ID:
@@ -205,8 +249,11 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 				return getName();
 			case SpecPackage.PART__LOCATION:
 				return getLocation();
+			case SpecPackage.PART__NUMBER:
+				return getNumber();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -227,8 +274,13 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 			case SpecPackage.PART__LOCATION:
 				setLocation((String)newValue);
 				return;
+			case SpecPackage.PART__NUMBER:
+				setNumber((String)newValue);
+				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -248,8 +300,13 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 			case SpecPackage.PART__LOCATION:
 				setLocation(LOCATION_EDEFAULT);
 				return;
+			case SpecPackage.PART__NUMBER:
+				setNumber(NUMBER_EDEFAULT);
+				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -266,8 +323,11 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SpecPackage.PART__LOCATION:
 				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+			case SpecPackage.PART__NUMBER:
+				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 	/**
@@ -286,6 +346,8 @@ public abstract class PartImpl extends MinimalEObjectImpl.Container implements P
 		result.append(name);
 		result.append(", location: "); //$NON-NLS-1$
 		result.append(location);
+		result.append(", number: "); //$NON-NLS-1$
+		result.append(number);
 		result.append(')');
 		return result.toString();
 	}

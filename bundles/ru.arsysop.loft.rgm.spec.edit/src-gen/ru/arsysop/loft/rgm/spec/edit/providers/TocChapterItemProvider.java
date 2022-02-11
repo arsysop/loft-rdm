@@ -232,8 +232,10 @@ public class TocChapterItemProvider extends WithTocChaptersItemProvider {
 			case SpecPackage.TOC_CHAPTER__NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-		}
-		super.notifyChanged(notification);
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**

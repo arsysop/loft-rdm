@@ -88,6 +88,7 @@ public class TableRowImpl extends PartImpl implements TableRow {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Part> getReferences() {
 		if (references == null) {
 			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.TABLE_ROW__REFERENCES);
@@ -120,8 +121,9 @@ public class TableRowImpl extends PartImpl implements TableRow {
 				return getReferences();
 			case SpecPackage.TABLE_ROW__VALUES:
 				return getValues();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -141,8 +143,10 @@ public class TableRowImpl extends PartImpl implements TableRow {
 				getValues().clear();
 				getValues().addAll((Collection<? extends String>)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -159,8 +163,10 @@ public class TableRowImpl extends PartImpl implements TableRow {
 			case SpecPackage.TABLE_ROW__VALUES:
 				getValues().clear();
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -175,8 +181,9 @@ public class TableRowImpl extends PartImpl implements TableRow {
 				return references != null && !references.isEmpty();
 			case SpecPackage.TABLE_ROW__VALUES:
 				return values != null && !values.isEmpty();
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 	/**

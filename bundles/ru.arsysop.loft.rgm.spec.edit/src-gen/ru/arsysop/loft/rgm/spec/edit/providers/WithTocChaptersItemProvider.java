@@ -219,8 +219,10 @@ public class WithTocChaptersItemProvider
 			case SpecPackage.WITH_TOC_CHAPTERS__CHAPTERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
-		}
-		super.notifyChanged(notification);
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**

@@ -158,8 +158,10 @@ public class IndexItemProvider extends PartItemProvider {
 			case SpecPackage.INDEX__ENTRIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
-		}
-		super.notifyChanged(notification);
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**

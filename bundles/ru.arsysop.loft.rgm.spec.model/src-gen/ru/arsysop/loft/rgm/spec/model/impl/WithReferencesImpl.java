@@ -82,6 +82,7 @@ public abstract class WithReferencesImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Part> getReferences() {
 		if (references == null) {
 			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.WITH_REFERENCES__REFERENCES);
@@ -99,8 +100,9 @@ public abstract class WithReferencesImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case SpecPackage.WITH_REFERENCES__REFERENCES:
 				return getReferences();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -116,8 +118,10 @@ public abstract class WithReferencesImpl extends MinimalEObjectImpl.Container im
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Part>)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -131,8 +135,10 @@ public abstract class WithReferencesImpl extends MinimalEObjectImpl.Container im
 			case SpecPackage.WITH_REFERENCES__REFERENCES:
 				getReferences().clear();
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -145,8 +151,9 @@ public abstract class WithReferencesImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case SpecPackage.WITH_REFERENCES__REFERENCES:
 				return references != null && !references.isEmpty();
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 } //WithReferencesImpl
