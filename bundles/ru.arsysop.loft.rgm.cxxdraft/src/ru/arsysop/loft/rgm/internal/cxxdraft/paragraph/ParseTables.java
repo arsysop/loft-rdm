@@ -110,7 +110,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 	}
 
 	private TableRow collectRow(Element tr, Table table, int index) {
-		TableRow row = row(String.valueOf(index), table.getId() + "-" + index, table.getLocation()); //$NON-NLS-1$
+		TableRow row = row(String.valueOf(index), table.getId() + "_row" + index, table.getLocation()); //$NON-NLS-1$
 		List<Element> cells = tr.elements("td"); //$NON-NLS-1$
 		cells.stream().map(this::extractText).forEach(row.getValues()::add);
 		cells.stream().map(new ParseReferences(context)).flatMap(List::stream).forEach(row.getReferences()::add);
