@@ -98,8 +98,9 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements Styl
 		switch (featureID) {
 			case SpecPackage.STYLED_LINE__TEXT:
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			default:
+				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -112,8 +113,9 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements Styl
 		switch (featureID) {
 			case SpecPackage.STYLED_LINE__TEXT:
 				return getText();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -129,8 +131,10 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements Styl
 				getText().clear();
 				getText().addAll((Collection<? extends StyledNode>)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -144,8 +148,10 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements Styl
 			case SpecPackage.STYLED_LINE__TEXT:
 				getText().clear();
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -158,8 +164,9 @@ public class StyledLineImpl extends MinimalEObjectImpl.Container implements Styl
 		switch (featureID) {
 			case SpecPackage.STYLED_LINE__TEXT:
 				return text != null && !text.isEmpty();
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 } //StyledLineImpl

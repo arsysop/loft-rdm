@@ -174,8 +174,10 @@ public class TableRowItemProvider extends PartItemProvider {
 			case SpecPackage.TABLE_ROW__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-		}
-		super.notifyChanged(notification);
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**

@@ -285,8 +285,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 		switch (featureID) {
 			case SpecPackage.INDEX_ENTRY__SUBENTRIES:
 				return ((InternalEList<?>)getSubentries()).basicRemove(otherEnd, msgs);
+			default:
+				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -309,8 +310,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 				return getSee();
 			case SpecPackage.INDEX_ENTRY__SUBENTRIES:
 				return getSubentries();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -343,8 +345,10 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 				getSubentries().clear();
 				getSubentries().addAll((Collection<? extends IndexEntry>)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -373,8 +377,10 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 			case SpecPackage.INDEX_ENTRY__SUBENTRIES:
 				getSubentries().clear();
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -397,8 +403,9 @@ public class IndexEntryImpl extends MinimalEObjectImpl.Container implements Inde
 				return see != null && !see.isEmpty();
 			case SpecPackage.INDEX_ENTRY__SUBENTRIES:
 				return subentries != null && !subentries.isEmpty();
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 	/**

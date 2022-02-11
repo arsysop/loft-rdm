@@ -258,8 +258,9 @@ public class TocChapterImpl extends WithTocChaptersImpl implements TocChapter {
 			case SpecPackage.TOC_CHAPTER__PART:
 				if (resolve) return getPart();
 				return basicGetPart();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -282,8 +283,10 @@ public class TocChapterImpl extends WithTocChaptersImpl implements TocChapter {
 			case SpecPackage.TOC_CHAPTER__PART:
 				setPart((Part)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -306,8 +309,10 @@ public class TocChapterImpl extends WithTocChaptersImpl implements TocChapter {
 			case SpecPackage.TOC_CHAPTER__PART:
 				setPart((Part)null);
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -326,8 +331,9 @@ public class TocChapterImpl extends WithTocChaptersImpl implements TocChapter {
 				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
 			case SpecPackage.TOC_CHAPTER__PART:
 				return part != null;
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 	/**

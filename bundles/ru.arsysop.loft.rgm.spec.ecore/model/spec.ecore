@@ -20,6 +20,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WithParts" abstract="true" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
@@ -39,10 +41,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" eType="#//Part"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Paragraph" eSuperTypes="#//WithParts">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Paragraph" eSuperTypes="#//WithParts"/>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Part #//WithReferences">
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//StyledLine"
         containment="true"/>

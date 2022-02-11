@@ -343,6 +343,16 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPart_Number() {
+		return (EAttribute)partEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getWithParts() {
 		return withPartsEClass;
 	}
@@ -455,16 +465,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	@Override
 	public EClass getParagraph() {
 		return paragraphEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getParagraph_Number() {
-		return (EAttribute)paragraphEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -692,6 +692,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getWithReferences() {
 		return withReferencesEClass;
 	}
@@ -701,6 +702,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getWithReferences_References() {
 		return (EReference)withReferencesEClass.getEStructuralFeatures().get(0);
 	}
@@ -747,6 +749,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEAttribute(partEClass, PART__ID);
 		createEAttribute(partEClass, PART__NAME);
 		createEAttribute(partEClass, PART__LOCATION);
+		createEAttribute(partEClass, PART__NUMBER);
 
 		withPartsEClass = createEClass(WITH_PARTS);
 		createEReference(withPartsEClass, WITH_PARTS__PARTS);
@@ -764,7 +767,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(tocChapterEClass, TOC_CHAPTER__PART);
 
 		paragraphEClass = createEClass(PARAGRAPH);
-		createEAttribute(paragraphEClass, PARAGRAPH__NUMBER);
 
 		pointEClass = createEClass(POINT);
 		createEReference(pointEClass, POINT__TEXT);
@@ -852,6 +854,7 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEAttribute(getPart_Id(), ecorePackage.getEString(), "id", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getPart_Name(), ecorePackage.getEString(), "name", null, 0, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getPart_Location(), ecorePackage.getEString(), "location", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getPart_Number(), ecorePackage.getEString(), "number", null, 1, 1, Part.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(withPartsEClass, WithParts.class, "WithParts", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getWithParts_Parts(), this.getPart(), null, "parts", null, 0, -1, WithParts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -869,7 +872,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getTocChapter_Part(), this.getPart(), null, "part", null, 0, 1, TocChapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getParagraph_Number(), ecorePackage.getEString(), "number", null, 1, 1, Paragraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getPoint_Text(), this.getStyledLine(), null, "text", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

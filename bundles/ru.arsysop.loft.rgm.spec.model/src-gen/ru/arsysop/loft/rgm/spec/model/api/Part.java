@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getId <em>Id</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getName <em>Name</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getLocation <em>Location</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Part#getNumber <em>Number</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPart()
@@ -106,5 +107,27 @@ public interface Part extends EObject {
 	 * @generated
 	 */
 	void setLocation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Number</em>' attribute.
+	 * @see #setNumber(String)
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPart_Number()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getNumber();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.Part#getNumber <em>Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number</em>' attribute.
+	 * @see #getNumber()
+	 * @generated
+	 */
+	void setNumber(String value);
 
 } // Part

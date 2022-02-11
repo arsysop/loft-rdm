@@ -98,8 +98,9 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 		switch (featureID) {
 			case SpecPackage.WITH_PARTS__PARTS:
 				return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
+			default:
+				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -112,8 +113,9 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 		switch (featureID) {
 			case SpecPackage.WITH_PARTS__PARTS:
 				return getParts();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -129,8 +131,10 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 				getParts().clear();
 				getParts().addAll((Collection<? extends Part>)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -144,8 +148,10 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 			case SpecPackage.WITH_PARTS__PARTS:
 				getParts().clear();
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -158,8 +164,9 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 		switch (featureID) {
 			case SpecPackage.WITH_PARTS__PARTS:
 				return parts != null && !parts.isEmpty();
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 } //WithPartsImpl

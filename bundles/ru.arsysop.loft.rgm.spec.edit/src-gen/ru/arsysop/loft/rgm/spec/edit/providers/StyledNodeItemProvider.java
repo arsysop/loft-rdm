@@ -242,8 +242,10 @@ public class StyledNodeItemProvider
 			case SpecPackage.STYLED_NODE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-		}
-		super.notifyChanged(notification);
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**

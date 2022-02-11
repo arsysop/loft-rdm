@@ -105,6 +105,7 @@ public class PointImpl extends PartImpl implements Point {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Part> getReferences() {
 		if (references == null) {
 			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.POINT__REFERENCES);
@@ -150,8 +151,9 @@ public class PointImpl extends PartImpl implements Point {
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
 			case SpecPackage.POINT__TABLES:
 				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
+			default:
+				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -168,8 +170,9 @@ public class PointImpl extends PartImpl implements Point {
 				return getText();
 			case SpecPackage.POINT__TABLES:
 				return getTables();
+			default:
+				return super.eGet(featureID, resolve, coreType);
 		}
-		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
@@ -193,8 +196,10 @@ public class PointImpl extends PartImpl implements Point {
 				getTables().clear();
 				getTables().addAll((Collection<? extends Table>)newValue);
 				return;
+			default:
+				super.eSet(featureID, newValue);
+				return;
 		}
-		super.eSet(featureID, newValue);
 	}
 
 	/**
@@ -214,8 +219,10 @@ public class PointImpl extends PartImpl implements Point {
 			case SpecPackage.POINT__TABLES:
 				getTables().clear();
 				return;
+			default:
+				super.eUnset(featureID);
+				return;
 		}
-		super.eUnset(featureID);
 	}
 
 	/**
@@ -232,8 +239,9 @@ public class PointImpl extends PartImpl implements Point {
 				return text != null && !text.isEmpty();
 			case SpecPackage.POINT__TABLES:
 				return tables != null && !tables.isEmpty();
+			default:
+				return super.eIsSet(featureID);
 		}
-		return super.eIsSet(featureID);
 	}
 
 	/**

@@ -190,8 +190,10 @@ public class TableItemProvider extends PartItemProvider {
 			case SpecPackage.TABLE__ROWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
-		}
-		super.notifyChanged(notification);
+			default:
+				super.notifyChanged(notification);
+				return;
+			}
 	}
 
 	/**
