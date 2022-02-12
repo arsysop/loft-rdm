@@ -43,8 +43,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Paragraph" eSuperTypes="#//WithParts"/>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Part #//WithReferences">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//StyledLine"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//Table" containment="true"/>
   </eClassifiers>
@@ -62,14 +60,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="see" upperBound="-1" eType="#//IndexEntry"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subentries" upperBound="-1"
         eType="#//IndexEntry" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StyledNode">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StyledLine">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1" eType="#//StyledNode"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Part">
     <eStructuralFeatures xsi:type="ecore:EReference" name="title" lowerBound="1" eType="#//TableRow"
