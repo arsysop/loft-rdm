@@ -37,10 +37,9 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	private final SpecFactory factory = SpecFactory.eINSTANCE;
 	private final ParseTables tables;
 	private final ParseReferences references;
-	private final EncodeId encode;
 
 	public AppendPoint(ResolutionContext context) {
-		this.encode = new EncodeId();
+		this.text = new ParseText(factory);
 		this.references = new ParseReferences(context);
 		this.tables = new ParseTables(factory, context);
 	}
@@ -48,8 +47,8 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	@Override
 	public void accept(Paragraph paragraph, Element node) {
 		Point point = factory.createPoint();
-		String id = pointId(node);
-		point.setId(encode.apply(id));
+		String id = pointNumber(node);
+		point.setId(new EncodeId().apply(paragraph.getId() + "_point" + id)); //$NON-NLS-1$
 		point.setLocation(paragraph.getLocation() + '#' + id);
 		point.setNumber(id);
 		point.setName(pointName(paragraph, node));
@@ -58,16 +57,16 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		paragraph.getParts().add(point);
 	}
 
-	private String pointId(Element node) {
-		return node.attributeValue("id"); //$NON-NLS-1$
+	private String pointName(Paragraph paragraph, Element node) {
+		return paragraph.getNumber().concat("-").concat(pointNumber(node)); //$NON-NLS-1$
 	}
 
-	private String pointName(Paragraph paragraph, Element node) {
-		return paragraph.getNumber().concat("-").concat(node.elements("div").stream() //$NON-NLS-1$ //$NON-NLS-2$
+	private String pointNumber(Element node) {
+		return node.elements("div").stream() //$NON-NLS-1$
 				.filter(new OfClass("marginalizedparent")) //$NON-NLS-1$
 				.map(e -> e.element("a")) //$NON-NLS-1$
 				.map(Element::getText) //
-				.findAny().orElse("")); //$NON-NLS-1$
+				.findAny().orElse(""); //$NON-NLS-1$
 	}
 
 }
