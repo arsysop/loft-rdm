@@ -23,6 +23,7 @@ package ru.arsysop.loft.rgm.cxxdraft.base;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ICoreRunnable;
@@ -74,7 +75,19 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size());
 		for (Paragraph paragraph : paragraphs) {
 			sub.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, paragraph.getName()));
-			parseLocation(paragraph, sub.split(1));
+			parseParagraph(sub.split(1), paragraph);
+		}
+	}
+
+	private void parseParagraph(SubMonitor monitor, Paragraph paragraph) throws CoreException {
+		List<Paragraph> paragraphs = paragraph.getParts().stream() //
+				.filter(Paragraph.class::isInstance) //
+				.map(Paragraph.class::cast) //
+				.collect(Collectors.toList());
+		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size() + 1);
+		parseLocation(paragraph, sub.split(1));
+		for (Paragraph inner : paragraphs) {
+			parseParagraph(sub.split(1), inner);
 		}
 	}
 

@@ -20,20 +20,17 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
-import java.util.Optional;
 import java.util.stream.IntStream;
 
 import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.NullClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendPoint;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 
 public final class ParagraphStructure extends BaseStructure<Paragraph> {
-
 
 	protected ParagraphStructure(Paragraph container, ResolutionContext context) {
 		super(container, context);
@@ -47,31 +44,14 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 				.filter(Element.class::isInstance) //
 				.map(Element.class::cast) //
 				.filter(new IsDiv()) //
-				.forEach(this::resolveParagraph);
+				.forEach(this::readPoints);
 	}
 
-	private void resolveParagraph(Element node) {
-		Optional<Paragraph> found = findParagraph(node);
-		if (found.isPresent()) {
-			readPoints(found.get(), node);
-			node.elements("div").stream() // //$NON-NLS-1$
-					.filter(new NullClass()) //
-					.forEach(this::resolveParagraph);
-		}
-	}
-
-	private Optional<Paragraph> findParagraph(Element node) {
-		return context.parts() //
-				.find(node.attributeValue("id")) //$NON-NLS-1$
-				.filter(Paragraph.class::isInstance) //
-				.map(Paragraph.class::cast);
-	}
-
-	private void readPoints(Paragraph paragraph, Element node) {
+	private void readPoints(Element node) {
 		node.elements().stream() //
 				.filter(new IsDiv()) //
 				.filter(new OfClass("para")) //$NON-NLS-1$
-				.forEach(e -> new AppendPoint(context).accept(paragraph, e));
+				.forEach(e -> new AppendPoint(context).accept(container, e));
 	}
 
 }
