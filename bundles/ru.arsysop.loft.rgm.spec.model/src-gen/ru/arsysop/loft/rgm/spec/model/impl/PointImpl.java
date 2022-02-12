@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.WithReferences;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
@@ -44,7 +43,6 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getReferences <em>References</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getText <em>Text</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getTables <em>Tables</em>}</li>
  * </ul>
  *
@@ -60,16 +58,6 @@ public class PointImpl extends PartImpl implements Point {
 	 * @ordered
 	 */
 	protected EList<Part> references;
-
-	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getText()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StyledLine> text;
 
 	/**
 	 * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference list.
@@ -119,19 +107,6 @@ public class PointImpl extends PartImpl implements Point {
 	 * @generated
 	 */
 	@Override
-	public EList<StyledLine> getText() {
-		if (text == null) {
-			text = new EObjectContainmentEList<StyledLine>(StyledLine.class, this, SpecPackage.POINT__TEXT);
-		}
-		return text;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Table> getTables() {
 		if (tables == null) {
 			tables = new EObjectContainmentEList<Table>(Table.class, this, SpecPackage.POINT__TABLES);
@@ -147,8 +122,6 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpecPackage.POINT__TEXT:
-				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
 			case SpecPackage.POINT__TABLES:
 				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
 			default:
@@ -166,8 +139,6 @@ public class PointImpl extends PartImpl implements Point {
 		switch (featureID) {
 			case SpecPackage.POINT__REFERENCES:
 				return getReferences();
-			case SpecPackage.POINT__TEXT:
-				return getText();
 			case SpecPackage.POINT__TABLES:
 				return getTables();
 			default:
@@ -187,10 +158,6 @@ public class PointImpl extends PartImpl implements Point {
 			case SpecPackage.POINT__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Part>)newValue);
-				return;
-			case SpecPackage.POINT__TEXT:
-				getText().clear();
-				getText().addAll((Collection<? extends StyledLine>)newValue);
 				return;
 			case SpecPackage.POINT__TABLES:
 				getTables().clear();
@@ -213,9 +180,6 @@ public class PointImpl extends PartImpl implements Point {
 			case SpecPackage.POINT__REFERENCES:
 				getReferences().clear();
 				return;
-			case SpecPackage.POINT__TEXT:
-				getText().clear();
-				return;
 			case SpecPackage.POINT__TABLES:
 				getTables().clear();
 				return;
@@ -235,8 +199,6 @@ public class PointImpl extends PartImpl implements Point {
 		switch (featureID) {
 			case SpecPackage.POINT__REFERENCES:
 				return references != null && !references.isEmpty();
-			case SpecPackage.POINT__TEXT:
-				return text != null && !text.isEmpty();
 			case SpecPackage.POINT__TABLES:
 				return tables != null && !tables.isEmpty();
 			default:

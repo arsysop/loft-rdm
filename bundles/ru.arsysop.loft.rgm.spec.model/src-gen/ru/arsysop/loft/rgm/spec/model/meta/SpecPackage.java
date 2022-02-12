@@ -586,22 +586,13 @@ public interface SpecPackage extends EPackage {
 	int POINT__REFERENCES = PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__TEXT = PART_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT__TABLES = PART_FEATURE_COUNT + 2;
+	int POINT__TABLES = PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Point</em>' class.
@@ -610,7 +601,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 3;
+	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Point</em>' class.
@@ -777,90 +768,6 @@ public interface SpecPackage extends EPackage {
 	int INDEX_ENTRY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.StyledNodeImpl <em>Styled Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.StyledNodeImpl
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getStyledNode()
-	 * @generated
-	 */
-	int STYLED_NODE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_NODE__TEXT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_NODE__TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Styled Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_NODE_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Styled Node</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_NODE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.StyledLineImpl <em>Styled Line</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.StyledLineImpl
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getStyledLine()
-	 * @generated
-	 */
-	int STYLED_LINE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_LINE__TEXT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Styled Line</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_LINE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Styled Line</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STYLED_LINE_OPERATION_COUNT = 0;
-
-
-	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl <em>Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -868,7 +775,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 12;
+	int TABLE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -950,7 +857,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 13;
+	int TABLE_ROW = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1032,7 +939,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getWithReferences()
 	 * @generated
 	 */
-	int WITH_REFERENCES = 14;
+	int WITH_REFERENCES = 12;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -1340,17 +1247,6 @@ public interface SpecPackage extends EPackage {
 	EClass getPoint();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Text</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getText()
-	 * @see #getPoint()
-	 * @generated
-	 */
-	EReference getPoint_Text();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1457,59 +1353,6 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIndexEntry_Subentries();
-
-	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.StyledNode <em>Styled Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Styled Node</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledNode
-	 * @generated
-	 */
-	EClass getStyledNode();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.StyledNode#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledNode#getText()
-	 * @see #getStyledNode()
-	 * @generated
-	 */
-	EAttribute getStyledNode_Text();
-
-	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.StyledNode#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledNode#getType()
-	 * @see #getStyledNode()
-	 * @generated
-	 */
-	EAttribute getStyledNode_Type();
-
-	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.StyledLine <em>Styled Line</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Styled Line</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledLine
-	 * @generated
-	 */
-	EClass getStyledLine();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.StyledLine#getText <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Text</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledLine#getText()
-	 * @see #getStyledLine()
-	 * @generated
-	 */
-	EReference getStyledLine_Text();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Table <em>Table</em>}'.
