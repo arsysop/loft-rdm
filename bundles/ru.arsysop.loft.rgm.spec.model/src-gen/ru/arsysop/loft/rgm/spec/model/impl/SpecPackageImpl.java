@@ -32,8 +32,6 @@ import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
-import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
@@ -120,20 +118,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	private EClass indexEntryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass styledNodeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass styledLineEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -483,18 +467,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPoint_Text() {
-		return (EReference)pointEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getPoint_Tables() {
-		return (EReference)pointEClass.getEStructuralFeatures().get(1);
+		return (EReference)pointEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -585,56 +559,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	@Override
 	public EReference getIndexEntry_Subentries() {
 		return (EReference)indexEntryEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getStyledNode() {
-		return styledNodeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getStyledNode_Text() {
-		return (EAttribute)styledNodeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getStyledNode_Type() {
-		return (EAttribute)styledNodeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getStyledLine() {
-		return styledLineEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getStyledLine_Text() {
-		return (EReference)styledLineEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -769,7 +693,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		paragraphEClass = createEClass(PARAGRAPH);
 
 		pointEClass = createEClass(POINT);
-		createEReference(pointEClass, POINT__TEXT);
 		createEReference(pointEClass, POINT__TABLES);
 
 		indexEClass = createEClass(INDEX);
@@ -782,13 +705,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(indexEntryEClass, INDEX_ENTRY__PARTS);
 		createEReference(indexEntryEClass, INDEX_ENTRY__SEE);
 		createEReference(indexEntryEClass, INDEX_ENTRY__SUBENTRIES);
-
-		styledNodeEClass = createEClass(STYLED_NODE);
-		createEAttribute(styledNodeEClass, STYLED_NODE__TEXT);
-		createEAttribute(styledNodeEClass, STYLED_NODE__TYPE);
-
-		styledLineEClass = createEClass(STYLED_LINE);
-		createEReference(styledLineEClass, STYLED_LINE__TEXT);
 
 		tableEClass = createEClass(TABLE);
 		createEReference(tableEClass, TABLE__TITLE);
@@ -874,7 +790,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getPoint_Text(), this.getStyledLine(), null, "text", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPoint_Tables(), this.getTable(), null, "tables", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -887,13 +802,6 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getIndexEntry_Parts(), this.getPart(), null, "parts", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getIndexEntry_See(), this.getIndexEntry(), null, "see", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getIndexEntry_Subentries(), this.getIndexEntry(), null, "subentries", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(styledNodeEClass, StyledNode.class, "StyledNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getStyledNode_Text(), ecorePackage.getEString(), "text", null, 0, 1, StyledNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getStyledNode_Type(), ecorePackage.getEString(), "type", null, 0, 1, StyledNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(styledLineEClass, StyledLine.class, "StyledLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getStyledLine_Text(), this.getStyledNode(), null, "text", null, 0, -1, StyledLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getTable_Title(), this.getTableRow(), null, "title", null, 1, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

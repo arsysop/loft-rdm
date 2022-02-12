@@ -26,8 +26,6 @@ import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
-import ru.arsysop.loft.rgm.spec.model.api.StyledNode;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
@@ -112,24 +110,6 @@ public interface SpecFactory extends EFactory {
 	 * @generated
 	 */
 	IndexEntry createIndexEntry();
-
-	/**
-	 * Returns a new object of class '<em>Styled Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Styled Node</em>'.
-	 * @generated
-	 */
-	StyledNode createStyledNode();
-
-	/**
-	 * Returns a new object of class '<em>Styled Line</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Styled Line</em>'.
-	 * @generated
-	 */
-	StyledLine createStyledLine();
 
 	/**
 	 * Returns a new object of class '<em>Table</em>'.

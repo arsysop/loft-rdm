@@ -276,52 +276,6 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.StyledNode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StyledNodeItemProvider styledNodeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.StyledNode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStyledNodeAdapter() {
-		if (styledNodeItemProvider == null) {
-			styledNodeItemProvider = new StyledNodeItemProvider(this);
-		}
-
-		return styledNodeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.StyledLine} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StyledLineItemProvider styledLineItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.StyledLine}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStyledLineAdapter() {
-		if (styledLineItemProvider == null) {
-			styledLineItemProvider = new StyledLineItemProvider(this);
-		}
-
-		return styledLineItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Table} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -508,8 +462,6 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 		if (pointItemProvider != null) pointItemProvider.dispose();
 		if (indexItemProvider != null) indexItemProvider.dispose();
 		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
-		if (styledNodeItemProvider != null) styledNodeItemProvider.dispose();
-		if (styledLineItemProvider != null) styledLineItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
 	}

@@ -83,8 +83,6 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 			case SpecPackage.POINT: return createPoint();
 			case SpecPackage.INDEX: return createIndex();
 			case SpecPackage.INDEX_ENTRY: return createIndexEntry();
-			case SpecPackage.STYLED_NODE: return createStyledNode();
-			case SpecPackage.STYLED_LINE: return createStyledLine();
 			case SpecPackage.TABLE: return createTable();
 			case SpecPackage.TABLE_ROW: return createTableRow();
 			default:
@@ -167,28 +165,6 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 	public IndexEntry createIndexEntry() {
 		IndexEntryImpl indexEntry = new IndexEntryImpl();
 		return indexEntry;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public StyledNode createStyledNode() {
-		StyledNodeImpl styledNode = new StyledNodeImpl();
-		return styledNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public StyledLine createStyledLine() {
-		StyledLineImpl styledLine = new StyledLineImpl();
-		return styledLine;
 	}
 
 	/**

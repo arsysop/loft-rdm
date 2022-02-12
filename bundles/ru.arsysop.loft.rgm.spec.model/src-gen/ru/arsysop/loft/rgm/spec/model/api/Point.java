@@ -30,7 +30,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getText <em>Text</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}</li>
  * </ul>
  *
@@ -39,18 +38,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Point extends Part, WithReferences {
-	/**
-	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.StyledLine}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Text()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<StyledLine> getText();
-
 	/**
 	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Table}.

@@ -34,10 +34,8 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.spec.edit.NodeStyle;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.api.StyledLine;
 import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
@@ -178,9 +176,6 @@ public class PointItemProvider extends PartItemProvider {
 					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
 					styledLabel.append(")", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
 				});
-		item.getText().stream().findFirst().map(StyledLine::getText).map(List::stream)
-				.ifPresent(nodes -> nodes.filter(Objects::nonNull).map(new NodeStyle())
-						.forEach(s -> styledLabel.append(s)));
 		Optional.of(item.getId()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//

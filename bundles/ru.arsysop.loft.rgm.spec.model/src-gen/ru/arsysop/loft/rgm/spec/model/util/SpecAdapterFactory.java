@@ -127,14 +127,6 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 				return createIndexEntryAdapter();
 			}
 			@Override
-			public Adapter caseStyledNode(StyledNode object) {
-				return createStyledNodeAdapter();
-			}
-			@Override
-			public Adapter caseStyledLine(StyledLine object) {
-				return createStyledLineAdapter();
-			}
-			@Override
 			public Adapter caseTable(Table object) {
 				return createTableAdapter();
 			}
@@ -303,34 +295,6 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIndexEntryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.StyledNode <em>Styled Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledNode
-	 * @generated
-	 */
-	public Adapter createStyledNodeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.StyledLine <em>Styled Line</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.StyledLine
-	 * @generated
-	 */
-	public Adapter createStyledLineAdapter() {
 		return null;
 	}
 
