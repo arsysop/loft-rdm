@@ -19,8 +19,9 @@
  */
 package ru.arsysop.loft.rgm.spec.model.util;
 
-import org.eclipse.emf.common.util.URI;
+import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
@@ -40,6 +41,17 @@ public class SpecResourceImpl extends XMIResourceImpl {
 	 */
 	public SpecResourceImpl(URI uri) {
 		super(uri);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	protected void init() {
+		super.init();
+		Map<Object, Object> options = getDefaultLoadOptions();
+		options.put(OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
+		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 	}
 
 } //SpecResourceImpl
