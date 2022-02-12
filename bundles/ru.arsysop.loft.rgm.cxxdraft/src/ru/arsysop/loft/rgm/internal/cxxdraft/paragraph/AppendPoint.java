@@ -39,7 +39,6 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	private final ParseReferences references;
 
 	public AppendPoint(ResolutionContext context) {
-		this.text = new ParseText(factory);
 		this.references = new ParseReferences(context);
 		this.tables = new ParseTables(factory, context);
 	}
