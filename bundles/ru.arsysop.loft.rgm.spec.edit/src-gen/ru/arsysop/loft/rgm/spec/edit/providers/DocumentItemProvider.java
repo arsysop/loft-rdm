@@ -28,7 +28,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -47,6 +46,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
@@ -238,7 +238,7 @@ public class DocumentItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Document.png")); //$NON-NLS-1$
 	}
 
 	/**

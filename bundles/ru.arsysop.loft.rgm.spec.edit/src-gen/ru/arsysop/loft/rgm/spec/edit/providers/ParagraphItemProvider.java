@@ -28,9 +28,9 @@ import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
+
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 
@@ -71,7 +71,7 @@ public class ParagraphItemProvider extends WithPartsItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Paragraph.png")); //$NON-NLS-1$
 	}
 
 	/**
