@@ -41,6 +41,8 @@ public final class BrowserView extends ViewPart implements ISelectionListener {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		// FIXME: AF: check license here
+		// and create a control with hyperlink to "Licensing Dialog" instead of browser
 		browser = new Browser(parent, SWT.NONE);
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(this);
 	}

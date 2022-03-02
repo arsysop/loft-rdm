@@ -32,6 +32,10 @@
 		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
 	<feature
+		id="ru.arsysop.loft.rgm.markup.editor.feature">
+		<category name="ru.arsysop.loft.rgm.category" />
+	</feature>
+	<feature
 		id="ru.arsysop.loft.rgm.synopsis.editor.feature">
 		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>

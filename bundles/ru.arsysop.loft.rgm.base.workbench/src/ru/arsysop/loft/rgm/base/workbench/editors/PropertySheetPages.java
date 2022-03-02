@@ -16,17 +16,15 @@
  * SPDX-License-Identifier: Apache-2.0
  *
  * Contributors:
- *     Nikifor Fedorov (ArSysOp) - initial API and implementation
+ *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.spec.workbench;
+package ru.arsysop.loft.rgm.base.workbench.editors;
 
-import java.util.function.Supplier;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.ui.views.properties.IPropertySheetPage;
 
-public final class BrowserViewId implements Supplier<String> {
+public interface PropertySheetPages {
 
-	@Override
-	public String get() {
-		return "ru.arsysop.loft.rgm.spec.workbench.views.view.browser"; //$NON-NLS-1$
-	}
+	public IPropertySheetPage createPropertyPage(AdapterFactoryEditingDomain domain, EmfModelEditor editor);
 
 }
