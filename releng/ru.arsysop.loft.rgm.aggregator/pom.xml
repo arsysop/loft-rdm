@@ -34,6 +34,9 @@
 
 		<module>..\..\features\ru.arsysop.loft.rgm.license.feature</module>
 
+		<module>..\..\bundles\ru.arsysop.loft.rgm.base.workbench</module>
+		<module>..\..\features\ru.arsysop.loft.rgm.base.feature</module>
+
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.ecore</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.model</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.spec.edit</module>
