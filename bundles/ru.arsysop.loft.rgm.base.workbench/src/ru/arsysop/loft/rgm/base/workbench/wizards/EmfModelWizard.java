@@ -60,16 +60,16 @@ import org.osgi.framework.FrameworkUtil;
 
 import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
 
-public abstract class BaseModelWizard extends BasicNewFileResourceWizard {
+public abstract class EmfModelWizard extends BasicNewFileResourceWizard {
 
 	private final ResourceLocator locator;
 	private final EClass type;
 	private final Function<IFile, AdapterFactoryEditingDomain> ed;
 	private final Supplier<String> ext;
 
-	private BaseModelWizardPage page;
+	private EmfModelWizardPage page;
 
-	public BaseModelWizard(ResourceLocator locator, EClass eclass, Function<IFile, AdapterFactoryEditingDomain> ed,
+	public EmfModelWizard(ResourceLocator locator, EClass eclass, Function<IFile, AdapterFactoryEditingDomain> ed,
 			Supplier<String> ext) {
 		this.locator = Objects.requireNonNull(locator);
 		this.type = Objects.requireNonNull(eclass);
@@ -87,7 +87,7 @@ public abstract class BaseModelWizard extends BasicNewFileResourceWizard {
 		String name = locator.getString(NLS.bind("_UI_{0}_type", type.getName())); //$NON-NLS-1$
 		setWindowTitle(NLS.bind(Messages.BaseModelWizard_title, type));
 		String extension = ext.get();
-		page = new BaseModelWizardPage(extension, selection);
+		page = new EmfModelWizardPage(extension, selection);
 		page.setTitle(name);
 		page.setDescription(NLS.bind(Messages.BaseModelWizard_description, name));
 		page.setFileName(type.getEPackage().getName() + "." + extension); //$NON-NLS-1$

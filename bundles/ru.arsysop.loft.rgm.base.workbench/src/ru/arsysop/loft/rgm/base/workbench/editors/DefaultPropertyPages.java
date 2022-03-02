@@ -32,7 +32,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
 public final class DefaultPropertyPages implements PropertySheetPages {
 
 	@Override
-	public IPropertySheetPage createPropertyPage(AdapterFactoryEditingDomain domain, BaseModelEditor editor) {
+	public IPropertySheetPage createPropertyPage(AdapterFactoryEditingDomain domain, EmfModelEditor editor) {
 		PropertySheetPage page = new ExtendedPropertySheetPage(domain, ExtendedPropertySheetPage.Decoration.LIVE,
 				editor.getDialogSettings(), 0, false) {
 			@Override

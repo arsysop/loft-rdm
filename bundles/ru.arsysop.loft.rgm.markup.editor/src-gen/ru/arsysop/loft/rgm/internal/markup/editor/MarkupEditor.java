@@ -23,12 +23,12 @@ package ru.arsysop.loft.rgm.internal.markup.editor;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
-import ru.arsysop.loft.rgm.base.workbench.editors.BaseModelEditor;
+import ru.arsysop.loft.rgm.base.workbench.editors.EmfModelEditor;
 import ru.arsysop.loft.rgm.markup.edit.providers.MarkupItemProviderAdapterFactory;
 import ru.arsysop.loft.rgm.markup.editor.MarkupEditorPlugin;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
-public final class MarkupEditor extends BaseModelEditor {
+public final class MarkupEditor extends EmfModelEditor {
 
 	public MarkupEditor() {
 		super(MarkupEditorPlugin.getPlugin());

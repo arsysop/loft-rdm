@@ -25,11 +25,11 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 
-import ru.arsysop.loft.rgm.base.workbench.actions.BaseActionBarContributor;
+import ru.arsysop.loft.rgm.base.workbench.actions.EmfActionBarContributor;
 import ru.arsysop.loft.rgm.markup.editor.MarkupEditorMenuId;
 import ru.arsysop.loft.rgm.markup.editor.MarkupEditorPlugin;
 
-public final class MarkupActionBarContributor extends BaseActionBarContributor {
+public final class MarkupActionBarContributor extends EmfActionBarContributor {
 
 	@Override
 	protected void completeToolbar(IToolBarManager toolBarManager) {

@@ -143,7 +143,7 @@ import org.osgi.framework.FrameworkUtil;
 
 import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
 
-public abstract class BaseModelEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
+public abstract class EmfModelEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker, IRevertablePart {
 
 	protected IContentOutlinePage contentOutlinePage;
@@ -165,16 +165,16 @@ public abstract class BaseModelEditor extends MultiPageEditorPart implements IEd
 		public void partActivated(IWorkbenchPart p) {
 			if (p instanceof ContentOutline) {
 				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
-					getActionBarContributor().setActiveEditor(BaseModelEditor.this);
+					getActionBarContributor().setActiveEditor(EmfModelEditor.this);
 
 					setCurrentViewer(contentOutlineViewer);
 				}
 			} else if (p instanceof PropertySheet) {
 				if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
-					getActionBarContributor().setActiveEditor(BaseModelEditor.this);
+					getActionBarContributor().setActiveEditor(EmfModelEditor.this);
 					handleActivate();
 				}
-			} else if (p == BaseModelEditor.this) {
+			} else if (p == EmfModelEditor.this) {
 				handleActivate();
 			}
 		}
@@ -315,7 +315,7 @@ public abstract class BaseModelEditor extends MultiPageEditorPart implements IEd
 						public void run() {
 							removedResources.addAll(visitor.getRemovedResources());
 							if (!isDirty()) {
-								getSite().getPage().closeEditor(BaseModelEditor.this, false);
+								getSite().getPage().closeEditor(EmfModelEditor.this, false);
 							}
 						}
 					});
@@ -326,7 +326,7 @@ public abstract class BaseModelEditor extends MultiPageEditorPart implements IEd
 						@Override
 						public void run() {
 							changedResources.addAll(visitor.getChangedResources());
-							if (getSite().getPage().getActiveEditor() == BaseModelEditor.this) {
+							if (getSite().getPage().getActiveEditor() == EmfModelEditor.this) {
 								handleActivate();
 							}
 						}
@@ -342,11 +342,11 @@ public abstract class BaseModelEditor extends MultiPageEditorPart implements IEd
 	private final AdapterFactoryEditingDomain editingDomain;
 	private final ComposedAdapterFactory adapterFactory;
 
-	protected BaseModelEditor(AbstractUIPlugin plugin) {
-		this(plugin, new DefaultEditingDomain());
+	protected EmfModelEditor(AbstractUIPlugin plugin) {
+		this(plugin, new DefaultAdapterDomain());
 	}
 
-	protected BaseModelEditor(AbstractUIPlugin plugin, Supplier<AdapterFactoryEditingDomain> afed) {
+	protected EmfModelEditor(AbstractUIPlugin plugin, Supplier<AdapterFactoryEditingDomain> afed) {
 		super();
 		this.plugin = plugin;
 		editingDomain = afed.get();
@@ -361,7 +361,7 @@ public abstract class BaseModelEditor extends MultiPageEditorPart implements IEd
 		}
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(BaseModelEditor.this, false);
+				getSite().getPage().closeEditor(EmfModelEditor.this, false);
 			} else {
 				removedResources.clear();
 				changedResources.clear();
@@ -637,7 +637,7 @@ public abstract class BaseModelEditor extends MultiPageEditorPart implements IEd
 		createModel();
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 			{
-				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), BaseModelEditor.this) {
+				ViewerPane viewerPane = new ViewerPane(getSite().getPage(), EmfModelEditor.this) {
 					@Override
 					public Viewer createViewer(Composite composite) {
 						Tree tree = new Tree(composite, SWT.MULTI);

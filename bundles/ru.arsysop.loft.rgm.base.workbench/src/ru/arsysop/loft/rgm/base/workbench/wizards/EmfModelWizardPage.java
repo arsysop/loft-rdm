@@ -30,12 +30,12 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
 
-public final class BaseModelWizardPage extends WizardNewFileCreationPage {
+public final class EmfModelWizardPage extends WizardNewFileCreationPage {
 
 	private final String formatted;
 
-	public BaseModelWizardPage(String formatted, IStructuredSelection selection) {
-		super(BaseModelWizardPage.class.getName(), selection);
+	public EmfModelWizardPage(String formatted, IStructuredSelection selection) {
+		super(EmfModelWizardPage.class.getName(), selection);
 		this.formatted = Objects.requireNonNull(formatted);
 	}
 

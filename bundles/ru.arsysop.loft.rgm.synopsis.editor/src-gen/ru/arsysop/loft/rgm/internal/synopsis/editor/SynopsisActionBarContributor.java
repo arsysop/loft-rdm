@@ -25,11 +25,11 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 
-import ru.arsysop.loft.rgm.base.workbench.actions.BaseActionBarContributor;
+import ru.arsysop.loft.rgm.base.workbench.actions.EmfActionBarContributor;
 import ru.arsysop.loft.rgm.synopsis.editor.SynopsisEditorMenuId;
 import ru.arsysop.loft.rgm.synopsis.editor.SynopsisEditorPlugin;
 
-public final class SynopsisActionBarContributor extends BaseActionBarContributor {
+public final class SynopsisActionBarContributor extends EmfActionBarContributor {
 
 	@Override
 	protected void completeToolbar(IToolBarManager toolBarManager) {

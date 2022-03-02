@@ -22,12 +22,12 @@ package ru.arsysop.loft.rgm.internal.markup.editor;
 
 
 import ru.arsysop.loft.rgm.base.workbench.editors.DefaultFileDomain;
-import ru.arsysop.loft.rgm.base.workbench.wizards.BaseModelWizard;
+import ru.arsysop.loft.rgm.base.workbench.wizards.EmfModelWizard;
 import ru.arsysop.loft.rgm.markup.edit.MarkupEditPlugin;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
 
 
-public final class MarkupModelWizard extends BaseModelWizard {
+public final class MarkupModelWizard extends EmfModelWizard {
 
 
 	public MarkupModelWizard() {

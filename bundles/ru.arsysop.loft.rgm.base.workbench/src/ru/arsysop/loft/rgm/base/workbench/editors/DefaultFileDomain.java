@@ -10,7 +10,7 @@ public final class DefaultFileDomain implements Function<IFile, AdapterFactoryEd
 	private final AdapterFactoryEditingDomain afed;
 
 	public DefaultFileDomain() {
-		afed = new DefaultEditingDomain().get();
+		afed = new DefaultAdapterDomain().get();
 	}
 
 	@Override

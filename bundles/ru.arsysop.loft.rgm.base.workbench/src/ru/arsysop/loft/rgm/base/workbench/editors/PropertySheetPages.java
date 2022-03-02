@@ -25,6 +25,6 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 
 public interface PropertySheetPages {
 
-	public IPropertySheetPage createPropertyPage(AdapterFactoryEditingDomain domain, BaseModelEditor editor);
+	public IPropertySheetPage createPropertyPage(AdapterFactoryEditingDomain domain, EmfModelEditor editor);
 
 }

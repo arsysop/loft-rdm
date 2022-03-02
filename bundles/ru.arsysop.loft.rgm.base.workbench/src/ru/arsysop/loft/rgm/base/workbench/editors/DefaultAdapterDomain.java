@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
-public final class DefaultEditingDomain implements Supplier<AdapterFactoryEditingDomain> {
+public final class DefaultAdapterDomain implements Supplier<AdapterFactoryEditingDomain> {
 
 	@Override
 	public AdapterFactoryEditingDomain get() {

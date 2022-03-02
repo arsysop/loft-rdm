@@ -57,7 +57,7 @@ import org.eclipse.ui.IEditorPart;
 
 import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
 
-public abstract class BaseActionBarContributor extends EditingDomainActionBarContributor
+public abstract class EmfActionBarContributor extends EditingDomainActionBarContributor
 		implements ISelectionChangedListener {
 
 	private final IAction properties = new ShowPropertiesViewAction(this::getPage);
@@ -90,7 +90,7 @@ public abstract class BaseActionBarContributor extends EditingDomainActionBarCon
 
 	protected IMenuManager createSiblingMenuManager;
 
-	public BaseActionBarContributor() {
+	public EmfActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
