@@ -28,11 +28,14 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.osgi.framework.FrameworkUtil;
 
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.workspace.interchange.ImportSpecificationContent;
@@ -41,6 +44,7 @@ public final class ImportSpecHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		// FIXME: AF: check license here
 		Arrays.stream(HandlerUtil.getCurrentStructuredSelection(event).toArray())//
 				.filter(Document.class::isInstance)//
 				.map(Document.class::cast)//
@@ -67,13 +71,14 @@ public final class ImportSpecHandler extends AbstractHandler {
 			});
 		} catch (InvocationTargetException e) {
 			Throwable target = e.getTargetException();
+			IStatus status;
 			if (target instanceof CoreException) {
 				CoreException ce = (CoreException) target;
-				ErrorDialog.openError(shell, from, from, ce.getStatus());
+				status = ce.getStatus();
+			} else {
+				status = new Status(IStatus.ERROR, FrameworkUtil.getBundle(getClass()).getSymbolicName(), target.getMessage(), target);
 			}
-
-			// TODO Auto-generated catch block
-			target.printStackTrace();
+			ErrorDialog.openError(shell, from, from, status);
 		} catch (InterruptedException e) {
 			// just ignore
 		}

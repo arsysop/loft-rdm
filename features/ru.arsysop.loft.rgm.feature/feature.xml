@@ -41,6 +41,10 @@
    </license>
 
    <includes
+         id="ru.arsysop.loft.rgm.base.feature"
+         version="0.0.0"/>
+
+   <includes
          id="ru.arsysop.loft.rgm.spec.feature"
          version="0.0.0"/>
 

@@ -1,21 +1,21 @@
 Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
-Bundle-SymbolicName: ru.arsysop.loft.rgm.synopsis.editor;singleton:=true
 Automatic-Module-Name: ru.arsysop.loft.rgm.synopsis.editor
-Bundle-Version: 1.0.0.qualifier
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ru.arsysop.loft.rgm.synopsis.editor;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
 Bundle-ClassPath: .
 Bundle-Activator: ru.arsysop.loft.rgm.synopsis.editor.SynopsisEditorPlugin$Implementation
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: ru.arsysop.loft.rgm.synopsis.editor
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.resources;visibility:=reexport,
- ru.arsysop.loft.rgm.synopsis.edit;visibility:=reexport,
+Require-Bundle: org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.jface.text,
  org.eclipse.ui.ide;visibility:=reexport,
- ru.arsysop.loft.rgm.spec.edit;visibility:=reexport
+ ru.arsysop.loft.rgm.base.workbench;bundle-version="0.0.0",
+ ru.arsysop.loft.rgm.spec.edit;visibility:=reexport,
+ ru.arsysop.loft.rgm.synopsis.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

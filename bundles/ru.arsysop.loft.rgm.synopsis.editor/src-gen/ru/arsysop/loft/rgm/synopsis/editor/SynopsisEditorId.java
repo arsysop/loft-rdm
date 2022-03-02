@@ -16,17 +16,17 @@
  * SPDX-License-Identifier: Apache-2.0
  *
  * Contributors:
- *     Nikifor Fedorov (ArSysOp) - initial API and implementation
+ *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.spec.workbench;
+package ru.arsysop.loft.rgm.synopsis.editor;
 
 import java.util.function.Supplier;
 
-public final class BrowserViewId implements Supplier<String> {
+public final class SynopsisEditorId implements Supplier<String> {
 
 	@Override
 	public String get() {
-		return "ru.arsysop.loft.rgm.spec.workbench.views.view.browser"; //$NON-NLS-1$
+		return "ru.arsysop.loft.rgm.synopsis.editor"; //$NON-NLS-1$
 	}
 
 }

@@ -23,12 +23,8 @@
 <plugin>
    <extension
          point="org.eclipse.ui.commands">
-      <category
-            id="ru.arsysop.loft.rgm.spec.workbench.commands.category.interchange"
-            name="%commands.category.interchange.name">
-      </category>
       <command
-            categoryId="ru.arsysop.loft.rgm.spec.workbench.commands.category.interchange"
+            categoryId="ru.arsysop.loft.rgm.base.workbench.commands.category.requirements"
             defaultHandler="ru.arsysop.loft.rgm.internal.spec.workbench.handlers.ImportSpecHandler"
             id="ru.arsysop.loft.rgm.spec.workbench.commands.command.import.spec"
             name="%commands.command.import.spec.name">
@@ -62,16 +58,13 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="false"
+            category="ru.arsysop.loft.rgm.base.workbench.views.category.requirements"
             class="ru.arsysop.loft.rgm.internal.spec.workbench.BrowserView"
             icon="platform:/plugin/org.eclipse.ui.browser/icons/obj16/internal_browser.png"
             id="ru.arsysop.loft.rgm.spec.workbench.views.view.browser"
-            name="%view.browser.name"
+            name="%views.view.browser.name"
             restorable="true">
       </view>
-      <category
-            id="ru.arsysop.loft.rgm.spec.workbench.views.category.specification"
-            name="%category.name">
-      </category>
    </extension>
 
 </plugin>
