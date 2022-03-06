@@ -8,6 +8,8 @@ import org.eclipse.passage.lic.execute.FocusedAccessCycleConfiguration;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+
 public final class RgmFramework implements Framework {
 
 	private static RgmFramework instance = null;
@@ -15,7 +17,7 @@ public final class RgmFramework implements Framework {
 	private final AccessCycleConfiguration configuration;
 
 	private RgmFramework() {
-		this.library = new BaseLicensedProduct("ru.arsysop.loft.rgm.library", "0.1.0");
+		this.library = new BaseLicensedProduct(new RgmFeatures().library(), "0.1.0");
 		this.configuration = new FocusedAccessCycleConfiguration.Wide(this::product, this::bundle);
 	}
 
