@@ -45,7 +45,7 @@
 		<module>..\..\features\ru.arsysop.loft.rgm.synopsis.editor.feature</module>
 
 		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
-		<module>..\..\bundles\ru.arsysop.loft.seal</module>
+		<module>..\..\bundles\ru.arsysop.loft.rgm.seal</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.feature</module>
 
 		<module>..\..\releng\ru.arsysop.loft.rgm.repository</module>
