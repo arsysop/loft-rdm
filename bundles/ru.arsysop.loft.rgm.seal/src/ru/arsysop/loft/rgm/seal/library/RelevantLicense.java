@@ -7,7 +7,11 @@ final class RelevantLicense implements Predicate<Path>{
 
 	@Override
 	public boolean test(Path license) {
-		throw new UnsupportedOperationException();
+		return canBeRead(license);
+	}
+
+	private boolean canBeRead(Path license) {
+		return new RgmLicenseReadingService().service().read(license).data().isPresent();
 	}
 
 }

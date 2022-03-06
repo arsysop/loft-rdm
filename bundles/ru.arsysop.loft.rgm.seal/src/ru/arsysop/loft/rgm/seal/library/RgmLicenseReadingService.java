@@ -17,7 +17,7 @@ final class RgmLicenseReadingService implements Supplier<ServiceInvocationResult
 		return new BaseServiceInvocationResult<>(service());
 	}
 
-	private LicenseReadingService service() {
+	LicenseReadingService service() {
 		Framework framework = RgmFramework.instance();
 		return new BaseLicenseReadingService(framework.product(),
 				framework.accessCycleConfiguration().miningEquipment());
