@@ -141,11 +141,14 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.osgi.framework.FrameworkUtil;
 
+import ru.arsysop.loft.rgm.base.workbench.IncufficientLicenseCoverageControl;
 import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
+import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 
 public abstract class EmfModelEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker, IRevertablePart {
 
+	private final String feature;
 	protected IContentOutlinePage contentOutlinePage;
 	protected IStatusLineManager contentOutlineStatusLineManager;
 	protected TreeViewer contentOutlineViewer;
@@ -342,13 +345,15 @@ public abstract class EmfModelEditor extends MultiPageEditorPart implements IEdi
 	private final AdapterFactoryEditingDomain editingDomain;
 	private final ComposedAdapterFactory adapterFactory;
 
-	protected EmfModelEditor(AbstractUIPlugin plugin) {
-		this(plugin, new DefaultAdapterDomain());
+	protected EmfModelEditor(AbstractUIPlugin plugin, String feature) {
+		this(plugin, new DefaultAdapterDomain(), feature);
+
 	}
 
-	protected EmfModelEditor(AbstractUIPlugin plugin, Supplier<AdapterFactoryEditingDomain> afed) {
+	protected EmfModelEditor(AbstractUIPlugin plugin, Supplier<AdapterFactoryEditingDomain> afed, String feature) {
 		super();
 		this.plugin = plugin;
+		this.feature = feature;
 		editingDomain = afed.get();
 		adapterFactory = (ComposedAdapterFactory) editingDomain.getAdapterFactory();
 		initializeEditingDomain();
@@ -634,6 +639,11 @@ public abstract class EmfModelEditor extends MultiPageEditorPart implements IEdi
 	@Override
 	public final void createPages() {
 		// FIXME: AF: check license here
+		if (new RgmLicenseProtection().cannotUse(feature)) {
+			int pageIndex = addPage(new IncufficientLicenseCoverageControl(getContainer(), feature).get());
+			setPageText(pageIndex, Messages.BaseModelEditor_page_text);
+			return;
+		}
 		createModel();
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty()) {
 			{

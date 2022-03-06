@@ -1,22 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2022 ArSysOp.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * Contributors:
- *     Nikifor Fedorov (ArSysOp) - initial API and implementation
+ * Copyright (c) 2018-2022 ArSysOp.
  *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.spec.workbench;
 
@@ -33,6 +16,8 @@ import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ViewPart;
 
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 
 public final class BrowserView extends ViewPart implements ISelectionListener {
@@ -41,8 +26,10 @@ public final class BrowserView extends ViewPart implements ISelectionListener {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		// FIXME: AF: check license here
-		// and create a control with hyperlink to "Licensing Dialog" instead of browser
+		if (new RgmLicenseProtection().cannotUse(new RgmFeatures.Spec().browser())) {
+			new IncufficientLicenseCoverageControl().install(parent);
+			return;
+		}
 		browser = new Browser(parent, SWT.NONE);
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(this);
 	}

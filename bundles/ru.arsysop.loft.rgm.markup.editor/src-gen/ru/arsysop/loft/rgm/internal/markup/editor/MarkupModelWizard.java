@@ -25,6 +25,7 @@ import ru.arsysop.loft.rgm.base.workbench.editors.DefaultFileDomain;
 import ru.arsysop.loft.rgm.base.workbench.wizards.EmfModelWizard;
 import ru.arsysop.loft.rgm.markup.edit.MarkupEditPlugin;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 
 
 public final class MarkupModelWizard extends EmfModelWizard {
@@ -34,7 +35,8 @@ public final class MarkupModelWizard extends EmfModelWizard {
 		super(MarkupEditPlugin.INSTANCE, //
 				MarkupPackage.eINSTANCE.getMarkup(), //
 				new DefaultFileDomain(), //
-				() -> "markup" //$NON-NLS-1$
+				() -> "markup", //$NON-NLS-1$
+				new RgmFeatures.Markup().editor()
 		);
 	}
 

@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.core.resources;bundle-version="0.0.0";visibility:=re
  ru.arsysop.loft.rgm.markup.edit;bundle-version="0.0.0";visibility:=reexport,
  ru.arsysop.loft.rgm.spec.edit;bundle-version="0.0.0";visibility:=reexport,
  ru.arsysop.loft.rgm.spec.workbench;bundle-version="0.0.0",
- ru.arsysop.loft.rgm.synopsis.edit;bundle-version="0.0.0";visibility:=reexport
+ ru.arsysop.loft.rgm.synopsis.edit;bundle-version="0.0.0";visibility:=reexport,
+ ru.arsysop.loft.rgm.seal;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy

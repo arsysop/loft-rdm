@@ -22,6 +22,7 @@ package ru.arsysop.loft.rgm.internal.synopsis.editor;
 
 import ru.arsysop.loft.rgm.base.workbench.editors.DefaultFileDomain;
 import ru.arsysop.loft.rgm.base.workbench.wizards.EmfModelWizard;
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 import ru.arsysop.loft.rgm.synopsis.edit.SynopsisEditPlugin;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 
@@ -31,7 +32,8 @@ public final class SynopsisModelWizard extends EmfModelWizard {
 		super(SynopsisEditPlugin.INSTANCE, //
 				SynopsisPackage.eINSTANCE.getHeaderSynopsis(), //
 				new DefaultFileDomain(), //
-				() -> "synopsis" //$NON-NLS-1$
+				() -> "synopsis", //$NON-NLS-1$
+				new RgmFeatures.Synopsis().editor()
 		);
 	}
 
