@@ -6,3 +6,4 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Copyright: %Bundle-Copyright
+Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.library";name="ArSysOp LOFT RGM Library";version="0.1.0";provider="ArSysOp";level="error"
