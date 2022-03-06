@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ru.arsysop.loft.rgm.seal
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ru.arsysop.loft.rgm.seal;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: %Bundle-Name
+Bundle-Vendor: %Bundle-Vendor
+Bundle-Copyright: %Bundle-Copyright
+Require-Bundle: org.eclipse.osgi;bundle-version="3.17.0",
+ org.eclipse.passage.lic.api;bundle-version="0.0.0",
+ org.eclipse.passage.lic.base;bundle-version="0.0.0",
+ org.eclipse.passage.lic.execute;bundle-version="0.0.0"
+Export-Package: ru.arsysop.loft.rgm.seal.library,
+ ru.arsysop.loft.rgm.seal.protection
