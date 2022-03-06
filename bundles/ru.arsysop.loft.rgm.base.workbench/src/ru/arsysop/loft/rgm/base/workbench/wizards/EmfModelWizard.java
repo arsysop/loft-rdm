@@ -66,15 +66,17 @@ public abstract class EmfModelWizard extends BasicNewFileResourceWizard {
 	private final EClass type;
 	private final Function<IFile, AdapterFactoryEditingDomain> ed;
 	private final Supplier<String> ext;
+	private final String feature;
 
 	private EmfModelWizardPage page;
 
 	public EmfModelWizard(ResourceLocator locator, EClass eclass, Function<IFile, AdapterFactoryEditingDomain> ed,
-			Supplier<String> ext) {
+			Supplier<String> ext, String feature) {
 		this.locator = Objects.requireNonNull(locator);
 		this.type = Objects.requireNonNull(eclass);
 		this.ed = Objects.requireNonNull(ed);
 		this.ext = Objects.requireNonNull(ext);
+		this.feature = Objects.requireNonNull(feature);
 	}
 
 	@Override
@@ -87,7 +89,7 @@ public abstract class EmfModelWizard extends BasicNewFileResourceWizard {
 		String name = locator.getString(NLS.bind("_UI_{0}_type", type.getName())); //$NON-NLS-1$
 		setWindowTitle(NLS.bind(Messages.BaseModelWizard_title, type));
 		String extension = ext.get();
-		page = new EmfModelWizardPage(extension, selection);
+		page = new EmfModelWizardPage(extension, selection, feature);
 		page.setTitle(name);
 		page.setDescription(NLS.bind(Messages.BaseModelWizard_description, name));
 		page.setFileName(type.getEPackage().getName() + "." + extension); //$NON-NLS-1$

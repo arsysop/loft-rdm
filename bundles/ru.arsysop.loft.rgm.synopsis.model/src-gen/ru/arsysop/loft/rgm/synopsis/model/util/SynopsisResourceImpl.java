@@ -20,8 +20,9 @@
 package ru.arsysop.loft.rgm.synopsis.model.util;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+
+import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +41,15 @@ public class SynopsisResourceImpl extends XMIResourceImpl {
 	 */
 	public SynopsisResourceImpl(URI uri) {
 		super(uri);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	protected void init() {
+		new RgmLicenseProtection().checkCanLoadSynopsis();
+		super.init();
 	}
 
 } //synopsisResourceImpl

@@ -20,8 +20,9 @@
 package ru.arsysop.loft.rgm.markup.model.util;
 
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+
+import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +41,15 @@ public class MarkupResourceImpl extends XMIResourceImpl {
 	 */
 	public MarkupResourceImpl(URI uri) {
 		super(uri);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	protected void init() {
+		new RgmLicenseProtection().checkCanLoadMarkup();
+		super.init();
 	}
 
 } //MarkupResourceImpl

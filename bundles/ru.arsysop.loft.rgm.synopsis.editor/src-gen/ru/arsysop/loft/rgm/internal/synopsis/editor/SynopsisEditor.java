@@ -24,6 +24,7 @@ package ru.arsysop.loft.rgm.internal.synopsis.editor;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import ru.arsysop.loft.rgm.base.workbench.editors.EmfModelEditor;
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 import ru.arsysop.loft.rgm.synopsis.edit.providers.SynopsisItemProviderAdapterFactory;
 import ru.arsysop.loft.rgm.synopsis.editor.SynopsisEditorPlugin;
 import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
@@ -32,7 +33,7 @@ import ru.arsysop.loft.rgm.synopsis.model.meta.SynopsisPackage;
 public final class SynopsisEditor extends EmfModelEditor {
 
 	public SynopsisEditor() {
-		super(SynopsisEditorPlugin.getPlugin());
+		super(SynopsisEditorPlugin.getPlugin(), new RgmFeatures.Synopsis().editor());
 	}
 
 	@Override

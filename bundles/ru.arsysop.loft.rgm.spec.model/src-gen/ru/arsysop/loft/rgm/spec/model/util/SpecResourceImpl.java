@@ -24,6 +24,8 @@ import java.util.Map;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
+import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
@@ -48,6 +50,7 @@ public class SpecResourceImpl extends XMIResourceImpl {
 	 */
 	@Override
 	protected void init() {
+		new RgmLicenseProtection().checkCanLoadSpec();
 		super.init();
 		Map<Object, Object> options = getDefaultLoadOptions();
 		options.put(OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
