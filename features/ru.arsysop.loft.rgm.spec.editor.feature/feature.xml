@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Copyright (c) 2021, 2022 ArSysOp
+	Copyright (c) 2022 ArSysOp
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -20,11 +20,10 @@
 		ArSysOp - initial API and implementation
 -->
 <feature
-      id="ru.arsysop.loft.rgm.feature"
+      id="ru.arsysop.loft.rgm.spec.editor.feature"
       label="%featureName"
       version="0.1.0.qualifier"
       provider-name="%providerName"
-      plugin="ru.arsysop.loft.rgm"
       license-feature="ru.arsysop.loft.rgm.license.feature"
       license-feature-version="0.1.0">
 
@@ -40,43 +39,12 @@
       %license
    </license>
 
-   <includes
-         id="ru.arsysop.loft.rgm.base.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="ru.arsysop.loft.rgm.spec.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="ru.arsysop.loft.rgm.spec.editor.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="ru.arsysop.loft.rgm.synopsis.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="ru.arsysop.loft.rgm.synopsis.editor.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="ru.arsysop.loft.rgm.markup.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="ru.arsysop.loft.rgm.markup.editor.feature"
-         version="0.0.0"/>
+   <requires>
+      <import feature="ru.arsysop.loft.rgm.spec.feature" version="0.1.0.qualifier"/>
+   </requires>
 
    <plugin
-         id="ru.arsysop.loft.rgm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="ru.arsysop.loft.rgm.seal"
+         id="ru.arsysop.loft.rgm.spec.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

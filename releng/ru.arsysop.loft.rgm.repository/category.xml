@@ -32,32 +32,7 @@
 		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
 	<feature
-		id="ru.arsysop.loft.rgm.markup.editor.feature">
-		<category name="ru.arsysop.loft.rgm.category" />
-	</feature>
-	<feature
-		id="ru.arsysop.loft.rgm.synopsis.editor.feature">
-		<category name="ru.arsysop.loft.rgm.category" />
-	</feature>
-	<feature
 		id="ru.arsysop.loft.rgm.license.feature">
 		<category name="ru.arsysop.loft.rgm.category" />
 	</feature>
-<!--
-	<category-def
-		name="ru.arsysop.loft.rgm.category.source"
-		label="ArSysOp LOFT RGM Developer Resources">
-		<description>
-			ArSysOp Language-Oriented Frameworks and Tools Developer Resources: Requirements Gathering and Markup.
-		</description>
-	</category-def>
-	<feature
-		id="ru.arsysop.loft.rgm.feature.source">
-		<category name="ru.arsysop.loft.rgm.category.source" />
-	</feature>
-	<feature
-		id="ru.arsysop.loft.rgm.synopsis.editor.feature.source">
-		<category name="ru.arsysop.loft.rgm.category.source" />
-	</feature>
--->
 </site>
