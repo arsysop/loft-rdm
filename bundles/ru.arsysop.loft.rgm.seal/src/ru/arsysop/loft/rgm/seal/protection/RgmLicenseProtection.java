@@ -1,12 +1,21 @@
 package ru.arsysop.loft.rgm.seal.protection;
 
 import org.eclipse.passage.lic.api.LicensingException;
+import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.passage.lic.base.BasePassage;
 
 import ru.arsysop.loft.rgm.seal.RgmFrameworkAware;
 
 public final class RgmLicenseProtection {
+	
+	public boolean cannotUse(Feature feature) {
+		return !canUse(feature.identifier());
+	}
 
+	public boolean canUse(Feature feature) {
+		return canUse(feature.identifier());
+	}
+	
 	public boolean canUse(String feature) {
 		BasePassage passage = new BasePassage(new RgmFrameworkAware());
 		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library());
