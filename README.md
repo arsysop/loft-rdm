@@ -5,7 +5,7 @@
 
 
 ## License 
-Copyright © 2018-2022 ArSysOp
+Copyright (c) 2018-2022 ArSysOp
 
 ## Libraries used
 

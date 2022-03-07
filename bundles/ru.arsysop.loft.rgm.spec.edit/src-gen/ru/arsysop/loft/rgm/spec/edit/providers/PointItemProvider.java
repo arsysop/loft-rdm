@@ -161,7 +161,7 @@ public class PointItemProvider extends PartItemProvider {
 		Point item = (Point) object;
 		StyledString styledLabel = new StyledString();
 		styledLabel.append(getString("_UI_Point_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		Optional.of(item.getName()) //
+		Optional.ofNullable(item.getName()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.COUNTER_STYLER));
@@ -175,7 +175,7 @@ public class PointItemProvider extends PartItemProvider {
 					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
 					styledLabel.append(")", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
 				});
-		Optional.of(item.getId()) //
+		Optional.ofNullable(item.getId()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(" [" + s + "] ", StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$//$NON-NLS-2$

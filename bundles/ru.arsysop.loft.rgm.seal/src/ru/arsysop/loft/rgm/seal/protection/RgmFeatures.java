@@ -1,52 +1,100 @@
 package ru.arsysop.loft.rgm.seal.protection;
 
+import org.eclipse.passage.lic.api.requirements.Feature;
+import org.eclipse.passage.lic.base.requirements.BaseFeature;
+
 public final class RgmFeatures {
 
-	public String library() {
-		return "ru.arsysop.loft.rgm.library";
+	public Feature library() {
+		return new BaseFeature(//
+				"ru.arsysop.loft.rgm.library", //$NON-NLS-1$
+				"0.1.0", //$NON-NLS-1$
+				"Requirements Gathering and Markup", //$NON-NLS-1$
+				"ArSysOp"//$NON-NLS-1$
+		);
 	}
 
 	public static final class Spec {
 
-		public String load() {
-			return "ru.arsysop.loft.rgm.spec.load";
+		public Feature load() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.spec.load", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Spec Load", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 
-		public String editor() {
-			return "ru.arsysop.loft.rgm.spec.editor";
+		public Feature editor() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.spec.editor", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Spec Editor", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 
-		public String browser() {
-			return "ru.arsysop.loft.rgm.spec.browser";
+		public Feature browser() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.spec.browser", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Spec Browser", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 	}
 
 	public static final class Synopsis {
 
-		public String load() {
-			return "ru.arsysop.loft.rgm.synopsis.load";
+		public Feature load() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.synopsis.load", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Synopsis Load", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 
-		public String editor() {
-			return "ru.arsysop.loft.rgm.synopsis.editor";
+		public Feature editor() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.synopsis.editor", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Synopsis Editor", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 	}
 
 	public static final class Markup {
 
-		public String load() {
-			return "ru.arsysop.loft.rgm.markup.load";
+		public Feature load() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.markup.load", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Markup Load", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 
-		public String editor() {
-			return "ru.arsysop.loft.rgm.markup.editor";
+		public Feature editor() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.markup.editor", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM Markup Editor", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 	}
 
 	public static final class CxxDraft {
 
-		public String importCxx14() {
-			return "ru.arsysop.loft.rgm.cxxdraft.importcxx14";
+		public Feature importCxx14() {
+			return new BaseFeature(//
+					"ru.arsysop.loft.rgm.cxxdraft.importcxx14", //$NON-NLS-1$
+					"0.1.0", //$NON-NLS-1$
+					"RGM C++14 Draft Import", //$NON-NLS-1$
+					"ArSysOp"//$NON-NLS-1$
+			);
 		}
 	}
 }

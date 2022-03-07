@@ -1,5 +1,7 @@
 package ru.arsysop.loft.rgm.seal.protection;
 
+import java.io.IOException;
+
 import org.eclipse.passage.lic.api.LicensingException;
 import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.passage.lic.base.BasePassage;
@@ -18,7 +20,7 @@ public final class RgmLicenseProtection {
 	
 	public boolean canUse(String feature) {
 		BasePassage passage = new BasePassage(new RgmFrameworkAware());
-		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library());
+		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library().identifier());
 	}
 
 	public boolean cannotUse(String feature) {
@@ -29,26 +31,26 @@ public final class RgmLicenseProtection {
 		checkCanUse(new RgmFeatures.Spec().load());
 	}
 
-	public void checkCanLoadSynopsis() {
-		checkCanUse(new RgmFeatures.Synopsis().load());
+	public void checkCanLoad(Feature feature) throws IOException {
+		if (canUse(feature)) {
+			return;
+		}
+		throw new IOException(//
+				new LicensingException(String.format("No license coverage for feature %s", feature)));
 	}
 
-	public void checkCanLoadMarkup() {
-		checkCanUse(new RgmFeatures.Markup().load());
-	}
-	
 	public void checkCanImportCxx14() {
 		checkCanUse(new RgmFeatures.CxxDraft().importCxx14());
 	}
 
-	private void checkCanUse(String feature) {
+	private void checkCanUse(Feature feature) {
 		if (canUse(feature)) {
 			return;
 		}
 		throw noLicense(feature);
 	}
 
-	private RuntimeException noLicense(String feature) {
+	private RuntimeException noLicense(Feature feature) {
 		return new RuntimeException(
 				new LicensingException(String.format("No license coverage for feature %s", feature)));
 	}
