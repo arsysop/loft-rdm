@@ -7,12 +7,13 @@ import ru.arsysop.loft.rgm.seal.RgmFrameworkAware;
 
 public final class RgmLicenseProtection {
 
-	public boolean cannotUse(String feature) {
-		return !canUse(feature);
+	public boolean canUse(String feature) {
+		BasePassage passage = new BasePassage(new RgmFrameworkAware());
+		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library());
 	}
 
-	public boolean canUse(String feature) {
-		return new BasePassage(new RgmFrameworkAware()).canUse(feature);
+	public boolean cannotUse(String feature) {
+		return !canUse(feature);
 	}
 
 	public void checkCanLoadSpec() {
@@ -42,4 +43,5 @@ public final class RgmLicenseProtection {
 		return new RuntimeException(
 				new LicensingException(String.format("No license coverage for feature %s", feature)));
 	}
+	
 }
