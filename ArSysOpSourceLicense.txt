@@ -38,5 +38,6 @@ RGM Sources for the purposes stated above are provided on "as is" basis.
 ArSysOp takes no obligation to satisfy any request regarding RGM Sources 
 or theirs availability.
 ArSysOp is not responsible for any consequences that using RGM Sources 
-can cause to you (as an individual or as Legal Entity).
+can cause to you (as an individual or as Legal Entity), 
+even if aware of such consequences.
    
