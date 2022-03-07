@@ -7,7 +7,7 @@ Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Copyright: %Bundle-Copyright
 Require-Bundle: org.eclipse.osgi;bundle-version="0.0.0",
- org.eclipse.passage.lic.api;bundle-version="0.0.0",
+ org.eclipse.passage.lic.api;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.passage.lic.base;bundle-version="0.0.0",
  org.eclipse.passage.lic.execute;bundle-version="0.0.0"
 Export-Package: ru.arsysop.loft.rgm.seal.library,

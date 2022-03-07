@@ -49,11 +49,23 @@
          version="0.0.0"/>
 
    <includes
+         id="ru.arsysop.loft.rgm.spec.editor.feature"
+         version="0.0.0"/>
+
+   <includes
          id="ru.arsysop.loft.rgm.synopsis.feature"
          version="0.0.0"/>
 
    <includes
+         id="ru.arsysop.loft.rgm.synopsis.editor.feature"
+         version="0.0.0"/>
+
+   <includes
          id="ru.arsysop.loft.rgm.markup.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="ru.arsysop.loft.rgm.markup.editor.feature"
          version="0.0.0"/>
 
    <plugin

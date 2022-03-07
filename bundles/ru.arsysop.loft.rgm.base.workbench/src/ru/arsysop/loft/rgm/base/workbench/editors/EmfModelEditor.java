@@ -106,6 +106,7 @@ import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -141,14 +142,14 @@ import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.osgi.framework.FrameworkUtil;
 
-import ru.arsysop.loft.rgm.base.workbench.IncufficientLicenseCoverageControl;
+import ru.arsysop.loft.rgm.base.workbench.RestrictedControls;
 import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
 import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 
 public abstract class EmfModelEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
 		IMenuListener, IViewerProvider, IGotoMarker, IRevertablePart {
 
-	private final String feature;
+	private final Feature feature;
 	protected IContentOutlinePage contentOutlinePage;
 	protected IStatusLineManager contentOutlineStatusLineManager;
 	protected TreeViewer contentOutlineViewer;
@@ -344,16 +345,18 @@ public abstract class EmfModelEditor extends MultiPageEditorPart implements IEdi
 	protected final AbstractUIPlugin plugin;
 	private final AdapterFactoryEditingDomain editingDomain;
 	private final ComposedAdapterFactory adapterFactory;
+	private final RestrictedControls restricted;
 
-	protected EmfModelEditor(AbstractUIPlugin plugin, String feature) {
+	protected EmfModelEditor(AbstractUIPlugin plugin, Feature feature) {
 		this(plugin, new DefaultAdapterDomain(), feature);
 
 	}
 
-	protected EmfModelEditor(AbstractUIPlugin plugin, Supplier<AdapterFactoryEditingDomain> afed, String feature) {
+	protected EmfModelEditor(AbstractUIPlugin plugin, Supplier<AdapterFactoryEditingDomain> afed, Feature feature) {
 		super();
 		this.plugin = plugin;
 		this.feature = feature;
+		this.restricted = new RestrictedControls(feature);
 		editingDomain = afed.get();
 		adapterFactory = (ComposedAdapterFactory) editingDomain.getAdapterFactory();
 		initializeEditingDomain();
@@ -638,9 +641,8 @@ public abstract class EmfModelEditor extends MultiPageEditorPart implements IEdi
 
 	@Override
 	public final void createPages() {
-		// FIXME: AF: check license here
 		if (new RgmLicenseProtection().cannotUse(feature)) {
-			int pageIndex = addPage(new IncufficientLicenseCoverageControl(getContainer(), feature).get());
+			int pageIndex = addPage(restricted.createLink(getContainer()));
 			setPageText(pageIndex, Messages.BaseModelEditor_page_text);
 			return;
 		}

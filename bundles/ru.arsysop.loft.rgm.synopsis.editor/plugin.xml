@@ -25,7 +25,7 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <wizard
-            id="ru.arsysop.loft.rgm.markup.editor.newWizards.wizard.header"
+            id="ru.arsysop.loft.rgm.spec.editor.newWizards.wizard.header"
             name="%newWizards.wizard.header.label"
             class="ru.arsysop.loft.rgm.internal.synopsis.editor.SynopsisModelWizard"
             category="ru.arsysop.loft.rgm.base.workbench.newWizards.category.requirements"

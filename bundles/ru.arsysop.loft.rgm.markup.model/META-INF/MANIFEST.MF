@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
  org.eclipse.emf.ecore.xmi;bundle-version="0.0.0";visibility:=reexport,
  ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0";visibility:=reexport,
  ru.arsysop.loft.rgm.synopsis.model;bundle-version="0.0.0";visibility:=reexport,
+ ru.arsysop.loft.rgm.base.emf;bundle-version="0.1.0",
  ru.arsysop.loft.rgm.seal;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy
 Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.markup.load";name="ArSysOp RGM Markup Load";version="0.1.0";provider="ArSysOp";level="error",
