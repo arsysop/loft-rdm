@@ -25,11 +25,11 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <wizard
-            id="ru.arsysop.loft.rgm.spec.editor.newWizards.wizard.header"
-            name="%newWizards.wizard.header.label"
-            class="ru.arsysop.loft.rgm.internal.synopsis.editor.SynopsisModelWizard"
+            id="ru.arsysop.loft.rgm.spec.editor.newWizards.wizard.document"
+            name="%newWizards.wizard.document.label"
+            class="ru.arsysop.loft.rgm.internal.spec.editor.SpecModelWizard"
             category="ru.arsysop.loft.rgm.base.workbench.newWizards.category.requirements"
-            icon="icons/full/obj16/SynopsisModelFile.gif">
+            icon="icons/full/obj16/SpecModelFile.gif">
          <description>%newWizards.wizard.header.description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -37,12 +37,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="ru.arsysop.loft.rgm.synopsis.editor"
+            id="ru.arsysop.loft.rgm.spec.editor"
             name="%editors.editor.model.name"
-            icon="icons/full/obj16/SynopsisModelFile.gif"
-            extensions="synopsis"
-            class="ru.arsysop.loft.rgm.internal.synopsis.editor.SynopsisEditor"
-            contributorClass="ru.arsysop.loft.rgm.internal.synopsis.editor.SynopsisActionBarContributor">
+            icon="icons/full/obj16/SpecModelFile.gif"
+            extensions="spec"
+            class="ru.arsysop.loft.rgm.internal.spec.editor.SpecEditor"
+            contributorClass="ru.arsysop.loft.rgm.internal.spec.editor.SpecActionBarContributor">
       </editor>
    </extension>
 
