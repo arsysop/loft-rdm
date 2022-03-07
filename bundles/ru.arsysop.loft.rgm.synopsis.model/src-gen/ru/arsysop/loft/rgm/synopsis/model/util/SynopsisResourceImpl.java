@@ -20,18 +20,18 @@
 package ru.arsysop.loft.rgm.synopsis.model.util;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
-import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
+import ru.arsysop.loft.rgm.base.emf.xmi.RestrictedXmiResourceImpl;
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see ru.arsysop.loft.rgm.synopsis.model.util.SynopsisResourceFactoryImpl
- * @generated
+ * @generated NOT
  */
-public class SynopsisResourceImpl extends XMIResourceImpl {
+public final class SynopsisResourceImpl extends RestrictedXmiResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
@@ -40,16 +40,7 @@ public class SynopsisResourceImpl extends XMIResourceImpl {
 	 * @generated
 	 */
 	public SynopsisResourceImpl(URI uri) {
-		super(uri);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	protected void init() {
-		new RgmLicenseProtection().checkCanLoadSynopsis();
-		super.init();
+		super(uri, new RgmFeatures.Synopsis().load());
 	}
 
 } //synopsisResourceImpl

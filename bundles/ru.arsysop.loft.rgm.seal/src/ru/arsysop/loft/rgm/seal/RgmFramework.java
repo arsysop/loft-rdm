@@ -3,6 +3,7 @@ package ru.arsysop.loft.rgm.seal;
 import org.eclipse.passage.lic.api.AccessCycleConfiguration;
 import org.eclipse.passage.lic.api.Framework;
 import org.eclipse.passage.lic.api.LicensedProduct;
+import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.passage.lic.base.BaseLicensedProduct;
 import org.eclipse.passage.lic.execute.FocusedAccessCycleConfiguration;
 import org.osgi.framework.Bundle;
@@ -17,7 +18,8 @@ public final class RgmFramework implements Framework {
 	private final AccessCycleConfiguration configuration;
 
 	private RgmFramework() {
-		this.library = new BaseLicensedProduct(new RgmFeatures().library(), "0.1.0");
+		Feature feature = new RgmFeatures().library();
+		this.library = new BaseLicensedProduct(feature.identifier(), feature.version());
 		this.configuration = new FocusedAccessCycleConfiguration.Wide(this::product, this::bundle);
 	}
 

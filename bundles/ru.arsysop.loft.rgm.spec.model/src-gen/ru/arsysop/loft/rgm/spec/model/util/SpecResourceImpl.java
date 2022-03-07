@@ -19,21 +19,19 @@
  */
 package ru.arsysop.loft.rgm.spec.model.util;
 
-import java.util.Map;
-
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
-import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
+import ru.arsysop.loft.rgm.base.emf.xmi.RestrictedXmiResourceImpl;
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
  * @see ru.arsysop.loft.rgm.spec.model.util.SpecResourceFactoryImpl
- * @generated
+ * @generated NOT
  */
-public class SpecResourceImpl extends XMIResourceImpl {
+public final class SpecResourceImpl extends RestrictedXmiResourceImpl {
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc -->
@@ -42,19 +40,7 @@ public class SpecResourceImpl extends XMIResourceImpl {
 	 * @generated
 	 */
 	public SpecResourceImpl(URI uri) {
-		super(uri);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	@Override
-	protected void init() {
-		new RgmLicenseProtection().checkCanLoadSpec();
-		super.init();
-		Map<Object, Object> options = getDefaultLoadOptions();
-		options.put(OPTION_DEFER_IDREF_RESOLUTION, Boolean.TRUE);
-		options.put(OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+		super(uri, new RgmFeatures.Spec().load());
 	}
 
 } //SpecResourceImpl

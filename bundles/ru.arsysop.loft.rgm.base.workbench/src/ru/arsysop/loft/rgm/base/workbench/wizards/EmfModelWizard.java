@@ -48,6 +48,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -66,12 +67,12 @@ public abstract class EmfModelWizard extends BasicNewFileResourceWizard {
 	private final EClass type;
 	private final Function<IFile, AdapterFactoryEditingDomain> ed;
 	private final Supplier<String> ext;
-	private final String feature;
+	private final Feature feature;
 
 	private EmfModelWizardPage page;
 
 	public EmfModelWizard(ResourceLocator locator, EClass eclass, Function<IFile, AdapterFactoryEditingDomain> ed,
-			Supplier<String> ext, String feature) {
+			Supplier<String> ext, Feature feature) {
 		this.locator = Objects.requireNonNull(locator);
 		this.type = Objects.requireNonNull(eclass);
 		this.ed = Objects.requireNonNull(ed);
@@ -87,7 +88,7 @@ public abstract class EmfModelWizard extends BasicNewFileResourceWizard {
 	@Override
 	public final void addPages() {
 		String name = locator.getString(NLS.bind("_UI_{0}_type", type.getName())); //$NON-NLS-1$
-		setWindowTitle(NLS.bind(Messages.BaseModelWizard_title, type));
+		setWindowTitle(NLS.bind(Messages.BaseModelWizard_title, name));
 		String extension = ext.get();
 		page = new EmfModelWizardPage(extension, selection, feature);
 		page.setTitle(name);
