@@ -19,7 +19,8 @@ COPYRIGHT
 RGM Sources, including this agreement, are property of ArSysOp. 
 
 GRANTS
-RGM Sources are publicly available for informational, review and consulting purposes.
+RGM Sources are publicly available for informational, review, analysis 
+and consulting purposes.
 ArSysOp hereby grants you (as an individual or Legal Entity) the right to 
    read and review RGM sources, 
    run any sort of code, architecture, vulnerability analysis, including automatic,
