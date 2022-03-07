@@ -22,6 +22,7 @@ package ru.arsysop.loft.rgm.internal.spec.editor;
 
 import ru.arsysop.loft.rgm.base.workbench.editors.DefaultFileDomain;
 import ru.arsysop.loft.rgm.base.workbench.wizards.EmfModelWizard;
+import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 import ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -31,7 +32,8 @@ public final class SpecModelWizard extends EmfModelWizard {
 		super(SpecEditPlugin.INSTANCE, //
 				SpecPackage.eINSTANCE.getDocument(), //
 				new DefaultFileDomain(), //
-				() -> "spec" //$NON-NLS-1$
+				() -> "spec", //$NON-NLS-1$
+				new RgmFeatures.Spec().editor()//
 		);
 	}
 
