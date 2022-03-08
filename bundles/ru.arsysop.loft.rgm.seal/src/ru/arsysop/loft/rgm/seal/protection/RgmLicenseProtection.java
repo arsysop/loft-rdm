@@ -19,8 +19,9 @@ public final class RgmLicenseProtection {
 	}
 	
 	public boolean canUse(String feature) {
-		BasePassage passage = new BasePassage(new RgmFrameworkAware());
-		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library().identifier());
+//		BasePassage passage = new BasePassage(new RgmFrameworkAware());
+//		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library().identifier());
+		return true;
 	}
 
 	public boolean cannotUse(String feature) {
