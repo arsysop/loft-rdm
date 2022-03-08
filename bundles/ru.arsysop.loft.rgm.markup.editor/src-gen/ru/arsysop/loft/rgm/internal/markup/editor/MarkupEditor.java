@@ -27,7 +27,7 @@ import ru.arsysop.loft.rgm.base.workbench.editors.EmfModelEditor;
 import ru.arsysop.loft.rgm.markup.edit.providers.MarkupItemProviderAdapterFactory;
 import ru.arsysop.loft.rgm.markup.editor.MarkupEditorPlugin;
 import ru.arsysop.loft.rgm.markup.model.meta.MarkupPackage;
-import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+import ru.arsysop.loft.rgm.seal.RgmFeatures;
 
 public final class MarkupEditor extends EmfModelEditor {
 

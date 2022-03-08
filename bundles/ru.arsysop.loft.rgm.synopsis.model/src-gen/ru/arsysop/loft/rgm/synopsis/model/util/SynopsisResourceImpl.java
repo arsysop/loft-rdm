@@ -22,7 +22,7 @@ package ru.arsysop.loft.rgm.synopsis.model.util;
 import org.eclipse.emf.common.util.URI;
 
 import ru.arsysop.loft.rgm.base.emf.xmi.RestrictedXmiResourceImpl;
-import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+import ru.arsysop.loft.rgm.seal.RgmFeatures;
 
 /**
  * <!-- begin-user-doc -->
