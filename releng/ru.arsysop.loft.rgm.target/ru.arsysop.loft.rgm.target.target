@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
 <!--
-	Copyright (c) 2018, 2022 ArSysOp
---><target name="ru.arsysop.loft.rgm.target" sequenceNumber="2">
+ # Copyright (c) ArSysOp 2018-2022
+ # 
+ # RGM Sources are publicly available only for 
+ # informational, review, analysis and consulting purposes.
+ # 
+ # Definitions, terms and conditions for using RGM Sources are stated by ArSysOp Source License version 1.0.
+ # See http://arsysop.ru/licenses/rgm/ArSysOpSourceLicense-1.0.txt
+ # 
+ # RGM Sources are provided on "as is" basis. 
+ # ArSysOp is not responsible for any damages, losses, legal prosecution 
+ # or other consequences of any sort that using RGM Sources can cause to you 
+ # (as an individual or Legal Entity), even if aware of such consequences.
+ # 
+-->
+
+<target name="ru.arsysop.loft.rgm.target" sequenceNumber="2">
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<repository location="https://download.eclipse.org/cbi/updates/license/"/>
