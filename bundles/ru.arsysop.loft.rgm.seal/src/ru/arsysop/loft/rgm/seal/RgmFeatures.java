@@ -21,15 +21,15 @@ import org.eclipse.passage.lic.base.requirements.BaseFeature;
 public final class RgmFeatures {
 
 	public String namespace() {
-		return "ru.arsysop.loft.rgm.";
+		return "ru.arsysop.loft.rgm."; //$NON-NLS-1$
 	}
 
 	public Feature library() {
 		return new BaseFeature(//
 				"ru.arsysop.loft.rgm.library", //$NON-NLS-1$
 				"0.1.0", //$NON-NLS-1$
-				"Requirements Gathering and Markup", //$NON-NLS-1$
-				"ArSysOp"//$NON-NLS-1$
+				"Requirements Gathering and Markup",
+				"ArSysOp"
 		);
 	}
 
@@ -39,8 +39,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.spec.load", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Spec Load", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Spec Load",
+					"ArSysOp"
 			);
 		}
 
@@ -48,8 +48,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.spec.editor", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Spec Editor", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Spec Editor",
+					"ArSysOp"
 			);
 		}
 
@@ -57,8 +57,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.spec.browser", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Spec Browser", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Spec Browser",
+					"ArSysOp"
 			);
 		}
 	}
@@ -69,8 +69,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.synopsis.load", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Synopsis Load", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Synopsis Load",
+					"ArSysOp"
 			);
 		}
 
@@ -78,8 +78,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.synopsis.editor", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Synopsis Editor", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Synopsis Editor",
+					"ArSysOp"//
 			);
 		}
 	}
@@ -90,8 +90,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.markup.load", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Markup Load", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Markup Load",
+					"ArSysOp"
 			);
 		}
 
@@ -99,8 +99,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.markup.editor", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM Markup Editor", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM Markup Editor", 
+					"ArSysOp"
 			);
 		}
 	}
@@ -111,8 +111,8 @@ public final class RgmFeatures {
 			return new BaseFeature(//
 					"ru.arsysop.loft.rgm.cxxdraft.importcxx14", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
-					"RGM C++14 Draft Import", //$NON-NLS-1$
-					"ArSysOp"//$NON-NLS-1$
+					"RGM C++14 Draft Import",
+					"ArSysOp"
 			);
 		}
 	}

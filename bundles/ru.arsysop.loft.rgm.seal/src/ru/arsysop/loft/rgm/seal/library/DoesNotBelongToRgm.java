@@ -40,11 +40,11 @@ final class DoesNotBelongToRgm {
 	}
 
 	ServiceInvocationResult<AgreementAcceptanceService> agreement(AgreementToAccept agreement) {
-		return artifact(agreement, "Agreement", this::described);
+		return artifact(agreement, "Agreement", this::described); //$NON-NLS-1$
 	}
 
 	ServiceInvocationResult<Boolean> license(Path license) {
-		return artifact(license, "License", Path::toString);
+		return artifact(license, "License", Path::toString); //$NON-NLS-1$
 	}
 
 	private <T, S> ServiceInvocationResult<S> artifact(T foreign, String type, Function<T, String> describe) {
