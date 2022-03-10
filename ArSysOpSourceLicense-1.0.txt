@@ -1,4 +1,4 @@
-ArSysOp Source License
+ArSysOp RGM Source License
 Version 1.0
 March 2022
 
@@ -41,6 +41,6 @@ For the purposes stated above RGM Sources are provided on "as is" basis.
 ArSysOp takes no obligation to satisfy any request regarding RGM Sources, 
 theirs availability, quality, security, safety or any other characteristic whatsoever.
 ArSysOp is not responsible for any damages, losses, legal prosecution 
-or other concequences of any sort that using RGM Sources can cause to you 
-(as an individual or Legal Entity), even if aware of such concequences.
+or other consequences of any sort that using RGM Sources can cause to you 
+(as an individual or Legal Entity), even if aware of such consequences.
    
