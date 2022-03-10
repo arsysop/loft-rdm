@@ -8,8 +8,8 @@ For the purposes of this license following definitions must stand:
    in scope of Language-Oriented Frameworks and Tools project.
 2. RGM Sources must stand for either resident or cloned or copied or gained otherwise
    source code, documentation, configuration files, 
-   art work (images, styles, fonts, etc) and any other content of this repository,
-   partially or as a whole, 
+   art work (images, styles, fonts, etc) and any other content of RGM source base 
+   (this repository), partially or as a whole, 
    except for third-party license agreements available in 
    bundles/ru.arsysop.loft.rgm/licenses folder.
    
