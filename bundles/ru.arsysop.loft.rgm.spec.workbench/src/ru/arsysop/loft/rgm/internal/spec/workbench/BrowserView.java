@@ -18,7 +18,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.ViewPart;
 
 import ru.arsysop.loft.rgm.base.workbench.RestrictedControls;
-import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+import ru.arsysop.loft.rgm.seal.RgmFeatures;
 import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 

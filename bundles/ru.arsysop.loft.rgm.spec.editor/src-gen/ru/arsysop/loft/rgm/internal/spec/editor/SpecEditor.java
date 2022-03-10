@@ -24,7 +24,7 @@ package ru.arsysop.loft.rgm.internal.spec.editor;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 
 import ru.arsysop.loft.rgm.base.workbench.editors.EmfModelEditor;
-import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+import ru.arsysop.loft.rgm.seal.RgmFeatures;
 import ru.arsysop.loft.rgm.spec.edit.providers.SpecItemProviderAdapterFactory;
 import ru.arsysop.loft.rgm.spec.editor.SpecEditorPlugin;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;

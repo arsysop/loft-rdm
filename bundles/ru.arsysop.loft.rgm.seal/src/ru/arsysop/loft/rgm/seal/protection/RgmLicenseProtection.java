@@ -6,6 +6,7 @@ import org.eclipse.passage.lic.api.LicensingException;
 import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.passage.lic.base.BasePassage;
 
+import ru.arsysop.loft.rgm.seal.RgmFeatures;
 import ru.arsysop.loft.rgm.seal.RgmFrameworkAware;
 
 public final class RgmLicenseProtection {

@@ -5,11 +5,9 @@ import org.eclipse.passage.lic.api.Framework;
 import org.eclipse.passage.lic.api.LicensedProduct;
 import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.passage.lic.base.BaseLicensedProduct;
-import org.eclipse.passage.lic.execute.FocusedAccessCycleConfiguration;
+import org.eclipse.passage.lic.execute.NamespaceConfiguraton;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
-
-import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
 
 public final class RgmFramework implements Framework {
 
@@ -20,7 +18,7 @@ public final class RgmFramework implements Framework {
 	private RgmFramework() {
 		Feature feature = new RgmFeatures().library();
 		this.library = new BaseLicensedProduct(feature.identifier(), feature.version());
-		this.configuration = new FocusedAccessCycleConfiguration.Wide(this::product, this::bundle);
+		this.configuration = new NamespaceConfiguraton(new RgmFeatures().namespace(), this::product, this::bundle);
 	}
 
 	public static RgmFramework instance() {

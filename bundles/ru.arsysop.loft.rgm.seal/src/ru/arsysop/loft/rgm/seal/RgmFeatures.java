@@ -1,9 +1,13 @@
-package ru.arsysop.loft.rgm.seal.protection;
+package ru.arsysop.loft.rgm.seal;
 
 import org.eclipse.passage.lic.api.requirements.Feature;
 import org.eclipse.passage.lic.base.requirements.BaseFeature;
 
 public final class RgmFeatures {
+
+	public String namespace() {
+		return "ru.arsysop.loft.rgm.";
+	}
 
 	public Feature library() {
 		return new BaseFeature(//

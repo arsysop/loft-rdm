@@ -22,7 +22,7 @@ package ru.arsysop.loft.rgm.internal.spec.editor;
 
 import ru.arsysop.loft.rgm.base.workbench.editors.DefaultFileDomain;
 import ru.arsysop.loft.rgm.base.workbench.wizards.EmfModelWizard;
-import ru.arsysop.loft.rgm.seal.protection.RgmFeatures;
+import ru.arsysop.loft.rgm.seal.RgmFeatures;
 import ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
