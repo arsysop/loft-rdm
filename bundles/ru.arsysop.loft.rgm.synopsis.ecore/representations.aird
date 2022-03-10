@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ # Copyright (c) ArSysOp 2018-2022
+ # 
+ # RGM Sources are publicly available only for 
+ # informational, review, analysis and consulting purposes.
+ # 
+ # Definitions, terms and conditions for using RGM Sources are stated by ArSysOp Source License version 1.0.
+ # See http://arsysop.ru/licenses/rgm/ArSysOpSourceLicense-1.0.txt
+ # 
+ # RGM Sources are provided on "as is" basis. 
+ # ArSysOp is not responsible for any damages, losses, legal prosecution 
+ # or other consequences of any sort that using RGM Sources can cause to you 
+ # (as an individual or Legal Entity), even if aware of such consequences.
+ # 
+-->
 <viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description" uid="_r9JogHHuEeyt_sUay-MmWA" selectedViews="_tQAXgHHuEeyt_sUay-MmWA" version="14.5.1.202106111100">
   <semanticResources>platform:/resource/ru.arsysop.loft.rgm.spec.ecore/model/spec.ecore</semanticResources>
   <semanticResources>model/synopsis.ecore</semanticResources>
