@@ -1,5 +1,5 @@
 ArSysOp Source License
-version 1.0
+Version 1.0
 March 2022
 
 DEFINITIONS
@@ -14,12 +14,15 @@ For the purposes of this license following definitions must stand:
    bundles/ru.arsysop.loft.rgm/licenses folder.
    
 This license defines terms and restrictions for using RGM Sources. 
+If you (as an individual or Legal Entity) are not agree, partially or entirely, 
+with these terms and/or not intended to respect and follow, partially or entirely, 
+these restrictions, you cannot use RGM Sources.
 
 COPYRIGHT
 RGM Sources, including this agreement, are property of ArSysOp. 
 
 GRANTS
-RGM Sources are publicly available for informational, review, analysis 
+RGM Sources are publicly available only for informational, review, analysis 
 and consulting purposes.
 ArSysOp hereby grants you (as an individual or Legal Entity) the right to 
    (1) read and review RGM sources, 
@@ -34,10 +37,10 @@ You (as an individual or Legal Entity)
    (3) may NOT produce binaries from or with RGM Sources.
 
 DISCLAIMER
-RGM Sources for the purposes stated above are provided on "as is" basis. 
-ArSysOp takes no obligation to satisfy any request regarding RGM Sources 
-or theirs availability.
-ArSysOp is not responsible for any consequences that using RGM Sources 
-can cause to you (as an individual or Legal Entity), 
-even if aware of such consequences.
+For the purposes stated above RGM Sources are provided on "as is" basis. 
+ArSysOp takes no obligation to satisfy any request regarding RGM Sources, 
+theirs availability, quality, security, safety or any other characteristic whatsoever.
+ArSysOp is not responsible for any damages, losses, legal prosecution 
+or other concequences of any sort that using RGM Sources can cause to you 
+(as an individual or Legal Entity), even if aware of such concequences.
    
