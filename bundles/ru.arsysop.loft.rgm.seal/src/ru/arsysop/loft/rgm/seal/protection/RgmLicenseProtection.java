@@ -35,9 +35,8 @@ public final class RgmLicenseProtection {
 	}
 	
 	public boolean canUse(String feature) {
-//		BasePassage passage = new BasePassage(new RgmFrameworkAware());
-//		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library().identifier());
-		return true;
+		BasePassage passage = new BasePassage(new RgmFrameworkAware());
+		return passage.canUse(feature) && passage.canUse(new RgmFeatures().library().identifier());
 	}
 
 	public boolean cannotUse(String feature) {
@@ -53,7 +52,7 @@ public final class RgmLicenseProtection {
 			return;
 		}
 		throw new IOException(//
-				new LicensingException(String.format("No license coverage for feature %s", feature)));
+				new LicensingException(String.format("No license coverage for feature %s", feature))); //$NON-NLS-1$
 	}
 
 	public void checkCanImportCxx14() {
@@ -69,7 +68,7 @@ public final class RgmLicenseProtection {
 
 	private RuntimeException noLicense(Feature feature) {
 		return new RuntimeException(
-				new LicensingException(String.format("No license coverage for feature %s", feature)));
+				new LicensingException(String.format("No license coverage for feature %s", feature))); //$NON-NLS-1$
 	}
 	
 }
