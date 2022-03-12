@@ -20,7 +20,7 @@
 
    <extension
          id="ru.arsysop.loft.rgm.library"
-         name="RGM Library"
+         name="%extension.name"
          point="org.eclipse.passage.lic.base.library">
 
          <licensingService class = "ru.arsysop.loft.rgm.seal.library.RgmLibrary"/>
