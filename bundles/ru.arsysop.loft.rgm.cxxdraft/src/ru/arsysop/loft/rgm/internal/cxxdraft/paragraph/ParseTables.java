@@ -59,6 +59,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		table.setLocation(tableLocation(paragraph, div));
 		table.setName(tableName(div));
 		table.setNumber(tableNumber(div));
+		context.parts().register(table.getId(), table);
 		fillTableContent(div, table);
 		return table;
 	}
