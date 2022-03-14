@@ -127,6 +127,10 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 				return createIndexEntryAdapter();
 			}
 			@Override
+			public Adapter caseSynopsis(Synopsis object) {
+				return createSynopsisAdapter();
+			}
+			@Override
 			public Adapter caseTable(Table object) {
 				return createTableAdapter();
 			}
@@ -295,6 +299,20 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIndexEntryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis <em>Synopsis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Synopsis
+	 * @generated
+	 */
+	public Adapter createSynopsisAdapter() {
 		return null;
 	}
 

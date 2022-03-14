@@ -768,6 +768,88 @@ public interface SpecPackage extends EPackage {
 	int INDEX_ENTRY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.SynopsisImpl <em>Synopsis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SynopsisImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getSynopsis()
+	 * @generated
+	 */
+	int SYNOPSIS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS__NUMBER = PART__NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS__REFERENCES = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS__CONTENT = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Synopsis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNOPSIS_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl <em>Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -775,7 +857,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 10;
+	int TABLE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -857,7 +939,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 11;
+	int TABLE_ROW = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -939,7 +1021,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getWithReferences()
 	 * @generated
 	 */
-	int WITH_REFERENCES = 12;
+	int WITH_REFERENCES = 13;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -1353,6 +1435,27 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIndexEntry_Subentries();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis <em>Synopsis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Synopsis</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Synopsis
+	 * @generated
+	 */
+	EClass getSynopsis();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Synopsis#getContent()
+	 * @see #getSynopsis()
+	 * @generated
+	 */
+	EAttribute getSynopsis_Content();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Table <em>Table</em>}'.

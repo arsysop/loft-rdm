@@ -276,6 +276,29 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Synopsis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SynopsisItemProvider synopsisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Synopsis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSynopsisAdapter() {
+		if (synopsisItemProvider == null) {
+			synopsisItemProvider = new SynopsisItemProvider(this);
+		}
+
+		return synopsisItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Table} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,6 +485,7 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 		if (pointItemProvider != null) pointItemProvider.dispose();
 		if (indexItemProvider != null) indexItemProvider.dispose();
 		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
+		if (synopsisItemProvider != null) synopsisItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
 	}
