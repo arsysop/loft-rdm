@@ -475,8 +475,28 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPoint_Raw() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPoint_Synopses() {
+		return (EReference)pointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getPoint_Tables() {
-		return (EReference)pointEClass.getEStructuralFeatures().get(0);
+		return (EReference)pointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -721,6 +741,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		paragraphEClass = createEClass(PARAGRAPH);
 
 		pointEClass = createEClass(POINT);
+		createEAttribute(pointEClass, POINT__RAW);
+		createEReference(pointEClass, POINT__SYNOPSES);
 		createEReference(pointEClass, POINT__TABLES);
 
 		indexEClass = createEClass(INDEX);
@@ -823,6 +845,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getPoint_Raw(), ecorePackage.getEString(), "raw", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPoint_Synopses(), this.getSynopsis(), null, "synopses", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPoint_Tables(), this.getTable(), null, "tables", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$

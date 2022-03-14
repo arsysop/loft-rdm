@@ -586,13 +586,31 @@ public interface SpecPackage extends EPackage {
 	int POINT__REFERENCES = PART_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Raw</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__RAW = PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Synopses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__SYNOPSES = PART_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINT__TABLES = PART_FEATURE_COUNT + 1;
+	int POINT__TABLES = PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Point</em>' class.
@@ -601,7 +619,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Point</em>' class.
@@ -1327,6 +1345,28 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPoint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getRaw <em>Raw</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Raw</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getRaw()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EAttribute getPoint_Raw();
+
+	/**
+	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses <em>Synopses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Synopses</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses()
+	 * @see #getPoint()
+	 * @generated
+	 */
+	EReference getPoint_Synopses();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}'.
