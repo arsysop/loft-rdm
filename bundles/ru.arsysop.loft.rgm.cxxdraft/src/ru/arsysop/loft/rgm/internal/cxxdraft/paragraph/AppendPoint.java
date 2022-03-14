@@ -32,10 +32,12 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	private final SpecFactory factory = SpecFactory.eINSTANCE;
 	private final ParseTables tables;
 	private final ParseReferences references;
+	private final ParseSynopses synopses;
 
 	public AppendPoint(ResolutionContext context) {
 		this.references = new ParseReferences(context);
 		this.tables = new ParseTables(factory, context);
+		this.synopses = new ParseSynopses(factory, context);
 	}
 
 	@Override
@@ -47,9 +49,9 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		point.setNumber(id);
 		point.setName(pointName(paragraph, node));
 		point.getTables().addAll(tables.apply(paragraph, node));
+		point.getSynopses().addAll(synopses.parse(point, node));
 		node.elements("p").stream().map(references).flatMap(List::stream).forEach(point.getReferences()::add); //$NON-NLS-1$
 		paragraph.getParts().add(point);
-//		node.elements("pre").stream().filter(new OfClass("codeblock"));
 	}
 
 	private String pointName(Paragraph paragraph, Element node) {
