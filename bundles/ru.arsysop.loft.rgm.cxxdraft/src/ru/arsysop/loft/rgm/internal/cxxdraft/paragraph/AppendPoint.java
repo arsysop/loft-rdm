@@ -49,6 +49,7 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		point.getTables().addAll(tables.apply(paragraph, node));
 		node.elements("p").stream().map(references).flatMap(List::stream).forEach(point.getReferences()::add); //$NON-NLS-1$
 		paragraph.getParts().add(point);
+//		node.elements("pre").stream().filter(new OfClass("codeblock"));
 	}
 
 	private String pointName(Paragraph paragraph, Element node) {

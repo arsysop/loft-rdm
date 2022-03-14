@@ -32,6 +32,7 @@ import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
@@ -118,6 +119,13 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	private EClass indexEntryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass synopsisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -467,8 +475,28 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPoint_Raw() {
+		return (EAttribute)pointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPoint_Synopses() {
+		return (EReference)pointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getPoint_Tables() {
-		return (EReference)pointEClass.getEStructuralFeatures().get(0);
+		return (EReference)pointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -559,6 +587,26 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 	@Override
 	public EReference getIndexEntry_Subentries() {
 		return (EReference)indexEntryEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getSynopsis() {
+		return synopsisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSynopsis_Content() {
+		return (EAttribute)synopsisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -693,6 +741,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		paragraphEClass = createEClass(PARAGRAPH);
 
 		pointEClass = createEClass(POINT);
+		createEAttribute(pointEClass, POINT__RAW);
+		createEReference(pointEClass, POINT__SYNOPSES);
 		createEReference(pointEClass, POINT__TABLES);
 
 		indexEClass = createEClass(INDEX);
@@ -705,6 +755,9 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		createEReference(indexEntryEClass, INDEX_ENTRY__PARTS);
 		createEReference(indexEntryEClass, INDEX_ENTRY__SEE);
 		createEReference(indexEntryEClass, INDEX_ENTRY__SUBENTRIES);
+
+		synopsisEClass = createEClass(SYNOPSIS);
+		createEAttribute(synopsisEClass, SYNOPSIS__CONTENT);
 
 		tableEClass = createEClass(TABLE);
 		createEReference(tableEClass, TABLE__TITLE);
@@ -752,6 +805,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		pointEClass.getESuperTypes().add(this.getPart());
 		pointEClass.getESuperTypes().add(this.getWithReferences());
 		indexEClass.getESuperTypes().add(this.getPart());
+		synopsisEClass.getESuperTypes().add(this.getPart());
+		synopsisEClass.getESuperTypes().add(this.getWithReferences());
 		tableEClass.getESuperTypes().add(this.getPart());
 		tableRowEClass.getESuperTypes().add(this.getPart());
 		tableRowEClass.getESuperTypes().add(this.getWithReferences());
@@ -790,6 +845,8 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEClass(paragraphEClass, Paragraph.class, "Paragraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(pointEClass, Point.class, "Point", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getPoint_Raw(), ecorePackage.getEString(), "raw", null, 0, 1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPoint_Synopses(), this.getSynopsis(), null, "synopses", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getPoint_Tables(), this.getTable(), null, "tables", null, 0, -1, Point.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -802,6 +859,9 @@ public class SpecPackageImpl extends EPackageImpl implements SpecPackage {
 		initEReference(getIndexEntry_Parts(), this.getPart(), null, "parts", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getIndexEntry_See(), this.getIndexEntry(), null, "see", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getIndexEntry_Subentries(), this.getIndexEntry(), null, "subentries", null, 0, -1, IndexEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(synopsisEClass, Synopsis.class, "Synopsis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getSynopsis_Content(), ecorePackage.getEString(), "content", null, 0, 1, Synopsis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getTable_Title(), this.getTableRow(), null, "title", null, 1, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$

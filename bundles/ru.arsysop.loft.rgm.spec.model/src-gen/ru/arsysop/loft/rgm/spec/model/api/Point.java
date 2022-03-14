@@ -30,6 +30,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getRaw <em>Raw</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses <em>Synopses</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}</li>
  * </ul>
  *
@@ -38,6 +40,40 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Point extends Part, WithReferences {
+	/**
+	 * Returns the value of the '<em><b>Raw</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Raw</em>' attribute.
+	 * @see #setRaw(String)
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Raw()
+	 * @model
+	 * @generated
+	 */
+	String getRaw();
+
+	/**
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getRaw <em>Raw</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Raw</em>' attribute.
+	 * @see #getRaw()
+	 * @generated
+	 */
+	void setRaw(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Synopses</b></em>' reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Synopsis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Synopses</em>' reference list.
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Synopses()
+	 * @model
+	 * @generated
+	 */
+	EList<Synopsis> getSynopses();
+
 	/**
 	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Table}.

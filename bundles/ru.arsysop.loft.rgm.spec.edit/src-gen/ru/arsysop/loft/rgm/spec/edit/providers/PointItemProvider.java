@@ -30,6 +30,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -69,6 +70,8 @@ public class PointItemProvider extends PartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addReferencesPropertyDescriptor(object);
+			addRawPropertyDescriptor(object);
+			addSynopsesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +90,50 @@ public class PointItemProvider extends PartItemProvider {
 				 getString("_UI_WithReferences_references_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_WithReferences_references_feature", "_UI_WithReferences_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 SpecPackage.eINSTANCE.getWithReferences_References(),
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Raw feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRawPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Point_raw_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_raw_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SpecPackage.eINSTANCE.getPoint_Raw(),
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Synopses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSynopsesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Point_synopses_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Point_synopses_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SpecPackage.eINSTANCE.getPoint_Synopses(),
 				 true,
 				 false,
 				 true,
@@ -193,6 +240,9 @@ public class PointItemProvider extends PartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Point.class)) {
+			case SpecPackage.POINT__RAW:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case SpecPackage.POINT__TABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
