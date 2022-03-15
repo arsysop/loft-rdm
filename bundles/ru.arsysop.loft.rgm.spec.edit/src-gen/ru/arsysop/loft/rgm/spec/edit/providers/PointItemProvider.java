@@ -71,7 +71,6 @@ public class PointItemProvider extends PartItemProvider {
 
 			addReferencesPropertyDescriptor(object);
 			addRawPropertyDescriptor(object);
-			addSynopsesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,31 +112,9 @@ public class PointItemProvider extends PartItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Point_raw_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 SpecPackage.eINSTANCE.getPoint_Raw(),
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Synopses feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSynopsesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Point_synopses_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Point_synopses_feature", "_UI_Point_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getPoint_Synopses(),
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -154,6 +131,7 @@ public class PointItemProvider extends PartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Synopses());
 			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Tables());
 		}
 		return childrenFeatures;
@@ -243,6 +221,7 @@ public class PointItemProvider extends PartItemProvider {
 			case SpecPackage.POINT__RAW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SpecPackage.POINT__SYNOPSES:
 			case SpecPackage.POINT__TABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -262,6 +241,11 @@ public class PointItemProvider extends PartItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpecPackage.eINSTANCE.getPoint_Synopses(),
+				 SpecFactory.eINSTANCE.createSynopsis()));
 
 		newChildDescriptors.add
 			(createChildParameter

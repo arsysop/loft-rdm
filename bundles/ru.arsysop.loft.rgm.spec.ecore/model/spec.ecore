@@ -45,7 +45,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Part #//WithReferences">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="raw" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="synopses" upperBound="-1"
-        eType="#//Synopsis"/>
+        eType="#//Synopsis" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//Table" containment="true"/>
   </eClassifiers>
