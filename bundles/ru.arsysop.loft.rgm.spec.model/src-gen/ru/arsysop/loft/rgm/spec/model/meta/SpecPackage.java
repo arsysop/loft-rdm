@@ -595,7 +595,7 @@ public interface SpecPackage extends EPackage {
 	int POINT__RAW = PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Synopses</b></em>' reference list.
+	 * The feature id for the '<em><b>Synopses</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1358,10 +1358,10 @@ public interface SpecPackage extends EPackage {
 	EAttribute getPoint_Raw();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses <em>Synopses</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses <em>Synopses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Synopses</em>'.
+	 * @return the meta object for the containment reference list '<em>Synopses</em>'.
 	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses()
 	 * @see #getPoint()
 	 * @generated

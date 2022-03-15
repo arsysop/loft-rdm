@@ -85,7 +85,7 @@ public class PointImpl extends PartImpl implements Point {
 	protected String raw = RAW_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSynopses() <em>Synopses</em>}' reference list.
+	 * The cached value of the '{@link #getSynopses() <em>Synopses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSynopses()
@@ -167,7 +167,7 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public EList<Synopsis> getSynopses() {
 		if (synopses == null) {
-			synopses = new EObjectResolvingEList<Synopsis>(Synopsis.class, this, SpecPackage.POINT__SYNOPSES);
+			synopses = new EObjectContainmentEList<Synopsis>(Synopsis.class, this, SpecPackage.POINT__SYNOPSES);
 		}
 		return synopses;
 	}
@@ -193,6 +193,8 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SpecPackage.POINT__SYNOPSES:
+				return ((InternalEList<?>)getSynopses()).basicRemove(otherEnd, msgs);
 			case SpecPackage.POINT__TABLES:
 				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
 			default:

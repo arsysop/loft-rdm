@@ -63,13 +63,13 @@ public interface Point extends Part, WithReferences {
 	void setRaw(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Synopses</b></em>' reference list.
+	 * Returns the value of the '<em><b>Synopses</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Synopsis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Synopses</em>' reference list.
+	 * @return the value of the '<em>Synopses</em>' containment reference list.
 	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Synopses()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Synopsis> getSynopses();
