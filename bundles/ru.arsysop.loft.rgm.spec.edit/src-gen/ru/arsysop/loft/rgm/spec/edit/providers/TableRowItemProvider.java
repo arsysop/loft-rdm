@@ -153,10 +153,10 @@ public class TableRowItemProvider extends PartItemProvider {
 	public Object getStyledText(Object object) {
 		TableRow tableRow = (TableRow) object;
 		StyledString label = new StyledString();
-		Optional.of(tableRow).map(TableRow::getId)
-				.ifPresent(id -> label.append("[" + URI.decode(id) + "] ", StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$//$NON-NLS-2$
 		Optional.of(tableRow).map(TableRow::getValues)
 				.ifPresent(values -> values.forEach(v -> label.append(v + " ", StyledString.Style.NO_STYLE))); //$NON-NLS-1$
+		Optional.of(tableRow).map(TableRow::getId)
+				.ifPresent(id -> label.append("[" + URI.decode(id) + "] ", StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$//$NON-NLS-2$
 		return label;
 	}
 

@@ -186,10 +186,14 @@ public class PointItemProvider extends PartItemProvider {
 		Point item = (Point) object;
 		StyledString styledLabel = new StyledString();
 		styledLabel.append(getString("_UI_Point_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Optional.ofNullable(item.getNumber()) //
+				.filter(Objects::nonNull) //
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
 		Optional.ofNullable(item.getName()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
-				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.COUNTER_STYLER));
+				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.NO_STYLE));
 		Optional.of(item.getReferences().stream()//
 				.map(Part::getId)//
 				.map(new DecodeId())//

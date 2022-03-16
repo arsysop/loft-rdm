@@ -44,10 +44,10 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	@Override
 	public void accept(Paragraph paragraph, Element node) {
 		Point point = factory.createPoint();
-		String id = pointNumber(node);
-		point.setId(new EncodeId().apply(paragraph.getId() + "_point" + id)); //$NON-NLS-1$
-		point.setLocation(paragraph.getLocation() + '#' + id);
-		point.setNumber(id);
+		String number = pointNumber(node);
+		point.setId(new EncodeId().apply(paragraph.getId() + "_point" + number)); //$NON-NLS-1$
+		point.setLocation(paragraph.getLocation() + '#' + number);
+		point.setNumber(paragraph.getNumber().concat("-").concat(number)); //$NON-NLS-1$
 		point.setName(pointName(paragraph, node));
 		point.setRaw(node.elements("p").stream().map(new CollectText()).collect(Collectors.joining("\n"))); //$NON-NLS-1$ //$NON-NLS-2$
 		point.getTables().addAll(tables.apply(paragraph, node));
@@ -57,7 +57,7 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 	}
 
 	private String pointName(Paragraph paragraph, Element node) {
-		return paragraph.getNumber().concat("-").concat(pointNumber(node)); //$NON-NLS-1$
+		return paragraph.getName().concat(" Point ").concat(pointNumber(node)); //$NON-NLS-1$
 	}
 
 	private String pointNumber(Element node) {

@@ -46,6 +46,8 @@ public final class PublishedHtml implements ICoreRunnable {
 		try (InputStream is = new URL(location).openStream()) {
 			Tidy tidy = new Tidy();
 			tidy.setShowWarnings(false);
+			tidy.setShowErrors(0);
+			tidy.setQuiet(true);
 			structure.read(//
 					new DOMReader()//
 							.read(tidy.parseDOM(is, /* no output */null)));
