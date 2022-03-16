@@ -21,6 +21,7 @@ package ru.arsysop.loft.rgm.spec.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -39,9 +40,10 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Table} object.
- * <!-- begin-user-doc
+ * This is the item provider adapter for a
+ * {@link ru.arsysop.loft.rgm.spec.model.api.Table} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class TableItemProvider extends PartItemProvider {
@@ -72,32 +74,26 @@ public class TableItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc
+	 * This adds a property descriptor for the Title feature. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Table_title_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_title_feature", "_UI_Table_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getTable_Title(),
-				 false,
-				 true,
-				 false,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Table_title_feature"), //$NON-NLS-1$
+						getString("_UI_PropertyDescriptor_description", "_UI_Table_title_feature", "_UI_Table_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						SpecPackage.eINSTANCE.getTable_Title(), false, true, false, null, null, null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an
+	 * appropriate feature for an {@link org.eclipse.emf.edit.command.AddCommand},
+	 * {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,11 +107,13 @@ public class TableItemProvider extends PartItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
+		// Check the type of the specified child object and return the proper feature to
+		// use for
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
@@ -123,6 +121,7 @@ public class TableItemProvider extends PartItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -131,14 +130,14 @@ public class TableItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		return ((StyledString)getStyledText(object)).getString();
+		return ((StyledString) getStyledText(object)).getString();
 	}
 
 	/**
@@ -158,13 +157,13 @@ public class TableItemProvider extends PartItemProvider {
 	@Override
 	public Object getStyledText(Object object) {
 		Table table = (Table) object;
-		String label = table.getName();
 		StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Table_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_Table_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		Optional.ofNullable(table.getNumber()) //
+				.filter(s -> !s.isEmpty()) //
+				.ifPresent(s -> styledLabel.append("Table " + s, StyledString.Style.COUNTER_STYLER)); //$NON-NLS-1$
+		Optional.ofNullable(table.getName()) //
+				.filter(s -> !s.isEmpty()) //
+				.ifPresent(s -> styledLabel.append(s));
 		styledLabel.append(" [" + new DecodeId().apply(table.getId()) + "]", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$//$NON-NLS-2$
 		List<Part> references = table.getRows().stream().map(TableRow::getReferences).flatMap(List::stream)
 				.collect(Collectors.toList());
@@ -176,9 +175,10 @@ public class TableItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This handles model notifications by calling {@link #updateChildren} to update
+	 * any cached children and by creating a viewer notification, which it passes to
+	 * {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -186,30 +186,28 @@ public class TableItemProvider extends PartItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
-			case SpecPackage.TABLE__ROWS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-			default:
-				super.notifyChanged(notification);
-				return;
-			}
+		case SpecPackage.TABLE__ROWS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
+		default:
+			super.notifyChanged(notification);
+			return;
+		}
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing
+	 * the children that can be created under this object. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getTable_Rows(),
-				 SpecFactory.eINSTANCE.createTableRow()));
+		newChildDescriptors.add(
+				createChildParameter(SpecPackage.eINSTANCE.getTable_Rows(), SpecFactory.eINSTANCE.createTableRow()));
 	}
 
 }

@@ -86,8 +86,8 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 
 	private String tableName(Element div) {
 		List<Node> content = div.content();
-		String name = content.subList(3, content.indexOf(div.element("table"))).stream().map(Node::getText) //$NON-NLS-1$
-				.collect(Collectors.joining());
+		String name = content.subList(2, content.indexOf(div.element("table"))).stream().map(Node::getText) //$NON-NLS-1$
+				.collect(Collectors.joining()).trim(); // $NON-NLS-1$
 		return name;
 	}
 
