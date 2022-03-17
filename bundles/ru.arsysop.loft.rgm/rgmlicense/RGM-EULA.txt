@@ -1,0 +1,104 @@
+ArSysOp Requirement Gathering and Markup Library End User License Agreement
+version 1.0
+March 2022
+
+> basic agreement
+
+ATTENTION
+
+Please read this software license agreement ("AGREEMENT") carefully before using this software. 
+You are only permitted to use this software pursuant to the terms and conditions of this AGREEMENT. 
+This AGREEMENT is between you (as an individual or Legal Entity) and ArSysOp.
+
+By downloading or installing this SOFTWARE or otherwise rendering it available for your use, 
+you are agreeing to be bound by the terms of this license. If you do not agree with the terms, 
+do not download, install, copy, or otherwise use this SOFTWARE. If you have downloaded or installed
+this SOFTWARE and do not agree to the terms, promptly delete the SOFTWARE.
+
+COPYRIGHT
+
+This SOFTWARE is property of ArSysOp. 
+
+DEFINITIONS
+
+For the purposes of the AGREEMENT following definitions must stand:
+(1) PRODUCT stands for ArSysOp Requirement Gathering and Markup Tool
+(2) SOFTWARE stands for PRODUCT programs, executable and data files, documentation and 
+any other material of PRODUCT that ArSysOp makes available under terms and conditions 
+of this AGREEMENT
+
+SCOPE OF USE
+
+PRODUCT can be only used for analyzing formal specifications of a programming language,
+gathering specification requirements from it, marking them up, performing analysis 
+on the gathered requirements.
+
+GRANTS
+
+ArSysOp hereby grants you the right to use the programs and data files composing the SOFTWARE 
+accompanying this AGREEMENT, and any programs and files for upgrading such software that 
+may be distributed to you in the future with terms and conditions attached (collectively, "SOFTWARE"), 
+only on a computer or equipment item that you yourself own or manage
+and only in the SCOPE OF USE mentioned above. 
+While ownership of the storage media in which the SOFTWARE is stored rests with you, 
+the SOFTWARE itself is owned by ArSysOp and/or ArSysOp’s licensor(s), and is protected by relevant 
+copyright laws and all applicable treaty provisions.
+
+RESTRICTION
+
+(1) You may not engage in reverse engineering, disassembly, decompilation or otherwise 
+deriving a source code form of the SOFTWARE by any method whatsoever.
+(2) You may not reproduce, modify, change, rent, lease, or distribute the SOFTWARE 
+in whole or in part, or create derivative works of the SOFTWARE.
+(3) You may not use the SOFTWARE to distribute or operate illegal data or data that violates public policy.
+(4) You may not initiate services based on the use of the SOFTWARE without permission by ArSysOp.
+
+TERMINATION
+
+If any copyright law or provisions of this AGREEMENT is violated, the AGREEMENT shall terminate 
+automatically and immediately without notice from ArSysOp. Upon such termination, you must immediately
+destroy the licensed SOFTWARE, any accompanying documents, file and other materials and all copies thereof.
+
+DISCLAIMER OF WARRANTY ON SOFTWARE
+
+You expressly acknowledge and agree that use of the SOFTWARE is at your sole risk. The SOFTWARE 
+and related documentation are provided "AS IS" and without warranty of any kind. 
+Notwithstanding any other provision of this AGREEMENT, ArSysOp expressly disclaims all warranties 
+as to the software, express, and implied, including but not limited to the implied warranties of merchantability,
+fitness for a particular purpose and non-infringement of third party rights. 
+Specifically, but without limiting the foregoing, ArSysOp does not warrant that the software will meet 
+your requirements, that the operation of the software will be uninterrupted or error-free, or that defects
+in the software will be corrected.
+
+LIMITATION OF LIABILITY
+
+ArSysOp’S entire obligation hereunder shall be to permit use of the software under the terms hereof. 
+In no event shall ArSysOp be liable to you or any other person for any damages, including, without limitation, 
+any direct, indirect, incidental or consequential damages, expenses, lost profits, lost data or other damages 
+arising out of the use, misuse or inability to use the software, even if ArSysOp or an authorized dealer 
+has been advised of the possibility of such damages. 
+
+THIRD PARTY SOFTWARE
+
+Third party software and data ("THIRD PARTY SOFTWARE") may be attached to the SOFTWARE. 
+If, in the written materials or the electronic data accompanying the SOFTWARE, ArSysOp identifies 
+any software and data as THIRD PARTY SOFTWARE, you acknowledge and agree that you must abide by the provisions 
+of any agreement provided with the THIRD PARTY SOFTWARE and that the party providing the THIRD PARTY SOFTWARE 
+is responsible for any warranty or liability related to or arising from the THIRD PARTY SOFTWARE. 
+ArSysOp is not responsible in any way for the THIRD PARTY SOFTWARE or your use thereof.
+
+ArSysOp provides no express warranties as to the THIRD PARTY SOFTWARE. 
+In addition, ArSysOp expressly disclaims all implied warranties, including but not limited 
+to the implied warranties of merchantability and fitness for a particular purpose, 
+as to the THIRD PARTY SOFTWARE.
+ArSysOp shall not provide you with any service or maintenance as to the THIRD PARTY SOFTWARE.
+ArSysOp is not liable to you or any other person for any damages, including, without limitation, 
+any direct, indirect, incidental or consequential damages, expenses, lost profits, lost data 
+or other damages arising out of the use, misuse or inability to use the THIRD PARTY SOFTWARE.
+
+GENERAL
+
+This AGREEMENT shall be interpreted according to and governed by Russian law without reference 
+to principles of conflict of laws. Any dispute or procedure shall be heard before Saint-Petersburg 
+Court in Russia. If for any reason a court of competent jurisdiction finds any portion of this AGREEMENT 
+to be unenforceable, the remainder of this AGREEMENT shall continue in full force and effect.
