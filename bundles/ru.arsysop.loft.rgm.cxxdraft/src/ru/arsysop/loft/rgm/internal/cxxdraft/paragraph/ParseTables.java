@@ -92,7 +92,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 	}
 
 	private int fillTitle(Table table, List<Element> rows) {
-		TableRow titleRow = row("Title", table.getId() + "-title", table.getLocation()); //$NON-NLS-1$ //$NON-NLS-2$
+		TableRow titleRow = row(table, table.getId() + "-title", 0); //$NON-NLS-1$
 		if (rows.stream().filter(e -> "capsep".equals(e.attributeValue("class"))).count() > 0) { //$NON-NLS-1$ //$NON-NLS-2$
 			List<String> titleValues = rows.get(0).elements("td").stream().map(this::extractText) //$NON-NLS-1$
 					.collect(Collectors.toList());
@@ -111,7 +111,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 	}
 
 	private TableRow collectRow(Element tr, Table table, int index) {
-		TableRow row = row(String.valueOf(index), table.getId() + "_row" + index, table.getLocation()); //$NON-NLS-1$
+		TableRow row = row(table, table.getId() + "_row" + index, index); //$NON-NLS-1$
 		List<Element> cells = tr.elements("td"); //$NON-NLS-1$
 		cells.stream().map(this::extractText).forEach(row.getValues()::add);
 		cells.stream().map(new ParseReferences(context)).flatMap(List::stream).forEach(row.getReferences()::add);
@@ -123,12 +123,12 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		return cell.content().stream().map(Node::getText).collect(Collectors.joining(" ")); //$NON-NLS-1$
 	}
 
-	private TableRow row(String name, String id, String location) {
+	private TableRow row(Table table, String id, int index) {
 		TableRow row = factory.createTableRow();
-		row.setLocation(location);
+		row.setLocation(table.getLocation());
 		row.setId(id);
-		row.setNumber(name);
-		row.setName(name);
+		row.setNumber(table.getNumber().concat("-").concat(String.valueOf(index))); //$NON-NLS-1$
+		row.setName(table.getName().concat("Row ").concat(String.valueOf(index))); //$NON-NLS-1$
 		return row;
 	}
 }
