@@ -35,6 +35,7 @@ You (as an individual or Legal Entity)
    (1) may NOT modify, replenish or diminish RGM Sources,
    (2) may NOT include RGM Sources to any product or project,
    (3) may NOT produce binaries from or with RGM Sources.
+   (4) may NOT translate RGM Sources to any other language.
 
 DISCLAIMER
 For the purposes stated above RGM Sources are provided on "as is" basis. 
