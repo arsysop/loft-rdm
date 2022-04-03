@@ -15,6 +15,7 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.dom4j.Element;
@@ -23,6 +24,7 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendPoint;
+import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendSynopsis;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 
 public final class ParagraphStructure extends BaseStructure<Paragraph> {
@@ -39,14 +41,28 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 				.filter(Element.class::isInstance) //
 				.map(Element.class::cast) //
 				.filter(new IsDiv()) //
-				.forEach(this::readPoints);
+				.forEach(this::readContent);
 	}
 
-	private void readPoints(Element node) {
-		node.elements().stream() //
+	private void readContent(Element node) {
+		List<Element> elements = node.elements();
+		elements.stream() //
 				.filter(new IsDiv()) //
-				.filter(new OfClass("para")) //$NON-NLS-1$
-				.forEach(e -> new AppendPoint(context).accept(container, e));
+				.forEach(e -> resolve(node, elements));
+	}
+
+	private void resolve(Element node, List<Element> elements) {
+		if (hasClass(node, "para")) { //$NON-NLS-1$
+			new AppendPoint(context).accept(container, node);
+		}
+		if (hasClass(node, "itemdescr")) { //$NON-NLS-1$
+			Element previous = elements.get(elements.indexOf(node) - 1);
+			new AppendSynopsis(context).accept(container, previous);
+		}
+	}
+
+	private boolean hasClass(Element node, String string) {
+		return new OfClass(string).test(node);
 	}
 
 }

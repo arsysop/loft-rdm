@@ -13,30 +13,37 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
+package ru.arsysop.loft.rgm.internal.cxxdraft.synopsis;
 
+import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.dom4j.Element;
-import org.dom4j.Node;
 
-public final class CollectText implements Function<Element, String> {
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.WithId;
+import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.ParseReferences;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
 
-	@Override
-	public String apply(Element node) {
-		return parse(node).trim();
+public final class SynopsisReferences implements Function<Element, List<Part>> {
+
+	private final ResolutionContext context;
+
+	public SynopsisReferences(ResolutionContext context) {
+		this.context = context;
 	}
 
-	private String parse(Node node) {
-		if (node instanceof Element) {
-			return Element.class.cast(node).content() //
-					.stream() //
-					.map(this::parse) //
-					.collect(Collectors.joining(" ")); //$NON-NLS-1$
-		} else {
-			return node.getText();
-		}
+	@Override
+	public List<Part> apply(Element node) {
+		return Stream.of(node) //
+				.map(e -> e.elements("span")) //$NON-NLS-1$
+				.flatMap(List::stream) //
+				.filter(new WithId("comment")) //$NON-NLS-1$
+				.map(new ParseReferences(context)) //
+				.flatMap(List::stream) //
+				.collect(Collectors.toList());
 	}
 
 }

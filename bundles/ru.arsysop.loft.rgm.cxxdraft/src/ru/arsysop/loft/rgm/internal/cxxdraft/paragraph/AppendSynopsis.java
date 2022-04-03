@@ -15,50 +15,42 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.function.BiConsumer;
 
 import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.SynopsisReferences;
-import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-final class ParseSynopses {
+public final class AppendSynopsis implements BiConsumer<Paragraph, Element> {
 
-	private final SpecFactory factory;
+	private final SpecFactory factory = SpecFactory.eINSTANCE;
+
 	private final ResolutionContext context;
-	private int count = 0;
 
-	ParseSynopses(SpecFactory factory, ResolutionContext context) {
-		this.factory = factory;
+	public AppendSynopsis(ResolutionContext context) {
 		this.context = context;
 	}
 
-	List<Synopsis> parse(Point point, Element node) {
-		return node.elements("pre").stream() //$NON-NLS-1$
-				.filter(new OfClass("codeblock")) //$NON-NLS-1$
-				.map(e -> synopsis(point, e)) //
-				.collect(Collectors.toList());
-	}
-
-	private Synopsis synopsis(Point point, Element element) {
+	@Override
+	public void accept(Paragraph paragraph, Element element) {
+		String number = nextNumber(paragraph);
 		Synopsis synopsis = factory.createSynopsis();
-		synopsis.setLocation(point.getLocation());
-		synopsis.setId(point.getId().concat("_synopsis" + count)); //$NON-NLS-1$
-		synopsis.setName(point.getName().concat(" Synopsis")); //$NON-NLS-1$
-		synopsis.setNumber(point.getNumber().concat("-" + count++)); //$NON-NLS-1$
-		collectText(element, synopsis);
+		synopsis.setContent(new CollectText().apply(element.element("code"))); //$NON-NLS-1$
+		synopsis.setId(paragraph.getId().concat("_synopsis").concat(number)); //$NON-NLS-1$
+		synopsis.setName(paragraph.getName().concat(String.format("Synopsis %s", number))); //$NON-NLS-1$
+		synopsis.setNumber(paragraph.getNumber().concat(String.format("-S%s", number))); //$NON-NLS-1$
 		new SynopsisReferences(context).apply(element).forEach(synopsis.getReferences()::add);
-		return synopsis;
+		paragraph.getParts().add(synopsis);
 	}
 
-	private void collectText(Element element, Synopsis synopsis) {
-		Optional.of(element).map(new CollectText()).ifPresent(synopsis::setContent);
+	private String nextNumber(Paragraph paragraph) {
+		return String.valueOf(paragraph.getParts().stream() //
+				.filter(Synopsis.class::isInstance) //
+				.count() + 1);
 	}
 
 }
