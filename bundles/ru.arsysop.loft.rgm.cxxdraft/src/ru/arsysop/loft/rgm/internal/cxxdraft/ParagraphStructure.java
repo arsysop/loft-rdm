@@ -57,7 +57,7 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		}
 		if (hasClass(node, "itemdescr")) { //$NON-NLS-1$
 			Element previous = elements.get(elements.indexOf(node) - 1);
-			new AppendSynopsis().accept(container, previous);
+			new AppendSynopsis(context).accept(container, previous);
 		}
 	}
 
