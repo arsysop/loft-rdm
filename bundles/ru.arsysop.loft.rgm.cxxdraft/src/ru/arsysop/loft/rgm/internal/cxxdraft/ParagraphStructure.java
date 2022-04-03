@@ -48,7 +48,7 @@ public final class ParagraphStructure extends BaseStructure<Paragraph> {
 		List<Element> elements = node.elements();
 		elements.stream() //
 				.filter(new IsDiv()) //
-				.forEach(e -> resolve(node, elements));
+				.forEach(e -> resolve(e, elements));
 	}
 
 	private void resolve(Element node, List<Element> elements) {
