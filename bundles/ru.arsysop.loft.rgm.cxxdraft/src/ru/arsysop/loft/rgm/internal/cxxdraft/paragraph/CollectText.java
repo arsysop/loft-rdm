@@ -25,7 +25,7 @@ public final class CollectText implements Function<Element, String> {
 
 	@Override
 	public String apply(Element node) {
-		return parse(node);
+		return parse(node).trim();
 	}
 
 	private String parse(Node node) {
