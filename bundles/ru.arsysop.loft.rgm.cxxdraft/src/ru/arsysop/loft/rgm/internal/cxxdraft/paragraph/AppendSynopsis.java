@@ -15,28 +15,22 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.function.BiConsumer;
 
 import org.dom4j.Element;
-import org.dom4j.Node;
 
-public final class CollectText implements Function<Element, String> {
+import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
+import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
+
+public final class AppendSynopsis implements BiConsumer<Paragraph, Element> {
+
+	private final SpecFactory factory = SpecFactory.eINSTANCE;
 
 	@Override
-	public String apply(Element node) {
-		return parse(node).trim();
-	}
-
-	private String parse(Node node) {
-		if (node instanceof Element) {
-			return Element.class.cast(node).content() //
-					.stream() //
-					.map(this::parse) //
-					.collect(Collectors.joining(" ")); //$NON-NLS-1$
-		} else {
-			return node.getText();
-		}
+	public void accept(Paragraph paragraph, Element element) {
+		Synopsis synopsis = factory.createSynopsis();
+		synopsis.setContent(new CollectText().apply(element.element("code"))); //$NON-NLS-1$
 	}
 
 }
