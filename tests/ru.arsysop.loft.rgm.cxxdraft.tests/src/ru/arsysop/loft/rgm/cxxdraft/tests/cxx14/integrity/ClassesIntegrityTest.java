@@ -13,7 +13,7 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14;
+package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14.integrity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

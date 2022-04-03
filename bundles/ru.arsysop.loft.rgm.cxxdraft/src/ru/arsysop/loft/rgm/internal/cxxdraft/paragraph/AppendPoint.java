@@ -17,7 +17,6 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.List;
 import java.util.function.BiConsumer;
-import java.util.stream.Collectors;
 
 import org.dom4j.Element;
 
@@ -49,7 +48,7 @@ public final class AppendPoint implements BiConsumer<Paragraph, Element> {
 		point.setLocation(paragraph.getLocation() + '#' + number);
 		point.setNumber(paragraph.getNumber().concat("-").concat(number)); //$NON-NLS-1$
 		point.setName(pointName(paragraph, node));
-		point.setRaw(node.elements("p").stream().map(new CollectText()).collect(Collectors.joining("\n"))); //$NON-NLS-1$ //$NON-NLS-2$
+		point.setRaw(new CollectText().apply(node));
 		point.getTables().addAll(tables.apply(paragraph, node));
 		point.getSynopses().addAll(synopses.parse(point, node));
 		node.elements("p").stream().map(references).flatMap(List::stream).forEach(point.getReferences()::add); //$NON-NLS-1$

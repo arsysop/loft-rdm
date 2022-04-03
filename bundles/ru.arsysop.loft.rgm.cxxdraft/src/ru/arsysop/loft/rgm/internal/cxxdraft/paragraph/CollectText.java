@@ -25,7 +25,19 @@ public final class CollectText implements Function<Element, String> {
 
 	@Override
 	public String apply(Element node) {
-		return node.content().stream().map(Node::getText).collect(Collectors.joining());
+		return parse(node).trim();
+	}
+
+	private String parse(Node node) {
+		if (node instanceof Element) {
+			return Element.class.cast(node).content() //
+					.stream() //
+					.map(this::parse) //
+					.collect(Collectors.joining(" ")); //$NON-NLS-1$
+		} else {
+			return node.getText();
+		}
+
 	}
 
 }

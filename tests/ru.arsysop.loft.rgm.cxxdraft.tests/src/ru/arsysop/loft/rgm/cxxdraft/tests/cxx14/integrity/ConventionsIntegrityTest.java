@@ -13,7 +13,7 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14;
+package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14.integrity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -22,24 +22,35 @@ import org.junit.Test;
 
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 
-public final class DerivedIntegrityTest extends Cxx14IntegrityTest {
-
-	private final TocChapter derived = document.getToc().getChapters().get(11);
+public class ConventionsIntegrityTest extends Cxx14IntegrityTest {
+	
+	private final TocChapter conventions = document.getToc().getChapters().get(3);
 
 	@Test
-	public void name() {
-		assertEquals("Derived classes", derived.getName()); //$NON-NLS-1$
+	public final void name() {
+		assertEquals("Lexical conventions", conventions.getName()); //$NON-NLS-1$
 	}
 
 	@Test
-	public void count() {
-		int subchapters = 4;
-		assertEquals(subchapters, derived.getChapters().size()); // $NON-NLS-1$
+	public final void count() {
+		int subchapters = 14;
+		assertEquals(subchapters, conventions.getChapters().size()); // $NON-NLS-1$
 		for (int i = 0; i < subchapters; i++) {
-			TocChapter chapter = derived.getChapters().get(i);
-			assertEquals(chapter(10, i + 1), chapter.getNumber());
+			TocChapter chapter = conventions.getChapters().get(i);
+			assertEquals(chapter(2, i + 1), chapter.getNumber());
 			assertNotNull(chapter.getName());
 			assertNotNull(chapter.getPart());
+		}
+	}
+
+	@Test
+	public final void literals() {
+		int paragraphs = 8;
+		for (int i = 0; i < paragraphs; i++) {
+			TocChapter paragraph = conventions.getChapters().get(13).getChapters().get(i);
+			assertEquals(paragraph(2, 14, i + 1), paragraph.getNumber());
+			assertNotNull(paragraph.getName());
+			assertNotNull(paragraph.getPart());
 		}
 	}
 
