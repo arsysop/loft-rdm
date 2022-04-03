@@ -19,6 +19,8 @@ import java.util.function.BiConsumer;
 
 import org.dom4j.Element;
 
+import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.SynopsisReferences;
 import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
@@ -27,10 +29,28 @@ public final class AppendSynopsis implements BiConsumer<Paragraph, Element> {
 
 	private final SpecFactory factory = SpecFactory.eINSTANCE;
 
+	private final ResolutionContext context;
+
+	public AppendSynopsis(ResolutionContext context) {
+		this.context = context;
+	}
+
 	@Override
 	public void accept(Paragraph paragraph, Element element) {
+		String number = nextNumber(paragraph);
 		Synopsis synopsis = factory.createSynopsis();
 		synopsis.setContent(new CollectText().apply(element.element("code"))); //$NON-NLS-1$
+		synopsis.setId(paragraph.getId().concat("_synopsis").concat(number)); //$NON-NLS-1$
+		synopsis.setName(paragraph.getName().concat(String.format("Synopsis %s", number))); //$NON-NLS-1$
+		synopsis.setNumber(paragraph.getNumber().concat(String.format("-S%s", number))); //$NON-NLS-1$
+		new SynopsisReferences(context).apply(element).forEach(synopsis.getReferences()::add);
+		paragraph.getParts().add(synopsis);
+	}
+
+	private String nextNumber(Paragraph paragraph) {
+		return String.valueOf(paragraph.getParts().stream() //
+				.filter(Synopsis.class::isInstance) //
+				.count() + 1);
 	}
 
 }

@@ -18,13 +18,12 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.WithId;
+import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.SynopsisReferences;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
@@ -54,22 +53,12 @@ final class ParseSynopses {
 		synopsis.setName(point.getName().concat(" Synopsis")); //$NON-NLS-1$
 		synopsis.setNumber(point.getNumber().concat("-" + count++)); //$NON-NLS-1$
 		collectText(element, synopsis);
-		collectReferences(element, synopsis);
+		new SynopsisReferences(context).apply(element).forEach(synopsis.getReferences()::add);
 		return synopsis;
 	}
 
 	private void collectText(Element element, Synopsis synopsis) {
 		Optional.of(element).map(new CollectText()).ifPresent(synopsis::setContent);
-	}
-
-	private void collectReferences(Element element, Synopsis synopsis) {
-		Stream.of(element) //
-				.map(e -> e.elements("span")) //$NON-NLS-1$
-				.flatMap(List::stream) //
-				.filter(new WithId("comment")) //$NON-NLS-1$
-				.map(new ParseReferences(context)) //
-				.flatMap(List::stream) //
-				.forEach(synopsis.getReferences()::add);
 	}
 
 }
