@@ -13,7 +13,7 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14;
+package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14.integrity;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -22,58 +22,58 @@ import org.junit.Test;
 
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
 
-public final class DeclaratorsIntegrityTest extends Cxx14IntegrityTest {
+public final class ExpressionsIntegrityTest extends Cxx14IntegrityTest {
 
-	private final TocChapter declarators = document.getToc().getChapters().get(9);
+	private final TocChapter expressions = document.getToc().getChapters().get(6);
 
 	@Test
 	public void name() {
-		assertEquals("Declarators", declarators.getName()); //$NON-NLS-1$
+		assertEquals("Expressions", expressions.getName()); //$NON-NLS-1$
 	}
 
 	@Test
 	public void count() {
-		int subchapters = 5;
-		assertEquals(subchapters, declarators.getChapters().size()); // $NON-NLS-1$
+		int subchapters = 19;
+		assertEquals(subchapters, expressions.getChapters().size()); // $NON-NLS-1$
 		for (int i = 0; i < subchapters; i++) {
-			TocChapter chapter = declarators.getChapters().get(i);
-			assertEquals(chapter(8, i + 1), chapter.getNumber());
+			TocChapter chapter = expressions.getChapters().get(i);
+			assertEquals(chapter(5, i + 1), chapter.getNumber());
 			assertNotNull(chapter.getName());
 			assertNotNull(chapter.getPart());
 		}
 	}
 
 	@Test
-	public void meaning() {
-		int paragraphs = 6;
-		assertEquals("Meaning of declarators", declarators.getChapters().get(2).getName()); //$NON-NLS-1$
+	public void primary() {
+		int paragraphs = 2;
+		assertEquals("Primary expressions", expressions.getChapters().get(0).getName()); //$NON-NLS-1$
 		for (int i = 0; i < paragraphs; i++) {
-			TocChapter paragraph = declarators.getChapters().get(2).getChapters().get(i);
-			assertEquals(paragraph(8, 3, i + 1), paragraph.getNumber());
+			TocChapter paragraph = expressions.getChapters().get(0).getChapters().get(i);
+			assertEquals(paragraph(5, 1, i + 1), paragraph.getNumber());
 			assertNotNull(paragraph.getName());
 			assertNotNull(paragraph.getPart());
 		}
 	}
 
 	@Test
-	public void functions() {
-		int paragraphs = 3;
-		assertEquals("Function definitions", declarators.getChapters().get(3).getName()); //$NON-NLS-1$
+	public void postfix() {
+		int paragraphs = 11;
+		assertEquals("Postfix expressions", expressions.getChapters().get(1).getName()); //$NON-NLS-1$
 		for (int i = 0; i < paragraphs; i++) {
-			TocChapter paragraph = declarators.getChapters().get(3).getChapters().get(i);
-			assertEquals(paragraph(8, 4, i + 1), paragraph.getNumber());
+			TocChapter paragraph = expressions.getChapters().get(1).getChapters().get(i);
+			assertEquals(paragraph(5, 2, i + 1), paragraph.getNumber());
 			assertNotNull(paragraph.getName());
 			assertNotNull(paragraph.getPart());
 		}
 	}
 
 	@Test
-	public void initializers() {
-		int paragraphs = 4;
-		assertEquals("Initializers", declarators.getChapters().get(4).getName()); //$NON-NLS-1$
+	public void unary() {
+		int paragraphs = 7;
+		assertEquals("Unary expressions", expressions.getChapters().get(2).getName()); //$NON-NLS-1$
 		for (int i = 0; i < paragraphs; i++) {
-			TocChapter paragraph = declarators.getChapters().get(4).getChapters().get(i);
-			assertEquals(paragraph(8, 5, i + 1), paragraph.getNumber());
+			TocChapter paragraph = expressions.getChapters().get(2).getChapters().get(i);
+			assertEquals(paragraph(5, 3, i + 1), paragraph.getNumber());
 			assertNotNull(paragraph.getName());
 			assertNotNull(paragraph.getPart());
 		}
