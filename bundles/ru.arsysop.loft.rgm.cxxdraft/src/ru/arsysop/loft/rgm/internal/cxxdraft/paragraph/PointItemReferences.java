@@ -16,32 +16,30 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 
-public final class ParseReferences implements Function<Element, List<Part>> {
+public final class PointItemReferences implements Function<Element, List<Part>> {
 
 	private final ResolutionContext context;
 
-	public ParseReferences(ResolutionContext context) {
+	public PointItemReferences(ResolutionContext context) {
 		this.context = context;
 	}
 
 	@Override
 	public List<Part> apply(Element node) {
-		return node.elements("a").stream() //$NON-NLS-1$
-				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
-				.map(new PickId(context)) //
-				.map(context.parts()::find) //
-				.filter(Optional::isPresent) //
-				.map(Optional::get) //
+		return Stream.of(node) //
+				.map(e -> e.elements("p")) //$NON-NLS-1$
+				.flatMap(List::stream) //
+				.map(new PartReferences(context)) //
+				.flatMap(List::stream) //
 				.collect(Collectors.toList());
 	}
 

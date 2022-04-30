@@ -21,7 +21,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated spec -->
       <package
-            uri="http://www.arsysop.ru/rgm/spec/0.1.0"
+            uri="http://www.arsysop.ru/rgm/spec/0.2.0"
             class="ru.arsysop.loft.rgm.spec.model.meta.SpecPackage"
             genModel="model/spec.genmodel"/>
    </extension>

@@ -18,37 +18,38 @@
  * Contributors:
  *     (ArSysOp) - initial API and implementation
  *******************************************************************************/
-package ru.arsysop.loft.rgm.spec.model.impl;
+package ru.arsysop.loft.rgm.spec.model.api;
 
-import org.eclipse.emf.ecore.EClass;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
-import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Paragraph</b></em>'.
+ * A representation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Section#getContents <em>Contents</em>}</li>
+ * </ul>
+ *
+ * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getSection()
+ * @model
  * @generated
  */
-public class ParagraphImpl extends WithPartsImpl implements Paragraph {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParagraphImpl() {
-		super();
-	}
+public interface Section extends SectionContent {
 
 	/**
+	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.SectionContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contents</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getSection_Contents()
+	 * @model containment="true"
 	 * @generated
 	 */
-	@Override
-	protected EClass eStaticClass() {
-		return SpecPackage.eINSTANCE.getParagraph();
-	}
-
-} //ParagraphImpl
+	EList<SectionContent> getContents();
+} // Paragraph

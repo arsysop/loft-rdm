@@ -13,9 +13,11 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.synopsis;
+package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,27 +25,40 @@ import java.util.stream.Stream;
 import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.WithId;
-import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.PartReferences;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 
-public final class SynopsisReferences implements Function<Element, List<Part>> {
+public final class PartReferences implements Function<Element, List<Part>> {
 
 	private final ResolutionContext context;
 
-	public SynopsisReferences(ResolutionContext context) {
+	public PartReferences(ResolutionContext context) {
 		this.context = context;
 	}
 
 	@Override
 	public List<Part> apply(Element node) {
-		return Stream.of(node) //
-				.map(e -> e.elements("span")) //$NON-NLS-1$
-				.flatMap(List::stream) //
-				.filter(new WithId("comment")) //$NON-NLS-1$
-				.map(new PartReferences(context)) //
-				.flatMap(List::stream) //
-				.collect(Collectors.toList());
+		return deep(node).distinct().collect(Collectors.toList());
+	}
+
+	private Stream<Part> deep(Element node) {
+		return Stream.concat(direct(node), others(node));
+	}
+
+	private Stream<Part> direct(Element node) {
+		return node.elements("a").stream() //$NON-NLS-1$
+				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
+				.filter(Objects::nonNull)//
+				.map(new PickId(context)) //
+				.map(context.parts()::find) //
+				.filter(Optional::isPresent) //
+				.map(Optional::get);
+	}
+
+	private Stream<Part> others(Element node) {
+		return node.elements().stream()//
+				.filter(e -> !"a".equals(e.getName()))//$NON-NLS-1$
+				.flatMap(this::deep);
 	}
 
 }

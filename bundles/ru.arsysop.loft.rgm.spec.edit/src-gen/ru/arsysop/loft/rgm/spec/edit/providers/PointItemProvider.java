@@ -23,7 +23,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -34,9 +33,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -69,32 +66,9 @@ public class PointItemProvider extends PartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencesPropertyDescriptor(object);
 			addRawPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the References feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_WithReferences_references_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_WithReferences_references_feature", "_UI_WithReferences_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getWithReferences_References(),
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -131,8 +105,7 @@ public class PointItemProvider extends PartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Synopses());
-			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Tables());
+			childrenFeatures.add(SpecPackage.eINSTANCE.getPoint_Contents());
 		}
 		return childrenFeatures;
 	}
@@ -194,16 +167,6 @@ public class PointItemProvider extends PartItemProvider {
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
 				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.NO_STYLE));
-		Optional.of(item.getReferences().stream()//
-				.map(Part::getId)//
-				.map(new DecodeId())//
-				.collect(Collectors.joining("; "))) //$NON-NLS-1$
-				.filter(s -> !s.isEmpty()) //
-				.ifPresent(s -> {
-					styledLabel.append(" (references: ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
-					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
-					styledLabel.append(")", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
-				});
 		Optional.ofNullable(item.getId()) //
 				.filter(Objects::nonNull)//
 				.filter(s -> !s.isEmpty())//
@@ -225,8 +188,7 @@ public class PointItemProvider extends PartItemProvider {
 			case SpecPackage.POINT__RAW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SpecPackage.POINT__SYNOPSES:
-			case SpecPackage.POINT__TABLES:
+			case SpecPackage.POINT__CONTENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -248,12 +210,22 @@ public class PointItemProvider extends PartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getPoint_Synopses(),
+				(SpecPackage.eINSTANCE.getPoint_Contents(),
+				 SpecFactory.eINSTANCE.createPointItem()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpecPackage.eINSTANCE.getPoint_Contents(),
+				 SpecFactory.eINSTANCE.createPointText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SpecPackage.eINSTANCE.getPoint_Contents(),
 				 SpecFactory.eINSTANCE.createSynopsis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getPoint_Tables(),
+				(SpecPackage.eINSTANCE.getPoint_Contents(),
 				 SpecFactory.eINSTANCE.createTable()));
 	}
 

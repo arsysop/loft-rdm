@@ -189,7 +189,7 @@ public class DocumentItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Toc());
-			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Paragraphs());
+			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Sections());
 			childrenFeatures.add(SpecPackage.eINSTANCE.getDocument_Indexes());
 		}
 		return childrenFeatures;
@@ -314,7 +314,7 @@ public class DocumentItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SpecPackage.DOCUMENT__TOC:
-			case SpecPackage.DOCUMENT__PARAGRAPHS:
+			case SpecPackage.DOCUMENT__SECTIONS:
 			case SpecPackage.DOCUMENT__INDEXES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -342,8 +342,8 @@ public class DocumentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getDocument_Paragraphs(),
-				 SpecFactory.eINSTANCE.createParagraph()));
+				(SpecPackage.eINSTANCE.getDocument_Sections(),
+				 SpecFactory.eINSTANCE.createSection()));
 
 		newChildDescriptors.add
 			(createChildParameter

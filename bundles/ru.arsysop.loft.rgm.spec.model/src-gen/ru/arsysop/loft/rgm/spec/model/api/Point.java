@@ -31,15 +31,14 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getRaw <em>Raw</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses <em>Synopses</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Point#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint()
  * @model
  * @generated
  */
-public interface Point extends Part, WithReferences {
+public interface Point extends SectionContent {
 	/**
 	 * Returns the value of the '<em><b>Raw</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,27 +62,15 @@ public interface Point extends Part, WithReferences {
 	void setRaw(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Synopses</b></em>' containment reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Synopsis}.
+	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.PointContent}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Synopses</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Synopses()
+	 * @return the value of the '<em>Contents</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Contents()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Synopsis> getSynopses();
-
-	/**
-	 * Returns the value of the '<em><b>Tables</b></em>' containment reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Table}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tables</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPoint_Tables()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Table> getTables();
+	EList<PointContent> getContents();
 
 } // SubParagraph

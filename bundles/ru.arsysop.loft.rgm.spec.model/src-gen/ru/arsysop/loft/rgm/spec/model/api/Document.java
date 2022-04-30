@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getRevision <em>Revision</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getToc <em>Toc</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getParagraphs <em>Paragraphs</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getSections <em>Sections</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Document#getIndexes <em>Indexes</em>}</li>
  * </ul>
  *
@@ -159,16 +159,16 @@ public interface Document extends EObject {
 	void setToc(Toc value);
 
 	/**
-	 * Returns the value of the '<em><b>Paragraphs</b></em>' containment reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Paragraph}.
+	 * Returns the value of the '<em><b>Sections</b></em>' containment reference list.
+	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Section}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Paragraphs</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getDocument_Paragraphs()
+	 * @return the value of the '<em>Sections</em>' containment reference list.
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getDocument_Sections()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Paragraph> getParagraphs();
+	EList<Section> getSections();
 
 	/**
 	 * Returns the value of the '<em><b>Indexes</b></em>' containment reference list.

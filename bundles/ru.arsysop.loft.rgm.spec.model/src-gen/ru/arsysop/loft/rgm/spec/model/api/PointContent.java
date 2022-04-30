@@ -1,4 +1,4 @@
-/*******************************************************************************
+/**
  * Copyright (c) ArSysOp 2018-2022
  * 
  * RGM Sources are publicly available only for 
@@ -12,21 +12,19 @@
  * or other consequences of any sort that using RGM Sources can cause to you 
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
-*******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.element;
+ */
+package ru.arsysop.loft.rgm.spec.model.api;
 
-import java.util.function.Function;
 
-import ru.arsysop.loft.rgm.spec.model.api.Table;
-
-public final class TableId implements Function<Table, String> {
-
-	/**
-	 * Removes the first part of id to make table reference-able from point
-	 */
-	@Override
-	public String apply(Table table) {
-		return "#" + table.getId().split("#")[1]; //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-}
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Point Content</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPointContent()
+ * @model interface="true" abstract="true"
+ * @generated
+ */
+public interface PointContent extends Part {
+} // PointContent

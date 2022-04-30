@@ -20,35 +20,16 @@
  *******************************************************************************/
 package ru.arsysop.loft.rgm.spec.model.api;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>With Parts</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.WithParts#getParts <em>Parts</em>}</li>
- * </ul>
  *
- * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getWithParts()
- * @model abstract="true"
+ * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getSectionContent()
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface WithParts extends Part {
-	/**
-	 * Returns the value of the '<em><b>Parts</b></em>' containment reference list.
-	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.Part}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parts</em>' containment reference list.
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getWithParts_Parts()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Part> getParts();
+public interface SectionContent extends Part {
 
 } // WithParts
