@@ -13,7 +13,7 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
+package ru.arsysop.loft.rgm.internal.cxxdraft.table;
 
 import java.util.List;
 import java.util.Objects;
@@ -26,41 +26,35 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.FormatName;
+import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.PartReferences;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.base.EncodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class ParseTables implements BiFunction<Paragraph, Element, List<Table>> {
+public final class ParseTable implements BiFunction<Section, Element, Table> {
 
 	private final EncodeId encode;
 	private final SpecFactory factory;
 	private final ResolutionContext context;
 
-	public ParseTables(SpecFactory factory, ResolutionContext context) {
+	public ParseTable(SpecFactory factory, ResolutionContext context) {
 		this.encode = new EncodeId();
 		this.factory = Objects.requireNonNull(factory, "ParseTables::factory"); //$NON-NLS-1$
 		this.context = context;
 	}
 
 	@Override
-	public List<Table> apply(Paragraph paragraph, Element node) {
-		return node.elements("div").stream() //$NON-NLS-1$
-				.filter(new OfClass("numberedTable")) //$NON-NLS-1$
-				.map(e -> fillTable(paragraph, e)) //
-				.collect(Collectors.toList());
-	}
-
-	private Table fillTable(Paragraph paragraph, Element div) {
+	public Table apply(Section section, Element node) {
 		Table table = factory.createTable();
-		table.setId(tableId(div));
-		table.setLocation(tableLocation(paragraph, div));
-		table.setName(tableName(div));
-		table.setNumber(tableNumber(div));
+		table.setId(tableId(node));
+		table.setLocation(tableLocation(section, node));
+		table.setName(tableName(node));
+		table.setNumber(tableNumber(node));
 		context.parts().register(table.getId(), table);
-		fillTableContent(div, table);
+		fillTableContent(node, table);
 		return table;
 	}
 
@@ -75,13 +69,13 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		return encode.apply(div.attributeValue("id")); //$NON-NLS-1$
 	}
 
-	private String tableLocation(Paragraph paragraph, Element div) {
+	private String tableLocation(Section paragraph, Element div) {
 		return paragraph.getLocation() + '#' + div.attributeValue("id"); //$NON-NLS-1$
 	}
 
 	private String tableNumber(Element div) {
 		List<Node> content = div.content();
-		return content.get(1).getText();
+		return "T" + content.get(1).getText(); //$NON-NLS-1$
 	}
 
 	private String tableName(Element div) {
@@ -114,7 +108,7 @@ public final class ParseTables implements BiFunction<Paragraph, Element, List<Ta
 		TableRow row = row(table, table.getId() + "_row" + index, index); //$NON-NLS-1$
 		List<Element> cells = tr.elements("td"); //$NON-NLS-1$
 		cells.stream().map(this::extractText).forEach(row.getValues()::add);
-		cells.stream().map(new ParseReferences(context)).flatMap(List::stream).forEach(row.getReferences()::add);
+		cells.stream().map(new PartReferences(context)).flatMap(List::stream).forEach(row.getReferences()::add);
 		table.getRows().add(row);
 		return row;
 	}

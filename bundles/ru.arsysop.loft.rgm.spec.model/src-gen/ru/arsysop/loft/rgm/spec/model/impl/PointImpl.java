@@ -28,13 +28,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import ru.arsysop.loft.rgm.spec.model.api.Part;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
-import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
-import ru.arsysop.loft.rgm.spec.model.api.Table;
-import ru.arsysop.loft.rgm.spec.model.api.WithReferences;
+import ru.arsysop.loft.rgm.spec.model.api.PointContent;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
@@ -45,25 +41,13 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getReferences <em>References</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getRaw <em>Raw</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getSynopses <em>Synopses</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getTables <em>Tables</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PointImpl extends PartImpl implements Point {
-	/**
-	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferences()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Part> references;
-
 	/**
 	 * The default value of the '{@link #getRaw() <em>Raw</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,7 +57,6 @@ public class PointImpl extends PartImpl implements Point {
 	 * @ordered
 	 */
 	protected static final String RAW_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getRaw() <em>Raw</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -83,26 +66,15 @@ public class PointImpl extends PartImpl implements Point {
 	 * @ordered
 	 */
 	protected String raw = RAW_EDEFAULT;
-
 	/**
-	 * The cached value of the '{@link #getSynopses() <em>Synopses</em>}' containment reference list.
+	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSynopses()
+	 * @see #getContents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Synopsis> synopses;
-
-	/**
-	 * The cached value of the '{@link #getTables() <em>Tables</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTables()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Table> tables;
+	protected EList<PointContent> contents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,19 +93,6 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	protected EClass eStaticClass() {
 		return SpecPackage.eINSTANCE.getPoint();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Part> getReferences() {
-		if (references == null) {
-			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.POINT__REFERENCES);
-		}
-		return references;
 	}
 
 	/**
@@ -165,24 +124,11 @@ public class PointImpl extends PartImpl implements Point {
 	 * @generated
 	 */
 	@Override
-	public EList<Synopsis> getSynopses() {
-		if (synopses == null) {
-			synopses = new EObjectContainmentEList<Synopsis>(Synopsis.class, this, SpecPackage.POINT__SYNOPSES);
+	public EList<PointContent> getContents() {
+		if (contents == null) {
+			contents = new EObjectContainmentEList<PointContent>(PointContent.class, this, SpecPackage.POINT__CONTENTS);
 		}
-		return synopses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Table> getTables() {
-		if (tables == null) {
-			tables = new EObjectContainmentEList<Table>(Table.class, this, SpecPackage.POINT__TABLES);
-		}
-		return tables;
+		return contents;
 	}
 
 	/**
@@ -193,10 +139,8 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpecPackage.POINT__SYNOPSES:
-				return ((InternalEList<?>)getSynopses()).basicRemove(otherEnd, msgs);
-			case SpecPackage.POINT__TABLES:
-				return ((InternalEList<?>)getTables()).basicRemove(otherEnd, msgs);
+			case SpecPackage.POINT__CONTENTS:
+				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -210,14 +154,10 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecPackage.POINT__REFERENCES:
-				return getReferences();
 			case SpecPackage.POINT__RAW:
 				return getRaw();
-			case SpecPackage.POINT__SYNOPSES:
-				return getSynopses();
-			case SpecPackage.POINT__TABLES:
-				return getTables();
+			case SpecPackage.POINT__CONTENTS:
+				return getContents();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -232,20 +172,12 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecPackage.POINT__REFERENCES:
-				getReferences().clear();
-				getReferences().addAll((Collection<? extends Part>)newValue);
-				return;
 			case SpecPackage.POINT__RAW:
 				setRaw((String)newValue);
 				return;
-			case SpecPackage.POINT__SYNOPSES:
-				getSynopses().clear();
-				getSynopses().addAll((Collection<? extends Synopsis>)newValue);
-				return;
-			case SpecPackage.POINT__TABLES:
-				getTables().clear();
-				getTables().addAll((Collection<? extends Table>)newValue);
+			case SpecPackage.POINT__CONTENTS:
+				getContents().clear();
+				getContents().addAll((Collection<? extends PointContent>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -261,17 +193,11 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.POINT__REFERENCES:
-				getReferences().clear();
-				return;
 			case SpecPackage.POINT__RAW:
 				setRaw(RAW_EDEFAULT);
 				return;
-			case SpecPackage.POINT__SYNOPSES:
-				getSynopses().clear();
-				return;
-			case SpecPackage.POINT__TABLES:
-				getTables().clear();
+			case SpecPackage.POINT__CONTENTS:
+				getContents().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -287,49 +213,13 @@ public class PointImpl extends PartImpl implements Point {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.POINT__REFERENCES:
-				return references != null && !references.isEmpty();
 			case SpecPackage.POINT__RAW:
 				return RAW_EDEFAULT == null ? raw != null : !RAW_EDEFAULT.equals(raw);
-			case SpecPackage.POINT__SYNOPSES:
-				return synopses != null && !synopses.isEmpty();
-			case SpecPackage.POINT__TABLES:
-				return tables != null && !tables.isEmpty();
+			case SpecPackage.POINT__CONTENTS:
+				return contents != null && !contents.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == WithReferences.class) {
-			switch (derivedFeatureID) {
-				case SpecPackage.POINT__REFERENCES: return SpecPackage.WITH_REFERENCES__REFERENCES;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == WithReferences.class) {
-			switch (baseFeatureID) {
-				case SpecPackage.WITH_REFERENCES__REFERENCES: return SpecPackage.POINT__REFERENCES;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

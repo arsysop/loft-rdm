@@ -23,33 +23,35 @@ package ru.arsysop.loft.rgm.spec.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.spec.model.api.WithParts;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
+import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.WithParts} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Section} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class WithPartsItemProvider extends PartItemProvider {
+public class SectionItemProvider extends PartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public WithPartsItemProvider(AdapterFactory adapterFactory) {
+	public SectionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,7 +82,7 @@ public class WithPartsItemProvider extends PartItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpecPackage.eINSTANCE.getWithParts_Parts());
+			childrenFeatures.add(SpecPackage.eINSTANCE.getSection_Contents());
 		}
 		return childrenFeatures;
 	}
@@ -96,6 +98,14 @@ public class WithPartsItemProvider extends PartItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Section.png")); //$NON-NLS-1$
 	}
 
 	/**
@@ -120,28 +130,29 @@ public class WithPartsItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * @generated NOT
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
-	}
-
-	/**
 	 * This returns the label styled text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((WithParts)object).getName();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_WithParts_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_WithParts_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		Section paragraph = (Section) object;
+		StyledString styledLabel = new StyledString();
+		styledLabel.append(getString("_UI_Section_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Optional.ofNullable(paragraph.getNumber())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
+		Optional.ofNullable(paragraph.getName())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s));
+		Optional.ofNullable(paragraph.getId())//
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.map(new DecodeId())//
+				.ifPresent(s -> styledLabel.append(" " + '[' + s + ']', StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$
 		return styledLabel;
 	}
 
@@ -156,8 +167,8 @@ public class WithPartsItemProvider extends PartItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(WithParts.class)) {
-			case SpecPackage.WITH_PARTS__PARTS:
+		switch (notification.getFeatureID(Section.class)) {
+			case SpecPackage.SECTION__CONTENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 			default:
@@ -179,33 +190,18 @@ public class WithPartsItemProvider extends PartItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createParagraph()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
+				(SpecPackage.eINSTANCE.getSection_Contents(),
 				 SpecFactory.eINSTANCE.createPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createIndex()));
+				(SpecPackage.eINSTANCE.getSection_Contents(),
+				 SpecFactory.eINSTANCE.createSection()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
+				(SpecPackage.eINSTANCE.getSection_Contents(),
 				 SpecFactory.eINSTANCE.createSynopsis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createTable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpecPackage.eINSTANCE.getWithParts_Parts(),
-				 SpecFactory.eINSTANCE.createTableRow()));
 	}
 
 }

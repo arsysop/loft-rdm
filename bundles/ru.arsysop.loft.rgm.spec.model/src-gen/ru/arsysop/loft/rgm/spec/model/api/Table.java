@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Table extends Part {
+public interface Table extends PointContent {
 	/**
 	 * Returns the value of the '<em><b>Rows</b></em>' containment reference list.
 	 * The list contents are of type {@link ru.arsysop.loft.rgm.spec.model.api.TableRow}.

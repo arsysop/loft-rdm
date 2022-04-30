@@ -13,52 +13,39 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
+package ru.arsysop.loft.rgm.internal.cxxdraft.synopsis;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.function.BiFunction;
 
 import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
-import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.SynopsisReferences;
+import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.CollectText;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-final class ParseSynopses {
+public final class ParseSynopses implements BiFunction<Point, Element, Synopsis> {
 
 	private final SpecFactory factory;
 	private final ResolutionContext context;
 	private int count = 0;
 
-	ParseSynopses(SpecFactory factory, ResolutionContext context) {
+	public ParseSynopses(SpecFactory factory, ResolutionContext context) {
 		this.factory = factory;
 		this.context = context;
 	}
 
-	List<Synopsis> parse(Point point, Element node) {
-		return node.elements("pre").stream() //$NON-NLS-1$
-				.filter(new OfClass("codeblock")) //$NON-NLS-1$
-				.map(e -> synopsis(point, e)) //
-				.collect(Collectors.toList());
-	}
-
-	private Synopsis synopsis(Point point, Element element) {
+	@Override
+	public Synopsis apply(Point point, Element element) {
 		Synopsis synopsis = factory.createSynopsis();
 		synopsis.setLocation(point.getLocation());
 		synopsis.setId(point.getId().concat("_synopsis" + count)); //$NON-NLS-1$
 		synopsis.setName(point.getName().concat(" Synopsis")); //$NON-NLS-1$
 		synopsis.setNumber(point.getNumber().concat("-" + count++)); //$NON-NLS-1$
-		collectText(element, synopsis);
+		synopsis.setRaw(new CollectText().apply(element));
 		new SynopsisReferences(context).apply(element).forEach(synopsis.getReferences()::add);
 		return synopsis;
-	}
-
-	private void collectText(Element element, Synopsis synopsis) {
-		Optional.of(element).map(new CollectText()).ifPresent(synopsis::setContent);
 	}
 
 }

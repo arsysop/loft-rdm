@@ -29,10 +29,10 @@ import org.dom4j.Node;
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.ResolveTableNames;
-import ru.arsysop.loft.rgm.internal.cxxdraft.element.TableId;
+import ru.arsysop.loft.rgm.internal.cxxdraft.table.ResolveTableNames;
+import ru.arsysop.loft.rgm.internal.cxxdraft.table.TableId;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.api.TocChapter;
@@ -95,7 +95,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 				completeAnnex(chapter);
 			} else {
 				completeParagraph(chapter, node.element("div"), container.getChapters()::add, //$NON-NLS-1$
-						container.getDocument().getParagraphs()::add);
+						container.getDocument().getSections()::add);
 			}
 		}
 	}
@@ -157,19 +157,19 @@ public final class TocStructure extends BaseStructure<Toc> {
 	}
 
 	private void completeParagraph(TocChapter chapter, Element node, Consumer<TocChapter> chapters,
-			Consumer<Paragraph> paragraphs) {
+			Consumer<Section> paragraphs) {
 		chapters.accept(chapter);
-		Paragraph paragraph = factory.createParagraph();
-		paragraph.setId(chapter.getId());
-		paragraph.setLocation(context.location() + new IdToLocation().apply(chapter.getId()));
-		paragraph.setName(chapter.getName());
-		paragraph.setNumber(chapter.getNumber());
-		chapter.setPart(paragraph);
-		paragraphs.accept(paragraph);
-		context.parts().register(paragraph.getId(), paragraph);
+		Section section = factory.createSection();
+		section.setId(chapter.getId());
+		section.setLocation(context.location() + new IdToLocation().apply(chapter.getId()));
+		section.setName(chapter.getName());
+		section.setNumber(chapter.getNumber());
+		chapter.setPart(section);
+		paragraphs.accept(section);
+		context.parts().register(section.getId(), section);
 		Stream<Element> divs = node.elements().stream().filter(e -> "div".equals(e.getName())); //$NON-NLS-1$
 		divs.forEachOrdered(e -> completeParagraph(createTocChapter(e), e, chapter.getChapters()::add,
-				((Paragraph) chapter.getPart()).getParts()::add));
+				((Section) chapter.getPart()).getContents()::add));
 	}
 
 	private void completeAnnex(TocChapter chapter) {

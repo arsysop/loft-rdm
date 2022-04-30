@@ -18,35 +18,35 @@ package ru.arsysop.loft.rgm.spec.model.api;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Synopsis</b></em>'.
+ * A representation of the model object '<em><b>Point Text</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis#getRaw <em>Raw</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.api.PointText#getRaw <em>Raw</em>}</li>
  * </ul>
  *
- * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getSynopsis()
+ * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPointText()
  * @model
  * @generated
  */
-public interface Synopsis extends PointContent, SectionContent, WithReferences {
+public interface PointText extends PointContent, WithReferences {
 	/**
 	 * Returns the value of the '<em><b>Raw</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Raw</em>' attribute.
 	 * @see #setRaw(String)
-	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getSynopsis_Raw()
+	 * @see ru.arsysop.loft.rgm.spec.model.meta.SpecPackage#getPointText_Raw()
 	 * @model
 	 * @generated
 	 */
 	String getRaw();
 
 	/**
-	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis#getRaw <em>Raw</em>}' attribute.
+	 * Sets the value of the '{@link ru.arsysop.loft.rgm.spec.model.api.PointText#getRaw <em>Raw</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Raw</em>' attribute.
@@ -55,4 +55,4 @@ public interface Synopsis extends PointContent, SectionContent, WithReferences {
 	 */
 	void setRaw(String value);
 
-} // Synopsis
+} // PointText

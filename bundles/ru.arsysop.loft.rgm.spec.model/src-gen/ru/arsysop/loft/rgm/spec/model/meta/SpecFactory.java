@@ -24,8 +24,10 @@ import org.eclipse.emf.ecore.EFactory;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.PointItem;
+import ru.arsysop.loft.rgm.spec.model.api.PointText;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
@@ -77,15 +79,6 @@ public interface SpecFactory extends EFactory {
 	TocChapter createTocChapter();
 
 	/**
-	 * Returns a new object of class '<em>Paragraph</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Paragraph</em>'.
-	 * @generated
-	 */
-	Paragraph createParagraph();
-
-	/**
 	 * Returns a new object of class '<em>Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,6 +86,33 @@ public interface SpecFactory extends EFactory {
 	 * @generated
 	 */
 	Point createPoint();
+
+	/**
+	 * Returns a new object of class '<em>Point Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Point Item</em>'.
+	 * @generated
+	 */
+	PointItem createPointItem();
+
+	/**
+	 * Returns a new object of class '<em>Point Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Point Text</em>'.
+	 * @generated
+	 */
+	PointText createPointText();
+
+	/**
+	 * Returns a new object of class '<em>Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Section</em>'.
+	 * @generated
+	 */
+	Section createSection();
 
 	/**
 	 * Returns a new object of class '<em>Index</em>'.

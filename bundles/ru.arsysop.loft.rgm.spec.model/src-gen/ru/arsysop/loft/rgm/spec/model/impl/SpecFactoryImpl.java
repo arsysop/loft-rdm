@@ -77,15 +77,17 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SpecPackage.DOCUMENT: return createDocument();
-			case SpecPackage.TOC: return createToc();
-			case SpecPackage.TOC_CHAPTER: return createTocChapter();
-			case SpecPackage.PARAGRAPH: return createParagraph();
-			case SpecPackage.POINT: return createPoint();
 			case SpecPackage.INDEX: return createIndex();
 			case SpecPackage.INDEX_ENTRY: return createIndexEntry();
+			case SpecPackage.POINT: return createPoint();
+			case SpecPackage.POINT_ITEM: return createPointItem();
+			case SpecPackage.POINT_TEXT: return createPointText();
+			case SpecPackage.SECTION: return createSection();
 			case SpecPackage.SYNOPSIS: return createSynopsis();
 			case SpecPackage.TABLE: return createTable();
 			case SpecPackage.TABLE_ROW: return createTableRow();
+			case SpecPackage.TOC: return createToc();
+			case SpecPackage.TOC_CHAPTER: return createTocChapter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -130,9 +132,9 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 	 * @generated
 	 */
 	@Override
-	public Paragraph createParagraph() {
-		ParagraphImpl paragraph = new ParagraphImpl();
-		return paragraph;
+	public Point createPoint() {
+		PointImpl point = new PointImpl();
+		return point;
 	}
 
 	/**
@@ -141,9 +143,31 @@ public class SpecFactoryImpl extends EFactoryImpl implements SpecFactory {
 	 * @generated
 	 */
 	@Override
-	public Point createPoint() {
-		PointImpl point = new PointImpl();
-		return point;
+	public PointItem createPointItem() {
+		PointItemImpl pointItem = new PointItemImpl();
+		return pointItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PointText createPointText() {
+		PointTextImpl pointText = new PointTextImpl();
+		return pointText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Section createSection() {
+		SectionImpl section = new SectionImpl();
+		return section;
 	}
 
 	/**

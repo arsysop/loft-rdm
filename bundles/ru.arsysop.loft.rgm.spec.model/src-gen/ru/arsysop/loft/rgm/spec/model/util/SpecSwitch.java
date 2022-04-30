@@ -91,22 +91,96 @@ public class SpecSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SpecPackage.INDEX: {
+				Index index = (Index)theEObject;
+				T result = caseIndex(index);
+				if (result == null) result = casePart(index);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.INDEX_ENTRY: {
+				IndexEntry indexEntry = (IndexEntry)theEObject;
+				T result = caseIndexEntry(indexEntry);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SpecPackage.PART: {
 				Part part = (Part)theEObject;
 				T result = casePart(part);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SpecPackage.WITH_PARTS: {
-				WithParts withParts = (WithParts)theEObject;
-				T result = caseWithParts(withParts);
-				if (result == null) result = casePart(withParts);
+			case SpecPackage.POINT: {
+				Point point = (Point)theEObject;
+				T result = casePoint(point);
+				if (result == null) result = caseSectionContent(point);
+				if (result == null) result = casePart(point);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SpecPackage.WITH_TOC_CHAPTERS: {
-				WithTocChapters withTocChapters = (WithTocChapters)theEObject;
-				T result = caseWithTocChapters(withTocChapters);
+			case SpecPackage.POINT_CONTENT: {
+				PointContent pointContent = (PointContent)theEObject;
+				T result = casePointContent(pointContent);
+				if (result == null) result = casePart(pointContent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.POINT_ITEM: {
+				PointItem pointItem = (PointItem)theEObject;
+				T result = casePointItem(pointItem);
+				if (result == null) result = casePointContent(pointItem);
+				if (result == null) result = caseWithReferences(pointItem);
+				if (result == null) result = casePart(pointItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.POINT_TEXT: {
+				PointText pointText = (PointText)theEObject;
+				T result = casePointText(pointText);
+				if (result == null) result = casePointContent(pointText);
+				if (result == null) result = caseWithReferences(pointText);
+				if (result == null) result = casePart(pointText);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.SECTION: {
+				Section section = (Section)theEObject;
+				T result = caseSection(section);
+				if (result == null) result = caseSectionContent(section);
+				if (result == null) result = casePart(section);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.SECTION_CONTENT: {
+				SectionContent sectionContent = (SectionContent)theEObject;
+				T result = caseSectionContent(sectionContent);
+				if (result == null) result = casePart(sectionContent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.SYNOPSIS: {
+				Synopsis synopsis = (Synopsis)theEObject;
+				T result = caseSynopsis(synopsis);
+				if (result == null) result = casePointContent(synopsis);
+				if (result == null) result = caseSectionContent(synopsis);
+				if (result == null) result = caseWithReferences(synopsis);
+				if (result == null) result = casePart(synopsis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.TABLE: {
+				Table table = (Table)theEObject;
+				T result = caseTable(table);
+				if (result == null) result = casePointContent(table);
+				if (result == null) result = casePart(table);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.TABLE_ROW: {
+				TableRow tableRow = (TableRow)theEObject;
+				T result = caseTableRow(tableRow);
+				if (result == null) result = casePart(tableRow);
+				if (result == null) result = caseWithReferences(tableRow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,61 +198,15 @@ public class SpecSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SpecPackage.PARAGRAPH: {
-				Paragraph paragraph = (Paragraph)theEObject;
-				T result = caseParagraph(paragraph);
-				if (result == null) result = caseWithParts(paragraph);
-				if (result == null) result = casePart(paragraph);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpecPackage.POINT: {
-				Point point = (Point)theEObject;
-				T result = casePoint(point);
-				if (result == null) result = casePart(point);
-				if (result == null) result = caseWithReferences(point);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpecPackage.INDEX: {
-				Index index = (Index)theEObject;
-				T result = caseIndex(index);
-				if (result == null) result = casePart(index);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpecPackage.INDEX_ENTRY: {
-				IndexEntry indexEntry = (IndexEntry)theEObject;
-				T result = caseIndexEntry(indexEntry);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpecPackage.SYNOPSIS: {
-				Synopsis synopsis = (Synopsis)theEObject;
-				T result = caseSynopsis(synopsis);
-				if (result == null) result = casePart(synopsis);
-				if (result == null) result = caseWithReferences(synopsis);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpecPackage.TABLE: {
-				Table table = (Table)theEObject;
-				T result = caseTable(table);
-				if (result == null) result = casePart(table);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SpecPackage.TABLE_ROW: {
-				TableRow tableRow = (TableRow)theEObject;
-				T result = caseTableRow(tableRow);
-				if (result == null) result = casePart(tableRow);
-				if (result == null) result = caseWithReferences(tableRow);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SpecPackage.WITH_REFERENCES: {
 				WithReferences withReferences = (WithReferences)theEObject;
 				T result = caseWithReferences(withReferences);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SpecPackage.WITH_TOC_CHAPTERS: {
+				WithTocChapters withTocChapters = (WithTocChapters)theEObject;
+				T result = caseWithTocChapters(withTocChapters);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -213,21 +241,6 @@ public class SpecSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePart(Part object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>With Parts</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>With Parts</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseWithParts(WithParts object) {
 		return null;
 	}
 
@@ -277,21 +290,6 @@ public class SpecSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Paragraph</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Paragraph</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParagraph(Paragraph object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -303,6 +301,81 @@ public class SpecSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePoint(Point object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Point Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Point Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePointContent(PointContent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Point Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Point Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePointItem(PointItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Point Text</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Point Text</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePointText(PointText object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Section</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Section</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSection(Section object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Section Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Section Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSectionContent(SectionContent object) {
 		return null;
 	}
 

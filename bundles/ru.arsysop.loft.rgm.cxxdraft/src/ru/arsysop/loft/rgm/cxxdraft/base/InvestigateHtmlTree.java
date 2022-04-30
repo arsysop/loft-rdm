@@ -33,8 +33,8 @@ import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
@@ -50,7 +50,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 	public void run(IProgressMonitor monitor) throws CoreException {
 		SubMonitor sub = SubMonitor.convert(monitor, 100);
 		parseToc(sub.split(10));
-		parseParagraphs(sub.split(80));
+		parseSections(sub.split(80));
 		parseAnnexes(sub.split(5));
 		parseIndexes(sub.split(5));
 	}
@@ -65,24 +65,24 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		parseLocation(toc, sub);
 	}
 
-	private void parseParagraphs(SubMonitor monitor) throws CoreException {
-		List<Paragraph> paragraphs = context.document().getParagraphs();
-		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size());
-		for (Paragraph paragraph : paragraphs) {
+	private void parseSections(SubMonitor monitor) throws CoreException {
+		List<Section> sections = context.document().getSections();
+		SubMonitor sub = SubMonitor.convert(monitor, sections.size());
+		for (Section paragraph : sections) {
 			sub.subTask(NLS.bind(Messages.InvestigateHtmlTree_subtask_content, paragraph.getName()));
-			parseParagraph(sub.split(1), paragraph);
+			parseSection(sub.split(1), paragraph);
 		}
 	}
 
-	private void parseParagraph(SubMonitor monitor, Paragraph paragraph) throws CoreException {
-		List<Paragraph> paragraphs = paragraph.getParts().stream() //
-				.filter(Paragraph.class::isInstance) //
-				.map(Paragraph.class::cast) //
+	private void parseSection(SubMonitor monitor, Section section) throws CoreException {
+		List<Section> paragraphs = section.getContents().stream() //
+				.filter(Section.class::isInstance) //
+				.map(Section.class::cast) //
 				.collect(Collectors.toList());
 		SubMonitor sub = SubMonitor.convert(monitor, paragraphs.size() + 1);
-		parseLocation(paragraph, sub.split(1));
-		for (Paragraph inner : paragraphs) {
-			parseParagraph(sub.split(1), inner);
+		parseLocation(section, sub.split(1));
+		for (Section inner : paragraphs) {
+			parseSection(sub.split(1), inner);
 		}
 	}
 

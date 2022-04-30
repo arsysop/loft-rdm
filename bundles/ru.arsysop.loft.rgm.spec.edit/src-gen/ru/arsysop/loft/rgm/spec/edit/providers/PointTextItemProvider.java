@@ -18,33 +18,37 @@ package ru.arsysop.loft.rgm.spec.edit.providers;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
+import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.PointText;
+import ru.arsysop.loft.rgm.spec.model.base.DecodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
- * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Synopsis} object.
+ * This is the item provider adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.PointText} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SynopsisItemProvider extends PartItemProvider {
+public class PointTextItemProvider extends PartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SynopsisItemProvider(AdapterFactory adapterFactory) {
+	public PointTextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -98,9 +102,9 @@ public class SynopsisItemProvider extends PartItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Synopsis_raw_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Synopsis_raw_feature", "_UI_Synopsis_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 SpecPackage.eINSTANCE.getSynopsis_Raw(),
+				 getString("_UI_PointText_raw_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PointText_raw_feature", "_UI_PointText_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 SpecPackage.eINSTANCE.getPointText_Raw(),
 				 true,
 				 false,
 				 false,
@@ -114,7 +118,7 @@ public class SynopsisItemProvider extends PartItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, EcoreEditPlugin.INSTANCE.getImage("full/obj16/EObject")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Point.png")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,20 +143,35 @@ public class SynopsisItemProvider extends PartItemProvider {
 	}
 
 	/**
-	 * This returns the label styled text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getStyledText(Object object) {
-		String label = ((Synopsis)object).getName();
-    	StyledString styledLabel = new StyledString();
-		if (label == null || label.length() == 0) {
-			styledLabel.append(getString("_UI_Synopsis_type"), StyledString.Style.QUALIFIER_STYLER);  //$NON-NLS-1$
-		} else {
-			styledLabel.append(getString("_UI_Synopsis_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label); //$NON-NLS-1$ //$NON-NLS-2$
-		}
+		PointText item = (PointText) object;
+		StyledString styledLabel = new StyledString();
+		styledLabel.append(getString("_UI_PointText_type"), StyledString.Style.QUALIFIER_STYLER); //$NON-NLS-1$
+		Optional.ofNullable(item.getNumber()) //
+				.filter(Objects::nonNull) //
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s, StyledString.Style.COUNTER_STYLER));
+		Optional.ofNullable(item.getName()) //
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(' ' + s + ' ', StyledString.Style.NO_STYLE));
+		Optional.of(item.getReferences().stream()//
+				.map(Part::getId)//
+				.map(new DecodeId())//
+				.collect(Collectors.joining("; "))) //$NON-NLS-1$
+				.filter(s -> !s.isEmpty()) //
+				.ifPresent(s -> {
+					styledLabel.append(" (references: ", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
+					styledLabel.append(s, StyledString.Style.COUNTER_STYLER);
+					styledLabel.append(")", StyledString.Style.DECORATIONS_STYLER); //$NON-NLS-1$
+				});
+		Optional.ofNullable(item.getId()) //
+				.filter(Objects::nonNull)//
+				.filter(s -> !s.isEmpty())//
+				.ifPresent(s -> styledLabel.append(" [" + s + "] ", StyledString.Style.DECORATIONS_STYLER)); //$NON-NLS-1$//$NON-NLS-2$
 		return styledLabel;
 	}
 
@@ -167,8 +186,8 @@ public class SynopsisItemProvider extends PartItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Synopsis.class)) {
-			case SpecPackage.SYNOPSIS__RAW:
+		switch (notification.getFeatureID(PointText.class)) {
+			case SpecPackage.POINT_TEXT__RAW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			default:

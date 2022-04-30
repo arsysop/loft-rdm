@@ -21,47 +21,46 @@
 package ru.arsysop.loft.rgm.spec.model.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import ru.arsysop.loft.rgm.spec.model.api.Part;
-import ru.arsysop.loft.rgm.spec.model.api.WithParts;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
+import ru.arsysop.loft.rgm.spec.model.api.SectionContent;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>With Parts</b></em>'.
+ * An implementation of the model object '<em><b>Paragraph</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.WithPartsImpl#getParts <em>Parts</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.SectionImpl#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class WithPartsImpl extends PartImpl implements WithParts {
+public class SectionImpl extends PartImpl implements Section {
 	/**
-	 * The cached value of the '{@link #getParts() <em>Parts</em>}' containment reference list.
+	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParts()
+	 * @see #getContents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Part> parts;
+	protected EList<SectionContent> contents;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WithPartsImpl() {
+	protected SectionImpl() {
 		super();
 	}
 
@@ -72,7 +71,7 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SpecPackage.eINSTANCE.getWithParts();
+		return SpecPackage.eINSTANCE.getSection();
 	}
 
 	/**
@@ -81,11 +80,11 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	 * @generated
 	 */
 	@Override
-	public EList<Part> getParts() {
-		if (parts == null) {
-			parts = new EObjectContainmentEList<Part>(Part.class, this, SpecPackage.WITH_PARTS__PARTS);
+	public EList<SectionContent> getContents() {
+		if (contents == null) {
+			contents = new EObjectContainmentEList<SectionContent>(SectionContent.class, this, SpecPackage.SECTION__CONTENTS);
 		}
-		return parts;
+		return contents;
 	}
 
 	/**
@@ -96,8 +95,8 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpecPackage.WITH_PARTS__PARTS:
-				return ((InternalEList<?>)getParts()).basicRemove(otherEnd, msgs);
+			case SpecPackage.SECTION__CONTENTS:
+				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
 			default:
 				return super.eInverseRemove(otherEnd, featureID, msgs);
 		}
@@ -111,8 +110,8 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecPackage.WITH_PARTS__PARTS:
-				return getParts();
+			case SpecPackage.SECTION__CONTENTS:
+				return getContents();
 			default:
 				return super.eGet(featureID, resolve, coreType);
 		}
@@ -127,9 +126,9 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecPackage.WITH_PARTS__PARTS:
-				getParts().clear();
-				getParts().addAll((Collection<? extends Part>)newValue);
+			case SpecPackage.SECTION__CONTENTS:
+				getContents().clear();
+				getContents().addAll((Collection<? extends SectionContent>)newValue);
 				return;
 			default:
 				super.eSet(featureID, newValue);
@@ -145,8 +144,8 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.WITH_PARTS__PARTS:
-				getParts().clear();
+			case SpecPackage.SECTION__CONTENTS:
+				getContents().clear();
 				return;
 			default:
 				super.eUnset(featureID);
@@ -162,11 +161,11 @@ public abstract class WithPartsImpl extends PartImpl implements WithParts {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.WITH_PARTS__PARTS:
-				return parts != null && !parts.isEmpty();
+			case SpecPackage.SECTION__CONTENTS:
+				return contents != null && !contents.isEmpty();
 			default:
 				return super.eIsSet(featureID);
 		}
 	}
 
-} //WithPartsImpl
+} //ParagraphImpl

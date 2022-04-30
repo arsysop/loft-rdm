@@ -13,7 +13,7 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.element;
+package ru.arsysop.loft.rgm.internal.cxxdraft.table;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,8 @@ import java.util.stream.Collectors;
 
 import org.dom4j.Element;
 import org.dom4j.Node;
+
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 
 public final class ResolveTableNames implements Supplier<List<String>> {
 

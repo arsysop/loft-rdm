@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
@@ -52,7 +52,7 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getRevision <em>Revision</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getToc <em>Toc</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getParagraphs <em>Paragraphs</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getSections <em>Sections</em>}</li>
  *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.DocumentImpl#getIndexes <em>Indexes</em>}</li>
  * </ul>
  *
@@ -150,14 +150,14 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	protected Toc toc;
 
 	/**
-	 * The cached value of the '{@link #getParagraphs() <em>Paragraphs</em>}' containment reference list.
+	 * The cached value of the '{@link #getSections() <em>Sections</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParagraphs()
+	 * @see #getSections()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Paragraph> paragraphs;
+	protected EList<Section> sections;
 
 	/**
 	 * The cached value of the '{@link #getIndexes() <em>Indexes</em>}' containment reference list.
@@ -331,11 +331,11 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 	 * @generated
 	 */
 	@Override
-	public EList<Paragraph> getParagraphs() {
-		if (paragraphs == null) {
-			paragraphs = new EObjectContainmentEList<Paragraph>(Paragraph.class, this, SpecPackage.DOCUMENT__PARAGRAPHS);
+	public EList<Section> getSections() {
+		if (sections == null) {
+			sections = new EObjectContainmentEList<Section>(Section.class, this, SpecPackage.DOCUMENT__SECTIONS);
 		}
-		return paragraphs;
+		return sections;
 	}
 
 	/**
@@ -378,8 +378,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 		switch (featureID) {
 			case SpecPackage.DOCUMENT__TOC:
 				return basicSetToc(null, msgs);
-			case SpecPackage.DOCUMENT__PARAGRAPHS:
-				return ((InternalEList<?>)getParagraphs()).basicRemove(otherEnd, msgs);
+			case SpecPackage.DOCUMENT__SECTIONS:
+				return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
 			case SpecPackage.DOCUMENT__INDEXES:
 				return ((InternalEList<?>)getIndexes()).basicRemove(otherEnd, msgs);
 			default:
@@ -405,8 +405,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return getRevision();
 			case SpecPackage.DOCUMENT__TOC:
 				return getToc();
-			case SpecPackage.DOCUMENT__PARAGRAPHS:
-				return getParagraphs();
+			case SpecPackage.DOCUMENT__SECTIONS:
+				return getSections();
 			case SpecPackage.DOCUMENT__INDEXES:
 				return getIndexes();
 			default:
@@ -438,9 +438,9 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case SpecPackage.DOCUMENT__TOC:
 				setToc((Toc)newValue);
 				return;
-			case SpecPackage.DOCUMENT__PARAGRAPHS:
-				getParagraphs().clear();
-				getParagraphs().addAll((Collection<? extends Paragraph>)newValue);
+			case SpecPackage.DOCUMENT__SECTIONS:
+				getSections().clear();
+				getSections().addAll((Collection<? extends Section>)newValue);
 				return;
 			case SpecPackage.DOCUMENT__INDEXES:
 				getIndexes().clear();
@@ -475,8 +475,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 			case SpecPackage.DOCUMENT__TOC:
 				setToc((Toc)null);
 				return;
-			case SpecPackage.DOCUMENT__PARAGRAPHS:
-				getParagraphs().clear();
+			case SpecPackage.DOCUMENT__SECTIONS:
+				getSections().clear();
 				return;
 			case SpecPackage.DOCUMENT__INDEXES:
 				getIndexes().clear();
@@ -505,8 +505,8 @@ public class DocumentImpl extends MinimalEObjectImpl.Container implements Docume
 				return REVISION_EDEFAULT == null ? revision != null : !REVISION_EDEFAULT.equals(revision);
 			case SpecPackage.DOCUMENT__TOC:
 				return toc != null;
-			case SpecPackage.DOCUMENT__PARAGRAPHS:
-				return paragraphs != null && !paragraphs.isEmpty();
+			case SpecPackage.DOCUMENT__SECTIONS:
+				return sections != null && !sections.isEmpty();
 			case SpecPackage.DOCUMENT__INDEXES:
 				return indexes != null && !indexes.isEmpty();
 			default:

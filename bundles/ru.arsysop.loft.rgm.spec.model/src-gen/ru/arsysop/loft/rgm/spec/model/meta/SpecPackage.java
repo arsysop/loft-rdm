@@ -55,7 +55,7 @@ public interface SpecPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.arsysop.ru/rgm/spec/0.1.0"; //$NON-NLS-1$
+	String eNS_URI = "http://www.arsysop.ru/rgm/spec/0.2.0"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace name.
@@ -129,13 +129,13 @@ public interface SpecPackage extends EPackage {
 	int DOCUMENT__TOC = 4;
 
 	/**
-	 * The feature id for the '<em><b>Paragraphs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sections</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT__PARAGRAPHS = 5;
+	int DOCUMENT__SECTIONS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
@@ -172,7 +172,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getPart()
 	 * @generated
 	 */
-	int PART = 1;
+	int PART = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -229,79 +229,6 @@ public interface SpecPackage extends EPackage {
 	int PART_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.WithPartsImpl <em>With Parts</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.WithPartsImpl
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getWithParts()
-	 * @generated
-	 */
-	int WITH_PARTS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS__ID = PART__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS__NAME = PART__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS__LOCATION = PART__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS__NUMBER = PART__NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS__PARTS = PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>With Parts</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS_FEATURE_COUNT = PART_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>With Parts</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_PARTS_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.WithTocChaptersImpl <em>With Toc Chapters</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,34 +236,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getWithTocChapters()
 	 * @generated
 	 */
-	int WITH_TOC_CHAPTERS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_TOC_CHAPTERS__CHAPTERS = 0;
-
-	/**
-	 * The number of structural features of the '<em>With Toc Chapters</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_TOC_CHAPTERS_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>With Toc Chapters</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITH_TOC_CHAPTERS_OPERATION_COUNT = 0;
+	int WITH_TOC_CHAPTERS = 16;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TocImpl <em>Toc</em>}' class.
@@ -346,43 +246,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getToc()
 	 * @generated
 	 */
-	int TOC = 4;
-
-	/**
-	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
-
-	/**
-	 * The feature id for the '<em><b>Document</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC__DOCUMENT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Toc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Toc</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_OPERATION_COUNT = WITH_TOC_CHAPTERS_OPERATION_COUNT + 0;
+	int TOC = 13;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TocChapterImpl <em>Toc Chapter</em>}' class.
@@ -392,143 +256,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getTocChapter()
 	 * @generated
 	 */
-	int TOC_CHAPTER = 5;
-
-	/**
-	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER__ID = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER__NAME = WITH_TOC_CHAPTERS_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER__NUMBER = WITH_TOC_CHAPTERS_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Part</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER__PART = WITH_TOC_CHAPTERS_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Toc Chapter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Toc Chapter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOC_CHAPTER_OPERATION_COUNT = WITH_TOC_CHAPTERS_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.ParagraphImpl <em>Paragraph</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.ParagraphImpl
-	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getParagraph()
-	 * @generated
-	 */
-	int PARAGRAPH = 6;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__ID = WITH_PARTS__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__NAME = WITH_PARTS__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__LOCATION = WITH_PARTS__LOCATION;
-
-	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__NUMBER = WITH_PARTS__NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH__PARTS = WITH_PARTS__PARTS;
-
-	/**
-	 * The number of structural features of the '<em>Paragraph</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH_FEATURE_COUNT = WITH_PARTS_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Paragraph</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAGRAPH_OPERATION_COUNT = WITH_PARTS_OPERATION_COUNT + 0;
+	int TOC_CHAPTER = 14;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.PointImpl <em>Point</em>}' class.
@@ -538,97 +266,47 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getPoint()
 	 * @generated
 	 */
-	int POINT = 7;
+	int POINT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.api.PointContent <em>Point Content</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointContent
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getPointContent()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__ID = PART__ID;
+	int POINT_CONTENT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.PointItemImpl <em>Point Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.PointItemImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getPointItem()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__NAME = PART__NAME;
+	int POINT_ITEM = 6;
 
 	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.PointTextImpl <em>Point Text</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.PointTextImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getPointText()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__LOCATION = PART__LOCATION;
+	int POINT_TEXT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.SectionImpl <em>Section</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SectionImpl
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getSection()
 	 * @generated
-	 * @ordered
 	 */
-	int POINT__NUMBER = PART__NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>References</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__REFERENCES = PART_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Raw</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__RAW = PART_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Synopses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__SYNOPSES = PART_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT__TABLES = PART_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Point</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_FEATURE_COUNT = PART_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Point</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINT_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+	int SECTION = 8;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.IndexImpl <em>Index</em>}' class.
@@ -638,7 +316,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getIndex()
 	 * @generated
 	 */
-	int INDEX = 8;
+	int INDEX = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -711,7 +389,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getIndexEntry()
 	 * @generated
 	 */
-	int INDEX_ENTRY = 9;
+	int INDEX_ENTRY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -786,6 +464,403 @@ public interface SpecPackage extends EPackage {
 	int INDEX_ENTRY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.api.SectionContent <em>Section Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ru.arsysop.loft.rgm.spec.model.api.SectionContent
+	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getSectionContent()
+	 * @generated
+	 */
+	int SECTION_CONTENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_CONTENT__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_CONTENT__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_CONTENT__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_CONTENT__NUMBER = PART__NUMBER;
+
+	/**
+	 * The number of structural features of the '<em>Section Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_CONTENT_FEATURE_COUNT = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Section Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_CONTENT_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__ID = SECTION_CONTENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__NAME = SECTION_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__LOCATION = SECTION_CONTENT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__NUMBER = SECTION_CONTENT__NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Raw</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__RAW = SECTION_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT__CONTENTS = SECTION_CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_FEATURE_COUNT = SECTION_CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_OPERATION_COUNT = SECTION_CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_CONTENT__ID = PART__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_CONTENT__NAME = PART__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_CONTENT__LOCATION = PART__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_CONTENT__NUMBER = PART__NUMBER;
+
+	/**
+	 * The number of structural features of the '<em>Point Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_CONTENT_FEATURE_COUNT = PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Point Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_CONTENT_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM__ID = POINT_CONTENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM__NAME = POINT_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM__LOCATION = POINT_CONTENT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM__NUMBER = POINT_CONTENT__NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM__REFERENCES = POINT_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Raw</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM__RAW = POINT_CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Point Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM_FEATURE_COUNT = POINT_CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Point Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_ITEM_OPERATION_COUNT = POINT_CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT__ID = POINT_CONTENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT__NAME = POINT_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT__LOCATION = POINT_CONTENT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT__NUMBER = POINT_CONTENT__NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT__REFERENCES = POINT_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Raw</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT__RAW = POINT_CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Point Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT_FEATURE_COUNT = POINT_CONTENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Point Text</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINT_TEXT_OPERATION_COUNT = POINT_CONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__ID = SECTION_CONTENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__NAME = SECTION_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__LOCATION = SECTION_CONTENT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__NUMBER = SECTION_CONTENT__NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION__CONTENTS = SECTION_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_FEATURE_COUNT = SECTION_CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Section</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECTION_OPERATION_COUNT = SECTION_CONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.SynopsisImpl <em>Synopsis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -802,7 +877,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__ID = PART__ID;
+	int SYNOPSIS__ID = POINT_CONTENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -811,7 +886,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__NAME = PART__NAME;
+	int SYNOPSIS__NAME = POINT_CONTENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -820,7 +895,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__LOCATION = PART__LOCATION;
+	int SYNOPSIS__LOCATION = POINT_CONTENT__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -829,7 +904,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__NUMBER = PART__NUMBER;
+	int SYNOPSIS__NUMBER = POINT_CONTENT__NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -838,16 +913,16 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__REFERENCES = PART_FEATURE_COUNT + 0;
+	int SYNOPSIS__REFERENCES = POINT_CONTENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * The feature id for the '<em><b>Raw</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS__CONTENT = PART_FEATURE_COUNT + 1;
+	int SYNOPSIS__RAW = POINT_CONTENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Synopsis</em>' class.
@@ -856,7 +931,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int SYNOPSIS_FEATURE_COUNT = POINT_CONTENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Synopsis</em>' class.
@@ -865,7 +940,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYNOPSIS_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+	int SYNOPSIS_OPERATION_COUNT = POINT_CONTENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableImpl <em>Table</em>}' class.
@@ -884,7 +959,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__ID = PART__ID;
+	int TABLE__ID = POINT_CONTENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -893,7 +968,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__NAME = PART__NAME;
+	int TABLE__NAME = POINT_CONTENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -902,7 +977,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__LOCATION = PART__LOCATION;
+	int TABLE__LOCATION = POINT_CONTENT__LOCATION;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -911,7 +986,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__NUMBER = PART__NUMBER;
+	int TABLE__NUMBER = POINT_CONTENT__NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' containment reference.
@@ -920,7 +995,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__TITLE = PART_FEATURE_COUNT + 0;
+	int TABLE__TITLE = POINT_CONTENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
@@ -929,7 +1004,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__ROWS = PART_FEATURE_COUNT + 1;
+	int TABLE__ROWS = POINT_CONTENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -938,7 +1013,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = PART_FEATURE_COUNT + 2;
+	int TABLE_FEATURE_COUNT = POINT_CONTENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -947,7 +1022,7 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
+	int TABLE_OPERATION_COUNT = POINT_CONTENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -1032,6 +1107,132 @@ public interface SpecPackage extends EPackage {
 	int TABLE_ROW_OPERATION_COUNT = PART_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_TOC_CHAPTERS__CHAPTERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>With Toc Chapters</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_TOC_CHAPTERS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>With Toc Chapters</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITH_TOC_CHAPTERS_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
+
+	/**
+	 * The feature id for the '<em><b>Document</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC__DOCUMENT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Toc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Toc</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_OPERATION_COUNT = WITH_TOC_CHAPTERS_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Chapters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__CHAPTERS = WITH_TOC_CHAPTERS__CHAPTERS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__ID = WITH_TOC_CHAPTERS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__NAME = WITH_TOC_CHAPTERS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__NUMBER = WITH_TOC_CHAPTERS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Part</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER__PART = WITH_TOC_CHAPTERS_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Toc Chapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER_FEATURE_COUNT = WITH_TOC_CHAPTERS_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Toc Chapter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOC_CHAPTER_OPERATION_COUNT = WITH_TOC_CHAPTERS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ru.arsysop.loft.rgm.spec.model.impl.WithReferencesImpl <em>With References</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1039,7 +1240,7 @@ public interface SpecPackage extends EPackage {
 	 * @see ru.arsysop.loft.rgm.spec.model.impl.SpecPackageImpl#getWithReferences()
 	 * @generated
 	 */
-	int WITH_REFERENCES = 13;
+	int WITH_REFERENCES = 15;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -1134,15 +1335,15 @@ public interface SpecPackage extends EPackage {
 	EReference getDocument_Toc();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Document#getParagraphs <em>Paragraphs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Document#getSections <em>Sections</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Paragraphs</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Document#getParagraphs()
+	 * @return the meta object for the containment reference list '<em>Sections</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Document#getSections()
 	 * @see #getDocument()
 	 * @generated
 	 */
-	EReference getDocument_Paragraphs();
+	EReference getDocument_Sections();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Document#getIndexes <em>Indexes</em>}'.
@@ -1208,27 +1409,6 @@ public interface SpecPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPart_Number();
-
-	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.WithParts <em>With Parts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>With Parts</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.WithParts
-	 * @generated
-	 */
-	EClass getWithParts();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.WithParts#getParts <em>Parts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parts</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.WithParts#getParts()
-	 * @see #getWithParts()
-	 * @generated
-	 */
-	EReference getWithParts_Parts();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.WithTocChapters <em>With Toc Chapters</em>}'.
@@ -1327,16 +1507,6 @@ public interface SpecPackage extends EPackage {
 	EReference getTocChapter_Part();
 
 	/**
-	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Paragraph <em>Paragraph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Paragraph</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Paragraph
-	 * @generated
-	 */
-	EClass getParagraph();
-
-	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Point <em>Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1358,26 +1528,98 @@ public interface SpecPackage extends EPackage {
 	EAttribute getPoint_Raw();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses <em>Synopses</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getContents <em>Contents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Synopses</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getSynopses()
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getContents()
 	 * @see #getPoint()
 	 * @generated
 	 */
-	EReference getPoint_Synopses();
+	EReference getPoint_Contents();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Point#getTables <em>Tables</em>}'.
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.PointContent <em>Point Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tables</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Point#getTables()
-	 * @see #getPoint()
+	 * @return the meta object for class '<em>Point Content</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointContent
 	 * @generated
 	 */
-	EReference getPoint_Tables();
+	EClass getPointContent();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.PointItem <em>Point Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point Item</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointItem
+	 * @generated
+	 */
+	EClass getPointItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.PointItem#getRaw <em>Raw</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Raw</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointItem#getRaw()
+	 * @see #getPointItem()
+	 * @generated
+	 */
+	EAttribute getPointItem_Raw();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.PointText <em>Point Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Point Text</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointText
+	 * @generated
+	 */
+	EClass getPointText();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.PointText#getRaw <em>Raw</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Raw</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointText#getRaw()
+	 * @see #getPointText()
+	 * @generated
+	 */
+	EAttribute getPointText_Raw();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Section <em>Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Section</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Section
+	 * @generated
+	 */
+	EClass getSection();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ru.arsysop.loft.rgm.spec.model.api.Section#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Contents</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Section#getContents()
+	 * @see #getSection()
+	 * @generated
+	 */
+	EReference getSection_Contents();
+
+	/**
+	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.SectionContent <em>Section Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Section Content</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.SectionContent
+	 * @generated
+	 */
+	EClass getSectionContent();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Index <em>Index</em>}'.
@@ -1487,15 +1729,15 @@ public interface SpecPackage extends EPackage {
 	EClass getSynopsis();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis#getContent <em>Content</em>}'.
+	 * Returns the meta object for the attribute '{@link ru.arsysop.loft.rgm.spec.model.api.Synopsis#getRaw <em>Raw</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Content</em>'.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Synopsis#getContent()
+	 * @return the meta object for the attribute '<em>Raw</em>'.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Synopsis#getRaw()
 	 * @see #getSynopsis()
 	 * @generated
 	 */
-	EAttribute getSynopsis_Content();
+	EAttribute getSynopsis_Raw();
 
 	/**
 	 * Returns the meta object for class '{@link ru.arsysop.loft.rgm.spec.model.api.Table <em>Table</em>}'.

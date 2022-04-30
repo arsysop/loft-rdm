@@ -24,12 +24,12 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendPoint;
-import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendSynopsis;
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
+import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.AppendSynopsis;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 
-public final class ParagraphStructure extends BaseStructure<Paragraph> {
+public final class SectionStructure extends BaseStructure<Section> {
 
-	protected ParagraphStructure(Paragraph container, ResolutionContext context) {
+	protected SectionStructure(Section container, ResolutionContext context) {
 		super(container, context);
 	}
 

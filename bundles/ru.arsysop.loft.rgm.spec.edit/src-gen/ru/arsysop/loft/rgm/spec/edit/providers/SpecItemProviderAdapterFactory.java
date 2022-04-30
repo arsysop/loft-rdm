@@ -184,29 +184,6 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Paragraph} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParagraphItemProvider paragraphItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Paragraph}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParagraphAdapter() {
-		if (paragraphItemProvider == null) {
-			paragraphItemProvider = new ParagraphItemProvider(this);
-		}
-
-		return paragraphItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Point} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,6 +204,75 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 		}
 
 		return pointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.PointItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PointItemItemProvider pointItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.PointItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPointItemAdapter() {
+		if (pointItemItemProvider == null) {
+			pointItemItemProvider = new PointItemItemProvider(this);
+		}
+
+		return pointItemItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.PointText} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PointTextItemProvider pointTextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.PointText}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPointTextAdapter() {
+		if (pointTextItemProvider == null) {
+			pointTextItemProvider = new PointTextItemProvider(this);
+		}
+
+		return pointTextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ru.arsysop.loft.rgm.spec.model.api.Section} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SectionItemProvider sectionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ru.arsysop.loft.rgm.spec.model.api.Section}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSectionAdapter() {
+		if (sectionItemProvider == null) {
+			sectionItemProvider = new SectionItemProvider(this);
+		}
+
+		return sectionItemProvider;
 	}
 
 	/**
@@ -479,15 +525,17 @@ public class SpecItemProviderAdapterFactory extends SpecAdapterFactory implement
 	@Override
 	public void dispose() {
 		if (documentItemProvider != null) documentItemProvider.dispose();
-		if (tocItemProvider != null) tocItemProvider.dispose();
-		if (tocChapterItemProvider != null) tocChapterItemProvider.dispose();
-		if (paragraphItemProvider != null) paragraphItemProvider.dispose();
-		if (pointItemProvider != null) pointItemProvider.dispose();
 		if (indexItemProvider != null) indexItemProvider.dispose();
 		if (indexEntryItemProvider != null) indexEntryItemProvider.dispose();
+		if (pointItemProvider != null) pointItemProvider.dispose();
+		if (pointItemItemProvider != null) pointItemItemProvider.dispose();
+		if (pointTextItemProvider != null) pointTextItemProvider.dispose();
+		if (sectionItemProvider != null) sectionItemProvider.dispose();
 		if (synopsisItemProvider != null) synopsisItemProvider.dispose();
 		if (tableItemProvider != null) tableItemProvider.dispose();
 		if (tableRowItemProvider != null) tableRowItemProvider.dispose();
+		if (tocItemProvider != null) tocItemProvider.dispose();
+		if (tocChapterItemProvider != null) tocChapterItemProvider.dispose();
 	}
 
 }

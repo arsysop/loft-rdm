@@ -28,27 +28,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import ru.arsysop.loft.rgm.spec.model.api.Part;
-import ru.arsysop.loft.rgm.spec.model.api.SectionContent;
-import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
+import ru.arsysop.loft.rgm.spec.model.api.PointText;
 import ru.arsysop.loft.rgm.spec.model.api.WithReferences;
 
 import ru.arsysop.loft.rgm.spec.model.meta.SpecPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Synopsis</b></em>'.
+ * An implementation of the model object '<em><b>Point Text</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.SynopsisImpl#getReferences <em>References</em>}</li>
- *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.SynopsisImpl#getRaw <em>Raw</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointTextImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link ru.arsysop.loft.rgm.spec.model.impl.PointTextImpl#getRaw <em>Raw</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SynopsisImpl extends PartImpl implements Synopsis {
+public class PointTextImpl extends PartImpl implements PointText {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -84,7 +83,7 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SynopsisImpl() {
+	protected PointTextImpl() {
 		super();
 	}
 
@@ -95,7 +94,7 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SpecPackage.eINSTANCE.getSynopsis();
+		return SpecPackage.eINSTANCE.getPointText();
 	}
 
 	/**
@@ -106,7 +105,7 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	@Override
 	public EList<Part> getReferences() {
 		if (references == null) {
-			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.SYNOPSIS__REFERENCES);
+			references = new EObjectResolvingEList<Part>(Part.class, this, SpecPackage.POINT_TEXT__REFERENCES);
 		}
 		return references;
 	}
@@ -131,7 +130,7 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 		String oldRaw = raw;
 		raw = newRaw;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.SYNOPSIS__RAW, oldRaw, raw));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpecPackage.POINT_TEXT__RAW, oldRaw, raw));
 	}
 
 	/**
@@ -142,9 +141,9 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpecPackage.SYNOPSIS__REFERENCES:
+			case SpecPackage.POINT_TEXT__REFERENCES:
 				return getReferences();
-			case SpecPackage.SYNOPSIS__RAW:
+			case SpecPackage.POINT_TEXT__RAW:
 				return getRaw();
 			default:
 				return super.eGet(featureID, resolve, coreType);
@@ -160,11 +159,11 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpecPackage.SYNOPSIS__REFERENCES:
+			case SpecPackage.POINT_TEXT__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Part>)newValue);
 				return;
-			case SpecPackage.SYNOPSIS__RAW:
+			case SpecPackage.POINT_TEXT__RAW:
 				setRaw((String)newValue);
 				return;
 			default:
@@ -181,10 +180,10 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpecPackage.SYNOPSIS__REFERENCES:
+			case SpecPackage.POINT_TEXT__REFERENCES:
 				getReferences().clear();
 				return;
-			case SpecPackage.SYNOPSIS__RAW:
+			case SpecPackage.POINT_TEXT__RAW:
 				setRaw(RAW_EDEFAULT);
 				return;
 			default:
@@ -201,9 +200,9 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpecPackage.SYNOPSIS__REFERENCES:
+			case SpecPackage.POINT_TEXT__REFERENCES:
 				return references != null && !references.isEmpty();
-			case SpecPackage.SYNOPSIS__RAW:
+			case SpecPackage.POINT_TEXT__RAW:
 				return RAW_EDEFAULT == null ? raw != null : !RAW_EDEFAULT.equals(raw);
 			default:
 				return super.eIsSet(featureID);
@@ -217,14 +216,9 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == SectionContent.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == WithReferences.class) {
 			switch (derivedFeatureID) {
-				case SpecPackage.SYNOPSIS__REFERENCES: return SpecPackage.WITH_REFERENCES__REFERENCES;
+				case SpecPackage.POINT_TEXT__REFERENCES: return SpecPackage.WITH_REFERENCES__REFERENCES;
 				default: return -1;
 			}
 		}
@@ -238,14 +232,9 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == SectionContent.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == WithReferences.class) {
 			switch (baseFeatureID) {
-				case SpecPackage.WITH_REFERENCES__REFERENCES: return SpecPackage.SYNOPSIS__REFERENCES;
+				case SpecPackage.WITH_REFERENCES__REFERENCES: return SpecPackage.POINT_TEXT__REFERENCES;
 				default: return -1;
 			}
 		}
@@ -268,4 +257,4 @@ public class SynopsisImpl extends PartImpl implements Synopsis {
 		return result.toString();
 	}
 
-} //SynopsisImpl
+} //PointTextImpl

@@ -91,40 +91,40 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentAdapter();
 			}
 			@Override
-			public Adapter casePart(Part object) {
-				return createPartAdapter();
-			}
-			@Override
-			public Adapter caseWithParts(WithParts object) {
-				return createWithPartsAdapter();
-			}
-			@Override
-			public Adapter caseWithTocChapters(WithTocChapters object) {
-				return createWithTocChaptersAdapter();
-			}
-			@Override
-			public Adapter caseToc(Toc object) {
-				return createTocAdapter();
-			}
-			@Override
-			public Adapter caseTocChapter(TocChapter object) {
-				return createTocChapterAdapter();
-			}
-			@Override
-			public Adapter caseParagraph(Paragraph object) {
-				return createParagraphAdapter();
-			}
-			@Override
-			public Adapter casePoint(Point object) {
-				return createPointAdapter();
-			}
-			@Override
 			public Adapter caseIndex(Index object) {
 				return createIndexAdapter();
 			}
 			@Override
 			public Adapter caseIndexEntry(IndexEntry object) {
 				return createIndexEntryAdapter();
+			}
+			@Override
+			public Adapter casePart(Part object) {
+				return createPartAdapter();
+			}
+			@Override
+			public Adapter casePoint(Point object) {
+				return createPointAdapter();
+			}
+			@Override
+			public Adapter casePointContent(PointContent object) {
+				return createPointContentAdapter();
+			}
+			@Override
+			public Adapter casePointItem(PointItem object) {
+				return createPointItemAdapter();
+			}
+			@Override
+			public Adapter casePointText(PointText object) {
+				return createPointTextAdapter();
+			}
+			@Override
+			public Adapter caseSection(Section object) {
+				return createSectionAdapter();
+			}
+			@Override
+			public Adapter caseSectionContent(SectionContent object) {
+				return createSectionContentAdapter();
 			}
 			@Override
 			public Adapter caseSynopsis(Synopsis object) {
@@ -139,8 +139,20 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 				return createTableRowAdapter();
 			}
 			@Override
+			public Adapter caseToc(Toc object) {
+				return createTocAdapter();
+			}
+			@Override
+			public Adapter caseTocChapter(TocChapter object) {
+				return createTocChapterAdapter();
+			}
+			@Override
 			public Adapter caseWithReferences(WithReferences object) {
 				return createWithReferencesAdapter();
+			}
+			@Override
+			public Adapter caseWithTocChapters(WithTocChapters object) {
+				return createWithTocChaptersAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -191,20 +203,6 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.WithParts <em>With Parts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.WithParts
-	 * @generated
-	 */
-	public Adapter createWithPartsAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.WithTocChapters <em>With Toc Chapters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -247,20 +245,6 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.Paragraph <em>Paragraph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ru.arsysop.loft.rgm.spec.model.api.Paragraph
-	 * @generated
-	 */
-	public Adapter createParagraphAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.Point <em>Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -271,6 +255,76 @@ public class SpecAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.PointContent <em>Point Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointContent
+	 * @generated
+	 */
+	public Adapter createPointContentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.PointItem <em>Point Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointItem
+	 * @generated
+	 */
+	public Adapter createPointItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.PointText <em>Point Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.PointText
+	 * @generated
+	 */
+	public Adapter createPointTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.Section <em>Section</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.Section
+	 * @generated
+	 */
+	public Adapter createSectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ru.arsysop.loft.rgm.spec.model.api.SectionContent <em>Section Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ru.arsysop.loft.rgm.spec.model.api.SectionContent
+	 * @generated
+	 */
+	public Adapter createSectionContentAdapter() {
 		return null;
 	}
 

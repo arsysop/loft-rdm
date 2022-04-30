@@ -22,22 +22,22 @@ import java.util.stream.Collectors;
 
 import org.junit.Test;
 
-import ru.arsysop.loft.rgm.spec.model.api.Paragraph;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
+import ru.arsysop.loft.rgm.spec.model.api.Section;
 
 public final class PointContentTest extends SpecTest {
 
 	@Test
 	public final void hasContent() {
-		document.getParagraphs().forEach(this::checkParagraph);
+		document.getSections().forEach(this::checkParagraph);
 	}
 
-	private void checkParagraph(Paragraph paragraph) {
-		paragraph.getParts().stream() //
-				.filter(Paragraph.class::isInstance) //
-				.map(Paragraph.class::cast) //
+	private void checkParagraph(Section paragraph) {
+		paragraph.getContents().stream() //
+				.filter(Section.class::isInstance) //
+				.map(Section.class::cast) //
 				.forEach(this::checkParagraph);
-		List<Point> collect = paragraph.getParts().stream() //
+		List<Point> collect = paragraph.getContents().stream() //
 				.filter(Point.class::isInstance) //
 				.map(Point.class::cast) //
 				.collect(Collectors.toList());
@@ -45,9 +45,9 @@ public final class PointContentTest extends SpecTest {
 	}
 
 	private void checkPoint(Point point) {
-		assertFalse(String.format("Raw text is empty in Point %s.", //$NON-NLS-1$
+		assertFalse(String.format("Point %s has no content.", //$NON-NLS-1$
 				point.getNumber()), //
-				point.getRaw().trim().isEmpty());
+				point.getContents().isEmpty());
 	}
 
 }
