@@ -24,7 +24,6 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendPoint;
-import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.AppendSynopsis;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 
 public final class SectionStructure extends BaseStructure<Section> {
@@ -57,7 +56,7 @@ public final class SectionStructure extends BaseStructure<Section> {
 		}
 		if (hasClass(node, "itemdescr")) { //$NON-NLS-1$
 			Element previous = elements.get(elements.indexOf(node) - 1);
-			new AppendSynopsis(context).accept(container, previous);
+//			new AppendSynopsis(context).accept(container, previous);
 		}
 	}
 

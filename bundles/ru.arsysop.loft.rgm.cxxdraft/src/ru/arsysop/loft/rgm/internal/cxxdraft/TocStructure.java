@@ -27,6 +27,7 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
 import ru.arsysop.loft.rgm.internal.cxxdraft.table.ResolveTableNames;
@@ -153,7 +154,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 
 	private void completeVisualization(TocChapter chapter, Element node) {
 		container.getChapters().add(chapter);
-		node.elements("div").stream().filter(new OfClass("tocChapter")).findAny().ifPresent(this::completeTables); //$NON-NLS-1$//$NON-NLS-2$
+//		node.elements("div").stream().filter(new OfClass("tocChapter")).findAny().ifPresent(this::completeTables); //$NON-NLS-1$//$NON-NLS-2$
 	}
 
 	private void completeParagraph(TocChapter chapter, Element node, Consumer<TocChapter> chapters,
@@ -167,7 +168,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		chapter.setPart(section);
 		paragraphs.accept(section);
 		context.parts().register(section.getId(), section);
-		Stream<Element> divs = node.elements().stream().filter(e -> "div".equals(e.getName())); //$NON-NLS-1$
+		Stream<Element> divs = node.elements().stream().filter(new IsDiv());
 		divs.forEachOrdered(e -> completeParagraph(createTocChapter(e), e, chapter.getChapters()::add,
 				((Section) chapter.getPart()).getContents()::add));
 	}

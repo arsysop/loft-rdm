@@ -58,7 +58,7 @@ public final class ImportSpecHandler extends AbstractHandler {
 	}
 
 	private void importContent(Document document, ExecutionEvent event) {
-		String from = "https://timsong-cpp.github.io/cppwp/n4140/"; //$NON-NLS-1$
+		String from = "https://timsong-cpp.github.io/cppwp/n4659/"; //$NON-NLS-1$
 		Shell shell = HandlerUtil.getActiveShell(event);
 		ProgressMonitorDialog pmd = new ProgressMonitorDialog(shell);
 		try {
