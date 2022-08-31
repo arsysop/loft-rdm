@@ -57,6 +57,8 @@
 		<module>..\..\features\ru.arsysop.loft.rgm.synopsis.feature</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.synopsis.editor</module>
 		<module>..\..\features\ru.arsysop.loft.rgm.synopsis.editor.feature</module>
+		
+		<module>..\..\bundles\ru.arsysop.loft.rgm.standalone</module>
 
 		<module>..\..\bundles\ru.arsysop.loft.rgm</module>
 		<module>..\..\bundles\ru.arsysop.loft.rgm.seal</module>
