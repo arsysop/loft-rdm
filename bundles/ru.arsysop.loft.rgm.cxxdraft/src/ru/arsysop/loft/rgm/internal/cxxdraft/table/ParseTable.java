@@ -15,9 +15,14 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.table;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -26,6 +31,7 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.FormatName;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.PartReferences;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
@@ -39,11 +45,17 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 	private final EncodeId encode;
 	private final SpecFactory factory;
 	private final ResolutionContext context;
+	private final Map<Predicate<Element>, BiConsumer<Element, Table>> parsers = new HashMap<>();
 
 	public ParseTable(SpecFactory factory, ResolutionContext context) {
 		this.encode = new EncodeId();
 		this.factory = Objects.requireNonNull(factory, "ParseTables::factory"); //$NON-NLS-1$
 		this.context = context;
+		this.fillParsers();
+	}
+
+	private void fillParsers() {
+		parsers.put(e -> contains(e, new OfClass("capsep")) > 2, this::fillComplexTableContent); //$NON-NLS-1$
 	}
 
 	@Override
@@ -54,12 +66,50 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 		table.setName(tableName(node));
 		table.setNumber(tableNumber(node));
 		context.parts().register(table.getId(), table);
-		fillTableContent(node, table);
+		parsers.entrySet().stream() //
+				.filter(entry -> entry.getKey().test(node)) //
+				.map(entry -> entry.getValue()) //
+				.findAny() //
+				.ifPresentOrElse(c -> c.accept(node, table), () -> fillDefaultTableContent(node, table));
 		return table;
 	}
 
-	private void fillTableContent(Element div, Table table) {
+	private void fillDefaultTableContent(Element div, Table table) {
 		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$ //$NON-NLS-2$
+		int offset = fillTitle(table, rows);
+		Stream.of(rows).flatMapToInt(r -> IntStream.range(offset, r.size())) //
+				.forEach(j -> collectRow(rows.get(j), table, j - offset + 1)); //
+	}
+
+	private void fillComplexTableContent(Element div, Table table) {
+		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$ //$NON-NLS-2$
+		boolean skip = false;
+		boolean firstCapsepPassed = false;
+		List<Element> rowsToRemove = new LinkedList<>();
+		// remove inner titles
+		for (Element row : rows) {
+			if (!firstCapsepPassed) {
+				if (new OfClass("capsep").test(row)) { //$NON-NLS-1$
+					firstCapsepPassed = true;
+				}
+			} else {
+				if (new OfClass("capsep").test(row)) { //$NON-NLS-1$
+					skip = !skip;
+				}
+				if (skip) {
+					rowsToRemove.add(row);
+				}
+			}
+		}
+		// remove supertitle
+		for (Element row : rows) {
+			if (new OfClass("capsep").test(row)) //$NON-NLS-1$
+				break;
+			if (contains(row,
+					e -> e.attribute("colspan") != null && Integer.parseInt(e.attributeValue("colspan")) > 1) > 0) //$NON-NLS-1$//$NON-NLS-2$
+				rowsToRemove.add(row);
+		}
+		rows.removeAll(rowsToRemove);
 		int offset = fillTitle(table, rows);
 		Stream.of(rows).flatMapToInt(r -> IntStream.range(offset, r.size())) //
 				.forEach(j -> collectRow(rows.get(j), table, j - offset + 1)); //
@@ -115,6 +165,17 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 
 	private String extractText(Element cell) {
 		return cell.content().stream().map(Node::getText).collect(Collectors.joining(" ")); //$NON-NLS-1$
+	}
+
+	private int contains(Element element, Predicate<Element> predicate) {
+		int matchingElements = 0;
+		matchingElements = element.elements().stream() //
+				.mapToInt(r -> contains(r, predicate)) //
+				.sum();
+		if (predicate.test(element)) {
+			matchingElements++;
+		}
+		return matchingElements;
 	}
 
 	private TableRow row(Table table, String id, int index) {
