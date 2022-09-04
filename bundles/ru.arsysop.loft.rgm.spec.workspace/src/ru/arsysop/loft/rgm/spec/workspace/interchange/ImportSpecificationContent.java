@@ -20,17 +20,15 @@ import java.util.Objects;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ICoreRunnable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.command.IdentityCommand;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.osgi.util.NLS;
 
+import ru.arsysop.loft.rgm.base.emf.command.RecordingCommand;
 import ru.arsysop.loft.rgm.cxxdraft.base.InvestigateHtml;
 import ru.arsysop.loft.rgm.cxxdraft.base.SimpleResolutionContext;
 import ru.arsysop.loft.rgm.internal.spec.workspace.Messages;
 import ru.arsysop.loft.rgm.spec.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
-import ru.arsysop.loft.rgm.spec.workspace.SpecWorkspaceId;
 
 public final class ImportSpecificationContent implements ICoreRunnable {
 
@@ -44,16 +42,14 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		try {
-			// FIXME: RecordingCommand
-			new EObjectEditingDomain().apply(document).getCommandStack().execute(new IdentityCommand(from));
-			new InvestigateHtml().prepare(new SimpleResolutionContext(from, document)).run(monitor);
-		} catch (CoreException e) {
-			throw e;
-		} catch (Exception e) {
-			String message = NLS.bind(Messages.ImportSpecificationContent_e_import, from);
-			throw new CoreException(new Status(IStatus.ERROR, new SpecWorkspaceId().get(), message, e));
-		}
+		RecordingCommand command = new RecordingCommand("Import", document.eResource().getResourceSet(), () -> { //$NON-NLS-1$
+			try {
+				new InvestigateHtml().prepare(new SimpleResolutionContext(from, document)).run(monitor);
+			} catch (Exception e) {
+				Platform.getLog(getClass()).error(NLS.bind(Messages.ImportSpecificationContent_e_import, from), e);
+			}
+		});
+		new EObjectEditingDomain().apply(document).getCommandStack().execute(command);
 	}
 
 }
