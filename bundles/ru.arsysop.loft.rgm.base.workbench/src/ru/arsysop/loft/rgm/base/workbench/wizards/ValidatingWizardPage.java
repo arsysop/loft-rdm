@@ -40,11 +40,11 @@ public abstract class ValidatingWizardPage<S> extends WizardPage {
 	protected final void validate() {
 		validations().stream() //
 				.map(v -> v.apply(scope.get())) //
-				.sorted(errorsFirst()) //
+				.sorted(problemsLast()) //
 				.forEach(indication::update);
 	}
 
-	private Comparator<IStatus> errorsFirst() {
+	private Comparator<IStatus> problemsLast() {
 		return (first, second) -> Integer.compare(first.getSeverity(), second.getSeverity());
 	}
 }
