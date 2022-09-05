@@ -17,10 +17,9 @@ package ru.arsysop.loft.rgm.spec.workspace.interchange;
 
 import java.util.Objects;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.ICoreRunnable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.osgi.util.NLS;
 
 import ru.arsysop.loft.rgm.base.emf.command.RecordingCommand;
@@ -29,25 +28,37 @@ import ru.arsysop.loft.rgm.cxxdraft.base.SimpleResolutionContext;
 import ru.arsysop.loft.rgm.internal.spec.workspace.Messages;
 import ru.arsysop.loft.rgm.spec.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.workspace.RevertibleOperation;
 
-public final class ImportSpecificationContent implements ICoreRunnable {
+public final class ImportSpecificationContent implements RevertibleOperation<String> {
 
 	private final Document document;
-	private final String from;
 
-	public ImportSpecificationContent(Document document, String from) {
+	public ImportSpecificationContent(Document document) {
 		this.document = Objects.requireNonNull(document, "ImportSpecificationContent::document"); //$NON-NLS-1$
-		this.from = Objects.requireNonNull(from, "ImportSpecificationContent::from"); //$NON-NLS-1$
 	}
 
 	@Override
-	public void run(IProgressMonitor monitor) throws CoreException {
+	public void prepare(IProgressMonitor monitor, String from) {
 		RecordingCommand command = new RecordingCommand("Import", document.eResource().getResourceSet(), //$NON-NLS-1$
-				() -> perform(monitor));
+				() -> perform(monitor, from));
 		new EObjectEditingDomain().apply(document).getCommandStack().execute(command);
 	}
 
-	private void perform(IProgressMonitor monitor) {
+	@Override
+	public void accept(IProgressMonitor monitor, String t) {
+		// Do nothing
+	}
+
+	@Override
+	public void revert(IProgressMonitor monitor) {
+		CommandStack stack = new EObjectEditingDomain().apply(document).getCommandStack();
+		if (stack.getMostRecentCommand() instanceof RecordingCommand) {
+			stack.undo();
+		}
+	}
+
+	private void perform(IProgressMonitor monitor, String from) {
 		try {
 			new InvestigateHtml().prepare(new SimpleResolutionContext(from, document)).run(monitor);
 		} catch (Exception e) {

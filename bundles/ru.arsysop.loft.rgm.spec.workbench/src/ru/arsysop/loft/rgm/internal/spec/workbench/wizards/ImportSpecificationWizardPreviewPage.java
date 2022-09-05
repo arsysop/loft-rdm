@@ -35,19 +35,23 @@ import org.eclipse.ui.statushandlers.StatusManager;
 
 import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.workspace.interchange.ImportSpecificationContent;
 
 public final class ImportSpecificationWizardPreviewPage extends WizardPage {
 
 	private final Supplier<Document> document;
 	private final Supplier<String> url;
+	private final ImportSpecificationContent operation;
 	private final AdapterFactory adapterFactory = new ComposedAdapterFactory(
 			ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 	private TreeViewer preview;
 
-	protected ImportSpecificationWizardPreviewPage(Supplier<Document> document, Supplier<String> url) {
+	protected ImportSpecificationWizardPreviewPage(Supplier<Document> document, Supplier<String> url,
+			ImportSpecificationContent operation) {
 		super(ImportSpecificationWizardPreviewPage.class.getSimpleName());
 		this.document = document;
 		this.url = url;
+		this.operation = operation;
 		setTitle(Messages.ImportSpecificationWizardPreviewPage_title);
 		setMessage(Messages.ImportSpecificationWizardPreviewPage_defaultMessage);
 	}
@@ -82,10 +86,10 @@ public final class ImportSpecificationWizardPreviewPage extends WizardPage {
 	private void runPreview() {
 		try {
 			setMessage(Messages.ImportSpecificationWizardPreviewPage_progressMessage);
-			getContainer().run(true, true, new ImportSpecificationOperation(document.get(), url.get(), this::finish));
+			getContainer().run(true, true, new ImportSpecificationOperation(operation, url.get(), this::finish));
 		} catch (InvocationTargetException | InterruptedException e) {
-			StatusManager.getManager()
-					.handle(new Status(IStatus.ERROR, getClass(), Messages.ImportSpecificationWizard_failure, e));
+			StatusManager.getManager().handle(
+					new Status(IStatus.ERROR, getClass(), Messages.ImportSpecificationWizardPreviewPage_failed, e));
 		}
 	}
 

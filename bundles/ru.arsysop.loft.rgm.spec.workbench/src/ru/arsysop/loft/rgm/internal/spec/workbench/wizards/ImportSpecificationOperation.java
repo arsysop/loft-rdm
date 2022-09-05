@@ -17,33 +17,27 @@ package ru.arsysop.loft.rgm.internal.spec.workbench.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Display;
 
-import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.workspace.interchange.ImportSpecificationContent;
 
 public final class ImportSpecificationOperation implements IRunnableWithProgress {
 
-	private final Document target;
-	private final String source;
+	private final ImportSpecificationContent operation;
+	private final String from;
 	private final Runnable finish;
 
-	public ImportSpecificationOperation(Document target, String source, Runnable finish) {
-		this.target = target;
-		this.source = source;
+	public ImportSpecificationOperation(ImportSpecificationContent operation, String from, Runnable finish) {
+		this.operation = operation;
+		this.from = from;
 		this.finish = finish;
 	}
 
 	@Override
 	public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-		try {
-			new ImportSpecificationContent(target, source).run(monitor);
-		} catch (CoreException e) {
-			throw new InvocationTargetException(e);
-		}
+		operation.prepare(monitor, from);
 		Display.getDefault().syncExec(finish);
 	}
 

@@ -15,41 +15,46 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.spec.workbench.wizards;
 
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.jface.wizard.Wizard;
+import java.lang.reflect.InvocationTargetException;
+import java.util.function.Consumer;
 
-import ru.arsysop.loft.rgm.base.emf.command.RecordingCommand;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.statushandlers.StatusManager;
+
 import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
-import ru.arsysop.loft.rgm.spec.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.workspace.interchange.ImportSpecificationContent;
 
 public final class ImportSpecificationWizard extends Wizard {
 
 	private final ImportSpecificationWizardConfigurationPage configuration;
 	private final ImportSpecificationWizardPreviewPage preview;
 	private final Document document;
+	private final ImportSpecificationContent operation;
 
 	public ImportSpecificationWizard(Document document) {
 		this.document = document;
+		this.operation = new ImportSpecificationContent(document);
 		this.configuration = new ImportSpecificationWizardConfigurationPage(() -> this.document);
-		this.preview = new ImportSpecificationWizardPreviewPage(() -> this.document, configuration::url);
+		this.preview = new ImportSpecificationWizardPreviewPage(() -> this.document, configuration::url, operation);
 		setNeedsProgressMonitor(true);
 		setWindowTitle(Messages.ImportSpecificationWizard_title);
 	}
 
 	@Override
 	public boolean performFinish() {
-		// Do nothing since results cannot be gracefully applied here.
-		return true;
+		return run(monitor -> operation.accept(monitor, configuration.url()),
+				Messages.ImportSpecificationWizard_failure);
 	}
 
 	@Override
 	public boolean performCancel() {
-		CommandStack stack = new EObjectEditingDomain().apply(document).getCommandStack();
-		if (stack.getMostRecentCommand() instanceof RecordingCommand) {
-			stack.undo();
-		}
-		return true;
+		return run(monitor -> operation.revert(monitor), //
+				Messages.ImportSpecificationWizard_failure);
 	}
 
 	@Override
@@ -61,6 +66,22 @@ public final class ImportSpecificationWizard extends Wizard {
 	@Override
 	public boolean canFinish() {
 		return preview.isPageComplete();
+	}
+
+	private boolean run(Consumer<IProgressMonitor> action, String message) {
+		try {
+			getContainer().run(true, false, new IRunnableWithProgress() {
+				@Override
+				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
+					action.accept(monitor);
+				}
+			});
+			return true;
+		} catch (InvocationTargetException | InterruptedException e) {
+			StatusManager.getManager().handle(new Status(IStatus.ERROR, getClass(), message, e));
+			return false;
+		}
+
 	}
 
 }
