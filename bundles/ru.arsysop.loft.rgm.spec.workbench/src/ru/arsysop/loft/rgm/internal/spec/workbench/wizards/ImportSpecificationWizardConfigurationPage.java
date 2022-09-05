@@ -36,6 +36,7 @@ import ru.arsysop.loft.rgm.base.workbench.wizards.validations.ViewerEmptySelecti
 import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 import ru.arsysop.loft.rgm.spec.model.api.Revision;
+import ru.arsysop.loft.rgm.spec.workspace.Revisions;
 
 public final class ImportSpecificationWizardConfigurationPage extends ValidatingWizardPage<Document> {
 

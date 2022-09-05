@@ -42,14 +42,17 @@ public final class ImportSpecificationContent implements ICoreRunnable {
 
 	@Override
 	public void run(IProgressMonitor monitor) throws CoreException {
-		RecordingCommand command = new RecordingCommand("Import", document.eResource().getResourceSet(), () -> { //$NON-NLS-1$
-			try {
-				new InvestigateHtml().prepare(new SimpleResolutionContext(from, document)).run(monitor);
-			} catch (Exception e) {
-				Platform.getLog(getClass()).error(NLS.bind(Messages.ImportSpecificationContent_e_import, from), e);
-			}
-		});
+		RecordingCommand command = new RecordingCommand("Import", document.eResource().getResourceSet(), //$NON-NLS-1$
+				() -> perform(monitor));
 		new EObjectEditingDomain().apply(document).getCommandStack().execute(command);
+	}
+
+	private void perform(IProgressMonitor monitor) {
+		try {
+			new InvestigateHtml().prepare(new SimpleResolutionContext(from, document)).run(monitor);
+		} catch (Exception e) {
+			Platform.getLog(getClass()).error(NLS.bind(Messages.ImportSpecificationContent_e_import, from), e);
+		}
 	}
 
 }

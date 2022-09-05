@@ -18,28 +18,23 @@ package ru.arsysop.loft.rgm.internal.spec.workbench.wizards;
 import java.lang.reflect.InvocationTargetException;
 import java.util.function.Supplier;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
-import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.ui.statushandlers.StatusManager;
 
 import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
-import ru.arsysop.loft.rgm.spec.workspace.interchange.ImportSpecificationContent;
 
 public final class ImportSpecificationWizardPreviewPage extends WizardPage {
 
@@ -77,35 +72,26 @@ public final class ImportSpecificationWizardPreviewPage extends WizardPage {
 	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
-		if (visible) {
-			try {
-				setMessage(Messages.ImportSpecificationWizardPreviewPage_progressMessage);
-				Document target = document.get();
-				String from = url.get();
-				getContainer().run(true, true, new IRunnableWithProgress() {
-					@Override
-					public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-						try {
-							new ImportSpecificationContent(target, from).run(monitor);
-						} catch (CoreException e) {
-							throw new InvocationTargetException(e);
-						}
-						Display.getDefault().syncExec(() -> finish());
-					}
-				});
-			} catch (InvocationTargetException | InterruptedException e) {
-				e.printStackTrace();
-				ErrorDialog.openError(getShell(), e.getClass().getSimpleName(), e.getMessage(),
-						new Status(IStatus.ERROR, getClass(), e.getMessage(), e));
-			}
-		} else {
+		if (!visible) {
 			setPageComplete(false);
+			return;
+		}
+		runPreview();
+	}
+
+	private void runPreview() {
+		try {
+			setMessage(Messages.ImportSpecificationWizardPreviewPage_progressMessage);
+			getContainer().run(true, true, new ImportSpecificationOperation(document.get(), url.get(), this::finish));
+		} catch (InvocationTargetException | InterruptedException e) {
+			StatusManager.getManager()
+					.handle(new Status(IStatus.ERROR, getClass(), Messages.ImportSpecificationWizard_failure, e));
 		}
 	}
 
 	private void finish() {
-		setPageComplete(true);
 		setMessage(Messages.ImportSpecificationWizardPreviewPage_defaultMessage);
+		setPageComplete(true);
 		preview.setInput(document.get());
 		preview.refresh();
 	}

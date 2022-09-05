@@ -22,6 +22,7 @@ public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.spec.workbench.messages"; //$NON-NLS-1$
 
 	public static String ImportSpecificationWizard_title;
+	public static String ImportSpecificationWizard_failure;
 
 	public static String ImportSpecificationWizardConfigurationPage_title;
 	public static String ImportSpecificationWizardConfigurationPage_defaultMessage;
@@ -32,8 +33,7 @@ public class Messages extends NLS {
 	public static String ImportSpecificationWizardPreviewPage_defaultMessage;
 	public static String ImportSpecificationWizardPreviewPage_progressMessage;
 	public static String ImportSpecificationWizardPreviewPage_groupTitle;
-
-	public static String Revision_e_creationFailure;
+	public static String ImportSpecificationWizardPreviewPage_failed;
 
 	static {
 		// initialize resource bundle

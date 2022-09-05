@@ -21,7 +21,6 @@
          <meta.schema plugin="ru.arsysop.loft.rgm.spec.model" id="revisions" name="Revisions"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
       </documentation>
    </annotation>
 
@@ -99,7 +98,6 @@
          <meta.section type="since"/>
       </appInfo>
       <documentation>
-         [Enter the first release in which this extension point appears.]
       </documentation>
    </annotation>
 
@@ -108,7 +106,6 @@
          <meta.section type="examples"/>
       </appInfo>
       <documentation>
-         [Enter extension point usage example here.]
       </documentation>
    </annotation>
 
@@ -117,7 +114,6 @@
          <meta.section type="apiinfo"/>
       </appInfo>
       <documentation>
-         [Enter API information here.]
       </documentation>
    </annotation>
 
@@ -126,7 +122,6 @@
          <meta.section type="implementation"/>
       </appInfo>
       <documentation>
-         [Enter information about supplied implementation of this extension point.]
       </documentation>
    </annotation>
 

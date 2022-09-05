@@ -17,6 +17,7 @@ package ru.arsysop.loft.rgm.internal.spec.workbench.wizards;
 
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.jface.wizard.Wizard;
+
 import ru.arsysop.loft.rgm.base.emf.command.RecordingCommand;
 import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
 import ru.arsysop.loft.rgm.spec.edit.EObjectEditingDomain;
@@ -38,17 +39,17 @@ public final class ImportSpecificationWizard extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		// Just return true because everything happened in preview
+		// Do nothing since results cannot be gracefully applied here.
 		return true;
 	}
-	
+
 	@Override
 	public boolean performCancel() {
 		CommandStack stack = new EObjectEditingDomain().apply(document).getCommandStack();
-		if(stack.getMostRecentCommand() instanceof RecordingCommand) {
+		if (stack.getMostRecentCommand() instanceof RecordingCommand) {
 			stack.undo();
 		}
-		return super.performCancel();
+		return true;
 	}
 
 	@Override

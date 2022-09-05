@@ -26,7 +26,7 @@ public final class RgmFeatures {
 
 	public Feature library() {
 		return new BaseFeature(//
-				"ru.arsysop.loft.rgm.library", //$NON-NLS-1$
+				"ru.arsysop.loft.rgm.library0", //$NON-NLS-1$
 				"0.1.0", //$NON-NLS-1$
 				"Requirements Gathering and Markup",
 				"ArSysOp"
@@ -37,7 +37,7 @@ public final class RgmFeatures {
 
 		public Feature load() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.spec.load", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.spec.load0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Spec Load",
 					"ArSysOp"
@@ -46,7 +46,7 @@ public final class RgmFeatures {
 
 		public Feature editor() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.spec.editor", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.spec.editor0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Spec Editor",
 					"ArSysOp"
@@ -55,7 +55,7 @@ public final class RgmFeatures {
 
 		public Feature browser() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.spec.browser", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.spec.browser0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Spec Browser",
 					"ArSysOp"
@@ -67,7 +67,7 @@ public final class RgmFeatures {
 
 		public Feature load() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.synopsis.load", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.synopsis.load0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Synopsis Load",
 					"ArSysOp"
@@ -76,7 +76,7 @@ public final class RgmFeatures {
 
 		public Feature editor() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.synopsis.editor", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.synopsis.editor0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Synopsis Editor",
 					"ArSysOp"//
@@ -88,7 +88,7 @@ public final class RgmFeatures {
 
 		public Feature load() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.markup.load", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.markup.load0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Markup Load",
 					"ArSysOp"
@@ -97,7 +97,7 @@ public final class RgmFeatures {
 
 		public Feature editor() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.markup.editor", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.markup.editor0", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM Markup Editor", 
 					"ArSysOp"
@@ -109,7 +109,7 @@ public final class RgmFeatures {
 
 		public Feature importCxx14() {
 			return new BaseFeature(//
-					"ru.arsysop.loft.rgm.cxxdraft.importcxx14", //$NON-NLS-1$
+					"ru.arsysop.loft.rgm.cxxdraft.importcxx140", //$NON-NLS-1$
 					"0.1.0", //$NON-NLS-1$
 					"RGM C++14 Draft Import",
 					"ArSysOp"

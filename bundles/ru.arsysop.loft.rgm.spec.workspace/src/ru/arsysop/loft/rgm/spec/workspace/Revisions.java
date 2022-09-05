@@ -13,7 +13,7 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.spec.workbench.wizards;
+package ru.arsysop.loft.rgm.spec.workspace;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +24,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 
-import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
+import ru.arsysop.loft.rgm.internal.spec.workspace.Messages;
 import ru.arsysop.loft.rgm.spec.model.api.Revision;
 
 public final class Revisions {
