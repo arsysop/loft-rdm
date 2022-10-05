@@ -13,15 +13,27 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.spec.workspace;
+package ru.arsysop.loft.rgm.internal.spec.workbench;
 
 import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.spec.workspace.messages"; //$NON-NLS-1$
 
-	public static String ImportSpecificationContent_e_import;
-	public static String Revision_e_creationFailure;
+	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.spec.workbench.messages"; //$NON-NLS-1$
+
+	public static String ImportSpecificationWizard_title;
+	public static String ImportSpecificationWizard_failure;
+
+	public static String ImportSpecificationWizardConfigurationPage_title;
+	public static String ImportSpecificationWizardConfigurationPage_defaultMessage;
+	public static String ImportSpecificationWizardConfigurationPage_viewerName;
+	public static String ImportSpecificationWizardConfigurationPage_groupTitle;
+
+	public static String ImportSpecificationWizardPreviewPage_title;
+	public static String ImportSpecificationWizardPreviewPage_defaultMessage;
+	public static String ImportSpecificationWizardPreviewPage_progressMessage;
+	public static String ImportSpecificationWizardPreviewPage_groupTitle;
+	public static String ImportSpecificationWizardPreviewPage_failed;
 
 	static {
 		// initialize resource bundle

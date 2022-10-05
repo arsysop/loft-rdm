@@ -13,21 +13,21 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.spec.workspace;
+package ru.arsysop.loft.rgm.spec.model;
 
-import org.eclipse.osgi.util.NLS;
+import ru.arsysop.loft.rgm.internal.spec.model.Messages;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 
-public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.spec.workspace.messages"; //$NON-NLS-1$
+public final class Cpp14 implements Revision {
 
-	public static String ImportSpecificationContent_e_import;
-	public static String Revision_e_creationFailure;
-
-	static {
-		// initialize resource bundle
-		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
+	@Override
+	public String url() {
+		return "https://timsong-cpp.github.io/cppwp/n4140/"; //$NON-NLS-1$
 	}
 
-	private Messages() {
+	@Override
+	public String name() {
+		return Messages.Cpp14_name;
 	}
+
 }

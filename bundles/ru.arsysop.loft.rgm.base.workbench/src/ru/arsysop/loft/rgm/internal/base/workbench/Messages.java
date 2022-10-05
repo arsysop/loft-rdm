@@ -33,6 +33,7 @@ public class Messages extends NLS {
 	public static String BaseModelWizard_title;
 	public static String BaseModelWizardPage_e_extension;
 	public static String ShowPropertiesViewAction_text;
+	public static String ViewerSelectionValidation_error_text;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
