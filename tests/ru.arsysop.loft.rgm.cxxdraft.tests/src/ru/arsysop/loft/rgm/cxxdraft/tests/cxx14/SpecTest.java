@@ -30,7 +30,7 @@ public abstract class SpecTest {
 	protected static final Document document = SpecFactory.eINSTANCE.createDocument();
 
 	private static final String URL = "https://timsong-cpp.github.io/cppwp/n4140/"; //$NON-NLS-1$
-	private static final ResolutionContext context = new SimpleResolutionContext(URL, document);
+	protected static final ResolutionContext context = new SimpleResolutionContext(URL, document);
 
 	@BeforeClass
 	public static void performParsing() throws CoreException {
