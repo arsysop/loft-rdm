@@ -5,7 +5,7 @@ Bundle-SymbolicName: ru.arsysop.loft.rgm.cxxdraft
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: ru.arsysop.loft.rgm.cxxdraft,
  ru.arsysop.loft.rgm.cxxdraft.base,
  ru.arsysop.loft.rgm.internal.cxxdraft;x-friends:="ru.arsysop.loft.rgm.workspace"

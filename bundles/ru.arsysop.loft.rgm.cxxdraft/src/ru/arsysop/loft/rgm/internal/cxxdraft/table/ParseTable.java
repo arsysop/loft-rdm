@@ -60,9 +60,8 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 
 	private void fillTableContent(Element div, Table table) {
 		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$ //$NON-NLS-2$
-		int offset = fillTitle(table, rows);
-		Stream.of(rows).flatMapToInt(r -> IntStream.range(offset, r.size())) //
-				.forEach(j -> collectRow(rows.get(j), table, j - offset + 1)); //
+		Stream.of(rows).flatMapToInt(r -> IntStream.range(0, r.size())) //
+				.forEach(j -> collectRow(rows.get(j), table, j + 1)); //
 	}
 
 	private String tableId(Element div) {
@@ -83,25 +82,6 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 		String name = content.subList(2, content.indexOf(div.element("table"))).stream().map(Node::getText) //$NON-NLS-1$
 				.map(new FormatName()).collect(Collectors.joining()).trim(); // $NON-NLS-1$
 		return name;
-	}
-
-	private int fillTitle(Table table, List<Element> rows) {
-		TableRow titleRow = row(table, table.getId() + "-title", 0); //$NON-NLS-1$
-		if (rows.stream().filter(e -> "capsep".equals(e.attributeValue("class"))).count() > 0) { //$NON-NLS-1$ //$NON-NLS-2$
-			List<String> titleValues = rows.get(0).elements("td").stream().map(this::extractText) //$NON-NLS-1$
-					.collect(Collectors.toList());
-			int i = 1;
-			while (!"capsep".equals(rows.get(i).attributeValue("class"))) { //$NON-NLS-1$ //$NON-NLS-2$
-				List<String> content = rows.get(i).elements("td").stream().map(this::extractText) //$NON-NLS-1$
-						.collect(Collectors.toList());
-				IntStream.range(0, content.size()).forEach(j -> titleValues.get(j).concat(" " + content.get(j))); //$NON-NLS-1$
-				i++;
-			}
-			titleRow.getValues().addAll(titleValues);
-			table.setTitle(titleRow);
-			return i;
-		}
-		return 0; // No title here
 	}
 
 	private TableRow collectRow(Element tr, Table table, int index) {
