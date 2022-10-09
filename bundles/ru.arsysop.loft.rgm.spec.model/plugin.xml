@@ -17,6 +17,7 @@
 -->
 
 <plugin>
+   <extension-point id="revisions" name="%extension.point.name" schema="schema/revisions.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated spec -->
@@ -31,5 +32,16 @@
       <parser
             type="spec"
             class="ru.arsysop.loft.rgm.spec.model.util.SpecResourceFactoryImpl"/>
+   </extension>
+   <extension
+         point="ru.arsysop.loft.rgm.spec.model.revisions">
+      <revision
+            class="ru.arsysop.loft.rgm.spec.model.Cpp14"
+            id="ru.arsysop.loft.rgm.spec.model.cpp14">
+      </revision>
+      <revision
+            class="ru.arsysop.loft.rgm.spec.model.Cpp17"
+            id="ru.arsysop.loft.rgm.spec.model.cpp17">
+      </revision>
    </extension>
 </plugin>

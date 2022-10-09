@@ -13,21 +13,32 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.spec.workspace;
+package ru.arsysop.loft.rgm.base.workbench.wizards.validations;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.osgi.util.NLS;
 
-public class Messages extends NLS {
-	private static final String BUNDLE_NAME = "ru.arsysop.loft.rgm.internal.spec.workspace.messages"; //$NON-NLS-1$
+import ru.arsysop.loft.rgm.base.workbench.wizards.Validation;
+import ru.arsysop.loft.rgm.internal.base.workbench.Messages;
 
-	public static String ImportSpecificationContent_e_import;
-	public static String Revision_e_creationFailure;
+public final class ViewerEmptySelectionValidation<T> implements Validation<T> {
 
-	static {
-		// initialize resource bundle
-		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
+	private final Viewer viewer;
+	private final String name;
+
+	public ViewerEmptySelectionValidation(Viewer viewer, String viewerName) {
+		this.viewer = viewer;
+		this.name = viewerName;
 	}
 
-	private Messages() {
+	@Override
+	public IStatus apply(T t) {
+		if (viewer.getSelection().isEmpty()) {
+			return new Status(IStatus.ERROR, getClass(), NLS.bind(Messages.ViewerSelectionValidation_error_text, name));
+		}
+		return Status.OK_STATUS;
 	}
+
 }

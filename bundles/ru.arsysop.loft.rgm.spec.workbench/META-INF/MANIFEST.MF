@@ -5,13 +5,16 @@ Bundle-SymbolicName: ru.arsysop.loft.rgm.spec.workbench;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
+ org.eclipse.emf.edit.ui;bundle-version="0.0.0",
  org.eclipse.ui;bundle-version="0.0.0",
- ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0",
- ru.arsysop.loft.rgm.spec.workspace;bundle-version="0.0.0",
+ ru.arsysop.loft.rgm.base.emf;bundle-version="0.0.0",
  ru.arsysop.loft.rgm.base.workbench;bundle-version="0.0.0",
- ru.arsysop.loft.rgm.seal;bundle-version="0.0.0"
+ ru.arsysop.loft.rgm.seal;bundle-version="0.0.0",
+ ru.arsysop.loft.rgm.spec.edit;bundle-version="0.0.0",
+ ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0",
+ ru.arsysop.loft.rgm.spec.workspace;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: ru.arsysop.loft.rgm.spec.workbench
 Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.spec.browser";name="ArSysOp RGM Spec Browser";version="0.1.0";provider="ArSysOp";level="error"
