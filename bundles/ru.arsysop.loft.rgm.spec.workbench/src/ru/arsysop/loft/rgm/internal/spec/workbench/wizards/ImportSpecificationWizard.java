@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.statushandlers.StatusManager;
 
 import ru.arsysop.loft.rgm.internal.spec.workbench.Messages;
@@ -73,7 +74,7 @@ public final class ImportSpecificationWizard extends Wizard {
 			getContainer().run(true, false, new IRunnableWithProgress() {
 				@Override
 				public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
-					action.accept(monitor);
+					Display.getDefault().asyncExec(() -> action.accept(monitor));
 				}
 			});
 			return true;
