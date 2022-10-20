@@ -13,13 +13,12 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.spec.cpp14;
+package ru.arsysop.loft.rgm.cxxdraft.tests.cxx14;
 
-import ru.arsysop.loft.rgm.internal.spec.cpp14.Messages;
 import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Revision;
 
-public final class Cpp14 implements Revision {
+public class FakeCpp14 implements Revision {
 
 	@Override
 	public String url() {
@@ -28,12 +27,12 @@ public final class Cpp14 implements Revision {
 
 	@Override
 	public String name() {
-		return Messages.Cpp14_name;
+		return "";
 	}
 
 	@Override
 	public DomElement wrapper(DomElement body) {
-		return body.element("div").get(); //$NON-NLS-1$
+		return body.element("wrapper").get(); //$NON-NLS-1$
 	}
 
 }

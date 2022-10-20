@@ -16,6 +16,7 @@
 package ru.arsysop.loft.rgm.spec.cpp17;
 
 import ru.arsysop.loft.rgm.internal.spec.cpp17.Messages;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Revision;
 
 public final class Cpp17 implements Revision {
@@ -28,6 +29,11 @@ public final class Cpp17 implements Revision {
 	@Override
 	public String name() {
 		return Messages.Cpp17_name;
+	}
+
+	@Override
+	public DomElement wrapper(DomElement body) {
+		return body;
 	}
 
 }

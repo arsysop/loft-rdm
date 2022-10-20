@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
-import org.dom4j.Element;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
-public final class ExtractSubElementText implements Function<Element, String> {
+public final class ExtractSubElementText implements Function<DomElement, String> {
 
 	private final List<String> names;
 
@@ -36,7 +36,7 @@ public final class ExtractSubElementText implements Function<Element, String> {
 	}
 
 	@Override
-	public String apply(Element element) {
+	public String apply(DomElement element) {
 		return names.stream()//
 				.map(n -> element.elementText(n))//
 				.filter(Objects::nonNull)//

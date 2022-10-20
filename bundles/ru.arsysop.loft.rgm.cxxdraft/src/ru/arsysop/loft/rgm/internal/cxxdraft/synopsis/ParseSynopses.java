@@ -17,15 +17,14 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.synopsis;
 
 import java.util.function.BiFunction;
 
-import org.dom4j.Element;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.CollectText;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class ParseSynopses implements BiFunction<Point, Element, Synopsis> {
+public final class ParseSynopses implements BiFunction<Point, DomElement, Synopsis> {
 
 	private final SpecFactory factory;
 	private final ResolutionContext context;
@@ -37,7 +36,7 @@ public final class ParseSynopses implements BiFunction<Point, Element, Synopsis>
 	}
 
 	@Override
-	public Synopsis apply(Point point, Element element) {
+	public Synopsis apply(Point point, DomElement element) {
 		Synopsis synopsis = factory.createSynopsis();
 		synopsis.setLocation(point.getLocation());
 		synopsis.setId(point.getId().concat("_synopsis" + count)); //$NON-NLS-1$

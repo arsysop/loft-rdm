@@ -15,7 +15,6 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.cxxdraft;
 
-import org.dom4j.Node;
 import org.eclipse.emf.common.util.Diagnostic;
 
 import ru.arsysop.loft.rgm.spec.model.api.ContentResolution;
@@ -32,8 +31,6 @@ public interface ResolutionContext {
 	ContentResolution<Part> parts();
 
 	ContentResolution<IndexEntry> indexEntries();
-
-	void warning(Node node, String message);
 
 	Diagnostic diagnostic();
 }

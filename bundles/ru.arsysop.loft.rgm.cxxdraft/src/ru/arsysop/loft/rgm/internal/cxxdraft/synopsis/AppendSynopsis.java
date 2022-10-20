@@ -17,15 +17,14 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.synopsis;
 
 import java.util.function.BiConsumer;
 
-import org.dom4j.Element;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.CollectText;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Synopsis;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class AppendSynopsis implements BiConsumer<Section, Element> {
+public final class AppendSynopsis implements BiConsumer<Section, DomElement> {
 
 	private final SpecFactory factory = SpecFactory.eINSTANCE;
 
@@ -36,10 +35,10 @@ public final class AppendSynopsis implements BiConsumer<Section, Element> {
 	}
 
 	@Override
-	public void accept(Section section, Element element) {
+	public void accept(Section section, DomElement element) {
 		String number = nextNumber(section);
 		Synopsis synopsis = factory.createSynopsis();
-		synopsis.setRaw(new CollectText().apply(element.element("code"))); //$NON-NLS-1$
+		synopsis.setRaw(new CollectText().apply(element.element("code").get())); //$NON-NLS-1$
 		synopsis.setId(section.getId().concat("_synopsis").concat(number)); //$NON-NLS-1$
 		synopsis.setName(section.getName().concat(String.format("Synopsis %s", number))); //$NON-NLS-1$
 		synopsis.setNumber(section.getNumber().concat(String.format("-S%s", number))); //$NON-NLS-1$

@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-import org.dom4j.Element;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
-public final class OfClass implements Predicate<Element> {
+public final class OfClass implements Predicate<DomElement> {
 
 	private final List<String> className;
 
@@ -31,10 +31,10 @@ public final class OfClass implements Predicate<Element> {
 	}
 
 	@Override
-	public boolean test(Element element) {
+	public boolean test(DomElement element) {
 		return className.stream() //
 				.filter(Objects::nonNull) //
-				.filter(required -> required.equals(element.attributeValue("class"))) //$NON-NLS-1$
+				.filter(required -> element.attributeValue("class").filter(required::equals).isPresent()) //$NON-NLS-1$
 				.count() > 0;
 	}
 

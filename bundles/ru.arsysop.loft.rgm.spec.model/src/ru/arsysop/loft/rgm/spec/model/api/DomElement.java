@@ -13,25 +13,34 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.element;
+package ru.arsysop.loft.rgm.spec.model.api;
 
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Optional;
 
-import org.dom4j.Element;
-import org.dom4j.Node;
+public interface DomElement {
 
-public final class CollectText implements Function<Element, String> {
+	List<DomElement> elements();
 
-	private final String separator;
+	List<DomElement> elements(String name);
 
-	public CollectText(String separator) {
-		this.separator = separator;
-	}
+	Optional<DomElement> element(String name);
 
-	@Override
-	public String apply(Element element) {
-		return element.content().stream().map(Node::getText).collect(Collectors.joining(separator)); // $NON-NLS-1$;
-	}
+	int nodeCount();
 
+	Optional<DomElement> node(int index) throws IndexOutOfBoundsException;
+
+	String nodeText(int index) throws IndexOutOfBoundsException;
+
+	String containingText();
+
+	List<String> containingNames();
+
+	Optional<String> attributeValue(String name);
+
+	String name();
+
+	String elementText(String name);
+
+	String text();
 }

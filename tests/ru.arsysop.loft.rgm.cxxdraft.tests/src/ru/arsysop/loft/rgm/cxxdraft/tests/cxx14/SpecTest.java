@@ -34,7 +34,7 @@ public abstract class SpecTest {
 
 	@BeforeClass
 	public static void performParsing() throws CoreException {
-		new InvestigateHtml().prepare(context).run(new NullProgressMonitor());
+		new InvestigateHtml(new FakeCpp14()).prepare(context).run(new NullProgressMonitor());
 	}
 
 }

@@ -16,6 +16,8 @@
 package ru.arsysop.loft.rgm.spec.workspace.interchange;
 
 import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
@@ -28,14 +30,17 @@ import ru.arsysop.loft.rgm.cxxdraft.base.SimpleResolutionContext;
 import ru.arsysop.loft.rgm.internal.spec.workspace.Messages;
 import ru.arsysop.loft.rgm.spec.edit.EObjectEditingDomain;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 import ru.arsysop.loft.rgm.spec.workspace.RevertibleOperation;
 
 public final class ImportSpecificationContent implements RevertibleOperation<String> {
 
 	private final Document document;
+	private final Supplier<Optional<Revision>> revision;
 
-	public ImportSpecificationContent(Document document) {
+	public ImportSpecificationContent(Document document, Supplier<Optional<Revision>> revision) {
 		this.document = Objects.requireNonNull(document, "ImportSpecificationContent::document"); //$NON-NLS-1$
+		this.revision = revision;
 	}
 
 	@Override
@@ -60,7 +65,10 @@ public final class ImportSpecificationContent implements RevertibleOperation<Str
 
 	private void perform(IProgressMonitor monitor, String from) {
 		try {
-			new InvestigateHtml().prepare(new SimpleResolutionContext(from, document)).run(monitor);
+			if (revision.get().isPresent()) {
+				new InvestigateHtml(revision.get().get()).prepare(new SimpleResolutionContext(from, document))
+						.run(monitor);
+			}
 		} catch (Exception e) {
 			Platform.getLog(getClass()).error(NLS.bind(Messages.ImportSpecificationContent_e_import, from), e);
 		}
