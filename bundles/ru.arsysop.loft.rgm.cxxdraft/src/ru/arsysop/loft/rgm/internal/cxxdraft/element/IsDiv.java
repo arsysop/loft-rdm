@@ -17,13 +17,13 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.element;
 
 import java.util.function.Predicate;
 
-import org.dom4j.Element;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
-public final class IsDiv implements Predicate<Element> {
+public final class IsDiv implements Predicate<DomElement> {
 
 	@Override
-	public boolean test(Element element) {
-		return "div".equals(element.getName()); //$NON-NLS-1$
+	public boolean test(DomElement element) {
+		return "div".equals(element.name()); //$NON-NLS-1$
 	}
 
 }

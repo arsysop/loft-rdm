@@ -39,8 +39,8 @@ public final class ImportSpecificationWizard extends Wizard {
 
 	public ImportSpecificationWizard(Document document) {
 		this.document = document;
-		this.operation = new ImportSpecificationContent(document);
 		this.configuration = new ImportSpecificationWizardConfigurationPage(() -> this.document);
+		this.operation = new ImportSpecificationContent(document, configuration::revision);
 		this.preview = new ImportSpecificationWizardPreviewPage(() -> this.document, configuration::url, operation);
 		setNeedsProgressMonitor(true);
 		setWindowTitle(Messages.ImportSpecificationWizard_title);

@@ -18,18 +18,17 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-import org.dom4j.Element;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.ParseSynopses;
 import ru.arsysop.loft.rgm.internal.cxxdraft.table.ParseTable;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.base.EncodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class AppendPoint implements BiConsumer<Section, Element> {
+public final class AppendPoint implements BiConsumer<Section, DomElement> {
 
 	private final SpecFactory factory;
 	private final PointNumber numbering;
@@ -48,7 +47,7 @@ public final class AppendPoint implements BiConsumer<Section, Element> {
 	}
 
 	@Override
-	public void accept(Section section, Element node) {
+	public void accept(Section section, DomElement node) {
 		Point point = factory.createPoint();
 		String number = numbering.apply(node);
 		point.setId(new EncodeId().apply(section.getId() + "_point" + number)); //$NON-NLS-1$
@@ -57,14 +56,14 @@ public final class AppendPoint implements BiConsumer<Section, Element> {
 		point.setName(pointName(section, node));
 		point.setRaw(new CollectText().apply(node));
 		section.getContents().add(point);
-		List<Element> elements = node.elements();
-		for (Element element : elements) {
+		List<DomElement> elements = node.elements();
+		for (DomElement element : elements) {
 			processContent(section, point, element);
 		}
 	}
 
-	private void processContent(Section section, Point point, Element element) {
-		String name = element.getName();
+	private void processContent(Section section, Point point, DomElement element) {
+		String name = element.name();
 		if ("br".equals(name)) { //$NON-NLS-1$
 			return;
 		} else if ("div".equals(name) && new OfClass("figure").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
@@ -79,7 +78,7 @@ public final class AppendPoint implements BiConsumer<Section, Element> {
 		} else if ("div".equals(name) && new OfClass("marginalizedparent").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
 			return;
 		} else if ("div".equals(name) && new OfClass("minipage").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
-			for (Element sub : element.elements()) {
+			for (DomElement sub : element.elements()) {
 				processContent(section, point, sub);
 			}
 		} else if ("div".equals(name) && new OfClass("numberedTable").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
@@ -89,19 +88,19 @@ public final class AppendPoint implements BiConsumer<Section, Element> {
 			// https://timsong-cpp.github.io/cppwp/n4140/temp.deduct.conv#7
 			point.getContents().add(text.apply(point, element));
 		} else if ("ol".equals(name) && new OfClass("enumerate").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
-			for (Element sub : element.elements()) {
+			for (DomElement sub : element.elements()) {
 				point.getContents().add(item.apply(point, sub));
 			}
 		} else if ("ol".equals(name) && new OfClass("enumeratea").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
-			for (Element sub : element.elements()) {
+			for (DomElement sub : element.elements()) {
 				point.getContents().add(item.apply(point, sub));
 			}
 		} else if ("ul".equals(name) && new OfClass("description").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
-			for (Element sub : element.elements()) {
+			for (DomElement sub : element.elements()) {
 				point.getContents().add(item.apply(point, sub));
 			}
 		} else if ("ul".equals(name) && new OfClass("itemize").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
-			for (Element sub : element.elements()) {
+			for (DomElement sub : element.elements()) {
 				point.getContents().add(item.apply(point, sub));
 			}
 		} else if ("p".equals(name)) { //$NON-NLS-1$
@@ -122,7 +121,7 @@ public final class AppendPoint implements BiConsumer<Section, Element> {
 		}
 	}
 
-	private String pointName(Section paragraph, Element node) {
+	private String pointName(Section paragraph, DomElement node) {
 		return paragraph.getName().concat(" Point ").concat(numbering.apply(node)); //$NON-NLS-1$
 	}
 

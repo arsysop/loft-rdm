@@ -17,9 +17,9 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.element;
 
 import java.util.function.Predicate;
 
-import org.dom4j.Element;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
-public final class WithId implements Predicate<Element> {
+public final class WithId implements Predicate<DomElement> {
 
 	private final String id;
 
@@ -28,8 +28,8 @@ public final class WithId implements Predicate<Element> {
 	}
 
 	@Override
-	public boolean test(Element element) {
-		return id.equals(element.attributeValue("id")); //$NON-NLS-1$
+	public boolean test(DomElement element) {
+		return element.attributeValue("id").filter(id::equals).isPresent(); //$NON-NLS-1$
 	}
 
 }

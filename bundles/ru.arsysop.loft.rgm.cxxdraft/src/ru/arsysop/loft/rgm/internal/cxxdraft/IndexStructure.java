@@ -20,12 +20,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.dom4j.Element;
-import org.dom4j.Node;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.IndexEntry;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
@@ -40,32 +38,33 @@ public final class IndexStructure extends BaseStructure<Index> {
 	}
 
 	@Override
-	public void body(Element body) {
-		Element wrapper = (Element) body.node(0);
+	public void body(DomElement body) {
+		DomElement wrapper = body.node(0).get();
 		createEntries(wrapper);
 		fillReferences(wrapper);
 	}
 
-	private void fillReferences(Element wrapper) {
+	private void fillReferences(DomElement wrapper) {
 		IntStream.range(0, wrapper.nodeCount()) //
 				.mapToObj(wrapper::node) //
-				.filter(Element.class::isInstance) //
-				.map(Element.class::cast) //
+				.map(Optional::get) //
+				.filter(DomElement.class::isInstance) //
+				.map(DomElement.class::cast) //
 				.filter(new IsDiv()) //
 				.forEach(this::fillEntry);
 	}
 
-	private void createEntries(Element wrapper) {
+	private void createEntries(DomElement wrapper) {
 		for (int i = 0; i < wrapper.nodeCount(); i++) {
-			Node node = wrapper.node(i);
-			if (node instanceof Element) {
-				Element element = (Element) node;
-				switch (node.getName()) {
+			Optional<DomElement> node = wrapper.node(i);
+			if (node.isPresent()) {
+				DomElement element = node.get();
+				switch (element.name()) {
 				case "div": //$NON-NLS-1$
 					topLevelIndexEntry(element);
 					break;
 				case "h1": //$NON-NLS-1$
-					container.setName(node.getText());
+					container.setName(element.text());
 					break;
 				default:
 					System.err.println("TOC unknown: " + node); //$NON-NLS-1$
@@ -75,32 +74,32 @@ public final class IndexStructure extends BaseStructure<Index> {
 		}
 	}
 
-	private void topLevelIndexEntry(Element node) {
+	private void topLevelIndexEntry(DomElement node) {
 		IndexEntry entry = createIndexEntry(node);
 		container.getEntries().add(entry);
 	}
 
-	private void fillEntry(Element node) {
-		Element div = Optional.ofNullable(node.element("div")).orElse(node); //$NON-NLS-1$
-		String id = node.attributeValue("id"); //$NON-NLS-1$
+	private void fillEntry(DomElement node) {
+		DomElement div = node.element("div").orElse(node); //$NON-NLS-1$
+		String id = node.attributeValue("id").get(); //$NON-NLS-1$
 		Optional<IndexEntry> found = context.indexEntries().find("#" + id); //$NON-NLS-1$
 		if (found.isPresent()) {
 			IndexEntry entry = found.get();
-			List<Element> refNodes = div.elements("a"); //$NON-NLS-1$
-			List<Element> seeNodes = div.elements("i").stream() //$NON-NLS-1$
-					.filter(i -> "see".equals(i.getText())) //$NON-NLS-1$
+			List<DomElement> refNodes = div.elements("a"); //$NON-NLS-1$
+			List<DomElement> seeNodes = div.elements("i").stream() //$NON-NLS-1$
+					.filter(i -> "see".equals(i.text())) //$NON-NLS-1$
 					.collect(Collectors.toList());
 			if (seeNodes.size() > 0) { // Assuming see case
 				IntStream.range(0, seeNodes.size()) //
 						.mapToObj(refNodes::get) //
-						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
+						.map(element -> element.attributeValue("href").get()) //$NON-NLS-1$
 						.map(context.indexEntries()::find) //
 						.filter(Optional::isPresent) //
 						.map(Optional::get) //
 						.forEach(entry.getSee()::add);
 			} else { // Just a link otherwise
 				refNodes.stream() //
-						.map(element -> element.attributeValue("href")) //$NON-NLS-1$
+						.map(element -> element.attributeValue("href").get()) //$NON-NLS-1$
 						.map(href -> href.split("#")[0]) //$NON-NLS-1$
 						.map(new PickId(context)) //
 						.map(context.parts()::find) //
@@ -114,12 +113,13 @@ public final class IndexStructure extends BaseStructure<Index> {
 		}
 	}
 
-	private IndexEntry createIndexEntry(Element node) {
-		Element div = Optional.ofNullable(node.element("div")).orElse(node); //$NON-NLS-1$
+	private IndexEntry createIndexEntry(DomElement node) {
+		DomElement div = node.element("div").orElse(node); //$NON-NLS-1$
 		IndexEntry entry = factory.createIndexEntry();
-		entry.setText(Optional.ofNullable(div.element("span")).map(Element::getText).orElse("")); //$NON-NLS-1$//$NON-NLS-2$
-		entry.setKeyword(node.attributeValue("id")); //$NON-NLS-1$ FIXME: AF: not sure, it could be a dedicated entity
-		entry.setId(node.attributeValue("id")); //$NON-NLS-1$
+		entry.setText(div.element("span").map(DomElement::text).orElse("")); //$NON-NLS-1$//$NON-NLS-2$
+		entry.setKeyword(node.attributeValue("id").get()); //$NON-NLS-1$ FIXME: AF: not sure, it could be a dedicated
+															// entity
+		entry.setId(node.attributeValue("id").get()); //$NON-NLS-1$
 		div.elements("div").stream().map(this::createIndexEntry).forEach(entry.getSubentries()::add); //$NON-NLS-1$
 		context.indexEntries().register("#" + entry.getId(), entry); //$NON-NLS-1$
 		return entry;

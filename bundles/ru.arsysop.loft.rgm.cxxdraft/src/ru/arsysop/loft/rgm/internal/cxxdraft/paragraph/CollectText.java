@@ -16,27 +16,14 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import org.dom4j.Element;
-import org.dom4j.Node;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
-public final class CollectText implements Function<Element, String> {
+public final class CollectText implements Function<DomElement, String> {
 
 	@Override
-	public String apply(Element node) {
-		return parse(node).trim();
-	}
-
-	private String parse(Node node) {
-		if (node instanceof Element) {
-			return Element.class.cast(node).content() //
-					.stream() //
-					.map(this::parse) //
-					.collect(Collectors.joining(" ")); //$NON-NLS-1$
-		} else {
-			return node.getText();
-		}
+	public String apply(DomElement node) {
+		return node.containingText().trim();
 	}
 
 }

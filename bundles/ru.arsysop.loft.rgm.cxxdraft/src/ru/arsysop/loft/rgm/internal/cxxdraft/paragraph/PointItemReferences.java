@@ -20,12 +20,11 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.dom4j.Element;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 
-public final class PointItemReferences implements Function<Element, List<Part>> {
+public final class PointItemReferences implements Function<DomElement, List<Part>> {
 
 	private final ResolutionContext context;
 
@@ -34,7 +33,7 @@ public final class PointItemReferences implements Function<Element, List<Part>> 
 	}
 
 	@Override
-	public List<Part> apply(Element node) {
+	public List<Part> apply(DomElement node) {
 		return Stream.of(node) //
 				.map(e -> e.elements("p")) //$NON-NLS-1$
 				.flatMap(List::stream) //

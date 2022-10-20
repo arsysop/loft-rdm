@@ -13,27 +13,34 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.spec.cpp14;
+package ru.arsysop.loft.rgm.spec.model.api;
 
-import ru.arsysop.loft.rgm.internal.spec.cpp14.Messages;
-import ru.arsysop.loft.rgm.spec.model.api.DomElement;
-import ru.arsysop.loft.rgm.spec.model.api.Revision;
+import java.util.List;
+import java.util.Optional;
 
-public final class Cpp14 implements Revision {
+public interface DomElement {
 
-	@Override
-	public String url() {
-		return "https://timsong-cpp.github.io/cppwp/n4140/"; //$NON-NLS-1$
-	}
+	List<DomElement> elements();
 
-	@Override
-	public String name() {
-		return Messages.Cpp14_name;
-	}
+	List<DomElement> elements(String name);
 
-	@Override
-	public DomElement wrapper(DomElement body) {
-		return body.element("div").get(); //$NON-NLS-1$
-	}
+	Optional<DomElement> element(String name);
 
+	int nodeCount();
+
+	Optional<DomElement> node(int index) throws IndexOutOfBoundsException;
+
+	String nodeText(int index) throws IndexOutOfBoundsException;
+
+	String containingText();
+
+	List<String> containingNames();
+
+	Optional<String> attributeValue(String name);
+
+	String name();
+
+	String elementText(String name);
+
+	String text();
 }

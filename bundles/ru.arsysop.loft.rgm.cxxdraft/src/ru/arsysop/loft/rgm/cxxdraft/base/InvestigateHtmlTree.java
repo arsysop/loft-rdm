@@ -34,6 +34,7 @@ import ru.arsysop.loft.rgm.internal.cxxdraft.Messages;
 import ru.arsysop.loft.rgm.internal.cxxdraft.StructureSwitch;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
@@ -41,9 +42,11 @@ import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 public final class InvestigateHtmlTree implements ICoreRunnable {
 
 	private final ResolutionContext context;
+	private final Revision revision;
 
-	public InvestigateHtmlTree(ResolutionContext context) {
+	public InvestigateHtmlTree(ResolutionContext context, Revision revision) {
 		this.context = Objects.requireNonNull(context, "ResolutionContext::context"); //$NON-NLS-1$
+		this.revision = revision;
 	}
 
 	@Override
@@ -109,7 +112,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 				.map(Part.class::cast)//
 				.map(Part::getLocation)//
 				.orElseGet(context::location);
-		Structure structure = new StructureSwitch(context).doSwitch(container);
+		Structure structure = new StructureSwitch(context, revision).doSwitch(container);
 		new PublishedHtml(location, structure).run(split);
 	}
 
