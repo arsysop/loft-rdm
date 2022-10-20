@@ -32,7 +32,7 @@ public class FakeCpp14 implements Revision {
 
 	@Override
 	public DomElement wrapper(DomElement body) {
-		return body.element("wrapper").get(); //$NON-NLS-1$
+		return body.element("div").get(); //$NON-NLS-1$
 	}
 
 }
