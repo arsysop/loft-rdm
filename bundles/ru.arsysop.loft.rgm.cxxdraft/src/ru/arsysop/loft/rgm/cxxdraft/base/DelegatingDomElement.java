@@ -88,18 +88,18 @@ public final class DelegatingDomElement implements DomElement {
 
 	@Override
 	public String containingText() {
-		return String.join(" ", delegate //$NON-NLS-1$
-				.content() //
-				.stream() //
-				.filter(Element.class::isInstance) //
-				.map(Element.class::cast) //
-				.map(DelegatingDomElement::new) //
-				.map(DelegatingDomElement::containingText) //
-				.collect(Collectors.joining(" ")), //$NON-NLS-1$
+		return String.join(" ", //$NON-NLS-1$
 				delegate.content() //
 						.stream() //
 						.filter(Predicate.not(Element.class::isInstance)) //
 						.map(Node::getText) //
+						.collect(Collectors.joining(" ")), //$NON-NLS-1$
+				delegate.content() //
+						.stream() //
+						.filter(Element.class::isInstance) //
+						.map(Element.class::cast) //
+						.map(DelegatingDomElement::new) //
+						.map(DelegatingDomElement::containingText) //
 						.collect(Collectors.joining(" "))); //$NON-NLS-1$
 	}
 
