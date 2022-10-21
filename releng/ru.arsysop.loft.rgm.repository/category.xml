@@ -14,21 +14,19 @@
  # (as an individual or Legal Entity), even if aware of such consequences.
  # 
 -->
-
 <site>
-	<category-def
-		name="ru.arsysop.loft.rgm.category"
-		label="ArSysOp LOFT RGM">
-		<description>
-			ArSysOp Language-Oriented Frameworks and Tools: Requirements Gathering and Markup.
-		</description>
-	</category-def>
-	<feature
-		id="ru.arsysop.loft.rgm.feature">
-		<category name="ru.arsysop.loft.rgm.category" />
-	</feature>
-	<feature
-		id="ru.arsysop.loft.rgm.license.feature">
-		<category name="ru.arsysop.loft.rgm.category" />
-	</feature>
+   <feature id="ru.arsysop.loft.rgm.feature">
+      <category name="ru.arsysop.loft.rgm.category"/>
+   </feature>
+   <feature id="ru.arsysop.loft.rgm.license.feature">
+      <category name="ru.arsysop.loft.rgm.category"/>
+   </feature>
+   <feature id="ru.arsysop.loft.rgm.spec.cpp14.feature">
+      <category name="ru.arsysop.loft.rgm.category"/>
+   </feature>
+   <category-def name="ru.arsysop.loft.rgm.category" label="ArSysOp LOFT RGM">
+      <description>
+         ArSysOp Language-Oriented Frameworks and Tools: Requirements Gathering and Markup.
+      </description>
+   </category-def>
 </site>
