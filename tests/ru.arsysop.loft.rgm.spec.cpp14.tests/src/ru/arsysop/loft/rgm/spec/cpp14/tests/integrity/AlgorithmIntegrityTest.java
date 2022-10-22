@@ -1,0 +1,98 @@
+/*******************************************************************************
+ * Copyright (c) ArSysOp 2018-2022
+ * 
+ * RGM Sources are publicly available only for 
+ * informational, review, analysis and consulting purposes.
+ * 
+ * Definitions, terms and conditions for using RGM Sources are stated by ArSysOp Source License version 1.0.
+ * See http://arsysop.ru/licenses/rgm/ArSysOpSourceLicense-1.0.txt
+ * 
+ * RGM Sources are provided on "as is" basis. 
+ * ArSysOp is not responsible for any damages, losses, legal prosecution 
+ * or other consequences of any sort that using RGM Sources can cause to you 
+ * (as an individual or Legal Entity), even if aware of such consequences.
+ * 
+*******************************************************************************/
+package ru.arsysop.loft.rgm.spec.cpp14.tests.integrity;
+    
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+import ru.arsysop.loft.rgm.spec.model.api.Section;
+
+public final class AlgorithmIntegrityTest extends CxxIntegrityTest {
+            
+    @Test
+    public void directContents() {
+        assertEquals(5, sections().stream() //
+                .filter(section -> section.getId().equals("algorithms")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+
+ 
+    @Test
+    public void algNonmodifyingContents() {
+        assertEquals(13, sections().stream() //
+                .filter(section -> section.getId().equals("alg.nonmodifying")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+              
+    @Test
+    public void algModifyingOperationsContents() {
+        assertEquals(13, sections().stream() //
+                .filter(section -> section.getId().equals("alg.modifying.operations")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+              
+    @Test
+    public void algSortingContents() {
+        assertEquals(9, sections().stream() //
+                .filter(section -> section.getId().equals("alg.sorting")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+ 
+    @Test
+    public void algSortContents() {
+        assertEquals(5, sections().stream() //
+                .filter(section -> section.getId().equals("alg.sort")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+       
+    @Test
+    public void algBinarySearchContents() {
+        assertEquals(4, sections().stream() //
+                .filter(section -> section.getId().equals("alg.binary.search")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+      
+    @Test
+    public void algSetOperationsContents() {
+        assertEquals(5, sections().stream() //
+                .filter(section -> section.getId().equals("alg.set.operations")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+      
+    @Test
+    public void algHeapOperationsContents() {
+        assertEquals(5, sections().stream() //
+                .filter(section -> section.getId().equals("alg.heap.operations")) //$NON-NLS-1$
+                .flatMap(section -> section.getContents().stream()) //
+                .filter(Section.class::isInstance) //
+                .count());
+    }
+         
+}
