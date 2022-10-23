@@ -52,7 +52,7 @@ public final class SectionStructure extends BaseStructure<Section> {
 	private void readContent(DomElement node) {
 		List<DomElement> elements = node.elements();
 		elements.stream() //
-				.filter(new IsDiv()) //
+				.filter(e -> new IsDiv().test(e) || new OfClass("codeblock").test(e)) //$NON-NLS-1$
 				.forEach(e -> resolve(e, elements));
 	}
 
@@ -68,6 +68,9 @@ public final class SectionStructure extends BaseStructure<Section> {
 							.mapToObj(i -> elements.get(elements.indexOf(node) - i)) //
 							.filter(e -> e.searchForElement("span").isPresent()).findFirst().get()); //$NON-NLS-1$
 			new AppendSynopsis(context).accept(container, previous);
+		}
+		if (hasClass(node, "codeblock")) { //$NON-NLS-1$
+			new AppendSynopsis(context).accept(container, node);
 		}
 	}
 
