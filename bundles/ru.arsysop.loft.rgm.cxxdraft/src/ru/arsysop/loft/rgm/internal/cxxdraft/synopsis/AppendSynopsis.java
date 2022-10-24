@@ -18,6 +18,7 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.synopsis;
 import java.util.function.BiConsumer;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.CollectText;
 import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
@@ -38,7 +39,13 @@ public final class AppendSynopsis implements BiConsumer<Section, DomElement> {
 	public void accept(Section section, DomElement element) {
 		String number = nextNumber(section);
 		Synopsis synopsis = factory.createSynopsis();
-		synopsis.setRaw(new CollectText().apply(element.element("code").get())); //$NON-NLS-1$
+		if (element.searchForElement("code").isPresent() || new OfClass("codeblock").test(element)) { //$NON-NLS-1$ //$NON-NLS-2$
+			synopsis.setRaw(new CollectText() //
+				.apply(element.searchForElement("code").orElse(element))); //$NON-NLS-1$
+		} else {
+			synopsis.setRaw(new CollectText() //
+					.apply(element.searchForElement("span").get())); //$NON-NLS-1$
+		}
 		synopsis.setId(section.getId().concat("_synopsis").concat(number)); //$NON-NLS-1$
 		synopsis.setName(section.getName().concat(String.format("Synopsis %s", number))); //$NON-NLS-1$
 		synopsis.setNumber(section.getNumber().concat(String.format("-S%s", number))); //$NON-NLS-1$

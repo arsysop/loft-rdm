@@ -26,6 +26,8 @@ public interface DomElement {
 
 	Optional<DomElement> element(String name);
 
+	Optional<DomElement> searchForElement(String name);
+
 	int nodeCount();
 
 	Optional<DomElement> node(int index) throws IndexOutOfBoundsException;

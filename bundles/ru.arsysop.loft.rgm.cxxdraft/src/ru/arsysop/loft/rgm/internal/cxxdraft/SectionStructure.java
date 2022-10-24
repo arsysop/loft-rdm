@@ -23,6 +23,7 @@ import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendPoint;
+import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.AppendSynopsis;
 import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Revision;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
@@ -51,7 +52,7 @@ public final class SectionStructure extends BaseStructure<Section> {
 	private void readContent(DomElement node) {
 		List<DomElement> elements = node.elements();
 		elements.stream() //
-				.filter(new IsDiv()) //
+				.filter(e -> new IsDiv().test(e) || new OfClass("codeblock").test(e)) //$NON-NLS-1$
 				.forEach(e -> resolve(e, elements));
 	}
 
@@ -60,8 +61,16 @@ public final class SectionStructure extends BaseStructure<Section> {
 			new AppendPoint(context).accept(container, node);
 		}
 		if (hasClass(node, "itemdescr")) { //$NON-NLS-1$
-			DomElement previous = elements.get(elements.indexOf(node) - 1);
-//			new AppendSynopsis(context).accept(container, previous);
+			DomElement previous = IntStream.range(1, elements.indexOf(node) + 1) //
+					.mapToObj(i -> elements.get(elements.indexOf(node) - i)) //
+					.filter(e -> e.searchForElement("code").isPresent() || new OfClass("codeblock").test(e)) //$NON-NLS-1$ //$NON-NLS-2$
+					.findFirst().orElseGet(() -> IntStream.range(1, elements.indexOf(node) + 1) //
+							.mapToObj(i -> elements.get(elements.indexOf(node) - i)) //
+							.filter(e -> e.searchForElement("span").isPresent()).findFirst().get()); //$NON-NLS-1$
+			new AppendSynopsis(context).accept(container, previous);
+		}
+		if (hasClass(node, "codeblock")) { //$NON-NLS-1$
+			new AppendSynopsis(context).accept(container, node);
 		}
 	}
 

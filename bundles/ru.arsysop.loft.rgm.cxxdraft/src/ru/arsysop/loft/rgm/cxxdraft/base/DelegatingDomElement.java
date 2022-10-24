@@ -107,4 +107,16 @@ public final class DelegatingDomElement implements DomElement {
 	public List<String> containingNames() {
 		return delegate.content().stream().map(Node::getName).collect(Collectors.toList());
 	}
+
+	@Override
+	public Optional<DomElement> searchForElement(String name) {
+		Optional<DomElement> element = this.element(name);
+		if (element.isPresent()) {
+			return element;
+		} else {
+			return this.elements().stream().map(e -> e.searchForElement(name)).filter(Optional::isPresent) //
+					.map(Optional::get).findFirst();
+		}
+	}
+
 }
