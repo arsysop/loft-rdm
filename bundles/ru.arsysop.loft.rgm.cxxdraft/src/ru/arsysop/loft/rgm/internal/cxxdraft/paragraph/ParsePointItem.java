@@ -29,7 +29,7 @@ public final class ParsePointItem implements BiFunction<Point, DomElement, Point
 		pt.setLocation(point.getLocation());
 		pt.setId(point.getId().concat("_item" + count)); //$NON-NLS-1$
 		pt.setName(point.getName().concat(" Item " + number)); //$NON-NLS-1$
-		pt.setNumber(number);
+		pt.setNumber(point.getNumber().concat("-" + number)); //$NON-NLS-1$
 		pt.setRaw(new CollectText().apply(li));
 		new PartReferences(context).apply(li).forEach(pt.getReferences()::add);
 		context.parts().register(pt.getId(), pt);
