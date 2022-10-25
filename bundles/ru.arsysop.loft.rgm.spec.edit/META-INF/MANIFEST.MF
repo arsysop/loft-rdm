@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: ru.arsysop.loft.rgm.spec.edit.SpecEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: ru.arsysop.loft.rgm.spec.edit,
  ru.arsysop.loft.rgm.spec.edit.providers
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",

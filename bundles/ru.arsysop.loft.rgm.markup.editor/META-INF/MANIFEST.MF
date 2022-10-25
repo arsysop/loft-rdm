@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Name: %Bundle-Name
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Activator: ru.arsysop.loft.rgm.markup.editor.MarkupEditorPlugin$Implementation
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: ru.arsysop.loft.rgm.markup.editor
 Require-Bundle: org.eclipse.core.resources;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.core.runtime;bundle-version="0.0.0",
