@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Automatic-Module-Name: ru.arsysop.loft.rgm.markup.model
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: ru.arsysop.loft.rgm.markup.model.api,
  ru.arsysop.loft.rgm.markup.model.impl,
  ru.arsysop.loft.rgm.markup.model.meta,
