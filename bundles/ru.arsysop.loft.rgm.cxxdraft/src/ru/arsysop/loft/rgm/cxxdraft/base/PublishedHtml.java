@@ -48,6 +48,7 @@ public final class PublishedHtml implements ICoreRunnable {
 			tidy.setShowWarnings(false);
 			tidy.setShowErrors(0);
 			tidy.setQuiet(true);
+			tidy.setTrimEmptyElements(false);
 			structure.read(//
 					new DOMReader()//
 							.read(tidy.parseDOM(is, /* no output */null)));

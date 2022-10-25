@@ -17,13 +17,14 @@ package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.Objects;
 
-import org.dom4j.Element;
 import org.eclipse.emf.ecore.EObject;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Index;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Toc;
 import ru.arsysop.loft.rgm.spec.model.util.SpecSwitch;
@@ -31,9 +32,11 @@ import ru.arsysop.loft.rgm.spec.model.util.SpecSwitch;
 public final class StructureSwitch extends SpecSwitch<Structure> {
 
 	private final ResolutionContext context;
+	private final Revision revision;
 
-	public StructureSwitch(ResolutionContext context) {
+	public StructureSwitch(ResolutionContext context, Revision revision) {
 		this.context = Objects.requireNonNull(context, "StructureSwitch::context"); //$NON-NLS-1$
+		this.revision = revision;
 	}
 
 	@Override
@@ -53,7 +56,7 @@ public final class StructureSwitch extends SpecSwitch<Structure> {
 
 	@Override
 	public Structure caseSection(Section object) {
-		return new SectionStructure(object, context);
+		return new SectionStructure(object, context, revision);
 	}
 
 	@Override
@@ -62,7 +65,7 @@ public final class StructureSwitch extends SpecSwitch<Structure> {
 		return new BaseStructure<EObject>(object, context) {
 
 			@Override
-			public void body(Element body) {
+			public void body(DomElement body) {
 				// nothing for default case
 			}
 		};

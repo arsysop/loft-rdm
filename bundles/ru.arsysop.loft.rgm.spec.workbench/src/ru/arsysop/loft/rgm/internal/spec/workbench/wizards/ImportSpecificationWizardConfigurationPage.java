@@ -40,8 +40,9 @@ import ru.arsysop.loft.rgm.spec.workspace.Revisions;
 
 public final class ImportSpecificationWizardConfigurationPage extends ValidatingWizardPage<Document> {
 
-	private TableViewer revisions;
 	private Text status;
+	private TableViewer revisions;
+	private Revision revision;
 
 	public ImportSpecificationWizardConfigurationPage(Supplier<Document> document) {
 		super(ImportSpecificationWizardConfigurationPage.class.getName(), document);
@@ -60,6 +61,7 @@ public final class ImportSpecificationWizardConfigurationPage extends Validating
 		revisions.setLabelProvider(new RevisionLabelProvider());
 		revisions.setContentProvider(new ArrayContentProvider());
 		revisions.setInput(new Revisions().fromExtensions());
+		revisions.addSelectionChangedListener(e -> updateSelection(e.getStructuredSelection()));
 		revisions.addSelectionChangedListener(e -> validate());
 		revisions.addSelectionChangedListener(e -> updateStatusLine());
 		GridDataFactory.swtDefaults().align(SWT.FILL, SWT.FILL).grab(true, true).applyTo(revisions.getControl());
@@ -76,14 +78,19 @@ public final class ImportSpecificationWizardConfigurationPage extends Validating
 	}
 
 	protected String url() {
-		return Optional.ofNullable(revisions.getSelection()) //
-				.filter(IStructuredSelection.class::isInstance) //
-				.map(IStructuredSelection.class::cast) //
+		return revision().map(Revision::url).orElse(""); //$NON-NLS-1$
+	}
+
+	protected Optional<Revision> revision() {
+		return Optional.ofNullable(revision);
+	}
+
+	private void updateSelection(IStructuredSelection selection) {
+		this.revision = Optional.ofNullable(selection) //
 				.map(IStructuredSelection::getFirstElement) //
 				.filter(Revision.class::isInstance) //
 				.map(Revision.class::cast) //
-				.map(Revision::url) //
-				.orElse(""); //$NON-NLS-1$
+				.orElse(null);
 	}
 
 	private void updateStatusLine() {

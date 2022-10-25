@@ -3,14 +3,13 @@ package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-import org.dom4j.Element;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Point;
 import ru.arsysop.loft.rgm.spec.model.api.PointText;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class ParsePointText implements BiFunction<Point, Element, PointText> {
+public final class ParsePointText implements BiFunction<Point, DomElement, PointText> {
 
 	private final SpecFactory factory;
 	private final ResolutionContext context;
@@ -21,7 +20,7 @@ public final class ParsePointText implements BiFunction<Point, Element, PointTex
 	}
 
 	@Override
-	public PointText apply(Point point, Element p) {
+	public PointText apply(Point point, DomElement p) {
 		PointText pt = factory.createPointText();
 		long count = point.getContents().stream().filter(PointText.class::isInstance).count();
 		pt.setLocation(point.getLocation());

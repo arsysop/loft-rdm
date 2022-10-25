@@ -19,12 +19,19 @@ import org.eclipse.core.runtime.ICoreRunnable;
 
 import ru.arsysop.loft.rgm.cxxdraft.InvestigateSpec;
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 
 public final class InvestigateHtml implements InvestigateSpec {
 
+	private final Revision revision;
+
+	public InvestigateHtml(Revision revision) {
+		this.revision = revision;
+	}
+
 	@Override
 	public ICoreRunnable prepare(ResolutionContext context) {
-		return new InvestigateHtmlTree(context);
+		return new InvestigateHtmlTree(context, revision);
 	}
 
 }

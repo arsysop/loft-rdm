@@ -16,52 +16,65 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
-
-import org.dom4j.Element;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.IsDiv;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.OfClass;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.AppendPoint;
 import ru.arsysop.loft.rgm.internal.cxxdraft.synopsis.AppendSynopsis;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 
 public final class SectionStructure extends BaseStructure<Section> {
 
-	protected SectionStructure(Section container, ResolutionContext context) {
+	private final Revision revision;
+
+	protected SectionStructure(Section container, ResolutionContext context, Revision revision) {
 		super(container, context);
+		this.revision = revision;
 	}
 
 	@Override
-	public void body(Element body) {
-		Element wrapper = body.element("div"); //$NON-NLS-1$
+	public void body(DomElement body) {
+		DomElement wrapper = revision.wrapper(body);
 		IntStream.range(0, wrapper.nodeCount()) //
 				.mapToObj(wrapper::node) //
-				.filter(Element.class::isInstance) //
-				.map(Element.class::cast) //
+				.map(Optional::get) //
+				.filter(DomElement.class::isInstance) //
+				.map(DomElement.class::cast) //
 				.filter(new IsDiv()) //
 				.forEach(this::readContent);
 	}
 
-	private void readContent(Element node) {
-		List<Element> elements = node.elements();
+	private void readContent(DomElement node) {
+		List<DomElement> elements = node.elements();
 		elements.stream() //
-				.filter(new IsDiv()) //
+				.filter(e -> new IsDiv().test(e) || new OfClass("codeblock").test(e)) //$NON-NLS-1$
 				.forEach(e -> resolve(e, elements));
 	}
 
-	private void resolve(Element node, List<Element> elements) {
+	private void resolve(DomElement node, List<DomElement> elements) {
 		if (hasClass(node, "para")) { //$NON-NLS-1$
 			new AppendPoint(context).accept(container, node);
 		}
 		if (hasClass(node, "itemdescr")) { //$NON-NLS-1$
-			Element previous = elements.get(elements.indexOf(node) - 1);
+			DomElement previous = IntStream.range(1, elements.indexOf(node) + 1) //
+					.mapToObj(i -> elements.get(elements.indexOf(node) - i)) //
+					.filter(e -> e.searchForElement("code").isPresent() || new OfClass("codeblock").test(e)) //$NON-NLS-1$ //$NON-NLS-2$
+					.findFirst().orElseGet(() -> IntStream.range(1, elements.indexOf(node) + 1) //
+							.mapToObj(i -> elements.get(elements.indexOf(node) - i)) //
+							.filter(e -> e.searchForElement("span").isPresent()).findFirst().get()); //$NON-NLS-1$
 			new AppendSynopsis(context).accept(container, previous);
+		}
+		if (hasClass(node, "codeblock")) { //$NON-NLS-1$
+			new AppendSynopsis(context).accept(container, node);
 		}
 	}
 
-	private boolean hasClass(Element node, String string) {
+	private boolean hasClass(DomElement node, String string) {
 		return new OfClass(string).test(node);
 	}
 

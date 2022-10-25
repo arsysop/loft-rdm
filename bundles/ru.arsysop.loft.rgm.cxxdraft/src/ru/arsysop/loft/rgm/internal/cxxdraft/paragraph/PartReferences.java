@@ -16,19 +16,17 @@
 package ru.arsysop.loft.rgm.internal.cxxdraft.paragraph;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.dom4j.Element;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.element.PickId;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Part;
 
-public final class PartReferences implements Function<Element, List<Part>> {
+public final class PartReferences implements Function<DomElement, List<Part>> {
 
 	private final ResolutionContext context;
 
@@ -37,27 +35,28 @@ public final class PartReferences implements Function<Element, List<Part>> {
 	}
 
 	@Override
-	public List<Part> apply(Element node) {
+	public List<Part> apply(DomElement node) {
 		return deep(node).distinct().collect(Collectors.toList());
 	}
 
-	private Stream<Part> deep(Element node) {
+	private Stream<Part> deep(DomElement node) {
 		return Stream.concat(direct(node), others(node));
 	}
 
-	private Stream<Part> direct(Element node) {
+	private Stream<Part> direct(DomElement node) {
 		return node.elements("a").stream() //$NON-NLS-1$
 				.map(a -> a.attributeValue("href")) //$NON-NLS-1$
-				.filter(Objects::nonNull)//
+				.filter(Optional::isPresent)//
+				.map(Optional::get)//
 				.map(new PickId(context)) //
 				.map(context.parts()::find) //
 				.filter(Optional::isPresent) //
 				.map(Optional::get);
 	}
 
-	private Stream<Part> others(Element node) {
+	private Stream<Part> others(DomElement node) {
 		return node.elements().stream()//
-				.filter(e -> !"a".equals(e.getName()))//$NON-NLS-1$
+				.filter(e -> !"a".equals(e.name()))//$NON-NLS-1$
 				.flatMap(this::deep);
 	}
 

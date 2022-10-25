@@ -17,15 +17,14 @@ package ru.arsysop.loft.rgm.internal.cxxdraft;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.Text;
 import org.eclipse.emf.ecore.EObject;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.Structure;
+import ru.arsysop.loft.rgm.cxxdraft.base.DelegatingDomElement;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
 public abstract class BaseStructure<C extends EObject> implements Structure {
 
@@ -39,25 +38,15 @@ public abstract class BaseStructure<C extends EObject> implements Structure {
 
 	@Override
 	public void read(Document document) {
-		Element root = document.getRootElement();
-		List<Element> elements = root.elements();
-		for (Element element : elements) {
-			if ("body".equals(element.getName())) { //$NON-NLS-1$
+		DomElement root = new DelegatingDomElement(document.getRootElement());
+		List<DomElement> elements = root.elements();
+		for (DomElement element : elements) {
+			if ("body".equals(element.name())) { //$NON-NLS-1$
 				body(element);
 			}
 		}
 	}
 
-	public abstract void body(Element body);
-
-	protected final void applyText(Element node, Consumer<String> consumer) {
-		node.content().stream()//
-				.filter(Text.class::isInstance)//
-				.map(Text.class::cast)//
-				.map(Text::getText)//
-				.map(String::trim)//
-				.findFirst()//
-				.ifPresent(consumer);
-	}
+	public abstract void body(DomElement body);
 
 }

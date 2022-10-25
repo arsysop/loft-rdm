@@ -10,6 +10,7 @@ import org.dom4j.io.DOMReader;
 import org.junit.Test;
 import org.w3c.tidy.Tidy;
 
+import ru.arsysop.loft.rgm.cxxdraft.base.DelegatingDomElement;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.CollectText;
 
 public final class CollectTextTest {
@@ -17,7 +18,7 @@ public final class CollectTextTest {
 	@Test
 	public void structure() {
 		assertEquals("outer content just content inner content", //$NON-NLS-1$
-				new CollectText().apply(document().getRootElement()));
+				new CollectText().apply(new DelegatingDomElement(document().getRootElement())));
 	}
 
 	private Document document() {

@@ -13,25 +13,27 @@
  * (as an individual or Legal Entity), even if aware of such consequences.
  * 
 *******************************************************************************/
-package ru.arsysop.loft.rgm.internal.cxxdraft.element;
+package ru.arsysop.loft.rgm.spec.cpp17;
 
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import ru.arsysop.loft.rgm.internal.spec.cpp17.Messages;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
+import ru.arsysop.loft.rgm.spec.model.api.Revision;
 
-import org.dom4j.Element;
-import org.dom4j.Node;
+public final class Cpp17 implements Revision {
 
-public final class CollectText implements Function<Element, String> {
-
-	private final String separator;
-
-	public CollectText(String separator) {
-		this.separator = separator;
+	@Override
+	public String url() {
+		return "https://timsong-cpp.github.io/cppwp/n4659/"; //$NON-NLS-1$
 	}
 
 	@Override
-	public String apply(Element element) {
-		return element.content().stream().map(Node::getText).collect(Collectors.joining(separator)); // $NON-NLS-1$;
+	public String name() {
+		return Messages.Cpp17_name;
+	}
+
+	@Override
+	public DomElement wrapper(DomElement body) {
+		return body;
 	}
 
 }

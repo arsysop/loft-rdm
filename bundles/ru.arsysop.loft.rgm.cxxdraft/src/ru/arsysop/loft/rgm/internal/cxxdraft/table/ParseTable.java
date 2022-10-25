@@ -22,19 +22,17 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.dom4j.Element;
-import org.dom4j.Node;
-
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.FormatName;
 import ru.arsysop.loft.rgm.internal.cxxdraft.paragraph.PartReferences;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 import ru.arsysop.loft.rgm.spec.model.api.Section;
 import ru.arsysop.loft.rgm.spec.model.api.Table;
 import ru.arsysop.loft.rgm.spec.model.api.TableRow;
 import ru.arsysop.loft.rgm.spec.model.base.EncodeId;
 import ru.arsysop.loft.rgm.spec.model.meta.SpecFactory;
 
-public final class ParseTable implements BiFunction<Section, Element, Table> {
+public final class ParseTable implements BiFunction<Section, DomElement, Table> {
 
 	private final EncodeId encode;
 	private final SpecFactory factory;
@@ -47,7 +45,7 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 	}
 
 	@Override
-	public Table apply(Section section, Element node) {
+	public Table apply(Section section, DomElement node) {
 		Table table = factory.createTable();
 		table.setId(tableId(node));
 		table.setLocation(tableLocation(section, node));
@@ -58,63 +56,41 @@ public final class ParseTable implements BiFunction<Section, Element, Table> {
 		return table;
 	}
 
-	private void fillTableContent(Element div, Table table) {
-		List<Element> rows = div.element("table").elements("tr"); //$NON-NLS-1$ //$NON-NLS-2$
-		int offset = fillTitle(table, rows);
-		Stream.of(rows).flatMapToInt(r -> IntStream.range(offset, r.size())) //
-				.forEach(j -> collectRow(rows.get(j), table, j - offset + 1)); //
+	private void fillTableContent(DomElement div, Table table) {
+		List<DomElement> rows = div.element("table").get().elements("tr"); //$NON-NLS-1$ //$NON-NLS-2$
+		Stream.of(rows).flatMapToInt(r -> IntStream.range(0, r.size())) //
+				.forEach(j -> collectRow(rows.get(j), table, j + 1)); //
 	}
 
-	private String tableId(Element div) {
-		return encode.apply(div.attributeValue("id")); //$NON-NLS-1$
+	private String tableId(DomElement div) {
+		return encode.apply(div.attributeValue("id").get()); //$NON-NLS-1$
 	}
 
-	private String tableLocation(Section paragraph, Element div) {
-		return paragraph.getLocation() + '#' + div.attributeValue("id"); //$NON-NLS-1$
+	private String tableLocation(Section paragraph, DomElement div) {
+		return paragraph.getLocation() + '#' + div.attributeValue("id").get(); //$NON-NLS-1$
 	}
 
-	private String tableNumber(Element div) {
-		List<Node> content = div.content();
-		return "T" + content.get(1).getText(); //$NON-NLS-1$
+	private String tableNumber(DomElement div) {
+		return "T" + div.nodeText(1); //$NON-NLS-1$
 	}
 
-	private String tableName(Element div) {
-		List<Node> content = div.content();
-		String name = content.subList(2, content.indexOf(div.element("table"))).stream().map(Node::getText) //$NON-NLS-1$
+	private String tableName(DomElement div) {
+		return IntStream.range(2, div.containingNames().indexOf("table")) //$NON-NLS-1$
+				.mapToObj(div::nodeText) //
 				.map(new FormatName()).collect(Collectors.joining()).trim(); // $NON-NLS-1$
-		return name;
 	}
 
-	private int fillTitle(Table table, List<Element> rows) {
-		TableRow titleRow = row(table, table.getId() + "-title", 0); //$NON-NLS-1$
-		if (rows.stream().filter(e -> "capsep".equals(e.attributeValue("class"))).count() > 0) { //$NON-NLS-1$ //$NON-NLS-2$
-			List<String> titleValues = rows.get(0).elements("td").stream().map(this::extractText) //$NON-NLS-1$
-					.collect(Collectors.toList());
-			int i = 1;
-			while (!"capsep".equals(rows.get(i).attributeValue("class"))) { //$NON-NLS-1$ //$NON-NLS-2$
-				List<String> content = rows.get(i).elements("td").stream().map(this::extractText) //$NON-NLS-1$
-						.collect(Collectors.toList());
-				IntStream.range(0, content.size()).forEach(j -> titleValues.get(j).concat(" " + content.get(j))); //$NON-NLS-1$
-				i++;
-			}
-			titleRow.getValues().addAll(titleValues);
-			table.setTitle(titleRow);
-			return i;
-		}
-		return 0; // No title here
-	}
-
-	private TableRow collectRow(Element tr, Table table, int index) {
+	private TableRow collectRow(DomElement tr, Table table, int index) {
 		TableRow row = row(table, table.getId() + "_row" + index, index); //$NON-NLS-1$
-		List<Element> cells = tr.elements("td"); //$NON-NLS-1$
+		List<DomElement> cells = tr.elements("td"); //$NON-NLS-1$
 		cells.stream().map(this::extractText).forEach(row.getValues()::add);
 		cells.stream().map(new PartReferences(context)).flatMap(List::stream).forEach(row.getReferences()::add);
 		table.getRows().add(row);
 		return row;
 	}
 
-	private String extractText(Element cell) {
-		return cell.content().stream().map(Node::getText).collect(Collectors.joining(" ")); //$NON-NLS-1$
+	private String extractText(DomElement cell) {
+		return IntStream.range(0, cell.nodeCount()).mapToObj(cell::nodeText).collect(Collectors.joining(" ")); //$NON-NLS-1$
 	}
 
 	private TableRow row(Table table, String id, int index) {

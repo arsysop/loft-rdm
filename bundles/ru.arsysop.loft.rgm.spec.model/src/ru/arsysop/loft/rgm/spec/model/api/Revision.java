@@ -21,4 +21,6 @@ public interface Revision {
 
 	String name();
 
+	DomElement wrapper(DomElement body);
+
 }

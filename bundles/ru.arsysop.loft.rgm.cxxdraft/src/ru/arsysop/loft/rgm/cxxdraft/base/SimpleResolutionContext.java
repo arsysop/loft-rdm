@@ -17,7 +17,6 @@ package ru.arsysop.loft.rgm.cxxdraft.base;
 
 import java.util.Objects;
 
-import org.dom4j.Node;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.osgi.util.NLS;
@@ -56,11 +55,6 @@ public final class SimpleResolutionContext implements ResolutionContext {
 	@Override
 	public Document document() {
 		return document;
-	}
-
-	@Override
-	public void warning(Node node, String message) {
-		status.add(new BasicDiagnostic(Diagnostic.WARNING, getClass().getName(), 0, message, new Object[] { node }));
 	}
 
 	@Override

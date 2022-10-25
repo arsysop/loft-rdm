@@ -15,16 +15,15 @@
 *******************************************************************************/
 package ru.arsysop.loft.rgm.internal.cxxdraft.element;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
-import org.dom4j.Element;
+import ru.arsysop.loft.rgm.spec.model.api.DomElement;
 
-public final class NullClass implements Predicate<Element> {
+public final class NullClass implements Predicate<DomElement> {
 
 	@Override
-	public boolean test(Element element) {
-		return Objects.isNull(element.attributeValue("class")); //$NON-NLS-1$
+	public boolean test(DomElement element) {
+		return element.attributeValue("class").isEmpty(); //$NON-NLS-1$
 	}
 
 }
