@@ -99,8 +99,10 @@ public final class ImportSpecificationWizardConfigurationPage extends Validating
 
 	@Override
 	protected List<Validation<Document>> validations() {
-		return Arrays.asList(new ViewerEmptySelectionValidation<>(revisions,
-				Messages.ImportSpecificationWizardConfigurationPage_viewerName));
+		return Arrays.asList(//
+				new ViewerEmptySelectionValidation<>(revisions,
+						Messages.ImportSpecificationWizardConfigurationPage_viewerName), //
+				new RevisionLicenseCoverageValidation<>(revisions));
 	}
 
 }

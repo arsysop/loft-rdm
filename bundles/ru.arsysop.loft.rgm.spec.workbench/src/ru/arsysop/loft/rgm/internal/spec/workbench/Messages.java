@@ -35,6 +35,8 @@ public class Messages extends NLS {
 	public static String ImportSpecificationWizardPreviewPage_groupTitle;
 	public static String ImportSpecificationWizardPreviewPage_failed;
 
+	public static String RevisionLicenseCoverageValidation_noLicense;
+
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

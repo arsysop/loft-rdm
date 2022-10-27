@@ -27,14 +27,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import ru.arsysop.loft.rgm.internal.spec.workbench.wizards.ImportSpecificationWizard;
-import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 
 public final class ImportSpecHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		checkLicense();
 		Optional<Document> document = selected(event);
 		if (document.isPresent()) {
 			ImportSpecificationWizard wizard = new ImportSpecificationWizard(document.get());
@@ -57,16 +55,6 @@ public final class ImportSpecHandler extends AbstractHandler {
 				.filter(Document.class::isInstance) //
 				.map(Document.class::cast); //
 		return document;
-	}
-
-	private void checkLicense() throws ExecutionException {
-		try {
-			RgmLicenseProtection protection = new RgmLicenseProtection();
-			protection.checkCanImportCxx14();
-			protection.checkCanImportCxx17();
-		} catch (RuntimeException cannot) {
-			throw new ExecutionException("Insufficient license coverage", cannot); //$NON-NLS-1$
-		}
 	}
 
 }

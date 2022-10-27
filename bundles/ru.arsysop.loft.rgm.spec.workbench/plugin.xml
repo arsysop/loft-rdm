@@ -32,7 +32,7 @@
             allPopups="true"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <command
-               commandId="ru.arsysop.loft.rgm.spec.workbench.commands.command.import.spec14"
+               commandId="ru.arsysop.loft.rgm.spec.workbench.commands.command.import.spec"
                style="push">
             <visibleWhen
                   checkEnabled="false">
