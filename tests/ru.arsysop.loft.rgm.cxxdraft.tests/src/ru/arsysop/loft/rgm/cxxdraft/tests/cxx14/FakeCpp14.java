@@ -27,7 +27,7 @@ public class FakeCpp14 implements Revision {
 
 	@Override
 	public String name() {
-		return "";
+		return ""; //$NON-NLS-1$
 	}
 
 	@Override

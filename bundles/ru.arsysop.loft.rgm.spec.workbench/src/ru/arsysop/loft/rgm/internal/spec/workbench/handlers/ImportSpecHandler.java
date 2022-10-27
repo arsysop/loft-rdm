@@ -61,7 +61,9 @@ public final class ImportSpecHandler extends AbstractHandler {
 
 	private void checkLicense() throws ExecutionException {
 		try {
-			new RgmLicenseProtection().checkCanImportCxx14();
+			RgmLicenseProtection protection = new RgmLicenseProtection();
+			protection.checkCanImportCxx14();
+			protection.checkCanImportCxx17();
 		} catch (RuntimeException cannot) {
 			throw new ExecutionException("Insufficient license coverage", cannot); //$NON-NLS-1$
 		}

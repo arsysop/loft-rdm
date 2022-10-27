@@ -2,9 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: ru.arsysop.loft.rgm.spec.cpp17;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Require-Bundle: org.eclipse.osgi;bundle-version="0.0.0",
  ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0"
 Bundle-Vendor: %Bundle-Vendor
 Automatic-Module-Name: ru.arsysop.loft.rgm.spec.cpp17
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.cxx17";name="ArSysOp RGM Import C++ 17 Specification";version="0.2.0";provider="ArSysOp";level="error"

@@ -16,9 +16,9 @@ Bundle-ClassPath: .
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
  org.eclipse.emf.ecore;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.emf.ecore.xmi;bundle-version="0.0.0";visibility:=reexport,
- ru.arsysop.loft.rgm.base.emf;bundle-version="0.1.0",
+ ru.arsysop.loft.rgm.base.emf;bundle-version="0.0.0",
  ru.arsysop.loft.rgm.seal;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
-Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.spec.load";name="ArSysOp RGM Spec Load";version="0.1.0";provider="ArSysOp";level="error",
- licensing.feature;licensing.feature="ru.arsysop.loft.rgm.spec.editor";name="ArSysOp RGM Spec Editor";version="0.1.0";provider="ArSysOp";level="error"
+Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.spec.load";name="ArSysOp RGM Spec Load";version="0.2.0";provider="ArSysOp";level="error",
+ licensing.feature;licensing.feature="ru.arsysop.loft.rgm.spec.editor";name="ArSysOp RGM Spec Editor";version="0.2.0";provider="ArSysOp";level="error"
