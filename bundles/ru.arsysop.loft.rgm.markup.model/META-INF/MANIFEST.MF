@@ -20,5 +20,5 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
  ru.arsysop.loft.rgm.base.emf;bundle-version="0.1.0",
  ru.arsysop.loft.rgm.seal;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy
-Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.markup.load";name="ArSysOp RGM Markup Load";version="0.1.0";provider="ArSysOp";level="error",
- licensing.feature;licensing.feature="ru.arsysop.loft.rgm.markup.editor";name="ArSysOp RGM Markup Editor";version="0.1.0";provider="ArSysOp";level="error" 
+Provide-Capability: licensing.feature;licensing.feature="ru.arsysop.loft.rgm.markup.load";name="ArSysOp RGM Markup Load";version="0.2.0";provider="ArSysOp";level="error",
+ licensing.feature;licensing.feature="ru.arsysop.loft.rgm.markup.editor";name="ArSysOp RGM Markup Editor";version="0.2.0";provider="ArSysOp";level="error" 
