@@ -36,7 +36,7 @@
    </license>
 
    <requires>
-      <import feature="ru.arsysop.loft.rgm.markup.feature" version="0.1.0.qualifier"/>
+      <import feature="ru.arsysop.loft.rgm.markup.feature" version="0.2.0.qualifier"/>
    </requires>
 
    <plugin
