@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: ru.arsysop.loft.rgm.synopsis.edit;singleton:=true
 Automatic-Module-Name: ru.arsysop.loft.rgm.synopsis.edit
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: ru.arsysop.loft.rgm.synopsis.edit.SynopsisEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -12,9 +12,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: ru.arsysop.loft.rgm.synopsis.edit,
  ru.arsysop.loft.rgm.synopsis.edit.providers
 Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
- ru.arsysop.loft.rgm.synopsis.model;visibility:=reexport,
+ ru.arsysop.loft.rgm.synopsis.model;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="0.0.0";visibility:=reexport,
- ru.arsysop.loft.rgm.spec.model;visibility:=reexport,
- ru.arsysop.loft.rgm.spec.edit;visibility:=reexport,
- org.eclipse.emf.ecore.edit
+ ru.arsysop.loft.rgm.spec.model;bundle-version="0.0.0";visibility:=reexport,
+ ru.arsysop.loft.rgm.spec.edit;bundle-version="0.0.0";visibility:=reexport,
+ org.eclipse.emf.ecore.edit;bundle-version="0.0.0"
 Bundle-ActivationPolicy: lazy

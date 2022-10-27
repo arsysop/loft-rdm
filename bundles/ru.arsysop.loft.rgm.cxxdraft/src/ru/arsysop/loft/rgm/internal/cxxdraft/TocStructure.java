@@ -117,7 +117,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 				.orElse(""); //$NON-NLS-1$
 	}
 
-	private void completeVisualization(TocChapter chapter, DomElement node) {
+	private void completeVisualization(TocChapter chapter, @SuppressWarnings("unused") DomElement node) {
 		container.getChapters().add(chapter);
 //		node.elements("div").stream().filter(new OfClass("tocChapter")).findAny().ifPresent(this::completeTables); //$NON-NLS-1$//$NON-NLS-2$
 	}

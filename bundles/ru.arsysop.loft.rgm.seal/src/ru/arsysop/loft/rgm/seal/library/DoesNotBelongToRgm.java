@@ -50,13 +50,13 @@ final class DoesNotBelongToRgm {
 	private <T, S> ServiceInvocationResult<S> artifact(T foreign, String type, Function<T, String> describe) {
 		return new BaseServiceInvocationResult<S>(new BaseDiagnostic(Arrays.asList(//
 				new Trouble(new ForeignLicense(), //
-						String.format("%s [%s] does not belong to library [%s v%s]", //
+						String.format("%s [%s] does not belong to library [%s v%s]", //$NON-NLS-1$
 								type, describe.apply(foreign), product.identifier(), product.version())//
 				))));
 	}
 
 	private String described(AgreementToAccept agreement) {
-		return String.format("%s from %s", agreement.definition().path(), agreement.origin());
+		return String.format("%s from %s", agreement.definition().path(), agreement.origin()); //$NON-NLS-1$
 	}
 
 }

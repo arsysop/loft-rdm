@@ -18,7 +18,7 @@
 <feature
       id="ru.arsysop.loft.rgm.license.feature"
       label="ArSysOp LOFT RGM License"
-      version="0.1.0.qualifier">
+      version="0.2.0.qualifier">
 
    <description>
       ArSysOp LOFT RGM License
