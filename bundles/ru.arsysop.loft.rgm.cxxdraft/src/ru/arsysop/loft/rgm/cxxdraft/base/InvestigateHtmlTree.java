@@ -89,7 +89,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 		}
 	}
 
-	private void parseAnnexes(SubMonitor sub) {
+	private void parseAnnexes(@SuppressWarnings("unused") SubMonitor sub) {
 		// TODO Auto-generated method stub
 
 	}

@@ -16,11 +16,11 @@
 -->
 <feature
       id="ru.arsysop.loft.rgm.spec.cpp17.feature"
-	  label="%featureName"
-      version="0.1.0.qualifier"
+      label="%featureName"
+      version="0.2.0.qualifier"
       provider-name="%providerName"
       license-feature="ru.arsysop.loft.rgm.license.feature"
-      license-feature-version="0.1.0">
+      license-feature-version="0.2.0">
 
    <description>
       %description

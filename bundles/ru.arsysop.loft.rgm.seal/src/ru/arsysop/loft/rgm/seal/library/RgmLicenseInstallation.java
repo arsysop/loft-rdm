@@ -57,7 +57,8 @@ final class RgmLicenseInstallation implements Function<Path, ServiceInvocationRe
 
 	private ServiceInvocationResult<Boolean> failure(Path license, Exception e) {
 		return new BaseServiceInvocationResult<>(new Trouble(new ServiceFailedOnMorsel(), //
-				String.format("Failed to install license %s for library [%s v%s]", license, product.identifier(),
+				String.format("Failed to install license %s for library [%s v%s]", //$NON-NLS-1$
+						license, product.identifier(),
 						product.version()), //
 				e));
 	}

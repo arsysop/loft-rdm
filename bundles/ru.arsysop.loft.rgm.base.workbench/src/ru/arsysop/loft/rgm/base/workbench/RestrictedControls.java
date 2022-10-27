@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Link;
 
+@SuppressWarnings("restriction")
 public final class RestrictedControls {
 
 	private final Feature feature;
@@ -55,6 +56,7 @@ public final class RestrictedControls {
 		link.addSelectionListener(SelectionListener.widgetSelectedAdapter(click));
 		return link;
 	}
+
 
 	private void assess(SelectionEvent e) {
 		new EquinoxPassageUI(e.widget.getDisplay()::getActiveShell).assessLicensingStatus();
