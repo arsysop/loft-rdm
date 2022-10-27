@@ -30,7 +30,7 @@ import ru.arsysop.loft.rgm.internal.spec.workbench.wizards.ImportSpecificationWi
 import ru.arsysop.loft.rgm.seal.protection.RgmLicenseProtection;
 import ru.arsysop.loft.rgm.spec.model.api.Document;
 
-public final class ImportSpecHandler extends AbstractHandler {
+abstract class ImportSpecHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -61,10 +61,12 @@ public final class ImportSpecHandler extends AbstractHandler {
 
 	private void checkLicense() throws ExecutionException {
 		try {
-			new RgmLicenseProtection().checkCanImportCxx14();
+			checkCanImport(new RgmLicenseProtection());
 		} catch (RuntimeException cannot) {
 			throw new ExecutionException("Insufficient license coverage", cannot); //$NON-NLS-1$
 		}
 	}
+
+	protected abstract void checkCanImport(RgmLicenseProtection protection);
 
 }

@@ -56,7 +56,11 @@ public final class RgmLicenseProtection {
 	}
 
 	public void checkCanImportCxx14() {
-		checkCanUse(new RgmFeatures.CxxDraft().importCxx14());
+		checkCanUse(new RgmFeatures.Cxx().importCxx14());
+	}
+
+	public void checkCanImportCxx17() {
+		checkCanUse(new RgmFeatures.Cxx().importCxx17());
 	}
 
 	private void checkCanUse(Feature feature) {
