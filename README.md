@@ -5,7 +5,7 @@
 
 
 ## License 
-Copyright (c) 2018-2022 ArSysOp
+[![ArSysOp Source License 1.0](https://img.shields.io/badge/ArSysOp%20Source%20License%201.0-darkred.svg)](https://github.com/arsysop/loft-rgm/blob/main/ArSysOpSourceLicense-1.0.txt) 
 
 ## Libraries used
 
@@ -17,3 +17,5 @@ With respect and gratitude,
  - [FasterXML jackson-annotations](https://github.com/FasterXML/jackson-annotations) under [Apache 2.0 license](https://github.com/FasterXML/jackson-annotations/blob/2.11/LICENSE)
  - [FasterXML jackson-databind](https://github.com/FasterXML/jackson-databind) under [Apache 2.0 license](https://github.com/FasterXML/jackson-databind/blob/2.11/LICENSE)
 
+
+Copyright (c) 2018-2022 ArSysOp
