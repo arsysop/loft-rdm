@@ -48,7 +48,7 @@ final class RevisionLicenseCoverageValidation<T> implements Validation<T> {
 		if (feature.isEmpty()) {
 			return Status.OK_STATUS;
 		}
-		if (!new RgmLicenseProtection().canUse(feature.get())) {
+		if (new RgmLicenseProtection().canUse(feature.get())) {
 			return Status.OK_STATUS;
 		}
 		return notCovered(feature.get());
