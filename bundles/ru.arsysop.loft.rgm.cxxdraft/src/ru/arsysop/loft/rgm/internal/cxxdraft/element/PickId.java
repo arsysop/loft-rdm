@@ -29,7 +29,7 @@ public final class PickId implements Function<String, String> {
 
 	@Override
 	public String apply(String link) {
-		return link.replace(context.location(), ""); //$NON-NLS-1$
+		return link.replace(context.rootLocation(), ""); //$NON-NLS-1$
 	}
 
 }

@@ -111,7 +111,7 @@ public final class InvestigateHtmlTree implements ICoreRunnable {
 				.filter(Part.class::isInstance)//
 				.map(Part.class::cast)//
 				.map(Part::getLocation)//
-				.orElseGet(context::location);
+				.orElseGet(context::rootLocation);
 		Structure structure = new StructureSwitch(context, revision).doSwitch(container);
 		new PublishedHtml(location, structure).run(split);
 	}

@@ -37,7 +37,7 @@ public abstract class Cxx14IntegrityTest {
 	public static void performParsing() throws CoreException {
 		document.setToc(SpecFactory.eINSTANCE.createToc());
 		new PublishedHtml(//
-				context.location(), //
+				context.rootLocation(), //
 				new TocStructure(document.getToc(), context)//
 		).run(new NullProgressMonitor());
 	}

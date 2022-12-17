@@ -33,7 +33,6 @@ hs_err_pid*
 releng/**/.settings/
 
 #tycho
-.polyglot.build.properties
 .META-INF_MANIFEST.MF
-.polyglot..META-INF_MANIFEST.MF
+.polyglot.*
 *.takari_issue_192
