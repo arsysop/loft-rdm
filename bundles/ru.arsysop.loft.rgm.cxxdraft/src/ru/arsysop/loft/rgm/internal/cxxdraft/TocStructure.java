@@ -127,7 +127,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		chapters.accept(chapter);
 		Section section = factory.createSection();
 		section.setId(chapter.getId());
-		section.setLocation(context.location() + new IdToLocation().apply(chapter.getId()));
+		section.setLocation(context.resolveLocation(new IdToLocation().apply(chapter.getId())));
 		section.setName(chapter.getName());
 		section.setNumber(chapter.getNumber());
 		chapter.setPart(section);
@@ -147,7 +147,7 @@ public final class TocStructure extends BaseStructure<Toc> {
 		chapters.accept(chapter);
 		Index index = factory.createIndex();
 		index.setId(new EncodeId().apply(chapter.getId()));
-		index.setLocation(context.location() + chapter.getId());
+		index.setLocation(context.resolveLocation(chapter.getId()));
 		index.setName(chapter.getName());
 		chapter.setPart(index);
 		indexes.accept(index);

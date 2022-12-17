@@ -26,7 +26,9 @@ public interface ResolutionContext {
 
 	Document document();
 
-	String location();
+	String rootLocation();
+
+	String resolveLocation(String suffix);
 
 	ContentResolution<Part> parts();
 

@@ -48,8 +48,13 @@ public final class SimpleResolutionContext implements ResolutionContext {
 	}
 
 	@Override
-	public String location() {
+	public String rootLocation() {
 		return location;
+	}
+
+	@Override
+	public String resolveLocation(String suffix) {
+		return rootLocation() + suffix;
 	}
 
 	@Override

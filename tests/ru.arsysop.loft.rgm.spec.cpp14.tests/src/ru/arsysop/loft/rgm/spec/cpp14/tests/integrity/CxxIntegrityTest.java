@@ -54,7 +54,7 @@ public abstract class CxxIntegrityTest {
 		ResolutionContext context = new SimpleResolutionContext(URL, document);
 		document.setToc(SpecFactory.eINSTANCE.createToc());
 		new PublishedHtml(//
-				context.location(), //
+				context.rootLocation(), //
 				new TocStructure(document.getToc(), context)//
 		).run(new NullProgressMonitor());
 		document.getSections().stream() //
